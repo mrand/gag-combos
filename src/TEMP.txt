@@ -1,0 +1,10 @@
+The bonus from using throw or squirt on a lured cog is 50% of 
+the combined damage of all gags, rounded up.
+
+The bonus from using multiple gags from a single track on the 
+same cog is 20% of the combined damage of all gags, rounded up.
+
+Even if all these bonuses are applied all at once, they'll be 
+rounded separately and then added together (not added before 
+rounding.)
+ 

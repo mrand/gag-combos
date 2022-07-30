@@ -1,0 +1,180 @@
+.toons-card {
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  background: var(--blue-light);
+  border-radius: 20px;
+  border: 5px solid var(--blue-light);
+  box-shadow: 0 0 5px var(--metal-shadow);
+}
+
+.toon-panel,
+.toon-panel > * { 
+  display: flex;
+  flex-direction: column;
+}
+
+.toon-panel { 
+  width: 160px;
+  align-items: stretch; 
+  text-align: center;
+  /* 
+    Sorry, accessibility. 
+    Tryna fit "Toon-Up" into 150px width.
+  */
+  font-size: 16px;  /* ^ */
+}
+
+.toon-panel > * {
+  align-items: center;
+  padding: 16px;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 6px solid var(--blue-light);
+}
+
+.toon-panel .laff-meter {
+  /* border: 1px solid red; */
+  --toon-color: #90d23a;  /* lime default */
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.laff-meter .head {
+  position: absolute;
+  bottom: 0;
+  left: 50%; transform: translateX(-50%);
+  background: var(--toon-color);
+  box-shadow: 0 0 3px var(--toon-color),
+              0 -5px 5px #444 inset;
+  border-radius: 50%;
+  width: 95px;
+  height: 80px;
+}
+
+.laff-meter .ear {
+  position: absolute;
+  background: var(--toon-color);
+  border-radius: 50%;
+  top: 0;
+  width: 35px;
+  height: 35px;
+}
+.laff-meter .ear.left { left: 0; }
+.laff-meter .ear.right { right: 0; }
+
+.laff-meter .eye {
+  position: absolute;
+  top: 30px;
+  width: 30px;
+  height: 30px;
+  background: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 50%;
+}
+.eye::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 10px; height: 15px;
+  border-radius: 50%;
+  background: #000000;
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 35%,
+    55% 50%,
+    100% 65%,
+    100% 100%,
+    0% 100%
+  );
+}
+.laff-meter .eye.left { left: 20px; }
+.laff-meter .eye.right { right: 20px; }
+
+.girl .eye::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  width: 5px;
+  height: 5px;
+  border-left: 2px solid #000000;
+  border-right: 2px solid #000000;
+}
+.girl .eye.left::before {
+  left: -1px; 
+  transform: rotate(-45deg);
+}
+.girl .eye.right::before {
+  right: -1px; 
+  transform: rotate(45deg);
+}
+
+.laff-meter .mouth {
+  position: absolute;
+  bottom: 15px;
+  left: 50%; transform: translateX(-50%) rotate(180deg);
+  width: 70px;
+  height: 25px;
+  border: 2px solid #000000;
+  border-color:#000000 transparent transparent transparent;
+  border-radius: 50%/25px 25px 0 0;
+}
+.mouth::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid #000000;
+  transform: translateX(-50%) translateY(2px) rotate(15deg);
+}
+.mouth::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  border-bottom: 2px solid #000000;
+  transform: translateX(50%) translateY(2px) rotate(-15deg);
+}
+
+.toon-name {
+  --toon-color: #90d23a;  /* lime default */
+  margin-top: 4px;
+  color: var(--toon-color);
+  filter: brightness(0.5);
+  height: 3em;
+}
+
+.org-gag-container {
+  display: flex;
+  align-items: center;
+  margin-top: 24px;
+  font-family: BowlbyOneSC,Arial,Roboto,Helvetica,sans-serif;
+}
+
+.org-gag-container img { width: 35px; }
+
+.organic-picker button {
+  background: var(--blue-dark);
+  color: #ffffff;
+  border-radius: 30px;
+}
+.organic-picker button:hover,
+.organic-picker button:focus {
+  background: var(--blue-light);
+  box-shadow: 0 0 5px var(--blue-dark) inset;
+}
+
+.gag-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+.gag-btn img {
+  width: 1.5em;
+}

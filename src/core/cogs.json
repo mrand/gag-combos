@@ -1,0 +1,42 @@
+{
+  "Bossbot": [
+    "Flunky",
+    "Pencil Pusher",
+    "Yesman",
+    "Micromanager",
+    "Downsizer",
+    "Head Hunter",
+    "Corporate Raider",
+    "The Big Cheese"
+  ],
+  "Lawbot": [
+    "Bottom Feeder",
+    "Bloodsucker",
+    "Double Talker",
+    "Ambulance Chaser",
+    "Back Stabber",
+    "Spin Doctor",
+    "Legal Eagle",
+    "Big Wig"
+  ],
+  "Cashbot": [
+    "Short Change",
+    "Penny Pincher",
+    "Tightwad",
+    "Bean Counter",
+    "Number Cruncher",
+    "Money Bags",
+    "Loan Shark",
+    "Robber Baron"
+  ],
+  "Sellbot": [
+    "Cold Caller",
+    "Telemarketer",
+    "Name Dropper",
+    "Glad Hander",
+    "Mover & Shaker",
+    "Two-Face",
+    "The Mingler",
+    "Mr. Hollywood"
+  ]
+}
