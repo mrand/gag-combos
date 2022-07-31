@@ -115,3 +115,13 @@
 .lvl-btns button {
   border-radius: 50%;
 }
+
+@media (max-width: 950px) {
+  .cog-card { 
+    width: fit-content; 
+    margin: 0 auto;
+  }
+  .cog-stats { margin-bottom: 12px; }
+  .lvl-picker { margin: 0 auto; }
+  .lvl-btns { margin: 8px auto 0 auto; }
+}

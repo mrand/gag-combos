@@ -13,15 +13,11 @@
   flex-direction: column;
 }
 
+
 .toon-panel { 
   width: 160px;
   align-items: stretch; 
   text-align: center;
-  /* 
-    Sorry, accessibility. 
-    Tryna fit "Toon-Up" into 150px width.
-  */
-  font-size: 16px;  /* ^ */
 }
 
 .toon-panel > * {
@@ -40,6 +36,7 @@
   color: var(--toon-color);
   filter: brightness(0.5);
   height: 3em;
+  max-width: 100px;
 }
 
 .org-gag-container {
@@ -77,4 +74,23 @@
 }
 .gag-btn img {
   width: 25px;
+}
+
+
+@media (max-width: 700px) {
+  .toons-card {
+    display: flex;
+    flex-direction: column;
+  }
+  .toon-panel {
+    width: 100%;
+    background: #ffffff;
+    border-radius: 20px;
+    border: 6px solid var(--blue-light);
+  }
+  .toon-panel > * {
+    border: 0;
+    background: 0;
+    border-radius: 0;
+  }
 }

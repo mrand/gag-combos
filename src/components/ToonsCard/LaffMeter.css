@@ -1,11 +1,12 @@
 .laff-meter {
   /* border: 1px solid red; */
   --toon-color: #90d23a;  /* lime default */
+  --size: 100px;
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: var(--size);
+  height: var(--size);
   z-index: 1;
-  margin-top: 8px;
+  margin-top: calc(var(--size) * 0.08);
 }
 
 .laff-meter .head {
@@ -14,8 +15,8 @@
   left: 50%; transform: translateX(-50%);
   background: var(--toon-color);
   border-radius: 50%;
-  width: 95px;
-  height: 80px;
+  width: calc(var(--size) * 0.95);
+  height: calc(var(--size) * 0.80);
 }
 
 .laff-meter .ear {
@@ -23,143 +24,141 @@
   background: var(--toon-color);
   border-radius: 50%;
   top: 0;
-  width: 35px;
-  height: 35px;
+  width: calc(var(--size) * 0.35);
+  height: calc(var(--size) * 0.35);
   z-index: -1;
 }
 
 
 /* bear */
 .bear .ear {
-  height: 25px;
-  top: 15px;
+  height: calc(var(--size) * 0.25);
+  top: calc(var(--size) * 0.15);
 }
 .bear .ear.left { 
   transform: rotate(-45deg); 
-  left: -5px;
+  left: calc(var(--size) * -0.05);
 }
 .bear .ear.right { 
   transform: rotate(45deg); 
-  right: -5px;
+  right: calc(var(--size) * -0.05);
 }
 
 /* cat */
 .cat .ear { 
-  border-radius: 40px 5px;
-  width: 40px;
-  height: 40px; 
-  top: 15px;
+  border-radius: calc(var(--size) * 0.40) calc(var(--size) * 0.05);
+  width: calc(var(--size) * 0.40);
+  height: calc(var(--size) * 0.40); 
+  top: calc(var(--size) * 0.15);
 }
 .cat .ear.left {
-  left: 5px;
+  left: calc(var(--size) * 0.05);
   transform: rotate(-90deg);
 }
 .cat .ear.right {
-  right: 5px;
+  right: calc(var(--size) * 0.05);
 }
 
 /* crocodile */
 .crocodile .ear {
-  border-radius: 50px 5px;
-  width: 55px;
-  height: 55px;
+  border-radius: calc(var(--size) * 0.50) calc(var(--size) * 0.05);
+  width: calc(var(--size) * 0.55);
+  height: calc(var(--size) * 0.55);
   transform: translateX(-50%) rotate(-45deg);
   left: 50%;
-  top: 10px;
+  top: calc(var(--size) * 0.10);
 }
 
 /* deer */
 .deer .antler {
   position: absolute;
-  top: 3px; 
-  width: 13px;
-  height: 35px;
+  top: calc(var(--size) * 0.03); 
+  width: calc(var(--size) * 0.13);
+  height: calc(var(--size) * 0.35);
   background: var(--toon-color);
-  border-radius: 10px;
+  border-radius: calc(var(--size) * 0.10);
 }
 .deer .antler::before {
   content: '';
   position: absolute;
-  top: 2px;
-  left: 1px;
-  width: 25px;
-  height: 10px;
+  top: calc(var(--size) * 0.02);
+  left: calc(var(--size) * 0.01);
+  width: calc(var(--size) * 0.25);
+  height: calc(var(--size) * 0.10);
   background: var(--toon-color);
-  border-radius: 10px;
+  border-radius: calc(var(--size) * 0.10);
   transform: rotate(-30deg);
   transform-origin: top left;
 }
 .deer .antler::after {
   content: '';
   position: absolute;
-  top: 12px;
+  top: calc(var(--size) * 0.12);
   left: 0;
-  border-radius: 10px;
-  width: 25px;
-  height: 10px;
+  border-radius: calc(var(--size) * 0.10);
+  width: calc(var(--size) * 0.25);
+  height: calc(var(--size) * 0.10);
   background: var(--toon-color);
   transform: rotate(-10deg);
 }
 
 .deer .antler.left {
-  left: 25px;
+  left: calc(var(--size) * 0.25);
   transform: rotate(-45deg);
 }
 .deer .antler.right {
-  right: 25px;
+  right: calc(var(--size) * 0.25);
   transform: rotate(45deg) scale(-1, 1);
 }
 
 .deer .ear {
-  /* display: none; */
   background: var(--toon-color);
-  top: 18px;
+  top: calc(var(--size) * 0.18);
 }
 .deer .ear.left { 
-  border-radius: 5px 25px;
-  left: -5px; 
+  border-radius: calc(var(--size) * 0.05) calc(var(--size) * 0.25);
+  left: calc(var(--size) * -0.05); 
 }
 .deer .ear.right { 
-  border-radius: 25px 5px;
-  right: -5px; 
+  border-radius: calc(var(--size) * 0.25) calc(var(--size) * 0.05);
+  right: calc(var(--size) * -0.05); 
 }
 
 /* dog */
 .dog .ear {
   top: 0;
   /* border-radius: 15px; */
-  width: 15px;
-  height: 30px;
+  width: calc(var(--size) * 0.15);
+  height: calc(var(--size) * 0.30);
 }
 .dog .ear::before {
   content: '';
   position: absolute;
-  top: -4px;
-  right: 2px;
-  width: 35px;
-  height: 22px;
-  background: red;
+  top: calc(var(--size) * -0.04);
+  right: calc(var(--size) * 0.02);
+  width: calc(var(--size) * 0.35);
+  height: calc(var(--size) * 0.22);
   background: var(--toon-color);
   border-radius: 50%;
 }
 
 .dog .ear.left {
-  left: 25px;
+  left: calc(var(--size) * 0.25);
   transform: rotate(-30deg);
 }
 .dog .ear.right {
-  right: 25px;
+  right: calc(var(--size) * 0.25);
   transform: rotate(30deg) scale(-1, 1);
 }
 
 /* duck */
 .duck .ear {
-  border-radius: 50px 10px;
-  width: 55px;
-  height: 55px;
+  border-radius: calc(var(--size) * 0.50) calc(var(--size) * 0.10);
+  width: calc(var(--size) * 0.55);
+  height: calc(var(--size) * 0.55);
   transform: translateX(-50%) rotate(-45deg);
   left: 50%;
-  top: 10px;
+  top: calc(var(--size) * 0.10);
 }
 .duck .ear::before,
 .duck .ear::after {
@@ -170,48 +169,47 @@
   clip-path: polygon(
     0 0, 100% 0, 100% 40%, 0 40%
   );
-  transform: rotate(45deg) translate(3px, -8px);
+  transform: rotate(45deg) translate(calc(var(--size) * 0.03), calc(var(--size) * -0.08));
 }
 .duck .ear::before {
-  top: 4px; right: 1px;
-  width: 30px;
-  height: 30px;
+  top: calc(var(--size) * 0.04); right: calc(var(--size) * 0.01);
+  width: calc(var(--size) * 0.30);
+  height: calc(var(--size) * 0.30);
   
 }
 .duck .ear::after {
-  width: 10px;
-  height: 10px;
-  top: 24px; right: 7px;
+  width: calc(var(--size) * 0.10);
+  height: calc(var(--size) * 0.10);
+  top: calc(var(--size) * 0.24); 
+  right: calc(var(--size) * 0.07);
   background: var(--toon-color);
-  /* background: red; */
-  transform: rotate(30deg) translate(5px, -7px);
+  transform: rotate(30deg) translate(calc(var(--size) * 0.05), calc(var(--size) * -0.07));
 }
 
 /* horse */
 .horse .ear {
-  width: 12px;
-  height: 40px;
-  /* border-radius: 10px; */
+  width: calc(var(--size) * 0.12);
+  height: calc(var(--size) * 0.40);
 }
 .horse .ear.left {
-  left: 15px;
+  left: calc(var(--size) * 0.15);
   transform: rotate(-40deg);
 }
 .horse .ear.right {
-  right: 15px;
+  right: calc(var(--size) * 0.15);
   transform: rotate(40deg);
 }
 
 /* monkey */
 .monkey .ear {
   top: auto;
-  width: 25px;
-  height: 40px;
-  bottom: 40px;
+  width: calc(var(--size) * 0.25);
+  height: calc(var(--size) * 0.40);
+  bottom: calc(var(--size) * 0.40);
   transform: translateY(50%);
 }
-.monkey .ear.left { left: -15px; }
-.monkey .ear.right { right: -15px; }
+.monkey .ear.left { left: calc(var(--size) * -0.15); }
+.monkey .ear.right { right: calc(var(--size) * -0.15); }
 
 /* mouse */
 .mouse .ear.left { left: 0; }
@@ -219,10 +217,10 @@
 
 /* pig */
 .pig .ear {
-  top: 5px; 
-  border-radius: 35px 3px;
-  width: 40px;
-  height: 40px;
+  top: calc(var(--size) * 0.05); 
+  border-radius: calc(var(--size) * 0.35) calc(var(--size) * 0.03);
+  width: calc(var(--size) * 0.40);
+  height: calc(var(--size) * 0.40);
 }
 .pig .ear.left { 
   left: 0;
@@ -235,34 +233,34 @@
 
 /* rabbit */
 .rabbit .ear {
-  width: 25px;
-  height: 45px;
-  /* border-radius: 10px; */
-  top: -10px;
+  width: calc(var(--size) * 0.25);
+  height: calc(var(--size) * 0.45);
+  top: calc(var(--size) * -0.10);
 }
 .rabbit .ear.left {
-  left: 10px;
+  left: calc(var(--size) * 0.10);
   transform: rotate(-25deg);
 }
 .rabbit .ear.right {
-  right: 10px;
+  right: calc(var(--size) * 0.10);
   transform: rotate(25deg);
 }
 
 .laff-meter .eye {
   position: absolute;
-  top: 30px;
-  width: 30px;
-  height: 30px;
+  top: calc(var(--size) * 0.30);
+  width: calc(var(--size) * 0.30);
+  height: calc(var(--size) * 0.30);
   background: #ffffff;
-  border: 2px solid #000000;
+  border: calc(var(--size) * 0.02) solid #000000;
   border-radius: 50%;
 }
 .eye::after {
   content: '';
   position: absolute;
   top: 50%; left: 50%; transform: translate(-50%, -50%);
-  width: 10px; height: 15px;
+  width: calc(var(--size) * 0.10); 
+  height: calc(var(--size) * 0.15);
   border-radius: 50%;
   background: #000000;
   clip-path: polygon(
@@ -275,53 +273,53 @@
     0% 100%
   );
 }
-.laff-meter .eye.left { left: 20px; }
-.laff-meter .eye.right { right: 20px; }
+.laff-meter .eye.left { left: calc(var(--size) * 0.20); }
+.laff-meter .eye.right { right: calc(var(--size) * 0.20); }
 
 .girl .eye::before {
   content: '';
   position: absolute;
-  top: -1px;
-  width: 5px;
-  height: 5px;
-  border-left: 2px solid #000000;
-  border-right: 2px solid #000000;
+  top: calc(var(--size) * -0.01);
+  width: calc(var(--size) * 0.05);
+  height: calc(var(--size) * 0.05);
+  border-left: calc(var(--size) * 0.02) solid #000000;
+  border-right: calc(var(--size) * 0.02) solid #000000;
 }
 .girl .eye.left::before {
-  left: -1px; 
-  transform: rotate(-45deg);
+  left: calc(var(--size) * -0.01); 
+  transform: rotate(-40deg);
 }
 .girl .eye.right::before {
-  right: -1px; 
-  transform: rotate(45deg);
+  right: calc(var(--size) * -0.01); 
+  transform: rotate(40deg);
 }
 
 .laff-meter .mouth {
   position: absolute;
-  bottom: 15px;
+  bottom: calc(var(--size) * 0.15);
   left: 50%; transform: translateX(-50%) rotate(180deg);
-  width: 70px;
-  height: 25px;
-  border: 2px solid #000000;
+  width: calc(var(--size) * 0.70);
+  height: calc(var(--size) * 0.25);
+  border: calc(var(--size) * 0.02) solid #000000;
   border-color:#000000 transparent transparent transparent;
-  border-radius: 50%/25px 25px 0 0;
+  border-radius: 50%/calc(var(--size) * 0.25) calc(var(--size) * 0.25) 0 0;
 }
 .mouth::before {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 10px;
-  height: 10px;
-  border-bottom: 2px solid #000000;
-  transform: translateX(-50%) translateY(2px) rotate(15deg);
+  width: calc(var(--size) * 0.10);
+  height: calc(var(--size) * 0.10);
+  border-bottom: calc(var(--size) * 0.02) solid #000000;
+  transform: translateX(-50%) translateY(calc(var(--size) * 0.02)) rotate(15deg);
 }
 .mouth::after {
   content: '';
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 10px;
-  border-bottom: 2px solid #000000;
-  transform: translateX(50%) translateY(2px) rotate(-15deg);
+  width: calc(var(--size) * 0.10);
+  border-bottom: calc(var(--size) * 0.02) solid #000000;
+  transform: translateX(50%) translateY(calc(var(--size) * 0.02)) rotate(-15deg);
 }
