@@ -62,7 +62,6 @@
 }
 
 .cog-stats img {
-  /* position: relative; */
   clip-path: polygon(
     4px 0%,
     calc(100% - 4px) 0%,
@@ -73,6 +72,11 @@
     0% calc(100% - 4px),
     0% 4px
   );
+}
+
+.cog-stats b { 
+  width: 130px;
+  color: var(--metal-shadow); 
 }
 
 .cog-stats .cog-level {
@@ -91,21 +95,23 @@
 }
 
 .cog-card button {
-  background: var(--metal-dark);
-  color: #ffffff;
   border-radius: 3px;
-  box-shadow: 0 0 4px var(--metal-dark) inset;
   margin: 1px;
   font-size: 12px;
+  box-shadow: 0 0 4px var(--metal-dark) inset;
 }
-.cog-card button:hover {
+.cog-card button:not(.active) {
+  background: var(--metal-dark);
+  color: #ffffff;
+}
+
+.cog-card button:not(.active):hover {
   background: var(--blue-light);
 }
 
+.lvl-btns {
+  width: 130px;
+}
 .lvl-btns button {
   border-radius: 50%;
-}
-.lvl-btns button.active {
-  background: var(--yellow);
-  color: #000000;
 }

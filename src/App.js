@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useReducer } from 'react';
 import Cog from './core/Cog';
 import Toon from './core/Toon';
 // import Gag from './core/Gag';
@@ -7,6 +7,8 @@ import ToonsCard from './components/ToonsCard/ToonsCard';
 
 
 function reducer(state, action) {
+  let newVal;
+
   switch (action.type) {
     case 'cog':
       return {
@@ -15,28 +17,68 @@ function reducer(state, action) {
         cog: new Cog(action.value)
       };
     case 'toon1':
+      if (action.value === '') {
+        newVal = '';
+      } else {
+        if (state.toon1 === '') {
+          newVal = new Toon(action.value)
+        } else {
+          newVal = state.toon1;
+          newVal.updateOrganic(action.value);
+        }
+      }
       return {
         ...state, 
         toonOrg1: action.value,
-        toon1: (action.value === '') ? '' : new Toon(action.value)
+        toon1: newVal
       };
     case 'toon2':
+      if (action.value === '') {
+        newVal = '';
+      } else {
+        if (state.toon2 === '') {
+          newVal = new Toon(action.value)
+        } else {
+          newVal = state.toon2;
+          newVal.updateOrganic(action.value);
+        }
+      }
       return {
         ...state, 
         toonOrg2: action.value,
-        toon2: (action.value === '') ? '' : new Toon(action.value)
+        toon2: newVal
       };
     case 'toon3':
+      if (action.value === '') {
+        newVal = '';
+      } else {
+        if (state.toon3 === '') {
+          newVal = new Toon(action.value)
+        } else {
+          newVal = state.toon3;
+          newVal.updateOrganic(action.value);
+        }
+      }
       return {
         ...state, 
         toonOrg3: action.value,
-        toon3: (action.value === '') ? '' : new Toon(action.value)
+        toon3: newVal
       };
     case 'toon4':
+      if (action.value === '') {
+        newVal = '';
+      } else {
+        if (state.toon4 === '') {
+          newVal = new Toon(action.value)
+        } else {
+          newVal = state.toon4;
+          newVal.updateOrganic(action.value);
+        }
+      }
       return {
         ...state, 
-        toonOrg4: action.value,
-        toon4: (action.value === '') ? '' : new Toon(action.value)
+        toonOrg41: action.value,
+        toon4: newVal
       };
     default:
       throw new Error();

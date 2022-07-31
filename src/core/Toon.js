@@ -9,6 +9,10 @@ export default class Toon {
     this.name = this.randomName();
   }
 
+  updateOrganic(organic='None') {
+    this.organic = organic;
+  }
+
   fiftyFiftyChance() {
     return Math.round(Math.random()) === 0;
   }

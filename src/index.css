@@ -40,6 +40,11 @@ button {
   font-weight: bold;
   border: 0;
 }
+button.active {
+  box-shadow: 0 0 4px var(--metal-dark) inset;
+  background: var(--yellow);
+  color: #000000;
+}
 
 h1, h2, h3, h4, h5, h6 { 
   font-weight: normal;

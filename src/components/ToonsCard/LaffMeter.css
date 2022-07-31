@@ -1,0 +1,327 @@
+.laff-meter {
+  /* border: 1px solid red; */
+  --toon-color: #90d23a;  /* lime default */
+  position: relative;
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+  margin-top: 8px;
+}
+
+.laff-meter .head {
+  position: absolute;
+  bottom: 0;
+  left: 50%; transform: translateX(-50%);
+  background: var(--toon-color);
+  border-radius: 50%;
+  width: 95px;
+  height: 80px;
+}
+
+.laff-meter .ear {
+  position: absolute;
+  background: var(--toon-color);
+  border-radius: 50%;
+  top: 0;
+  width: 35px;
+  height: 35px;
+  z-index: -1;
+}
+
+
+/* bear */
+.bear .ear {
+  height: 25px;
+  top: 15px;
+}
+.bear .ear.left { 
+  transform: rotate(-45deg); 
+  left: -5px;
+}
+.bear .ear.right { 
+  transform: rotate(45deg); 
+  right: -5px;
+}
+
+/* cat */
+.cat .ear { 
+  border-radius: 40px 5px;
+  width: 40px;
+  height: 40px; 
+  top: 15px;
+}
+.cat .ear.left {
+  left: 5px;
+  transform: rotate(-90deg);
+}
+.cat .ear.right {
+  right: 5px;
+}
+
+/* crocodile */
+.crocodile .ear {
+  border-radius: 50px 5px;
+  width: 55px;
+  height: 55px;
+  transform: translateX(-50%) rotate(-45deg);
+  left: 50%;
+  top: 10px;
+}
+
+/* deer */
+.deer .antler {
+  position: absolute;
+  top: 3px; 
+  width: 13px;
+  height: 35px;
+  background: var(--toon-color);
+  border-radius: 10px;
+}
+.deer .antler::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 1px;
+  width: 25px;
+  height: 10px;
+  background: var(--toon-color);
+  border-radius: 10px;
+  transform: rotate(-30deg);
+  transform-origin: top left;
+}
+.deer .antler::after {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 0;
+  border-radius: 10px;
+  width: 25px;
+  height: 10px;
+  background: var(--toon-color);
+  transform: rotate(-10deg);
+}
+
+.deer .antler.left {
+  left: 25px;
+  transform: rotate(-45deg);
+}
+.deer .antler.right {
+  right: 25px;
+  transform: rotate(45deg) scale(-1, 1);
+}
+
+.deer .ear {
+  /* display: none; */
+  background: var(--toon-color);
+  top: 18px;
+}
+.deer .ear.left { 
+  border-radius: 5px 25px;
+  left: -5px; 
+}
+.deer .ear.right { 
+  border-radius: 25px 5px;
+  right: -5px; 
+}
+
+/* dog */
+.dog .ear {
+  top: 0;
+  /* border-radius: 15px; */
+  width: 15px;
+  height: 30px;
+}
+.dog .ear::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: 2px;
+  width: 35px;
+  height: 22px;
+  background: red;
+  background: var(--toon-color);
+  border-radius: 50%;
+}
+
+.dog .ear.left {
+  left: 25px;
+  transform: rotate(-30deg);
+}
+.dog .ear.right {
+  right: 25px;
+  transform: rotate(30deg) scale(-1, 1);
+}
+
+/* duck */
+.duck .ear {
+  border-radius: 50px 10px;
+  width: 55px;
+  height: 55px;
+  transform: translateX(-50%) rotate(-45deg);
+  left: 50%;
+  top: 10px;
+}
+.duck .ear::before,
+.duck .ear::after {
+  content: '';
+  position: absolute;
+  background: var(--toon-color);
+  border-radius: 50%;
+  clip-path: polygon(
+    0 0, 100% 0, 100% 40%, 0 40%
+  );
+  transform: rotate(45deg) translate(3px, -8px);
+}
+.duck .ear::before {
+  top: 4px; right: 1px;
+  width: 30px;
+  height: 30px;
+  
+}
+.duck .ear::after {
+  width: 10px;
+  height: 10px;
+  top: 24px; right: 7px;
+  background: var(--toon-color);
+  /* background: red; */
+  transform: rotate(30deg) translate(5px, -7px);
+}
+
+/* horse */
+.horse .ear {
+  width: 12px;
+  height: 40px;
+  /* border-radius: 10px; */
+}
+.horse .ear.left {
+  left: 15px;
+  transform: rotate(-40deg);
+}
+.horse .ear.right {
+  right: 15px;
+  transform: rotate(40deg);
+}
+
+/* monkey */
+.monkey .ear {
+  top: auto;
+  width: 25px;
+  height: 40px;
+  bottom: 40px;
+  transform: translateY(50%);
+}
+.monkey .ear.left { left: -15px; }
+.monkey .ear.right { right: -15px; }
+
+/* mouse */
+.mouse .ear.left { left: 0; }
+.mouse .ear.right { right: 0; }
+
+/* pig */
+.pig .ear {
+  top: 5px; 
+  border-radius: 35px 3px;
+  width: 40px;
+  height: 40px;
+}
+.pig .ear.left { 
+  left: 0;
+  transform: rotate(-100deg) scaleX(1.25);
+}
+.pig .ear.right { 
+  right: 0;
+  transform: rotate(10deg) scaleY(1.25);
+}
+
+/* rabbit */
+.rabbit .ear {
+  width: 25px;
+  height: 45px;
+  /* border-radius: 10px; */
+  top: -10px;
+}
+.rabbit .ear.left {
+  left: 10px;
+  transform: rotate(-25deg);
+}
+.rabbit .ear.right {
+  right: 10px;
+  transform: rotate(25deg);
+}
+
+.laff-meter .eye {
+  position: absolute;
+  top: 30px;
+  width: 30px;
+  height: 30px;
+  background: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 50%;
+}
+.eye::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 10px; height: 15px;
+  border-radius: 50%;
+  background: #000000;
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 35%,
+    55% 50%,
+    100% 65%,
+    100% 100%,
+    0% 100%
+  );
+}
+.laff-meter .eye.left { left: 20px; }
+.laff-meter .eye.right { right: 20px; }
+
+.girl .eye::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  width: 5px;
+  height: 5px;
+  border-left: 2px solid #000000;
+  border-right: 2px solid #000000;
+}
+.girl .eye.left::before {
+  left: -1px; 
+  transform: rotate(-45deg);
+}
+.girl .eye.right::before {
+  right: -1px; 
+  transform: rotate(45deg);
+}
+
+.laff-meter .mouth {
+  position: absolute;
+  bottom: 15px;
+  left: 50%; transform: translateX(-50%) rotate(180deg);
+  width: 70px;
+  height: 25px;
+  border: 2px solid #000000;
+  border-color:#000000 transparent transparent transparent;
+  border-radius: 50%/25px 25px 0 0;
+}
+.mouth::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid #000000;
+  transform: translateX(-50%) translateY(2px) rotate(15deg);
+}
+.mouth::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  border-bottom: 2px solid #000000;
+  transform: translateX(50%) translateY(2px) rotate(-15deg);
+}

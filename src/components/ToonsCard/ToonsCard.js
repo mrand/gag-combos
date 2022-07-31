@@ -1,6 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import Toon from '../../core/Toon';
+import React, { useState } from 'react';
 import './ToonsCard.css';
+import './LaffMeter.css';
+
+
+function ToonToggle({ i, dispatch, active, setActive}) {
+  return (
+    <div className='toon-toggle'>
+      <h4>Toon {i+1}</h4>
+      <label className='switch'>
+        <input 
+          type='checkbox' 
+          onChange={() => {
+            dispatch({
+              type: 'toon'+(i+1), 
+              'value': active ? '' : 'None'
+            });
+            setActive(!active);
+          }}
+          defaultChecked={
+            active ? 'checked' : null
+          }
+        />
+        <span className='slider'></span>
+      </label>
+    </div>
+  );
+}
 
 
 function ToonStats({ toon }) {
@@ -9,19 +34,22 @@ function ToonStats({ toon }) {
       <div 
         className={
           'laff-meter' + 
-          // ' ' + toon.species.toLowerCase() +
+          // ' duck' +
+          ' ' + toon.species.toLowerCase() +
           (toon.gender === 'Girl' ? ' girl' : '')
         }
         style={{'--toon-color': toon.color[1]}}
       >
         <div className='head'></div>
+        <span className='antler left'></span>
+        <span className='antler right'></span>
         <span className='ear left'></span>
         <span className='ear right'></span>
         <span className='eye left'></span>
         <span className='eye right'></span>
         <span className='mouth'></span>
       </div>
-      {/* <img src={'./img/toons/Toon_'+toon.species.toLowerCase()+'.webp'} /> */}
+      {/* <img src={'./img/toons/Toon_'+toon.species.toLowerCase()+'.webp'} alt={toon.species + ' Image'} /> */}
       <b 
         className='toon-name'
         style={{'--toon-color': toon.color[1]}}
@@ -29,8 +57,10 @@ function ToonStats({ toon }) {
         {toon.name}
       </b>
       <p className='org-gag-container'>
-        <img src='./img/gags/icon-organic-mini.png' />
-        <span>{toon.organic}</span>
+        <span>Organic</span>
+      </p>
+      <p className='org-gag-container'>
+        <img src={gagTracks[toon.organic]} alt={toon.organic + ' Gag'} />
       </p>
     </div>
   );
@@ -46,29 +76,30 @@ let gagTracks = {
   'Squirt': './img/gags/squirt-Squirting_Flower.png',
   'Drop': './img/gags/drop-Flower_Pot.png'
 };
-function OrganicPicker({ i, dispatch }) {
-  const [activeBtn, setActiveBtn] = useState();
-  const [active, setActive] = useState(false);
+function OrganicPicker({ i, dispatch, orgPickerActive, setOrgPickerActive }) {
+  const [activeBtn, setActiveBtn] = useState(0);
 
   return (
     <div className='organic-picker'>
-      {(active) ? (
+      {(orgPickerActive) ? (
         <>
           <b>Set Organic Gag</b>
           {Object.keys(gagTracks).map((track, j) => (
             <React.Fragment key={j}>
               <button
-                className='gag-btn'
+                className={
+                  'gag-btn' + ((activeBtn === j) ? ' active' : '')
+                }
                 onClick={() => {
                   dispatch({
                     type: 'toon'+(i+1), 
                     'value': track
                   });
-                  setActiveBtn(i);
-                  setActive(false);
+                  setActiveBtn(j);
+                  setOrgPickerActive(false);
                 }}
               >
-                <img src={gagTracks[track]} />
+                <img src={gagTracks[track]} alt={track + ' Gag'} />
                 {track}
               </button>
             </React.Fragment>
@@ -76,7 +107,7 @@ function OrganicPicker({ i, dispatch }) {
         </>
         
       ) : (
-        <button onClick={() => setActive(true)}>Set Organic</button>
+        <button onClick={() => setOrgPickerActive(true)}>Set Organic</button>
       )}
     </div>
   );
@@ -87,36 +118,39 @@ function ToonPanel({ i, toon, dispatch }) {
   const [active, setActive] = useState(
     toon ? true : false
   );
+  const [orgPickerActive, setOrgPickerActive] = useState(false);
 
   return (
     <div 
       className='toon-panel'
     >
-      <div className='toon-toggle'>
-        <h4>Toon {i+1}</h4>
-        <label className='switch'>
-          <input 
-            type='checkbox' 
-            onChange={() => {
-              dispatch({
-                type: 'toon'+(i+1), 
-                'value': active ? '' : 'None'
-              });
-              setActive(!active);
-            }}
-            defaultChecked={
-              active ? 'checked' : null
-            }
+      {
+        (orgPickerActive) ? (
+          null
+        ) : (
+          <ToonToggle 
+            i={i}
+            dispatch={dispatch}
+            active={active}
+            setActive={setActive}
           />
-          <span className='slider'></span>
-        </label>
-      </div>
+        )
+      }
+      
       {(active) ? (
         <>
-          <ToonStats toon={toon} />
+          {
+            (orgPickerActive) ? (
+              null
+            ) : (
+              <ToonStats toon={toon} />
+            )
+          }
           <OrganicPicker 
             i={i} 
             dispatch={dispatch}
+            orgPickerActive={orgPickerActive}
+            setOrgPickerActive={setOrgPickerActive}
           />
         </>
       ) : (

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './CogCard.css';
 
 
@@ -12,10 +12,10 @@ function CogStats({ cog }) {
     <div className='cog-stats'>
       <img 
         src={cog.cogImage}
-        alt={`${cog.cog} Image`}
+        alt={`${cog.cog} Cog`}
       />
-      <p>{cog.cog}</p>
-      <p>{cog.suit}</p>
+      <b>{cog.cog}</b>
+      <b>{cog.suit}</b>
       <br />
       <span className='cog-level'>
         Level {cog.level} 
@@ -27,38 +27,32 @@ function CogStats({ cog }) {
 }
 
 
-function CogLevelPicker({ dispatch }) {
-  const [activeBtn, setActiveBtn] = useState(0);
-  const [active, setActive] = useState(false);
+function CogLevelPicker({ dispatch, active, setActive, activeBtn, setActiveBtn }) {
 
   return (
     <div className='lvl-picker'>
-      {(active) ? (
-        <>
-          <b>Choose Cog Level</b>
-          <div className='lvl-btns'>
-            {lvlNums.map((lvl, i) => (
-              <button
-                className={(activeBtn === i) ? 'active' : ''}
-                key={i}
-                onClick={() => {
-                  dispatch({type: 'cog', 'value': lvl});
-                  setActiveBtn(i);
-                  setActive(false);
-                }}
-              >{lvl}</button>
-            ))}
-          </div>
-        </>
-      ) : (
-        <button onClick={() => setActive(true)}>Choose Cog Level</button>
-      )}
+      <b>Choose Cog Level</b>
+      <div className='lvl-btns'>
+        {lvlNums.map((lvl, i) => (
+          <button
+            className={(activeBtn === i) ? 'active' : ''}
+            key={i}
+            onClick={() => {
+              dispatch({type: 'cog', 'value': lvl});
+              setActiveBtn(i);
+              setActive(false);
+            }}
+          >{lvl}</button>
+        ))}
+      </div>
     </div>
   );
 }
 
 
 export default function CogCard({ cog, dispatch }) {
+  const [active, setActive] = useState(false);
+  const [activeBtn, setActiveBtn] = useState(0);
 
   return (
     <div>
@@ -68,8 +62,26 @@ export default function CogCard({ cog, dispatch }) {
         <span className='bolt'></span>
         <span className='bolt'></span>
         <span className='bolt'></span>
-        <CogStats cog={cog} />
-        <CogLevelPicker dispatch={dispatch} />
+        {
+          (active) ? (
+            <CogLevelPicker 
+              dispatch={dispatch}
+              active={active}
+              setActive={setActive} 
+              activeBtn={activeBtn}
+              setActiveBtn={setActiveBtn}
+            />
+
+          ) : (
+            <>
+              <CogStats cog={cog} />
+              <div className='lvl-picker'>
+                <button onClick={() => setActive(true)}>Choose Cog Level</button>
+              </div>
+            </>            
+          )
+        }
+
       </div>
     </div>
   );
