@@ -50,12 +50,39 @@ function CogLevelPicker({ dispatch, active, setActive, activeBtn, setActiveBtn }
 }
 
 
-export default function CogCard({ cog, dispatch }) {
+function LuredToggle({ state, dispatch }) {
+  return (
+    <div className='lured-toggle'>
+      <h3>Is Cog Lured?</h3>
+      <div>
+        <img src='./img/gags/lure-10_Bill.png' alt='$10 Bill Lure Gag' />
+        <label className='switch'>
+          <input 
+            type='checkbox' 
+            onChange={() => {
+              dispatch({
+                type: 'lured', 
+                'value': !state.isLured
+              });
+            }}
+            defaultChecked={
+              state.isLured ? 'checked' : null
+            }
+          />
+          <span className='slider'></span>
+        </label>
+      </div>
+    </div>
+  );
+}
+
+
+export default function CogCard({ cog, state, dispatch }) {
   const [active, setActive] = useState(false);
   const [activeBtn, setActiveBtn] = useState(0);
 
   return (
-    <div>
+    <div className='left'>
       <h2>Cog</h2>
       <div className='cog-card'>
         <span className='bolt'></span>
@@ -81,8 +108,11 @@ export default function CogCard({ cog, dispatch }) {
             </>            
           )
         }
-
       </div>
+      <LuredToggle
+        state={state}
+        dispatch={dispatch}
+      />
     </div>
   );
 }

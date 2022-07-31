@@ -16,6 +16,11 @@ function reducer(state, action) {
         cogLevel: action.value, 
         cog: new Cog(action.value)
       };
+    case 'lured':
+      return {
+        ...state,
+        isLured: action.value
+      }
     case 'toon1':
       if (action.value === '') {
         newVal = '';
@@ -93,6 +98,7 @@ function App() {
     {
       cogLevel: 1,
       cog: new Cog(1),
+      isLured: false,
       toonOrg1: 'None',
       toon1: new Toon('None'),
       toonOrg2: '',
@@ -112,6 +118,7 @@ function App() {
       <div className='container'>
         <CogCard 
           cog={state.cog}
+          state={state}
           dispatch={dispatch}
         />
         <ToonsCard
@@ -126,7 +133,6 @@ function App() {
           dispatch={dispatch}
         />
       </div>
-      
     </div>
   );
 }

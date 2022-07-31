@@ -304,22 +304,19 @@
   border-color:#000000 transparent transparent transparent;
   border-radius: 50%/calc(var(--size) * 0.25) calc(var(--size) * 0.25) 0 0;
 }
-.mouth::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: calc(var(--size) * 0.10);
-  height: calc(var(--size) * 0.10);
-  border-bottom: calc(var(--size) * 0.02) solid #000000;
-  transform: translateX(-50%) translateY(calc(var(--size) * 0.02)) rotate(15deg);
-}
+.mouth::before,
 .mouth::after {
   content: '';
   position: absolute;
   bottom: 0;
-  right: 0;
   width: calc(var(--size) * 0.10);
   border-bottom: calc(var(--size) * 0.02) solid #000000;
+}
+.mouth::before {
+  left: 0;
+  transform: translateX(-50%) translateY(calc(var(--size) * 0.02)) rotate(15deg);
+}
+.mouth::after {
+  right: 0;
   transform: translateX(50%) translateY(calc(var(--size) * 0.02)) rotate(-15deg);
 }
