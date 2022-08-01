@@ -99,7 +99,7 @@ function reducer(state, action) {
       return {
         ...state, 
         numToons: newNumToons,
-        toonOrg41: action.value,
+        toonOrg4: action.value,
         toon4: newToon
       };
     default:

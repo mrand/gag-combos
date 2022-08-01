@@ -45,7 +45,9 @@ export class Gag {
 
     let trackConf = this.track.split('-').join('').toLowerCase();
     let nameConf = this.name.split('$').join('').split(' ').join('_');
-    return (`./img/gags/${trackConf}-${nameConf}.png`);
+    let orgConf = (this.organic === 'Organic') ? '-organic' : '';
+
+    return (`./img/gags/${trackConf}-${nameConf}${orgConf}.png`);
   }
 
   /**

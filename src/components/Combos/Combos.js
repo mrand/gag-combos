@@ -10,7 +10,7 @@ function ComboCell({ cog, comboTracks, toonsOrg, isLured }) {
     toonsOrg,
     isLured
   );
-  console.log(foundCombo)
+  // console.log(foundCombo)
   
   let solutionTracks;
   if (foundCombo.solution) {
@@ -59,7 +59,7 @@ function ComboCell({ cog, comboTracks, toonsOrg, isLured }) {
         <div className='right'>
           {/* <h4>{(foundCombo.isLured) ? 'Cog is Lured' : ''}</h4> */}
           {/* <h4>Cog HP: </h4> */}
-          <h4>Damage<br />{foundCombo.solution.totalDamage} / {foundCombo.solution.cogHP}</h4>
+          <h4>Damage: {foundCombo.solution.totalDamage} / {foundCombo.solution.cogHP}</h4>
         </div>
       </div>
     )
@@ -84,6 +84,15 @@ export default function Combos({ cog, isLured, numToons, toonsOrg }) {
     Array(numToons).fill('Throw'),
     Array(numToons).fill('Squirt'),
   ];
+  // Lure Trap Combo
+  // if (numToons === 2 && !isLured) {
+  //   gagComboTracks.push(['Lure', 'Trap'])
+  // } else if (numToons > 2 && !isLured) {
+  //   gagComboTracks.push(['Lure', 'Trap'].concat(Array(numToons-2).fill('Sound')));
+  //   gagComboTracks.push(['Lure', 'Trap'].concat(Array(numToons-2).fill('Throw')));
+  //   gagComboTracks.push(['Lure', 'Trap'].concat(Array(numToons-2).fill('Squirt')));
+  //   gagComboTracks.push(['Lure', 'Trap'].concat(Array(numToons-2).fill('Drop')));
+  // }
   let combo;
 
   return (
