@@ -297,7 +297,7 @@ export class FindCombo {
   }
 
   find(cog) {
-    if (!cog || !this.gags) return false;
+    if (!cog || !this.gags || this.gags.length === 0) return false;
 
     // Initialize Combo with Level 1 Gags
     let comboGags = [];
@@ -317,9 +317,6 @@ export class FindCombo {
     // Find Optimal Combo
     let iterCount = 0;  // error check - iteration counter
     while (!combo.defeatsCog) {
-
-
-// ---------------------------------------------------------------------------------------------------------------
 
       // find minimum damage gag (not Lure or Toon-Up, which have 0 damage)
       let updateGag = comboGags.hasNonZeroMin('damage');

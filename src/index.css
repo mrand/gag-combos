@@ -64,6 +64,7 @@ h1, h2, h3, h4, h5, h6 {
   border-top: 3px solid black;
   border-bottom: 3px solid black;
   display: flex;
+  justify-content: center;
   gap: 32px;
 }
 /* .container > * { border: 1px solid red; } */
