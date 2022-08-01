@@ -36,7 +36,7 @@
   color: var(--toon-color);
   filter: brightness(0.5);
   height: 3.5em;
-  max-width: 100px;
+  max-width: 128px;
   font-size: 14px;
   overflow: hidden;
   text-overflow: ellipsis;
