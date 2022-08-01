@@ -53,11 +53,12 @@ export class Gag {
    * @param {dict} counts A dictionary containing how many gags of each track are used in a particular combo. 
    */
   getDamageWithMultiplier(counts, isLured) {
+    let dudMultiplier = 1;
     let luredMultiplier = 0;
     let comboMultiplier = 0;
 
     // 'Pass', 'Lure', and 'Toon-Up' have no damage to multiply
-    if (this.damage === 0) return [0, 0];
+    if (this.damage === 0) return [0, 0, 0];
 
     // Drop on Lure Dud
     if (
@@ -68,7 +69,7 @@ export class Gag {
       !('Throw' in counts) &&
       !('Squirt' in counts)
     ) {
-      return 0;
+      return [0, 0, 0];
     }
 
     // Trap no Lure Dud
@@ -76,11 +77,11 @@ export class Gag {
       (this.track === 'Trap') && 
       (!('Lure' in counts))
     ) {
-      return [0, 0];
+      return [0, 0, 0];
     }
 
     // Multiple Traps Dud
-    if (this.track === 'Trap' && counts['Trap'] > 1) return [0, 0];
+    if (this.track === 'Trap' && counts['Trap'] > 1) return [0, 0, 0];
 
 
     // Get Lured Multiplier
@@ -115,12 +116,13 @@ export class Gag {
       comboMultiplier = 0.2;
     }
 
-    return [luredMultiplier, comboMultiplier];
+    return [dudMultiplier, luredMultiplier, comboMultiplier];
   }
 
   toString() {
     return (
-      `Gag: ${this.organic} ${this.track}, ${this.level} - ${this.name}, Damage: ${this.damage}\n- Image: ${this.image}`
+      `Gag: ${this.organic} ${this.track}, ${this.level} - ${this.name}, Damage: ${this.damage}`
+      // \n- Image: ${this.image}`
     );
   }
 }
@@ -140,7 +142,6 @@ export class Combo {
     this.counts = this._countGagsByTrack();
     this.totalDamage = 0;
     this.defeatsCog = false;
-
     this._tryCombo();
   }
 
@@ -157,20 +158,18 @@ export class Combo {
   }
 
   _tryCombo() {
-    // Get Main Damage
-    let mainDamage = 0;
-    this.gags.forEach((gag) => { mainDamage += gag.damage });
-
-    // Get Lured and Combo Multiplier Damages
-    let luredDamage = 0;  // lured multiplier damage
+    // Get Dud, Lured, and Combo Multiplier Damages
+    let mainDamage = 0;   // main multiplier damage 
+    let luredDamage = 0;  // lured multiplier damage 
     let comboDamage = 0;  // combo multiplier damage
-    let gagLureMultiplier;
-    let gagComboMultiplier;
+    let gagDudMultiplier;    // (=0 if dud)
+    let gagLureMultiplier;   // (=0.5 if lured)
+    let gagComboMultiplier;  // (=0.2 if combo)
     this.gags.forEach((gag) => {
       [
-        gagLureMultiplier, gagComboMultiplier
+        gagDudMultiplier, gagLureMultiplier, gagComboMultiplier
       ] = gag.getDamageWithMultiplier(this.counts, this.isLured);
-
+      mainDamage  += (gag.damage * gagDudMultiplier)
       luredDamage += (gag.damage * gagLureMultiplier);
       comboDamage += (gag.damage * gagComboMultiplier);
     });
@@ -250,7 +249,7 @@ Array.prototype.hasMax = function(attrib) {
 }
 
 
-class FindCombo {
+export class FindCombo {
   constructor(
     cog=null,
     tracks=null,
@@ -319,6 +318,9 @@ class FindCombo {
     let iterCount = 0;  // error check - iteration counter
     while (!combo.defeatsCog) {
 
+
+// ---------------------------------------------------------------------------------------------------------------
+
       // find minimum damage gag (not Lure or Toon-Up, which have 0 damage)
       let updateGag = comboGags.hasNonZeroMin('damage');
       let updateGagIndex = comboGags.findIndex(x => (x === updateGag));
@@ -378,7 +380,7 @@ class FindCombo {
         comboGagsCopy[updateGagIndex] = new Gag(
           this.tracks[updateGagIndex],
           updateGag.level-1,
-          this.gags[updateGagIndex][updateGag.level].organic
+          this.gags[updateGagIndex][updateGag.level-1].organic
         );
       }
 
@@ -411,13 +413,14 @@ class FindCombo {
 }
 
 
-let testCombo = new FindCombo(
-  new Cog(4),
-  ['Throw', 'Throw', 'Throw', 'Throw'],  // gag combo tracks
-  ['None', 'None', 'None', 'None'],     // toon organic gags
-  false                                 // is Lured
-);
-console.log(`${testCombo.solution}`);
+// let testCombo = new FindCombo(
+//   new Cog(4),
+//   ['Throw', 'Throw', 'Throw', 'Throw'],  // gag combo tracks
+//   ['None', 'None', 'None', 'None'],     // toon organic gags
+//   false                                 // is Lured
+// );
+// console.log(`${testCombo.solution}`);
+
 
 
 // sound x4, x3, x2, x1
@@ -430,12 +433,12 @@ console.log(`${testCombo.solution}`);
 // lure trap drop
 // lure trap squirt squirt
 // lure trap throw throw
-// lure trap drop drop
 
 // drop
 
 class ComboTests {
   constructor() {
-
+    // thinking of generating presets and lettings users filter (preferable here),
+    // otherwise letting users choose sets of gags to generate a combo from
   }
 }

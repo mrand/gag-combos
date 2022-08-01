@@ -151,6 +151,19 @@ function App() {
           dispatch={dispatch}
         />
       </div>
+      <Combos 
+        cog={state.cog}
+        isLured={state.isLured}
+        numToons={state.numToons}
+        toonsOrg={
+          [
+            state.toonOrg1,
+            state.toonOrg2,
+            state.toonOrg3,
+            state.toonOrg4
+          ]
+        }
+      />
     </div>
   );
 }

@@ -17,11 +17,15 @@ function ToonToggle({ i, dispatch, active, setActive}) {
             });
             setActive(!active);
           }}
+          // disabled={i===0}
           defaultChecked={
             active ? 'checked' : null
           }
         />
-        <span className='slider'></span>
+        <span 
+          className='slider' 
+          // style={{ cursor: (i===0) ? 'not-allowed' : 'pointer' }}
+        ></span>
       </label>
     </div>
   );
