@@ -226,6 +226,7 @@ const gagsContent = parseJSON(gags);
 // console.log(gagsContent)
 
 
+// eslint-disable-next-line no-extend-native
 Array.prototype.hasNonZeroMin = function(attrib) {
   const checker = (o, i) => typeof(o) === 'object' && o[i]
   return (this.length && this.reduce(function(prev, curr){
@@ -238,6 +239,7 @@ Array.prototype.hasNonZeroMin = function(attrib) {
   })) || null;
 }
 
+// eslint-disable-next-line no-extend-native
 Array.prototype.hasMax = function(attrib) {
   const checker = (o, i) => typeof(o) === 'object' && o[i]
   return (this.length && this.reduce(function(prev, curr){
