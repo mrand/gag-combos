@@ -47,7 +47,7 @@
   align-items: center;
   text-align: center;
   font-size: 12px;
-  width: 60px;
+  width: 50px;
 }
 
 .gag-cell > div {
@@ -57,11 +57,13 @@
 }
 
 .gag-cell img {
-  width: 60px;
+  width: 50px;
   background: var(--blue-dark);
-  padding: 8px;
+  padding: 4px;
   border-radius: 10px;
+  /* filter: drop-shadow(0 0 5px var(--blue-dark)); */
 }
+
 .gag-cell span {
   align-self: stretch;
   text-align: left;
@@ -95,13 +97,14 @@
   }
 
   .gag-cell > div {
-    /* border: 1px solid green; */
-    width: 60px;
+    width: 100px;
     text-align: center;
+    align-items: center;
     margin: 0;
-  }
-  .gag-cell .gag-stats {
     font-size: 16px;
+  }
+  .gag-cell img { width: 60px; }
+  .gag-cell .gag-stats {
     width: fit-content;
   }
 
