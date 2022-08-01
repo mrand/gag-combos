@@ -12,7 +12,7 @@ export class Gag {
     this.organic = (org) ? "Organic" : "Non-Organic";
     this.track = track;
     this.level = level;
-    [this.name, this.damage] = this._getGagStats();
+    [this.name, this.damage, this.accuracy] = this._getGagStats();
     this.image = this._getImageName();
     // used by Combo class
     this.luredMultiplier = 0;
@@ -23,7 +23,7 @@ export class Gag {
 
     // if any parameters are missing, treat it as a "Pass"
     if (this.organic === null || this.track === null || this.level === null) {
-      return ['Pass', 0];
+      return ['Pass', 0, null];
     }
 
     // get gag object from JSON
@@ -31,11 +31,11 @@ export class Gag {
     
     // Toon-Up and Lure have no damage
     if (this.track === 'Toon-Up' || this.track === 'Lure') {
-      return [thisGag.name, 0];
+      return [thisGag.name, 0, thisGag.accuracy];
     }
     
     // Other Gags have damage
-    return [thisGag.name, thisGag.damage];
+    return [thisGag.name, thisGag.damage, thisGag.accuracy];
 
   }
 
@@ -43,8 +43,8 @@ export class Gag {
     // Pass image doesn't adhere to naming format
     if (this.name === 'Pass') return './img/gags/Pass.png';
 
-    let trackConf = this.track.replace('-','').toLowerCase();
-    let nameConf = this.name.replace('$','').replace(' ','_');
+    let trackConf = this.track.split('-').join('').toLowerCase();
+    let nameConf = this.name.split('$').join('').split(' ').join('_');
     return (`./img/gags/${trackConf}-${nameConf}.png`);
   }
 
