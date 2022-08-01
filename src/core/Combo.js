@@ -110,7 +110,7 @@ export class Gag {
       }
     }
 
-    // Get Throw/Squirt Combo Multiplier
+    // Get Sound/Throw/Squirt Combo Multiplier
     if (
       (this.track === 'Sound' || this.track === 'Throw' || this.track === 'Squirt') &&
       (counts[this.track] > 1)
@@ -258,6 +258,9 @@ export class FindCombo {
     toonOrgs=null,
     isLured=false
   ) {
+    // place empty values at end of org gags array
+    toonOrgs.sort((a,b) => a ? b ? a.localeCompare(b) : -1 : 1);
+
     this.numToons = tracks.length;
     this.tracks = this._sortTracks(tracks);
     this.gags = this._getGags(tracks, toonOrgs);
@@ -321,14 +324,15 @@ export class FindCombo {
     while (!combo.defeatsCog) {
 
       // find minimum damage gag (not Lure or Toon-Up, which have 0 damage)
-      let updateGag = comboGags.hasNonZeroMin('damage');
+      let tmp = comboGags.filter(function(gag) { return gag.track != "Lure"; });
+      let updateGag = tmp.hasNonZeroMin('level');
       let updateGagIndex = comboGags.findIndex(x => (x === updateGag));
 
-      // weakest gag can go no higher ?
+      // lowest gag can go no higher ?
       if (updateGag.level === 7) {
         
         // edge case, stronger gag with a lower level exists (e.g. TNT vs Geyser)
-        let tmp = comboGags.filter(function(gag) { return gag.track != "Lure"; });
+        tmp = comboGags.filter(function(gag) { return gag.track != "Lure"; });
         tmp = tmp.hasNonZeroMin('level');
         if (tmp.level < updateGag.level) {
           updateGag = tmp;
@@ -420,24 +424,8 @@ export class FindCombo {
 // );
 // console.log(`${testCombo.solution}`);
 
-
-
-// sound x4, x3, x2, x1
-// throw x4, x3, x2, x1
-// squirt x4, x3, x2, x1
-
-// lure trap
-// lure trap squirt
-// lure trap throw
-// lure trap drop
-// lure trap squirt squirt
-// lure trap throw throw
-
-// drop
-
-class ComboTests {
+class AllFoundCombos {
   constructor() {
-    // thinking of generating presets and lettings users filter (preferable here),
-    // otherwise letting users choose sets of gags to generate a combo from
+
   }
 }

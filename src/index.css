@@ -60,7 +60,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .container {
-  padding: 16px 0 24px 0;
+  padding: 8px 0 24px 0;
   border-top: 3px solid black;
   border-bottom: 3px solid black;
   display: flex;

@@ -68,31 +68,39 @@ function ComboCell({ cog, comboTracks, toonsOrg, isLured }) {
 
 
 export default function Combos({ cog, isLured, numToons, toonsOrg }) {
-  // let throwComboGags =  Array(numToons).fill('Throw');
-  // let gagComboTracks = ['Drop', 'Drop', 'Drop', 'Sound'];
-
-  // let testCombo = new FindCombo(
-  //   cog,
-  //   gagComboTracks,  // gag combo tracks
-  //   toonsOrg,     // toon organic gags
-  //   isLured                                 // is Lured
-  // );
-  // console.log(`${testCombo.solutionco}`);
 
   let gagComboTracks = [
     Array(numToons).fill('Sound'),
     Array(numToons).fill('Throw'),
     Array(numToons).fill('Squirt'),
   ];
-  // Lure Trap Combo
-  // if (numToons === 2 && !isLured) {
-  //   gagComboTracks.push(['Lure', 'Trap'])
-  // } else if (numToons > 2 && !isLured) {
-  //   gagComboTracks.push(['Lure', 'Trap'].concat(Array(numToons-2).fill('Sound')));
-  //   gagComboTracks.push(['Lure', 'Trap'].concat(Array(numToons-2).fill('Throw')));
-  //   gagComboTracks.push(['Lure', 'Trap'].concat(Array(numToons-2).fill('Squirt')));
-  //   gagComboTracks.push(['Lure', 'Trap'].concat(Array(numToons-2).fill('Drop')));
-  // }
+
+  if (!isLured) {
+    // Drop Only
+    gagComboTracks.push(Array(numToons).fill('Drop'));
+  }
+
+  // Lure Trap
+
+  if (numToons > 1) {
+    if (!isLured) {
+      // Lure Trap Combos
+      gagComboTracks.push(['Lure', 'Trap'].concat(Array(numToons-2).fill('Sound')));
+      gagComboTracks.push(['Lure', 'Trap'].concat(Array(numToons-2).fill('Throw')));
+      gagComboTracks.push(['Lure', 'Trap'].concat(Array(numToons-2).fill('Squirt')));
+      gagComboTracks.push(['Lure', 'Trap'].concat(Array(numToons-2).fill('Drop')));
+    }
+
+    // Drop Combos
+    gagComboTracks.push(['Drop'].concat(Array(numToons-1).fill('Sound')));
+    gagComboTracks.push(['Drop'].concat(Array(numToons-1).fill('Throw')));
+    gagComboTracks.push(['Drop'].concat(Array(numToons-1).fill('Squirt')));
+  }
+
+  // Filter - Remove Non-Unique Combos
+  let set  = new Set(gagComboTracks.map(JSON.stringify));
+  gagComboTracks = Array.from(set).map(JSON.parse);
+
   let combo;
 
   return (

@@ -1,8 +1,11 @@
+.combos { padding: 8px 0; }
+
 .combos-grid { 
-  /* border: 1px solid red;  */
   display: grid;
-  grid-template-columns: calc(50% - 8px) calc(50% - 8px);
-  gap: 16px;
+  grid-template-columns: 50% 50%;
+  background: var(--blue-dark);
+  border-radius: 20px;
+  border: 8px solid var(--blue-dark);
 }
 @media (max-width: 950px) {
   .combos-grid {
@@ -21,12 +24,6 @@
   background: #ffffff;
   border-radius: 20px;
   border: 8px solid var(--blue-dark);
-}
-@media (max-width: 950px) {
-  .combo-cell {
-    width: fit-content;
-    margin: 0 auto;
-  }
 }
 
 .combo-cell h4 {
