@@ -27,7 +27,7 @@ function CogStats({ cog }) {
 }
 
 
-function CogLevelPicker({ dispatch, active, setActive, activeBtn, setActiveBtn }) {
+function CogLevelPicker({ dispatch, setActive, activeBtn, setActiveBtn }) {
 
   return (
     <div className='lvl-picker'>
@@ -53,7 +53,13 @@ function CogLevelPicker({ dispatch, active, setActive, activeBtn, setActiveBtn }
 function LuredToggle({ state, dispatch }) {
   return (
     <div className='lured-toggle'>
-      <h3>Is Cog Lured?</h3>
+      {
+        (state.isLured) ? (
+          <h3 style={{color: 'var(--green)'}}>Cog is Lured</h3>
+        ) : (
+          <h3>Is Cog Lured?</h3> 
+        )
+      }
       <div>
         <img src='./img/gags/lure-10_Bill.png' alt='$10 Bill Lure Gag' />
         <label className='switch'>
@@ -93,7 +99,6 @@ export default function CogCard({ cog, state, dispatch }) {
           (active) ? (
             <CogLevelPicker 
               dispatch={dispatch}
-              active={active}
               setActive={setActive} 
               activeBtn={activeBtn}
               setActiveBtn={setActiveBtn}

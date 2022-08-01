@@ -1,13 +1,14 @@
 import React, { useReducer } from 'react';
 import Cog from './core/Cog';
 import Toon from './core/Toon';
-// import Gag from './core/Gag';
 import CogCard from './components/CogCard/CogCard';
 import ToonsCard from './components/ToonsCard/ToonsCard';
 
+import Combos from './components/Combos/Combos';
 
 function reducer(state, action) {
-  let newVal;
+  let newToon;
+  let newNumToons;
 
   switch (action.type) {
     case 'cog':
@@ -23,67 +24,83 @@ function reducer(state, action) {
       }
     case 'toon1':
       if (action.value === '') {
-        newVal = '';
+        newToon = '';
+        newNumToons = state.numToons-1;
       } else {
         if (state.toon1 === '') {
-          newVal = new Toon(action.value)
+          newNumToons = state.numToons+1;
+          newToon = new Toon(action.value);
         } else {
-          newVal = state.toon1;
-          newVal.updateOrganic(action.value);
+          newToon = state.toon1;
+          newToon.updateOrganic(action.value);
+          newNumToons = state.numToons;
         }
       }
       return {
         ...state, 
+        numToons: newNumToons,
         toonOrg1: action.value,
-        toon1: newVal
+        toon1: newToon
       };
     case 'toon2':
       if (action.value === '') {
-        newVal = '';
+        newToon = '';
+        newNumToons = state.numToons-1;
       } else {
         if (state.toon2 === '') {
-          newVal = new Toon(action.value)
+          newToon = new Toon(action.value);
+          newNumToons = state.numToons+1;
         } else {
-          newVal = state.toon2;
-          newVal.updateOrganic(action.value);
+          newToon = state.toon2;
+          newToon.updateOrganic(action.value);
+          newNumToons = state.numToons;
         }
       }
       return {
         ...state, 
+        numToons: newNumToons,
         toonOrg2: action.value,
-        toon2: newVal
+        toon2: newToon
       };
     case 'toon3':
       if (action.value === '') {
-        newVal = '';
+        newToon = '';
+        newNumToons = state.numToons-1;
       } else {
         if (state.toon3 === '') {
-          newVal = new Toon(action.value)
+          newToon = new Toon(action.value);
+          newNumToons = state.numToons+1;
         } else {
-          newVal = state.toon3;
-          newVal.updateOrganic(action.value);
+          newToon = state.toon3;
+          newToon.updateOrganic(action.value);
+          newNumToons = state.numToons;
         }
       }
       return {
         ...state, 
+        numToons: newNumToons,
         toonOrg3: action.value,
-        toon3: newVal
+        toon3: newToon
       };
     case 'toon4':
       if (action.value === '') {
-        newVal = '';
+        newToon = '';
+        newNumToons = state.numToons-1;
       } else {
         if (state.toon4 === '') {
-          newVal = new Toon(action.value)
+          newToon = new Toon(action.value);
+          newNumToons = state.numToons+1;
         } else {
-          newVal = state.toon4;
-          newVal.updateOrganic(action.value);
+          newToon = state.toon4;
+          newToon.updateOrganic(action.value);
+          newNumToons = state.numToons;
         }
       }
       return {
         ...state, 
+        numToons: newNumToons,
         toonOrg41: action.value,
-        toon4: newVal
+        toon4: newToon
       };
     default:
       throw new Error();
@@ -99,6 +116,7 @@ function App() {
       cogLevel: 1,
       cog: new Cog(1),
       isLured: false,
+      numToons: 1,
       toonOrg1: 'None',
       toon1: new Toon('None'),
       toonOrg2: '',
@@ -109,7 +127,7 @@ function App() {
       toon4: ''
     }
   );
-  console.log(state);
+  // console.log(state);
 
 
   return (

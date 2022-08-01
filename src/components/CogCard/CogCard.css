@@ -10,6 +10,7 @@
   gap: 12px;
   min-height: 350px;
   font-size: 16px;
+  margin-bottom: 16px;
 }
 .cog-card .bolt {
   position: absolute;
@@ -66,7 +67,6 @@
   flex-direction: column;
   align-items: center;
 }
-
 .cog-stats img {
   clip-path: polygon(
     4px 0%,
@@ -126,26 +126,22 @@
 .lured-toggle > div {
   display: inline-flex;
   justify-content: center;
-  /* align-items: center; */
+  align-items: center;
   gap: 16px;
   border-radius: 100px;
   background: #ffffff;
   border: 8px solid var(--green);
+  box-shadow: 0 0 5px var(--metal-shadow);
   padding: 0 8px;
 }
 .lured-toggle img {
   height: 50px;
 }
-.lured-toggle .switch { 
-  margin-top: 8px;
-}
 
 @media (max-width: 950px) {
   .cog-card { 
     width: fit-content; 
-    margin: 0 auto;
-  }
-  .lured-toggle {
-    margin-top: 16px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
