@@ -1,6 +1,6 @@
 import React from 'react';
 import './Combos.css';
-import { Combo, FindCombo } from '../../core/Combo';
+import { FindCombo } from '../../core/Combo';
 
 
 function ComboCell({ cog, comboTracks, toonsOrg, isLured }) {
@@ -100,8 +100,6 @@ export default function Combos({ cog, isLured, numToons, toonsOrg }) {
   // Filter - Remove Non-Unique Combos
   let set  = new Set(gagComboTracks.map(JSON.stringify));
   gagComboTracks = Array.from(set).map(JSON.parse);
-
-  let combo;
 
   return (
     <div className='combos'>

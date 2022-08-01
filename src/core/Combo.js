@@ -1,5 +1,4 @@
 import gags from './gags.json';
-import Cog from './Cog';
 
 
 export class Gag {
@@ -216,6 +215,7 @@ function parseJSON(gags) {
         gag.organic = (type === 'Organic') ? true : false;
         gag.track = track;
         gag.level = i+1;
+        return gag;
       });
     });
   });
@@ -324,7 +324,7 @@ export class FindCombo {
     while (!combo.defeatsCog) {
 
       // find minimum damage gag (not Lure or Toon-Up, which have 0 damage)
-      let tmp = comboGags.filter(function(gag) { return gag.track != "Lure"; });
+      let tmp = comboGags.filter(function(gag) { return gag.track !== "Lure"; });
       let updateGag = tmp.hasNonZeroMin('level');
       let updateGagIndex = comboGags.findIndex(x => (x === updateGag));
 
@@ -332,7 +332,7 @@ export class FindCombo {
       if (updateGag.level === 7) {
         
         // edge case, stronger gag with a lower level exists (e.g. TNT vs Geyser)
-        tmp = comboGags.filter(function(gag) { return gag.track != "Lure"; });
+        tmp = comboGags.filter(function(gag) { return gag.track !== "Lure"; });
         tmp = tmp.hasNonZeroMin('level');
         if (tmp.level < updateGag.level) {
           updateGag = tmp;
@@ -424,8 +424,8 @@ export class FindCombo {
 // );
 // console.log(`${testCombo.solution}`);
 
-class AllFoundCombos {
-  constructor() {
+// class AllFoundCombos {
+//   constructor() {
 
-  }
-}
+//   }
+// }
