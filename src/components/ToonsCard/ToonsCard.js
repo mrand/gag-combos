@@ -38,7 +38,6 @@ function ToonStats({ toon }) {
       <div 
         className={
           'laff-meter' + 
-          // ' duck' +
           ' ' + toon.species.toLowerCase() +
           (toon.gender === 'Girl' ? ' girl' : '')
         }
@@ -62,7 +61,6 @@ function ToonStats({ toon }) {
           <path d="M84,3 L76,1.5" />
         </svg>
       </div>
-      {/* <img src={'./img/toons/Toon_'+toon.species.toLowerCase()+'.webp'} alt={toon.species + ' Image'} /> */}
       <b 
         className='toon-name'
         style={{'--toon-color': toon.color[1]}}

@@ -54,7 +54,12 @@ export default class Toon {
       nameParts.push(names['title'][Math.floor(Math.random()*names['title'].length)]);
     }
     if (hasFirstName) {
-      nameParts.push(names['first'][Math.floor(Math.random()*names['first'].length)]);
+      let first = names['first'][Math.floor(Math.random()*names['first'].length)];
+      // special case - von
+      if (first === 'von' && !hasTitle) {
+        first = first.charAt(0).toUpperCase() + first.slice(1)
+      }
+      nameParts.push(first);
     }
     if (hasLastName) {
       let last0 = names['last'][0][Math.floor(Math.random()*names['last'][0].length)];
