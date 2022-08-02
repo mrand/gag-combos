@@ -58,8 +58,8 @@ function ToonStats({ toon }) {
           width="90"
         >
           <path d="M10,3 C15,35 75,35 80,3" />
-          <path d="M6,3 L15,1" />
-          <path d="M84,3 L75,1" />
+          <path d="M6,3 L14,1.5" />
+          <path d="M84,3 L76,1.5" />
         </svg>
       </div>
       {/* <img src={'./img/toons/Toon_'+toon.species.toLowerCase()+'.webp'} alt={toon.species + ' Image'} /> */}

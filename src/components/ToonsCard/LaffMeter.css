@@ -301,6 +301,6 @@
   width: calc(var(--size) * 0.90);
   height: calc(var(--size) * 0.35);
   stroke: #000000;
-  stroke-width: calc(var(--size) * 0.02);
+  stroke-width: 2;
   fill: none;
 }
