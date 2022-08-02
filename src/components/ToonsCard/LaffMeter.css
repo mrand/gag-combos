@@ -296,27 +296,11 @@
 
 .laff-meter .mouth {
   position: absolute;
-  bottom: calc(var(--size) * 0.15);
-  left: 50%; transform: translateX(-50%) rotate(180deg);
-  width: calc(var(--size) * 0.70);
-  height: calc(var(--size) * 0.25);
-  border: calc(var(--size) * 0.02) solid #000000;
-  border-color:#000000 transparent transparent transparent;
-  border-radius: 50%/calc(var(--size) * 0.25) calc(var(--size) * 0.25) 0 0;
-}
-.mouth::before,
-.mouth::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  width: calc(var(--size) * 0.10);
-  border-bottom: calc(var(--size) * 0.02) solid #000000;
-}
-.mouth::before {
-  left: 0;
-  transform: translateX(-50%) translateY(calc(var(--size) * 0.02)) rotate(15deg);
-}
-.mouth::after {
-  right: 0;
-  transform: translateX(50%) translateY(calc(var(--size) * 0.02)) rotate(-15deg);
+  bottom: calc(var(--size) * 0.1);
+  left: 50%; transform: translateX(-50%);
+  width: calc(var(--size) * 0.90);
+  height: calc(var(--size) * 0.35);
+  stroke: #000000;
+  stroke-width: calc(var(--size) * 0.02);
+  fill: none;
 }

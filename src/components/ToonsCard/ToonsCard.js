@@ -51,7 +51,16 @@ function ToonStats({ toon }) {
         <span className='ear right'></span>
         <span className='eye left'></span>
         <span className='eye right'></span>
-        <span className='mouth'></span>
+        <svg 
+          className='mouth' 
+          viewBox="0 0 90 25" 
+          height="25" 
+          width="90"
+        >
+          <path d="M10,3 C15,35 75,35 80,3" />
+          <path d="M6,3 L17,1" />
+          <path d="M84,3 L73,1" />
+        </svg>
       </div>
       {/* <img src={'./img/toons/Toon_'+toon.species.toLowerCase()+'.webp'} alt={toon.species + ' Image'} /> */}
       <b 
