@@ -63,10 +63,10 @@
 
 .gag-cell img {
   width: 50px;
-  background: var(--blue-dark);
+  /* background: var(--blue-dark);
   padding: 4px;
-  border-radius: 10px;
-  /* filter: drop-shadow(0 0 5px var(--blue-dark)); */
+  border-radius: 10px; */
+  filter: drop-shadow(0 0 5px var(--metal-shadow));
 }
 
 .gag-cell span {
