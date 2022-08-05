@@ -38,7 +38,20 @@
   box-shadow: none;
 }
 .title-container img {
-  width: 20px;
+  width: 30px;
+}
+
+.gag-toggles button {
+  border-radius: 15px;
+  line-height: 1em;
+  padding: 4px;
+  filter: grayscale(1);
+  transform: scale(0.9);
+  transition: 0.1s linear transform;
+}
+.gag-toggles button:hover { transform: scale(1); }
+.gag-toggles button.active {
+  filter: none;
 }
 
 
@@ -114,10 +127,11 @@
 
 .gag-cell img {
   width: 50px;
-  /* background: var(--blue-dark);
-  padding: 4px;
-  border-radius: 10px; */
   filter: drop-shadow(0 0 5px var(--metal-shadow));
+}
+.gag-cell .gag-name { 
+  min-height: 2.5em; 
+  line-height: 1.25em;
 }
 
 .gag-cell span {

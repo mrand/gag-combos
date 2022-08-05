@@ -573,7 +573,11 @@ export class RecommendCombos {
     if (this.numToons === 0) {
       return 'You must have at least 1 toon to defeat the cogs!';
     } else if (this.recCombos.length === 0) {
-      return 'You need more toons to defeat this cog!';
+      if (this.comboType === 'Best') {
+        return 'Looks like there isn\'t any *best* combo meeting these requirements!';
+      } else {
+        return 'You need more toons to defeat this cog!';
+      }
     }
     return null;
   }
