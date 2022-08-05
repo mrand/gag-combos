@@ -29,6 +29,8 @@ function reducer(state, action) {
               isLured: action.value
             } 
           }; 
+        default:
+          throw new Error();
       }
 
     case 'toon': 
@@ -94,6 +96,8 @@ function reducer(state, action) {
             }
           }
         // TODO: Update Gag Filter
+        default:
+          throw new Error();
       }
       
     default:
