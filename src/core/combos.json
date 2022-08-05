@@ -8,37 +8,44 @@
     "in order to achieve this file's data (hence why I was lazy)."
   ],
   "1": {
-    "default": [
+    "basic": [
       ["Sound"],
       ["Throw"],
-      ["Squirt"]
-    ],
-    "notLured": [
+      ["Squirt"],
       ["Drop"]
-    ]
+    ],
+    "default": [],
+    "notLured": []
   },
   "2": {
-    "default": [
+    "basic": [
       ["Sound", "Sound"],
+      ["Throw", "Throw"],
+      ["Squirt", "Squirt"],
+      ["Drop", "Drop"]
+    ],
+    "default": [
       ["Sound", "Throw"],
       ["Sound", "Squirt"],
       ["Sound", "Drop"],
-      ["Throw", "Throw"],
       ["Throw", "Squirt"],
       ["Throw", "Drop"],
-      ["Squirt", "Squirt"],
       ["Squirt", "Drop"]
     ],
     "notLured": [
       ["Trap", "Lure"],
       ["Lure", "Throw"],
-      ["Lure", "Squirt"],
-      ["Drop", "Drop"]
+      ["Lure", "Squirt"]
     ]
   },
   "3": {
-    "default": [
+    "basic": [
       ["Sound", "Sound", "Sound"],
+      ["Throw", "Throw", "Throw"],
+      ["Squirt", "Squirt", "Squirt"],
+      ["Drop", "Drop", "Drop"]
+    ],
+    "default": [
       ["Sound", "Sound", "Throw"],
       ["Sound", "Sound", "Squirt"],
       ["Sound", "Sound", "Drop"],
@@ -47,13 +54,11 @@
       ["Sound", "Throw", "Drop"],
       ["Sound", "Squirt", "Squirt"],
       ["Sound", "Squirt", "Drop"],
-      ["Throw", "Throw", "Throw"],
       ["Throw", "Throw", "Squirt"],
       ["Throw", "Throw", "Drop"],
       ["Throw", "Squirt", "Squirt"],
       ["Throw", "Squirt", "Drop"],
       ["Throw", "Drop", "Drop"],
-      ["Squirt", "Squirt", "Squirt"],
       ["Squirt", "Squirt", "Drop"],
       ["Squirt", "Drop", "Drop"]
     ],
@@ -66,13 +71,17 @@
       ["Lure", "Throw", "Squirt"],
       ["Lure", "Throw", "Drop"],
       ["Lure", "Squirt", "Squirt"],
-      ["Lure", "Squirt", "Drop"],
-      ["Drop", "Drop", "Drop"]
+      ["Lure", "Squirt", "Drop"]
     ]
   },
   "4": {
-    "default": [
+    "basic": [
       ["Sound", "Sound", "Sound", "Sound"],
+      ["Throw", "Throw", "Throw", "Throw"],
+      ["Squirt", "Squirt", "Squirt", "Squirt"],
+      ["Drop", "Drop", "Drop", "Drop"]
+    ],
+    "default": [
       ["Sound", "Sound", "Sound", "Throw"],
       ["Sound", "Sound", "Sound", "Squirt"],
       ["Sound", "Sound", "Sound", "Drop"],
@@ -92,7 +101,6 @@
       ["Sound", "Squirt", "Squirt", "Drop"],
       ["Sound", "Squirt", "Drop", "Drop"],
       ["Sound", "Drop", "Drop", "Drop"],
-      ["Throw", "Throw", "Throw", "Throw"],
       ["Throw", "Throw", "Throw", "Squirt"],
       ["Throw", "Throw", "Throw", "Drop"],
       ["Throw", "Throw", "Squirt", "Squirt"],
@@ -102,7 +110,6 @@
       ["Throw", "Squirt", "Squirt", "Drop"],
       ["Throw", "Squirt", "Drop", "Drop"],
       ["Throw", "Drop", "Drop", "Drop"],
-      ["Squirt", "Squirt", "Squirt", "Squirt"],
       ["Squirt", "Squirt", "Squirt", "Drop"],
       ["Squirt", "Squirt", "Drop", "Drop"],
       ["Squirt", "Drop", "Drop", "Drop"]
@@ -125,8 +132,7 @@
       ["Lure", "Throw", "Drop", "Drop"],
       ["Lure", "Squirt", "Squirt", "Squirt"],
       ["Lure", "Squirt", "Squirt", "Drop"],
-      ["Lure", "Squirt", "Drop", "Drop"],
-      ["Drop", "Drop", "Drop", "Drop"]
+      ["Lure", "Squirt", "Drop", "Drop"]
     ]
   }
 }

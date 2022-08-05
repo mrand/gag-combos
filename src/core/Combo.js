@@ -449,13 +449,13 @@ export class RecommendCombos {
     isLured=false,
     numToons=0,
     toonsOrg=[],
-    recommendedOnly=false
+    comboType='All'
   ) {
     this.cog = cog;
     this.isLured = isLured;
     this.numToons = numToons;
     this.toonsOrg = toonsOrg;
-    this.recommendedOnly = recommendedOnly;
+    this.comboType = comboType;
 
     this.gagComboTracks = this._getGagComboTracks();
     this.recCombos = this._recCombos();
@@ -466,10 +466,15 @@ export class RecommendCombos {
     if (this.numToons === 0) return [];
 
     // Init
-    let gagComboTracks = combos[String(this.numToons)]["default"];
-    if (!this.isLured) {
-      gagComboTracks = gagComboTracks.concat(combos[String(this.numToons)]["notLured"]);
+    let gagComboTracks = combos[String(this.numToons)]["basic"];
+    if (this.comboType !== 'Basic') {
+      gagComboTracks = gagComboTracks.concat(combos[String(this.numToons)]["default"]);;
+      if (!this.isLured) {
+        gagComboTracks = gagComboTracks.concat(combos[String(this.numToons)]["notLured"]);
+      }
     }
+    
+    
 
     return gagComboTracks;
   }
@@ -497,7 +502,14 @@ export class RecommendCombos {
       } 
     });
     
-    // Filter - Remove Non-Unique Combos
+    // filter solutions
+    recSolns = this._filterSolns(recSolns);
+ 
+    return recSolns;
+  }
+
+  _filterSolns(recSolns) {
+    // remove non-unique combos
     recSolns = recSolns.reduce(function (p, c) {
       // if the next object's 'counts' is not found in the output array
       // push the object into the output array
@@ -505,29 +517,62 @@ export class RecommendCombos {
       return p;
     }, []);
 
-    // Sort Combos by total damage
-    recSolns.sort((combo1, combo2) => (combo1.totalDamage > combo2.totalDamage) ? 1 : -1);
-
-    // optional filter - remove any combos that are too powerful
-    if (this.recommendedOnly) {
+    // remove combos with only drop left if cog is lured
+    // (some lured cog drop combos remove the stun gag while optimizing)
+    if (this.isLured) {
       recSolns = recSolns.filter(function (combo) { 
-        return combo.totalDamage <= combo.cogHP + Math.ceil(Math.sqrt(combo.cogHP));
-      }).slice(0,4);
+        return JSON.stringify(Object.keys(combo.counts)) !== JSON.stringify(['Drop']);
+      });
     }
 
-    // Sort gags - Put 'Pass' at the end.
+    // remove combos with only lure and sound left
+    // (some lure trap sound combos remove trap while optimizing, making the lure useless)
+    recSolns = recSolns.filter(function (combo) { 
+      return JSON.stringify(Object.keys(combo.counts)) !== JSON.stringify(['Lure', 'Sound']);
+    });
+
+    // optional filter - recommend best combos
+    if (this.comboType === 'Best') {
+
+      // Remove Drop-Only Combos
+      recSolns = recSolns.filter(function (combo) { 
+        return JSON.stringify(Object.keys(combo.counts)) !== JSON.stringify(['Drop']);
+      });
+
+      // Sort Combos by Total Damage
+      recSolns.sort((combo1, combo2) => (combo1.totalDamage > combo2.totalDamage) ? 1 : -1);
+
+      // Reduce Number of Displayed Combos
+      // combos with total damage below hp+threshold
+      let tmp1 = recSolns.filter(function(combo) {
+        return combo.totalDamage <= combo.cogHP + Math.ceil(Math.sqrt(combo.cogHP)); 
+      });
+      // combos with total damage equal to hp
+      let tmp2 = recSolns.filter(function (combo) { 
+        return combo.totalDamage === combo.cogHP;
+      });
+      // if more than 4 combos equals hp, return them all
+      if (tmp2.length >= 4) {
+        recSolns = tmp2;
+      // else return top 4 overall combos
+      } else {
+        recSolns = tmp1.slice(0,4);
+      }
+
+    }
+
+    // sort gags - put 'Pass' at the end.
     recSolns.forEach((combo) => {
       combo.gags.sort((gag1, gag2) => (gag2.name !== 'Pass') ? 1 : -1);
     });
-    
+
     return recSolns;
   }
 
   _checkForError() {
     if (this.numToons === 0) {
       return 'You must have at least 1 toon to defeat the cogs!';
-    }
-    if (this.recCombos.length === 0) {
+    } else if (this.recCombos.length === 0) {
       return 'You need more toons to defeat this cog!';
     }
     return null;

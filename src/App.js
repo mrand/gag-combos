@@ -102,6 +102,11 @@ function reducer(state, action) {
         toonOrg4: action.value,
         toon4: newToon
       };
+    case 'comboType':
+      return {
+        ...state,
+        comboType: action.value
+      }
     default:
       throw new Error();
   }
@@ -124,7 +129,8 @@ function App() {
       toonOrg3: '',
       toon3: '',
       toonOrg4: '',
-      toon4: ''
+      toon4: '',
+      comboType: 'Basic'
     }
   );
   // console.log(state);
@@ -163,6 +169,8 @@ function App() {
             state.toonOrg4
           ]
         }
+        state={state}
+        dispatch={dispatch}
       />
     </div>
   );

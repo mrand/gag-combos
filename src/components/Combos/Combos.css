@@ -1,5 +1,47 @@
 .combos { padding: 8px 0; }
 
+
+
+.title-container > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+@media (max-width: 40rem) {
+  .title-container > div {
+    flex-direction: column;
+  }
+}
+
+.title-container .btns {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.title-container button {
+  border-radius: 100px;
+  background: 0;
+  border: 4px solid transparent;
+}
+.title-container button:hover {
+  background: var(--blue-dark);
+  color: #ffffff;
+}
+.title-container button.active {
+  border-color: var(--blue-dark);
+  background: #ffffff;
+  color: var(--blue-dark);
+  box-shadow: none;
+}
+.title-container img {
+  width: 20px;
+}
+
+
 .combos-grid { 
   display: grid;
   grid-template-columns: 50% 50%;
@@ -24,6 +66,10 @@
   background: #ffffff;
   border-radius: 20px;
   border: 8px solid var(--blue-dark);
+}
+.combo-cell.error-msg {
+  grid-column-start: 1;
+  grid-column-end: 3;
 }
 
 .combo-cell:not(.error-msg) h3 {

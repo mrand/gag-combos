@@ -68,35 +68,91 @@ function ComboCell({ cog, combo, toonsOrg, isLured }) {
       <div className='right'>
         {/* <h4>{(combo.isLured) ? 'Cog is Lured' : ''}</h4> */}
         {/* <h4>Cog HP: {combo.cogHP}</h4> */}
-        <h4>Damage: {combo.totalDamage} / {combo.cogHP}</h4>
+        <h4>
+          Damage: 
+          <span
+            style={combo.totalDamage === combo.cogHP ? {color: 'var(--green)'} : {}}
+          > {combo.totalDamage} / {combo.cogHP}</span>
+        </h4>
       </div>
     </div>
   );
 }
 
 
-export default function Combos({ cog, isLured, numToons, toonsOrg }) {
+export default function Combos({cog, isLured, numToons, toonsOrg, state, dispatch }) {
 
   let recommendCombos = new RecommendCombos(
     cog, isLured,        // cog params
     numToons, toonsOrg,  // toons params 
-    false                // filter out OP combos
+    state.comboType    // recommended combos only?
   )
   // console.log(recCombos);
 
   return (
     <div className='combos'>
-      <h2>Combos <br />(Under Construction)</h2>
-      <>
-        {(recommendCombos.errorMsg) ? (
-          <div className='combo-cell error-msg'>
-            <h3>
-              {recommendCombos.errorMsg}
-            </h3>
+      <div className='title-container'>
+        <div>
+          <h2>Combos</h2>
+          <div className='btns'>
+            <button 
+              className={state.comboType==='All' ? 'active' : ''}
+              onClick={() => dispatch({type: 'comboType', 'value': 'All'})}
+            >
+              All
+            </button>
+            <button
+              className={state.comboType==='Basic' ? 'active' : ''}
+              onClick={() => dispatch({type: 'comboType', 'value': 'Basic'})}
+            >
+              Basic
+            </button>
+            <button
+              className={state.comboType==='Best' ? 'active' : ''}
+              onClick={() => dispatch({type: 'comboType', 'value': 'Best'})}
+            >
+              Best
+            </button>
           </div>
-        ) : (
-          <>
-            <div className='combos-grid'>
+          
+        </div>
+        {/* <div>
+          <h3>Toggle Gag Tracks</h3>
+          <div className='btns gag-toggles'>
+            <button className='active'>
+              <img src='./img/gags/toonup-Feather.png' alt='Toon-Up Gag' />
+            </button>
+            <button className='active'>
+              <img src='./img/gags/trap-Banana_Peel.png' alt='Trap Gag' />
+            </button>
+            <button className='active'>
+              <img src='./img/gags/lure-1_Bill.png' alt='Lure Gag' />
+            </button>
+            <button className='active'>
+              <img src='./img/gags/sound-Bike_Horn.png' alt='Sound Gag' />
+            </button>
+            <button className='active'>
+              <img src='./img/gags/throw-Cupcake.png' alt='Throw Gag' />
+            </button>
+            <button className='active'>
+              <img src='./img/gags/squirt-Squirting_Flower.png' alt='Squirt Gag' />
+            </button>
+            <button className='active'>
+              <img src='./img/gags/drop-Flower_Pot.png' alt='Drop Gag' />
+            </button>
+          </div>
+        </div> */}
+      </div>
+      <div className='combos-grid'>
+        <>
+          {(recommendCombos.errorMsg) ? (
+            <div className='combo-cell error-msg'>
+              <h3>
+                {recommendCombos.errorMsg}
+              </h3>
+            </div>
+          ) : (
+            <>
               {recommendCombos.recCombos.map((combo, i) => (
                 <ComboCell 
                   key={i}
@@ -106,14 +162,13 @@ export default function Combos({ cog, isLured, numToons, toonsOrg }) {
                   isLured={isLured}
                 />          
               ))}
-            </div>
-            {(!isLured && numToons > 1) ? (
-              <h4>* Lure Accuracy Varies from 50% to 95%</h4>
-            ) : ( null )}
-          </>
-        )}
-        
-      </>
+            </>  
+          )}
+        </>
+      </div>
+      {(!isLured && numToons > 1) ? (
+        <h4>* Lure Accuracy Varies from 50% to 95%</h4>
+      ) : ( null )}
       
     </div>
   );
