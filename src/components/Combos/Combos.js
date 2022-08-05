@@ -77,28 +77,44 @@ function ComboCell({ cog, combo, toonsOrg, isLured }) {
 
 export default function Combos({ cog, isLured, numToons, toonsOrg }) {
 
-  let recCombos = new RecommendCombos(
+  let recommendCombos = new RecommendCombos(
     cog, isLured,        // cog params
     numToons, toonsOrg,  // toons params 
     false                // filter out OP combos
-  ).recCombos;           // just grab the combos object
+  )
   // console.log(recCombos);
 
   return (
     <div className='combos'>
-      <h2>Combos</h2>
-      <div className='combos-grid'>
-        {recCombos.map((combo, i) => (
-          <ComboCell 
-            key={i}
-            cog={cog}
-            combo={combo} 
-            toonsOrg={toonsOrg}
-            isLured={isLured}
-          />          
-        ))}
-      </div>
-      <h4>* Lure Accuracy Varies from 50% to 95%</h4>
+      <h2>Combos <br />(Under Construction)</h2>
+      <>
+        {(recommendCombos.errorMsg) ? (
+          <div className='combo-cell error-msg'>
+            <h3>
+              {recommendCombos.errorMsg}
+            </h3>
+          </div>
+        ) : (
+          <>
+            <div className='combos-grid'>
+              {recommendCombos.recCombos.map((combo, i) => (
+                <ComboCell 
+                  key={i}
+                  cog={cog}
+                  combo={combo} 
+                  toonsOrg={toonsOrg}
+                  isLured={isLured}
+                />          
+              ))}
+            </div>
+            {(!isLured && numToons > 1) ? (
+              <h4>* Lure Accuracy Varies from 50% to 95%</h4>
+            ) : ( null )}
+          </>
+        )}
+        
+      </>
+      
     </div>
   );
 } 

@@ -1,4 +1,5 @@
 import gags from './gags.json';
+import combos from './combos.json';
 
 
 export class Gag {
@@ -266,7 +267,6 @@ export class FindCombo {
 
     this.numToons = tracks.length;
     this.tracks = this._sortTracks(tracks);
-    this.tracks = tracks;
     this.gags = this._getGags(tracks, toonOrgs);
     this.isLured=isLured;
     this.solution = this.find(cog);
@@ -368,7 +368,7 @@ export class FindCombo {
 
     // Decrease Gags if Possible
     let comboGagsCopy;  // use copies to check before mutating actual objects
-    let tempCombo;      // yes, it is becoming slight spaghetti. tasty.
+    let tempCombo; 
     iterCount = 0;  // reset error check iteration counter
     let i;
     while (i !== 0) {
@@ -392,13 +392,6 @@ export class FindCombo {
 
           // replace gag with next lowest and test
           } else {
-            // console.log(
-            //   'next lowest:',
-            //   '\nthis.tracks[i]:',this.tracks[i],
-            //   '\nupdateGag.level-1:',updateGag.level-1,
-            //   '\nthis.gags[i][updateGag.level-1].organic:', this.gags[i][updateGag.level-1].organic
-            // );
-            
             comboGagsCopy[i] = new Gag(
               this.tracks[i],
               updateGag.level-1,
@@ -410,7 +403,8 @@ export class FindCombo {
           tempCombo = new Combo(cog, comboGagsCopy, this.isLured);
           // console.log('tempCombo', tempCombo);
           if (!tempCombo.defeatsCog) { 
-            // console.log('!tempCombo.defeatsCog');
+            i=0;
+            // console.log('!tempCombo.defeatsCog', i);
             break; 
           } else { 
             combo = tempCombo; 
@@ -418,35 +412,6 @@ export class FindCombo {
           }
         }
       }
-
-
-      // find maximum damage gag
-      // let updateGag = comboGags.hasMax('damage');
-      // let updateGagIndex = comboGags.findIndex(x => (x === updateGag));
-
-      // comboGagsCopy = [...comboGags];
-
-      // maximum gag can go no lower - make it a pass
-      // if (updateGag.level === 1) {
-      //   comboGagsCopy[updateGagIndex] = new Gag();
-
-      // replace strongest gag with next lowest gag
-      // } else {
-      //   comboGagsCopy[updateGagIndex] = new Gag(
-      //     this.tracks[updateGagIndex],
-      //     updateGag.level-1,
-      //     this.gags[updateGagIndex][updateGag.level-1].organic
-      //   );
-      // }
-
-      // update combo and check
-      // tempCombo = new Combo(cog, comboGagsCopy, this.isLured);
-      // if (!tempCombo.defeatsCog) { 
-      //   break; 
-      // } else { 
-      //   combo = tempCombo; 
-      //   comboGags = comboGagsCopy;
-      // }
 
       // Throw error after 50 iterations - arbitrary temp just in case
       iterCount++;
@@ -494,41 +459,17 @@ export class RecommendCombos {
 
     this.gagComboTracks = this._getGagComboTracks();
     this.recCombos = this._recCombos();
+    this.errorMsg = this._checkForError();
   }
 
   _getGagComboTracks() {
+    if (this.numToons === 0) return [];
 
     // Init
-    let gagComboTracks = [
-      Array(this.numToons).fill('Sound'),
-      Array(this.numToons).fill('Throw'),
-      Array(this.numToons).fill('Squirt'),
-    ];
-
-    // Drop Only
+    let gagComboTracks = combos[String(this.numToons)]["default"];
     if (!this.isLured) {
-      gagComboTracks.push(Array(this.numToons).fill('Drop'));
+      gagComboTracks = gagComboTracks.concat(combos[String(this.numToons)]["notLured"]);
     }
-
-    if (this.numToons > 1) {
-      if (!this.isLured) {
-        
-        // Lure Trap Combos
-        gagComboTracks.push(['Lure', 'Trap'].concat(Array(this.numToons-2).fill('Sound')));
-        gagComboTracks.push(['Lure', 'Trap'].concat(Array(this.numToons-2).fill('Throw')));
-        gagComboTracks.push(['Lure', 'Trap'].concat(Array(this.numToons-2).fill('Squirt')));
-        gagComboTracks.push(['Lure', 'Trap'].concat(Array(this.numToons-2).fill('Drop')));
-      }
-      
-      // Drop Combos
-      gagComboTracks.push(['Drop'].concat(Array(this.numToons-1).fill('Sound')));
-      gagComboTracks.push(['Drop'].concat(Array(this.numToons-1).fill('Throw')));
-      gagComboTracks.push(['Drop'].concat(Array(this.numToons-1).fill('Squirt')));
-    }
-
-    // Filter - Remove Non-Unique Combos
-    let set  = new Set(gagComboTracks.map(JSON.stringify));
-    gagComboTracks = Array.from(set).map(JSON.parse);
 
     return gagComboTracks;
   }
@@ -556,20 +497,39 @@ export class RecommendCombos {
       } 
     });
     
-    // sort by total damage
+    // Filter - Remove Non-Unique Combos
+    recSolns = recSolns.reduce(function (p, c) {
+      // if the next object's 'counts' is not found in the output array
+      // push the object into the output array
+      if (!p.some(function (el) { return JSON.stringify(el.counts) === JSON.stringify(c.counts); })) p.push(c);
+      return p;
+    }, []);
+
+    // Sort Combos by total damage
     recSolns.sort((combo1, combo2) => (combo1.totalDamage > combo2.totalDamage) ? 1 : -1);
 
-    // optional filter - remove any that are too powerful
+    // optional filter - remove any combos that are too powerful
     if (this.recommendedOnly) {
       recSolns = recSolns.filter(function (combo) { 
         return combo.totalDamage <= combo.cogHP + Math.ceil(Math.sqrt(combo.cogHP));
-      });
+      }).slice(0,4);
     }
 
-    // Filter - Remove Non-Unique Combos
-    let set  = new Set(recSolns.map(JSON.stringify));
-    recSolns = Array.from(set).map(JSON.parse);
-
+    // Sort gags - Put 'Pass' at the end.
+    recSolns.forEach((combo) => {
+      combo.gags.sort((gag1, gag2) => (gag2.name !== 'Pass') ? 1 : -1);
+    });
+    
     return recSolns;
+  }
+
+  _checkForError() {
+    if (this.numToons === 0) {
+      return 'You must have at least 1 toon to defeat the cogs!';
+    }
+    if (this.recCombos.length === 0) {
+      return 'You need more toons to defeat this cog!';
+    }
+    return null;
   }
 }
