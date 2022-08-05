@@ -7,106 +7,95 @@ import ToonsCard from './components/ToonsCard/ToonsCard';
 import Combos from './components/Combos/Combos';
 
 function reducer(state, action) {
-  let newToon;
-  let newNumToons;
-
   switch (action.type) {
+
     case 'cog':
-      return {
-        ...state, 
-        cogLevel: action.value, 
-        cog: new Cog(action.value)
-      };
-    case 'lured':
-      return {
-        ...state,
-        isLured: action.value
+      switch (action.change) {
+        // Update Level
+        case 'level':
+          return {
+            ...state, 
+            cogState: {
+              ...state.cogState,
+              cog: new Cog(action.value)
+            } 
+          }; 
+        // Toggle Lured
+        case 'lured':
+          return {
+            ...state, 
+            cogState: {
+              ...state.cogState,
+              isLured: action.value
+            } 
+          }; 
       }
-    case 'toon1':
-      if (action.value === '') {
-        newToon = '';
-        newNumToons = state.numToons-1;
-      } else {
-        if (state.toon1 === '') {
-          newNumToons = state.numToons+1;
-          newToon = new Toon(action.value);
-        } else {
-          newToon = state.toon1;
-          newToon.updateOrganic(action.value);
-          newNumToons = state.numToons;
-        }
+
+    case 'toon': 
+      switch (action.value) {
+        // Add Toon
+        case 'add':
+          return {
+            ...state,
+            toonState: {
+              ...state.toonState,
+              numToons: state.toonState.numToons + 1,
+              toons: state.toonState.toons.map((toon, i) => {
+                if (i===action.i) { 
+                  return new Toon('None'); 
+                } else { return toon; }
+              })
+            }
+          };
+        // Remove Toon
+        case 'remove':
+          return {
+            ...state,
+            toonState: {
+              ...state.toonState,
+              numToons: state.toonState.numToons - 1,
+              toons: state.toonState.toons.map((toon, i) => {
+                if (i===action.i) { 
+                  return ''; 
+                } else { return toon; }
+              })
+            }
+          };
+        // Update Organic Track
+        default:
+          return {
+            ...state,
+            toonState: {
+              ...state.toonState,
+              toons: state.toonState.toons.map((toon, i) => {
+                if (i===action.i) { 
+                  toon.updateOrganic(action.value);
+                  return toon;
+                } else { return toon; }
+              }),
+              toonOrgs: state.toonState.toonOrgs.map((orgTrack, i) => {
+                if (i===action.i) {
+                  return action.value;
+                } else { return orgTrack; }
+              })
+            }
+          };
       }
-      return {
-        ...state, 
-        numToons: newNumToons,
-        toonOrg1: action.value,
-        toon1: newToon
-      };
-    case 'toon2':
-      if (action.value === '') {
-        newToon = '';
-        newNumToons = state.numToons-1;
-      } else {
-        if (state.toon2 === '') {
-          newToon = new Toon(action.value);
-          newNumToons = state.numToons+1;
-        } else {
-          newToon = state.toon2;
-          newToon.updateOrganic(action.value);
-          newNumToons = state.numToons;
-        }
+
+    case 'combo':
+      switch (action.change) {
+        // Update Combo Type
+        case 'comboType':
+          return {
+            ...state,
+            comboState: {
+              ...state.comboState,
+              comboType: action.value
+            }
+          }
+        // TODO: Update Gag Filter
       }
-      return {
-        ...state, 
-        numToons: newNumToons,
-        toonOrg2: action.value,
-        toon2: newToon
-      };
-    case 'toon3':
-      if (action.value === '') {
-        newToon = '';
-        newNumToons = state.numToons-1;
-      } else {
-        if (state.toon3 === '') {
-          newToon = new Toon(action.value);
-          newNumToons = state.numToons+1;
-        } else {
-          newToon = state.toon3;
-          newToon.updateOrganic(action.value);
-          newNumToons = state.numToons;
-        }
-      }
-      return {
-        ...state, 
-        numToons: newNumToons,
-        toonOrg3: action.value,
-        toon3: newToon
-      };
-    case 'toon4':
-      if (action.value === '') {
-        newToon = '';
-        newNumToons = state.numToons-1;
-      } else {
-        if (state.toon4 === '') {
-          newToon = new Toon(action.value);
-          newNumToons = state.numToons+1;
-        } else {
-          newToon = state.toon4;
-          newToon.updateOrganic(action.value);
-          newNumToons = state.numToons;
-        }
-      }
-      return {
-        ...state, 
-        numToons: newNumToons,
-        toonOrg4: action.value,
-        toon4: newToon
-      };
-    case 'comboType':
-      return {
-        ...state,
-        comboType: action.value
-      }
+      
     default:
       throw new Error();
   }
@@ -118,22 +107,30 @@ function App() {
   const [state, dispatch] = useReducer(
     reducer, 
     {
-      cogLevel: 1,
-      cog: new Cog(1),
-      isLured: false,
-      numToons: 1,
-      toonOrg1: 'None',
-      toon1: new Toon('None'),
-      toonOrg2: '',
-      toon2: '',
-      toonOrg3: '',
-      toon3: '',
-      toonOrg4: '',
-      toon4: '',
-      comboType: 'Basic'
+      cogState: {
+        cog: new Cog(1),
+        isLured: false
+      },
+      toonState: {
+        numToons: 1,
+        toons:    [new Toon('None'), '', '', ''],
+        toonOrgs: ['None',           '', '', '']
+      },
+      comboState: {
+        comboType: 'Basic',
+        gagFilters: {
+          'Toon-Up': true,
+          'Trap': true,
+          'Lure': true,
+          'Sound': true,
+          'Throw': true,
+          'Squirt': true,
+          'Drop': true
+        }
+      }
     }
   );
-  // console.log(state);
+  // console.log(state.comboState);
 
 
   return (
@@ -141,34 +138,15 @@ function App() {
       <h1>Gag Combos</h1>
       <div className='container'>
         <CogCard 
-          cog={state.cog}
           state={state}
           dispatch={dispatch}
         />
         <ToonsCard
-          toons={
-            [
-              state.toon1, 
-              state.toon2, 
-              state.toon3, 
-              state.toon4
-            ]
-          }
+          state={state}
           dispatch={dispatch}
         />
       </div>
       <Combos 
-        cog={state.cog}
-        isLured={state.isLured}
-        numToons={state.numToons}
-        toonsOrg={
-          [
-            state.toonOrg1,
-            state.toonOrg2,
-            state.toonOrg3,
-            state.toonOrg4
-          ]
-        }
         state={state}
         dispatch={dispatch}
       />

@@ -12,8 +12,9 @@ function ToonToggle({ i, dispatch, active, setActive}) {
           type='checkbox' 
           onChange={() => {
             dispatch({
-              type: 'toon'+(i+1), 
-              'value': active ? '' : 'None'
+              type: 'toon',
+              'i': i,
+              'value': active ? 'remove' : 'add'
             });
             setActive(!active);
           }}
@@ -103,7 +104,8 @@ function OrganicPicker({ i, dispatch, orgPickerActive, setOrgPickerActive }) {
                 }
                 onClick={() => {
                   dispatch({
-                    type: 'toon'+(i+1), 
+                    type: 'toon',
+                    'i': i,
                     'value': track
                   });
                   setActiveBtn(j);
@@ -172,7 +174,9 @@ function ToonPanel({ i, toon, dispatch }) {
 }
 
 
-export default function ToonsCard({ toons, dispatch }) {
+export default function ToonsCard({ state, dispatch }) {
+  let toons = state.toonState.toons;
+  
   return (
     <div>
       <h2>Toons</h2>

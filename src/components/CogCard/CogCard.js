@@ -38,7 +38,11 @@ function CogLevelPicker({ dispatch, setActive, activeBtn, setActiveBtn }) {
             className={(activeBtn === i) ? 'active' : ''}
             key={i}
             onClick={() => {
-              dispatch({type: 'cog', 'value': lvl});
+              dispatch({
+                type: 'cog',
+                'change': 'level',
+                'value': lvl
+              });
               setActiveBtn(i);
               setActive(false);
             }}
@@ -67,8 +71,9 @@ function LuredToggle({ state, dispatch }) {
             type='checkbox' 
             onChange={() => {
               dispatch({
-                type: 'lured', 
-                'value': !state.isLured
+                type: 'cog',
+                'change': 'lured',
+                'value': !state.cogState.isLured
               });
             }}
             defaultChecked={
@@ -83,9 +88,11 @@ function LuredToggle({ state, dispatch }) {
 }
 
 
-export default function CogCard({ cog, state, dispatch }) {
+export default function CogCard({ state, dispatch }) {
   const [active, setActive] = useState(false);
   const [activeBtn, setActiveBtn] = useState(0);
+
+  const cog = state.cogState.cog;
 
   return (
     <div className='left'>

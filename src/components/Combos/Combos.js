@@ -3,7 +3,7 @@ import './Combos.css';
 import { RecommendCombos } from '../../core/Combo';
 
 
-function ComboCell({ cog, combo, toonsOrg, isLured }) {
+function ComboCell({ combo }) {
   let solutionTracks = Object.keys(combo.counts);
 
   return (
@@ -85,7 +85,7 @@ function ComboCell({ cog, combo, toonsOrg, isLured }) {
 }
 
 
-function CombosGrid({ cog, toonsOrg, isLured, recommendCombos }) {
+function CombosGrid({ cog, toonOrgs, isLured, recommendCombos }) {
   return (
     <div className='combos-grid'>
       <>
@@ -102,7 +102,7 @@ function CombosGrid({ cog, toonsOrg, isLured, recommendCombos }) {
                 key={i}
                 cog={cog}
                 combo={combo} 
-                toonsOrg={toonsOrg}
+                toonOrgs={toonOrgs}
                 isLured={isLured}
               />          
             ))}
@@ -115,19 +115,38 @@ function CombosGrid({ cog, toonsOrg, isLured, recommendCombos }) {
 
 
 function MainFilters({ state, dispatch }) {
+  let comboType = state.comboState.comboType;
   return (
     <div className='btns'>
       <button 
-        className={state.comboType==='All' ? 'active' : ''}
-        onClick={() => dispatch({type: 'comboType', 'value': 'All'})}
+        className={comboType==='All' ? 'active' : ''}
+        onClick={() => {
+          dispatch({
+            type: 'combo', 
+            'change': 'comboType',
+            'value': 'All'
+          })
+        }}
       >All</button>
       <button
-        className={state.comboType==='Basic' ? 'active' : ''}
-        onClick={() => dispatch({type: 'comboType', 'value': 'Basic'})}
+        className={comboType==='Basic' ? 'active' : ''}
+        onClick={() => {
+          dispatch({
+            type: 'combo', 
+            'change': 'comboType',
+            'value': 'Basic'
+          })
+        }}
       >Basic</button>
       <button
-        className={state.comboType==='Best' ? 'active' : ''}
-        onClick={() => dispatch({type: 'comboType', 'value': 'Best'})}
+        className={comboType==='Best' ? 'active' : ''}
+        onClick={() => {
+          dispatch({
+            type: 'combo', 
+            'change': 'comboType',
+            'value': 'Best'
+          })
+        }}
       >Best</button>
     </div>
   );
@@ -175,12 +194,17 @@ function TitleContainer({ state, dispatch }) {
 }
  
 
-export default function Combos({cog, isLured, numToons, toonsOrg, state, dispatch }) {
+export default function Combos({ state, dispatch }) {
+
+  let cog = state.cogState.cog;
+  let isLured = state.cogState.isLured;
+  let numToons = state.toonState.numToons;
+  let toonOrgs = state.toonState.toonOrgs;
 
   let recommendCombos = new RecommendCombos(
-    cog, isLured,        // cog params
-    numToons, toonsOrg,  // toons params 
-    state.comboType    // recommended combos only?
+    cog, isLured,               // cog params
+    numToons, toonOrgs,         // toons params 
+    state.comboState.comboType  // recommended combos only?
   )
   // console.log(recCombos);
 
@@ -192,7 +216,7 @@ export default function Combos({cog, isLured, numToons, toonsOrg, state, dispatc
       />
       <CombosGrid 
         cog={cog}
-        toonsOrg={toonsOrg}
+        toonOrgs={toonOrgs}
         isLured={isLured}
         recommendCombos={recommendCombos}
       />
