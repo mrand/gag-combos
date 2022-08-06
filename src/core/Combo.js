@@ -466,12 +466,14 @@ export class RecommendCombos {
     if (this.numToons === 0) return [];
 
     // Init
-    let gagComboTracks = combos[String(this.numToons)]["basic"];
-    if (this.comboType !== 'Basic') {
-      gagComboTracks = gagComboTracks.concat(combos[String(this.numToons)]["default"]);;
+    let gagComboTracks = [];
+    if (this.comboType === 'Basic') {
+      gagComboTracks = gagComboTracks.concat(combos[String(this.numToons)]["basic"]);
+    } else {
       if (!this.isLured) {
         gagComboTracks = gagComboTracks.concat(combos[String(this.numToons)]["notLured"]);
       }
+      gagComboTracks = gagComboTracks.concat(combos[String(this.numToons)]["default"]);
     }
     
     
@@ -574,7 +576,7 @@ export class RecommendCombos {
       return 'You must have at least 1 toon to defeat the cogs!';
     } else if (this.recCombos.length === 0) {
       if (this.comboType === 'Best') {
-        return 'Looks like there isn\'t any *best* combo meeting these requirements!';
+        return 'No recommended "best" combos! Try the "All" filter instead.';
       } else {
         return 'You need more toons to defeat this cog!';
       }

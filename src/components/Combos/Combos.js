@@ -3,11 +3,15 @@ import './Combos.css';
 import { RecommendCombos } from '../../core/Combo';
 
 
-function ComboCell({ combo }) {
+function ComboCell({ combo, isOnly }) {
   let solutionTracks = Object.keys(combo.counts);
 
   return (
-    <div className='combo-cell'>
+    <div 
+      className={
+        'combo-cell'+ (isOnly ? ' span-2-cols' : '')
+      }
+    >
       <div className='left'>
         {/* heading */}
         <h3>
@@ -90,7 +94,7 @@ function CombosGrid({ cog, toonOrgs, isLured, recommendCombos }) {
     <div className='combos-grid'>
       <>
         {(recommendCombos.errorMsg) ? (
-          <div className='combo-cell error-msg'>
+          <div className='combo-cell span-2-cols error-msg'>
             <h3>
               {recommendCombos.errorMsg}
             </h3>
@@ -100,10 +104,8 @@ function CombosGrid({ cog, toonOrgs, isLured, recommendCombos }) {
             {recommendCombos.recCombos.map((combo, i) => (
               <ComboCell 
                 key={i}
-                cog={cog}
                 combo={combo} 
-                toonOrgs={toonOrgs}
-                isLured={isLured}
+                isOnly={recommendCombos.recCombos.length===1}
               />          
             ))}
           </>  
@@ -117,7 +119,7 @@ function CombosGrid({ cog, toonOrgs, isLured, recommendCombos }) {
 function MainFilters({ state, dispatch }) {
   let comboType = state.comboState.comboType;
   return (
-    <div className='btns'>
+    <div className='btns main-filters'>
       <button 
         className={comboType==='All' ? 'active' : ''}
         onClick={() => {
@@ -152,6 +154,36 @@ function MainFilters({ state, dispatch }) {
   );
 }
 
+function GagToggles({ state, dispatch }) {
+  let trackImgs = {
+    'Toon-Up': './img/gags/toonup-Feather.png',
+    'Trap':    './img/gags/trap-Banana_Peel.png',
+    'Lure':    './img/gags/lure-1_Bill.png',
+    'Sound':   './img/gags/sound-Bike_Horn.png',
+    'Throw':   './img/gags/throw-Cupcake.png',
+    'Squirt':  './img/gags/squirt-Squirting_Flower.png',
+    'Drop':    './img/gags/drop-Flower_Pot.png'
+  };
+  return (
+    <div className='btns gag-toggles'>
+      {Object.keys(trackImgs).map((track, i) => (
+        <button 
+          key={i}
+          className={state.comboState.gagFilters[track] ? 'active' : ''}
+          onClick={() => {
+            dispatch({
+              type: 'combo', 
+              'change': '',
+              'value': track
+            });
+          }}
+        >
+          <img src={trackImgs[track]} alt={track + ' Gag'} />
+        </button>
+      ))}
+    </div>
+  );
+}
 
 function TitleContainer({ state, dispatch }) {
   return (
@@ -165,29 +197,10 @@ function TitleContainer({ state, dispatch }) {
       </div>
       {/* <div>
         <h3>Toggle Gag Tracks</h3>
-        <div className='btns gag-toggles'>
-          <button className='active'>
-            <img src='./img/gags/toonup-Feather.png' alt='Toon-Up Gag' />
-          </button>
-          <button className='active'>
-            <img src='./img/gags/trap-Banana_Peel.png' alt='Trap Gag' />
-          </button>
-          <button className='active'>
-            <img src='./img/gags/lure-1_Bill.png' alt='Lure Gag' />
-          </button>
-          <button className='active'>
-            <img src='./img/gags/sound-Bike_Horn.png' alt='Sound Gag' />
-          </button>
-          <button className='active'>
-            <img src='./img/gags/throw-Cupcake.png' alt='Throw Gag' />
-          </button>
-          <button className='active'>
-            <img src='./img/gags/squirt-Squirting_Flower.png' alt='Squirt Gag' />
-          </button>
-          <button className='active'>
-            <img src='./img/gags/drop-Flower_Pot.png' alt='Drop Gag' />
-          </button>
-        </div>
+        <GagToggles
+          state={state}
+          dispatch={dispatch}
+        />
       </div> */}
     </div>
   );
@@ -196,8 +209,8 @@ function TitleContainer({ state, dispatch }) {
 
 export default function Combos({ state, dispatch }) {
 
-  let cog = state.cogState.cog;
-  let isLured = state.cogState.isLured;
+  let cog =      state.cogState.cog;
+  let isLured =  state.cogState.isLured;
   let numToons = state.toonState.numToons;
   let toonOrgs = state.toonState.toonOrgs;
 
@@ -206,7 +219,7 @@ export default function Combos({ state, dispatch }) {
     numToons, toonOrgs,         // toons params 
     state.comboState.comboType  // recommended combos only?
   )
-  // console.log(recCombos);
+  // console.log(recommendCombos);
 
   return (
     <div className='combos'>
@@ -220,7 +233,7 @@ export default function Combos({ state, dispatch }) {
         isLured={isLured}
         recommendCombos={recommendCombos}
       />
-      {(!isLured && numToons > 1) ? (
+      {(!isLured && recommendCombos.recCombos.length > 0) ? (
         <h4>* Lure Accuracy Varies from 50% to 95%</h4>
       ) : ( null )}
       

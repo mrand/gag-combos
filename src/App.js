@@ -95,9 +95,18 @@ function reducer(state, action) {
               comboType: action.value
             }
           }
-        // TODO: Update Gag Filter
+        // Update Track
         default:
-          throw new Error();
+          return {
+            ...state,
+            comboState: {
+              ...state.comboState,
+              gagFilters: {
+                ...state.comboState.gagFilters,
+                [action.value]: !state.comboState.gagFilters[action.value]
+              }
+            }
+          }
       }
       
     default:
@@ -134,7 +143,7 @@ function App() {
       }
     }
   );
-  // console.log(state.comboState);
+  // console.log(state.comboState.gagFilters);
 
 
   return (

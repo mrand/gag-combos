@@ -14,8 +14,13 @@
       ["Squirt"],
       ["Drop"]
     ],
-    "default": [],
-    "notLured": []
+    "notLured": [],
+    "default": [
+      ["Sound"],
+      ["Throw"],
+      ["Squirt"],
+      ["Drop"]
+    ]
   },
   "2": {
     "basic": [
@@ -24,18 +29,22 @@
       ["Squirt", "Squirt"],
       ["Drop", "Drop"]
     ],
-    "default": [
-      ["Sound", "Throw"],
-      ["Sound", "Squirt"],
-      ["Sound", "Drop"],
-      ["Throw", "Squirt"],
-      ["Throw", "Drop"],
-      ["Squirt", "Drop"]
-    ],
     "notLured": [
       ["Trap", "Lure"],
       ["Lure", "Throw"],
       ["Lure", "Squirt"]
+    ],
+    "default": [
+      ["Sound", "Sound"],
+      ["Sound", "Throw"],
+      ["Sound", "Squirt"],
+      ["Sound", "Drop"],
+      ["Throw", "Throw"],
+      ["Throw", "Squirt"],
+      ["Throw", "Drop"],
+      ["Squirt", "Squirt"],
+      ["Squirt", "Drop"],
+      ["Drop", "Drop"]
     ]
   },
   "3": {
@@ -44,23 +53,6 @@
       ["Throw", "Throw", "Throw"],
       ["Squirt", "Squirt", "Squirt"],
       ["Drop", "Drop", "Drop"]
-    ],
-    "default": [
-      ["Sound", "Sound", "Throw"],
-      ["Sound", "Sound", "Squirt"],
-      ["Sound", "Sound", "Drop"],
-      ["Sound", "Throw", "Throw"],
-      ["Sound", "Throw", "Squirt"],
-      ["Sound", "Throw", "Drop"],
-      ["Sound", "Squirt", "Squirt"],
-      ["Sound", "Squirt", "Drop"],
-      ["Throw", "Throw", "Squirt"],
-      ["Throw", "Throw", "Drop"],
-      ["Throw", "Squirt", "Squirt"],
-      ["Throw", "Squirt", "Drop"],
-      ["Throw", "Drop", "Drop"],
-      ["Squirt", "Squirt", "Drop"],
-      ["Squirt", "Drop", "Drop"]
     ],
     "notLured": [
       ["Trap", "Lure", "Sound"],
@@ -72,6 +64,27 @@
       ["Lure", "Throw", "Drop"],
       ["Lure", "Squirt", "Squirt"],
       ["Lure", "Squirt", "Drop"]
+    ],
+    "default": [
+      ["Sound", "Sound", "Sound"],
+      ["Sound", "Sound", "Throw"],
+      ["Sound", "Sound", "Squirt"],
+      ["Sound", "Sound", "Drop"],
+      ["Sound", "Throw", "Throw"],
+      ["Sound", "Throw", "Squirt"],
+      ["Sound", "Throw", "Drop"],
+      ["Sound", "Squirt", "Squirt"],
+      ["Sound", "Squirt", "Drop"],
+      ["Throw", "Throw", "Throw"],
+      ["Throw", "Throw", "Squirt"],
+      ["Throw", "Throw", "Drop"],
+      ["Throw", "Squirt", "Squirt"],
+      ["Throw", "Squirt", "Drop"],
+      ["Throw", "Drop", "Drop"],
+      ["Squirt", "Squirt", "Squirt"],
+      ["Squirt", "Squirt", "Drop"],
+      ["Squirt", "Drop", "Drop"],
+      ["Drop", "Drop", "Drop"]
     ]
   },
   "4": {
@@ -80,39 +93,6 @@
       ["Throw", "Throw", "Throw", "Throw"],
       ["Squirt", "Squirt", "Squirt", "Squirt"],
       ["Drop", "Drop", "Drop", "Drop"]
-    ],
-    "default": [
-      ["Sound", "Sound", "Sound", "Throw"],
-      ["Sound", "Sound", "Sound", "Squirt"],
-      ["Sound", "Sound", "Sound", "Drop"],
-      ["Sound", "Sound", "Throw", "Throw"],
-      ["Sound", "Sound", "Throw", "Squirt"],
-      ["Sound", "Sound", "Throw", "Drop"],
-      ["Sound", "Sound", "Squirt", "Squirt"],
-      ["Sound", "Sound", "Squirt", "Drop"],
-      ["Sound", "Sound", "Drop", "Drop"],
-      ["Sound", "Throw", "Throw", "Throw"],
-      ["Sound", "Throw", "Throw", "Squirt"],
-      ["Sound", "Throw", "Throw", "Drop"],
-      ["Sound", "Throw", "Squirt", "Squirt"],
-      ["Sound", "Throw", "Squirt", "Drop"],
-      ["Sound", "Throw", "Drop", "Drop"],
-      ["Sound", "Squirt", "Squirt", "Squirt"],
-      ["Sound", "Squirt", "Squirt", "Drop"],
-      ["Sound", "Squirt", "Drop", "Drop"],
-      ["Sound", "Drop", "Drop", "Drop"],
-      ["Throw", "Throw", "Throw", "Squirt"],
-      ["Throw", "Throw", "Throw", "Drop"],
-      ["Throw", "Throw", "Squirt", "Squirt"],
-      ["Throw", "Throw", "Squirt", "Drop"],
-      ["Throw", "Throw", "Drop", "Drop"],
-      ["Throw", "Squirt", "Squirt", "Squirt"],
-      ["Throw", "Squirt", "Squirt", "Drop"],
-      ["Throw", "Squirt", "Drop", "Drop"],
-      ["Throw", "Drop", "Drop", "Drop"],
-      ["Squirt", "Squirt", "Squirt", "Drop"],
-      ["Squirt", "Squirt", "Drop", "Drop"],
-      ["Squirt", "Drop", "Drop", "Drop"]
     ],
     "notLured": [
       ["Trap", "Lure", "Sound", "Sound"],
@@ -133,6 +113,43 @@
       ["Lure", "Squirt", "Squirt", "Squirt"],
       ["Lure", "Squirt", "Squirt", "Drop"],
       ["Lure", "Squirt", "Drop", "Drop"]
+    ],
+    "default": [
+      ["Sound", "Sound", "Sound", "Sound"],
+      ["Sound", "Sound", "Sound", "Throw"],
+      ["Sound", "Sound", "Sound", "Squirt"],
+      ["Sound", "Sound", "Sound", "Drop"],
+      ["Sound", "Sound", "Throw", "Throw"],
+      ["Sound", "Sound", "Throw", "Squirt"],
+      ["Sound", "Sound", "Throw", "Drop"],
+      ["Sound", "Sound", "Squirt", "Squirt"],
+      ["Sound", "Sound", "Squirt", "Drop"],
+      ["Sound", "Sound", "Drop", "Drop"],
+      ["Sound", "Throw", "Throw", "Throw"],
+      ["Sound", "Throw", "Throw", "Squirt"],
+      ["Sound", "Throw", "Throw", "Drop"],
+      ["Sound", "Throw", "Squirt", "Squirt"],
+      ["Sound", "Throw", "Squirt", "Drop"],
+      ["Sound", "Throw", "Drop", "Drop"],
+      ["Sound", "Squirt", "Squirt", "Squirt"],
+      ["Sound", "Squirt", "Squirt", "Drop"],
+      ["Sound", "Squirt", "Drop", "Drop"],
+      ["Sound", "Drop", "Drop", "Drop"],
+      ["Throw", "Throw", "Throw", "Throw"],
+      ["Throw", "Throw", "Throw", "Squirt"],
+      ["Throw", "Throw", "Throw", "Drop"],
+      ["Throw", "Throw", "Squirt", "Squirt"],
+      ["Throw", "Throw", "Squirt", "Drop"],
+      ["Throw", "Throw", "Drop", "Drop"],
+      ["Throw", "Squirt", "Squirt", "Squirt"],
+      ["Throw", "Squirt", "Squirt", "Drop"],
+      ["Throw", "Squirt", "Drop", "Drop"],
+      ["Throw", "Drop", "Drop", "Drop"],
+      ["Squirt", "Squirt", "Squirt", "Squirt"],
+      ["Squirt", "Squirt", "Squirt", "Drop"],
+      ["Squirt", "Squirt", "Drop", "Drop"],
+      ["Squirt", "Drop", "Drop", "Drop"],
+      ["Drop", "Drop", "Drop", "Drop"]
     ]
   }
 }
