@@ -154,36 +154,36 @@ function MainFilters({ state, dispatch }) {
   );
 }
 
-function GagToggles({ state, dispatch }) {
-  let trackImgs = {
-    'Toon-Up': './img/gags/toonup-Feather.png',
-    'Trap':    './img/gags/trap-Banana_Peel.png',
-    'Lure':    './img/gags/lure-1_Bill.png',
-    'Sound':   './img/gags/sound-Bike_Horn.png',
-    'Throw':   './img/gags/throw-Cupcake.png',
-    'Squirt':  './img/gags/squirt-Squirting_Flower.png',
-    'Drop':    './img/gags/drop-Flower_Pot.png'
-  };
-  return (
-    <div className='btns gag-toggles'>
-      {Object.keys(trackImgs).map((track, i) => (
-        <button 
-          key={i}
-          className={state.comboState.gagFilters[track] ? 'active' : ''}
-          onClick={() => {
-            dispatch({
-              type: 'combo', 
-              'change': '',
-              'value': track
-            });
-          }}
-        >
-          <img src={trackImgs[track]} alt={track + ' Gag'} />
-        </button>
-      ))}
-    </div>
-  );
-}
+// function GagToggles({ state, dispatch }) {
+//   let trackImgs = {
+//     'Toon-Up': './img/gags/toonup-Feather.png',
+//     'Trap':    './img/gags/trap-Banana_Peel.png',
+//     'Lure':    './img/gags/lure-1_Bill.png',
+//     'Sound':   './img/gags/sound-Bike_Horn.png',
+//     'Throw':   './img/gags/throw-Cupcake.png',
+//     'Squirt':  './img/gags/squirt-Squirting_Flower.png',
+//     'Drop':    './img/gags/drop-Flower_Pot.png'
+//   };
+//   return (
+//     <div className='btns gag-toggles'>
+//       {Object.keys(trackImgs).map((track, i) => (
+//         <button 
+//           key={i}
+//           className={state.comboState.gagFilters[track] ? 'active' : ''}
+//           onClick={() => {
+//             dispatch({
+//               type: 'combo', 
+//               'change': '',
+//               'value': track
+//             });
+//           }}
+//         >
+//           <img src={trackImgs[track]} alt={track + ' Gag'} />
+//         </button>
+//       ))}
+//     </div>
+//   );
+// }
 
 function TitleContainer({ state, dispatch }) {
   return (
