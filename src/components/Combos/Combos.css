@@ -59,7 +59,7 @@
   transform: scale(0.9);
   transition: 0.1s linear transform;
   overflow: hidden;
-  opacity: 0.75;
+  opacity: 0.5;
 }
 .gag-toggles button img { opacity: 0.75; }
 .gag-toggles button::after {
