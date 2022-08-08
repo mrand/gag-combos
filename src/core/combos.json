@@ -104,6 +104,7 @@
       ["Trap", "Lure", "Throw", "Drop"],
       ["Trap", "Lure", "Squirt", "Squirt"],
       ["Trap", "Lure", "Squirt", "Drop"],
+      ["Trap", "Lure", "Drop", "Drop"],
       ["Lure", "Throw", "Throw", "Throw"],
       ["Lure", "Throw", "Throw", "Squirt"],
       ["Lure", "Throw", "Throw", "Drop"],
