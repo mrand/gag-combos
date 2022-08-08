@@ -20,12 +20,6 @@
   }
 }
 
-/* .title-container > div > * {
-  border: 1px solid green;
-} */
-
-/* .title-container h3 { margin: 0; border: 1px solid red;} */
-
 .title-container .btns {
   display: flex;
   justify-content: center;

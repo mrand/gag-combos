@@ -449,13 +449,15 @@ export class RecommendCombos {
     isLured=false,
     numToons=0,
     toonsOrg=[],
-    comboType='All'
+    comboType='All',
+    gagFilters=null
   ) {
     this.cog = cog;
     this.isLured = isLured;
     this.numToons = numToons;
     this.toonsOrg = toonsOrg;
     this.comboType = comboType;
+    this.gagFilters = gagFilters;
 
     this.gagComboTracks = this._getGagComboTracks();
     this.recCombos = this._recCombos();
@@ -476,8 +478,6 @@ export class RecommendCombos {
       gagComboTracks = gagComboTracks.concat(combos[String(this.numToons)]["default"]);
     }
     
-    
-
     return gagComboTracks;
   }
 
@@ -505,9 +505,30 @@ export class RecommendCombos {
     });
     
     // filter solutions
+    recSolns = this._filterByGags(recSolns);
     recSolns = this._filterSolns(recSolns);
  
     return recSolns;
+  }
+
+  _filterByGags(recSolns) {
+    if (this.gagFilters) {
+      let tracks = Object.keys(this.gagFilters);
+      for (let i=0; i<tracks.length; i++) {
+        let track = tracks[i];
+        if (!this.gagFilters[track]) {
+          recSolns = this._filterByGag(recSolns, track);
+        }
+      }
+    }
+    return recSolns;
+  }
+
+  _filterByGag(recSolns, track) {
+    return recSolns.filter(function (combo) { 
+      let counts = Object.keys(combo.counts);
+      return !counts.includes(track);
+    });
   }
 
   _filterSolns(recSolns) {
