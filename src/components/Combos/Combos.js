@@ -213,12 +213,13 @@ export default function Combos({ state, dispatch }) {
   let isLured =  state.cogState.isLured;
   let numToons = state.toonState.numToons;
   let toonOrgs = state.toonState.toonOrgs;
+  let comboType = state.comboState.comboType;
+  let gagFilters = state.comboState.gagFilters;
 
   let recommendCombos = new RecommendCombos(
-    cog, isLured,                // cog params
-    numToons, toonOrgs,          // toons params 
-    state.comboState.comboType,  // recommended combos only?
-    state.comboState.gagFilters  // filter by gag?
+    cog, isLured,          // cog params
+    numToons, toonOrgs,    // toons params 
+    comboType, gagFilters  // combo params
   )
   // console.log(recommendCombos);
 

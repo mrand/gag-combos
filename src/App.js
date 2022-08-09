@@ -3,8 +3,8 @@ import Cog from './core/Cog';
 import Toon from './core/Toon';
 import CogCard from './components/CogCard/CogCard';
 import ToonsCard from './components/ToonsCard/ToonsCard';
-
 import Combos from './components/Combos/Combos';
+
 
 function reducer(state, action) {
   switch (action.type) {
@@ -144,7 +144,6 @@ function App() {
     }
   );
   // console.log(state.comboState.gagFilters);
-
 
   return (
     <div className='wrapper'>

@@ -594,10 +594,22 @@ export class RecommendCombos {
 
   _checkForError() {
     if (this.numToons === 0) {
-      return 'You must have at least 1 toon to defeat the cogs!';
+      return 'You need at least 1 toon to defeat the cogs!';
     } else if (this.recCombos.length === 0) {
       if (this.comboType === 'Best') {
         return 'No recommended "best" combos! Try the "All" filter instead.';
+      } else if (
+        JSON.stringify(this.gagFilters) !== JSON.stringify({
+          'Toon-Up': true,
+          'Trap': true,
+          'Lure': true,
+          'Sound': true,
+          'Throw': true,
+          'Squirt': true,
+          'Drop': true
+        })
+      ) {
+        return 'You may need more gag tracks to defeat this cog!'
       } else {
         return 'You need more toons to defeat this cog!';
       }
