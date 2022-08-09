@@ -1,6 +1,6 @@
 import React from 'react';
 import './Combos.css';
-import { RecommendCombos } from '../../core/Combo';
+import { RecommendCombos } from '../../core/RecommendCombos';
 
 
 function ComboCell({ combo, isOnly }) {
