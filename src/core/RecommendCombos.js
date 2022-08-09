@@ -123,26 +123,13 @@ export class FindCombo {
     let iterCount = 0;  // error check - iteration counter
     while (!combo.defeatsCog) {
 
-      // find minimum damage gag (not Lure or Toon-Up, which have 0 damage)
+      // find minimum level gag (not Lure or Toon-Up, which have 0 damage)
       let tmp = comboGags.filter(function(gag) { return gag.track !== "Lure"; });
       let updateGag = tmp.hasNonZeroMin('level');
       let updateGagIndex = comboGags.findIndex(x => (x === updateGag));
 
       // lowest gag can go no higher ?
-      if (updateGag.level === 7) {
-        
-        // edge case, stronger gag with a lower level exists (e.g. TNT vs Geyser)
-        tmp = comboGags.filter(function(gag) { return gag.track !== "Lure"; });
-        tmp = tmp.hasNonZeroMin('level');
-        if (tmp.level < updateGag.level) {
-          updateGag = tmp;
-          updateGagIndex = comboGags.findIndex(x => (x === tmp));
-        
-        // true lowest gag can go no higher - no solution
-        } else {
-          return false;
-        }
-      }
+      if (updateGag.level === 7) return false;
 
       // replace weakest gag with next highest gag
       comboGags[updateGagIndex] = new Gag(
@@ -209,9 +196,11 @@ export class FindCombo {
         }
       }
 
-      // Throw error after 50 iterations - arbitrary temp just in case
+      // Throw error after 3 iterations
+      // (a 4 gag combo will have a maximum of 3 downward iterations since 
+      // the 4th (weakest) gag was just raised up a level in the previous loop)
       iterCount++;
-      if (iterCount>50) {
+      if (iterCount>3) {
         throw new Error('Welp, the while loop was stuck iterating downwards.'); 
       }
     }
