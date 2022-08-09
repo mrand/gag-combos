@@ -81,9 +81,5 @@ export default class Toon {
   }
 }
 
-
-// Check if names are strictly gendered
-// e.g. can 'Miss' be a boy name prefix?
-// if strictly gendered, may need to redo names lists with gender separation
 // let testToon = new Toon('Throw');
 // console.log(`${testToon}`);
