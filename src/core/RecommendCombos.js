@@ -355,18 +355,15 @@ export class RecommendCombos {
       let tmp1 = recSolns.filter(function(combo) {
         return combo.totalDamage <= combo.cogHP + Math.ceil(Math.sqrt(combo.cogHP)); 
       });
-      // combos with total damage equal to hp
-      let tmp2 = recSolns.filter(function (combo) { 
-        return combo.totalDamage === combo.cogHP;
-      });
-      // if more than 4 combos equals hp, return them all
-      if (tmp2.length >= 4) {
-        recSolns = tmp2;
-      // else return top 4 overall combos
-      } else {
-        recSolns = tmp1.slice(0,4);
+      // if still more than 4 combos...
+      if (tmp1.length >= 4) {
+        // ...get combos with total damage <= 4th best combo
+        let combo4damage = tmp1[3].totalDamage;
+        tmp1 = tmp1.filter(function(combo) {
+          return combo.totalDamage <= combo4damage; 
+        });
       }
-
+      recSolns = tmp1;
     }
 
     // sort gags - put 'Pass' at the end.
