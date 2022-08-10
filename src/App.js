@@ -60,6 +60,11 @@ function reducer(state, action) {
                 if (i===action.i) { 
                   return ''; 
                 } else { return toon; }
+              }),
+              toonOrgs: state.toonState.toonOrgs.map((orgGag, i) => {
+                if (i===action.i) { 
+                  return ''; 
+                } else { return orgGag; }
               })
             }
           };
