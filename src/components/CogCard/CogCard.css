@@ -66,6 +66,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 8px;
 }
 .cog-stats img {
   clip-path: polygon(
@@ -84,12 +85,12 @@
   width: 130px;
   color: var(--metal-shadow); 
   font-family: SpecialElite, cursive;
-  margin-top: 8px;
 }
 
 .cog-stats .cog-level {
   line-height: 110%;
   font-family: BowlbyOneSC,Arial,Roboto,Helvetica,sans-serif;
+  margin-top: 8px;
 }
 
 /* Level Buttons */
