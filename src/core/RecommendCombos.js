@@ -16,19 +16,6 @@ Array.prototype.hasNonZeroMin = function(attrib) {
   })) || null;
 }
 
-// eslint-disable-next-line no-extend-native
-Array.prototype.hasMax = function(attrib) {
-  const checker = (o, i) => typeof(o) === 'object' && o[i]
-  return (this.length && this.reduce(function(prev, curr){
-      const prevOk = checker(prev, attrib);
-      const currOk = checker(curr, attrib);
-      if (!prevOk && !currOk) return {};
-      if (!prevOk) return curr;
-      if (!currOk) return prev;
-      return (prev[attrib] > curr[attrib]) ? prev : curr; 
-  })) || null;
-}
-
 
 function parseJSON(gags) {
   let types = Object.keys(gags);
@@ -356,7 +343,7 @@ export class RecommendCombos {
         return combo.totalDamage <= combo.cogHP + Math.ceil(Math.sqrt(combo.cogHP)); 
       });
       // if still more than 4 combos...
-      if (tmp1.length >= 4) {
+      if (tmp1.length > 4) {
         // ...get combos with total damage <= 4th best combo
         let combo4damage = tmp1[3].totalDamage;
         tmp1 = tmp1.filter(function(combo) {
