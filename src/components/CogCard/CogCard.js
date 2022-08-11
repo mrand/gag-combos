@@ -14,11 +14,8 @@ function CogStats({ cog }) {
         src={cog.cogImage}
         alt={`${cog.cog} Cog`}
       />
-      <b>
-        {cog.cog}
-        <br/>
-        {cog.suit}
-      </b>
+      <b>{cog.cog}</b>
+      <b>{cog.suit}</b>
       <span className='cog-level'>
         Level {cog.level} 
         <br />
