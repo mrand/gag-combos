@@ -3,6 +3,11 @@
   src: url(/public/fonts/BowlbyOneSC-Regular.ttf);
 }
 
+@font-face {
+  font-family: SpecialElite;
+  src: url(/public/fonts/SpecialElite-Regular.ttf);
+}
+
 /* natural box layout model, allowing overrides */
 html { box-sizing: border-box; }
 *, *::before, *::after { box-sizing: inherit; }

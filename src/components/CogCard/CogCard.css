@@ -83,6 +83,8 @@
 .cog-stats b { 
   width: 130px;
   color: var(--metal-shadow); 
+  font-family: SpecialElite, cursive;
+  margin-top: 8px;
 }
 
 .cog-stats .cog-level {
