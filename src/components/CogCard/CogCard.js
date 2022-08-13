@@ -26,7 +26,7 @@ function CogStats({ cog }) {
 }
 
 
-function CogLevelPicker({ dispatch, setActive, activeBtn, setActiveBtn }) {
+function CogLevelPicker({ state, dispatch, setActive }) {
 
   return (
     <div className='lvl-picker'>
@@ -34,7 +34,7 @@ function CogLevelPicker({ dispatch, setActive, activeBtn, setActiveBtn }) {
       <div className='lvl-btns'>
         {lvlNums.map((lvl, i) => (
           <button
-            className={(activeBtn === i) ? 'active' : ''}
+            className={(state.cogState.cog.level-1 === i) ? 'active' : ''}
             key={i}
             onClick={() => {
               dispatch({
@@ -42,7 +42,6 @@ function CogLevelPicker({ dispatch, setActive, activeBtn, setActiveBtn }) {
                 'change': 'level',
                 'value': lvl
               });
-              setActiveBtn(i);
               setActive(false);
             }}
           >{lvl}</button>
@@ -90,7 +89,6 @@ function LuredToggle({ state, dispatch }) {
 
 export default function CogCard({ state, dispatch }) {
   const [active, setActive] = useState(false);
-  const [activeBtn, setActiveBtn] = useState(0);
 
   const cog = state.cogState.cog;
 
@@ -105,10 +103,9 @@ export default function CogCard({ state, dispatch }) {
         {
           (active) ? (
             <CogLevelPicker 
+              state={state}
               dispatch={dispatch}
               setActive={setActive} 
-              activeBtn={activeBtn}
-              setActiveBtn={setActiveBtn}
             />
 
           ) : (

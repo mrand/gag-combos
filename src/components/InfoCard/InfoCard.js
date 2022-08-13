@@ -43,7 +43,7 @@ export default function InfoCard() {
           </p>
           <img src='./img/mcnugget.webp' width='1000' height='600' alt='McNugget Portrait' />
           <p> 
-            I have been playing Toontown since it's release in 2003 (I even remember watching the commercials for it on Disney Channel as a kid!).
+            I have been playing Toontown since its release in 2003 (I even remember watching the Toontown commercials on Disney Channel as a kid!).
             I've also played Toontown Rewritten since its Alpha days, back when you needed a key to wait in line to play!
           </p>
           <p>

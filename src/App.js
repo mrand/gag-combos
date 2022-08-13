@@ -167,10 +167,10 @@ function App() {
   );
   // console.log(state.comboState.gagFilters);
   
-  let screenWidth = windowSize.innerWidth;
+  let isMobile = (Math.min(windowSize.innerWidth, window.innerHeight) <= 850);
   return (
     <>
-      {screenWidth <= 850 ? (
+      {isMobile ? (
         <PageMobile
           state={state}
           dispatch={dispatch}
