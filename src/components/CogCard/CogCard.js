@@ -75,8 +75,9 @@ function LuredToggle({ state, dispatch }) {
                 'value': !state.cogState.isLured
               });
             }}
+            checked={state.isLured}
             defaultChecked={
-              state.isLured ? 'checked' : null
+              state.cogState.isLured ? 'checked' : null
             }
           />
           <span className='slider'></span>
@@ -94,7 +95,7 @@ export default function CogCard({ state, dispatch }) {
   const cog = state.cogState.cog;
 
   return (
-    <div className='left'>
+    <div id='cog'>
       <h2>Cog</h2>
       <div className='cog-card'>
         <span className='bolt'></span>

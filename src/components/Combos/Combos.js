@@ -224,7 +224,7 @@ export default function Combos({ state, dispatch }) {
   // console.log(recommendCombos);
 
   return (
-    <div className='combos'>
+    <div id='combos'>
       <TitleContainer 
         state={state}
         dispatch={dispatch}

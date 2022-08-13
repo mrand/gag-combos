@@ -1,9 +1,14 @@
-import React, { useReducer } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import Cog from './core/Cog';
 import Toon from './core/Toon';
-import CogCard from './components/CogCard/CogCard';
-import ToonsCard from './components/ToonsCard/ToonsCard';
-import Combos from './components/Combos/Combos';
+import PageDesktop from './components/Page/PageDesktop';
+import PageMobile from './components/Page/PageMobile';
+
+
+function getWindowSize() {
+  const {innerWidth, innerHeight} = window;
+  return {innerWidth, innerHeight};
+}
 
 
 function reducer(state, action) {
@@ -121,6 +126,18 @@ function reducer(state, action) {
 
 
 function App() {
+  const [windowSize, setWindowSize] = useState(getWindowSize());
+
+  useEffect(() => {
+    function handleWindowResize() {
+      setWindowSize(getWindowSize());
+    }
+    window.addEventListener('resize', handleWindowResize);
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  }, []);
+
 
   const [state, dispatch] = useReducer(
     reducer, 
@@ -149,25 +166,23 @@ function App() {
     }
   );
   // console.log(state.comboState.gagFilters);
-
+  
+  let screenWidth = windowSize.innerWidth;
   return (
-    <div className='wrapper'>
-      <h1>Gag Combos</h1>
-      <div className='container'>
-        <CogCard 
+    <>
+      {screenWidth <= 850 ? (
+        <PageMobile
           state={state}
           dispatch={dispatch}
         />
-        <ToonsCard
+      ) : (
+        <PageDesktop
           state={state}
           dispatch={dispatch}
         />
-      </div>
-      <Combos 
-        state={state}
-        dispatch={dispatch}
-      />
-    </div>
+      )}
+      
+    </>
   );
 }
 

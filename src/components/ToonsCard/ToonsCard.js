@@ -6,7 +6,7 @@ import './LaffMeter.css';
 function ToonToggle({ i, dispatch, active, setActive}) {
   return (
     <div className='toon-toggle'>
-      <h4>Toon {i+1}</h4>
+      <h3>Toon {i+1}</h3>
       <label className='switch'>
         <input 
           type='checkbox' 
@@ -35,46 +35,44 @@ function ToonToggle({ i, dispatch, active, setActive}) {
 
 function ToonStats({ toon }) {
   return (
-    <div className='toon-stats'>
-      <div 
-        className={
-          'laff-meter' + 
-          ' ' + toon.species.toLowerCase() +
-          (toon.gender === 'Girl' ? ' girl' : '')
-        }
-        style={{'--toon-color': toon.color[1]}}
-      >
-        <div className='head'></div>
-        <span className='antler left'></span>
-        <span className='antler right'></span>
-        <span className='ear left'></span>
-        <span className='ear right'></span>
-        <span className='eye left'></span>
-        <span className='eye right'></span>
-        <svg 
-          className='mouth' 
-          viewBox="0 0 90 25" 
-          height="25" 
-          width="90"
-        >
-          <path d="M10,3 C15,35 75,35 80,3" />
-          <path d="M6,3 L14,1.5" />
-          <path d="M84,3 L76,1.5" />
-        </svg>
-      </div>
-      <b 
-        className='toon-name'
-        style={{'--toon-color': toon.color[1]}}
-      >
-        {toon.name}
-      </b>
+    // <div className='toon-stats'>
+    //   <div 
+    //     className={
+    //       'laff-meter' + 
+    //       ' ' + toon.species.toLowerCase() +
+    //       (toon.gender === 'Girl' ? ' girl' : '')
+    //     }
+    //     style={{'--toon-color': toon.color[1]}}
+    //   >
+    //     <div className='head'></div>
+    //     <span className='antler left'></span>
+    //     <span className='antler right'></span>
+    //     <span className='ear left'></span>
+    //     <span className='ear right'></span>
+    //     <span className='eye left'></span>
+    //     <span className='eye right'></span>
+    //     <svg 
+    //       className='mouth' 
+    //       viewBox="0 0 90 25" 
+    //       height="25" 
+    //       width="90"
+    //     >
+    //       <path d="M10,3 C15,35 75,35 80,3" />
+    //       <path d="M6,3 L14,1.5" />
+    //       <path d="M84,3 L76,1.5" />
+    //     </svg>
+    //   </div>
+    //   <b 
+    //     className='toon-name'
+    //     style={{'--toon-color': toon.color[1]}}
+    //   >
+    //     {toon.name}
+    //   </b>
       <p className='org-gag-container'>
         <span>Organic</span>
-      </p>
-      <p className='org-gag-container'>
         <img src={gagTracks[toon.organic]} alt={toon.organic + ' Gag'} />
       </p>
-    </div>
+    // </div>
   );
 }
 
@@ -95,7 +93,7 @@ function OrganicPicker({ i, dispatch, orgPickerActive, setOrgPickerActive }) {
     <div className='organic-picker'>
       {(orgPickerActive) ? (
         <>
-          <b>Set Organic Gag</b>
+          <h4>Set Organic Gag</h4>
           {Object.keys(gagTracks).map((track, j) => (
             <React.Fragment key={j}>
               <button
@@ -178,7 +176,7 @@ export default function ToonsCard({ state, dispatch }) {
   let toons = state.toonState.toons;
   
   return (
-    <div>
+    <div id="toons">
       <h2>Toons</h2>
       <div className='toons-card'>
         {toons.map((toon, i) => (
