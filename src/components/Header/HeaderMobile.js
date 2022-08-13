@@ -1,6 +1,5 @@
 import React from 'react';
 import './Header.css';
-import './HeaderMobile.css';
 
 
 function configLink(page, link) {

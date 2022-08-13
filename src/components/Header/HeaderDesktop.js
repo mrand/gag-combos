@@ -1,6 +1,5 @@
 import React from 'react';
 import './Header.css';
-import './HeaderDesktop.css';
 
 export default function HeaderDesktop() {
   return (
