@@ -7,10 +7,10 @@ export default function HeaderDesktop() {
       <header>
         <div className='wrapper'>
           <h1>Gag Combos</h1>
-          {/* <nav>
+          <nav>
             <button className='home-btn active'>Home</button>
             <button className='info-btn'>Info</button>
-          </nav> */}
+          </nav>
         </div>
       </header>
     </>

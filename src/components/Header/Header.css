@@ -14,14 +14,14 @@ header,
 }
 header .wrapper {
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: space-between;
   align-items: flex-end;
   padding-top: 0;
   padding-bottom: 0;
 }
-/* @media (max-width: 850px) { */
+@media (max-width: 850px) {
   header .wrapper { justify-content: center; }
-/* } */
+}
 
 header h1 { color: var(--blue-dark); }
 
