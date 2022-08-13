@@ -58,10 +58,10 @@ export default function InfoCard() {
           <p>
             Here are links to other great projects I found while developing this one:            
           </p>
-          <a href='https://zzzachzzz.github.io/toontown-combos/' rel='noopener noreferrer'>
+          <a href='https://zzzachzzz.github.io/toontown-combos/' target='_blank' rel='noopener noreferrer'>
             TTO/TTR Gag Combos - Sound/Throw/Squirt/Drop
           </a>
-          <a href='https://www.ethanyhong.me/ttcalc/' rel='noopener noreferrer'>
+          <a href='https://www.ethanyhong.me/ttcalc/' target='_blank' rel='noopener noreferrer'>
             Toontown Calculator
           </a>
           <em>
