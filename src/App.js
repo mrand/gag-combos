@@ -51,6 +51,11 @@ function reducer(state, action) {
                 if (i===action.i) { 
                   return new Toon('None'); 
                 } else { return toon; }
+              }),
+              toonOrgs: state.toonState.toonOrgs.map((orgGag, i) => {
+                if (i===action.i) { 
+                  return 'None'; 
+                } else { return orgGag; }
               })
             }
           };
@@ -165,7 +170,7 @@ function App() {
       }
     }
   );
-  // console.log(state.comboState.gagFilters);
+  // console.log(state.toonState.toonOrgs);
   
   let isMobile = (
     (Math.min(windowSize.innerWidth, window.innerHeight) <= 850) ||

@@ -227,7 +227,7 @@ export class RecommendCombos {
     this.cog = cog;
     this.isLured = isLured;
     this.numToons = numToons;
-    this.toonsOrg = toonsOrg;
+    this.toonsOrg = [...toonsOrg];
     this.comboType = comboType;
     this.gagFilters = gagFilters;
 
