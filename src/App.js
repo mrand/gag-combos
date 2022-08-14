@@ -167,7 +167,10 @@ function App() {
   );
   // console.log(state.comboState.gagFilters);
   
-  let isMobile = (Math.min(windowSize.innerWidth, window.innerHeight) <= 850);
+  let isMobile = (
+    (Math.min(windowSize.innerWidth, window.innerHeight) <= 850) ||
+    (windowSize.innerWidth <= 1150)
+  );
   return (
     <>
       {isMobile ? (

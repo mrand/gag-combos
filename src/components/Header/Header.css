@@ -1,6 +1,4 @@
-header, header * {
-  /* border: 1px solid red; */
-}
+
 header {
   position: sticky;
   top: 0;
@@ -14,14 +12,11 @@ header,
 }
 header .wrapper {
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: center;
   align-items: flex-end;
   padding-top: 0;
   padding-bottom: 0;
 }
-/* @media (max-width: 850px) { */
-  header .wrapper { justify-content: center; }
-/* } */
 
 header h1 { color: var(--blue-dark); }
 
@@ -43,15 +38,15 @@ header button.active {
   position: fixed;
   bottom: 0;
   width: 100%;
+}
+#mobile-nav .wrapper {
+  padding: 0;
   display: flex;
   justify-content: space-evenly;
 }
+
 #mobile-nav button {
   width: 100%;
   border-left: 1px solid var(--cog-panel-bg);
 }
 #mobile-nav button:first-of-type { border-left: 0; }
-
-#mobile-nav button svg {
-  /* width: 32px; */
-}

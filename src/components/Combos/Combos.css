@@ -83,8 +83,7 @@
   border-radius: 20px;
   border: 8px solid var(--blue-dark);
 }
-/* @media (max-width: 950px) { */
-  @media (max-width: 1375px) and (min-width: 1151px), (max-width: 1075px) {
+@media (max-width: 1375px) and (min-width: 1151px), (max-width: 850px) {
   .combos-grid {
     display: flex;
     flex-direction: column;
