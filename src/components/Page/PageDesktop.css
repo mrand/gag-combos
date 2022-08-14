@@ -1,6 +1,27 @@
-.wrapper {
-  margin: 0 auto;
+.popup {
+  padding-top: 16px;
 }
+
+.popup #info {
+  max-width: 850px;
+  margin: auto;
+}
+
+.popup-btn {
+  display: block;
+  background: var(--blue-dark); 
+  color: #ffffff;
+  text-align: center;
+  padding: 8px;
+  border-radius: 30px;
+  font-weight: bold;
+  margin: 16px auto;
+}
+.popup-btn:hover {
+  background: var(--blue-light);
+  box-shadow: 0 0 5px var(--blue-dark) inset;
+}
+
 .page-wrap-desktop {
   display: grid;
   grid-template-columns: 300px 1fr auto;
