@@ -1,0 +1,22 @@
+img/
+  cogs/
+    *.webp:                  https://toontownrewritten.fandom.com/wiki/Cogs
+  gags/
+    pass.png:                ?
+    *.png:                   https://toontown.fandom.com/wiki/Gags
+    *-organic.png:           https://toontown.fandom.com/wiki/Gags, Personally Edited
+  unused/
+    cogs-screenshots/
+      *.webp:                In-Game Screenshots
+    toons/
+      Laff_Meter-*.png:      In-Game Screenshots
+      Toon_*.webp:           https://toontownrewritten.fandom.com/wiki/Toons
+    cog_panel_bg.png:        In-Game Screenshot, Personally Edited
+    cog_panel_reference.png: In-Game Screenshot
+    gags_pattern.png:        https://toontownrewritten.com/
+    icon-organic-mini:       ?
+    symbol-bossbot.webp:     https://toontownrewritten.fandom.com/wiki/Bossbots
+    symbol-lawbot.webp:      https://toontownrewritten.fandom.com/wiki/Lawbots
+    symbol-cashbot.webp:     https://toontownrewritten.fandom.com/wiki/Cashbots
+    symbol-sellbot.webp:     https://toontownrewritten.fandom.com/wiki/Sellbots
+  mcnugget.webp              In-Game Screenshot
