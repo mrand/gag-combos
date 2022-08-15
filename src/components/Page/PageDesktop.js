@@ -8,23 +8,6 @@ import ToonsCard from '../ToonsCard/ToonsCard';
 import Combos from '../Combos/Combos';
 
 
-function InfoPopup({ setInfoActive }) {
-  return (
-    <div className='popup'>
-      <InfoCard />
-      <button 
-          className='popup-btn'
-          onClick={() => {
-            localStorage.setItem('saw-info-card', true);
-            setInfoActive(false);
-          }}
-        >
-          Take Me to the Dashboard!
-        </button>
-    </div>
-  );
-}
-
 export default function PageDesktop({ state, dispatch }) {
 
   // User Brought to Info Page Only on 1st Visit
@@ -40,9 +23,12 @@ export default function PageDesktop({ state, dispatch }) {
         setInfoActive={setInfoActive}
       />
       {infoActive ? (
-        <InfoPopup 
-          setInfoActive={setInfoActive}
-        /> 
+        <div className='popup'>
+          <InfoCard 
+            includeLink={true} 
+            setInfoActive={setInfoActive} 
+            />
+        </div>
       ) : (
         <div className='page-wrap-desktop'>
           <ToonsCard

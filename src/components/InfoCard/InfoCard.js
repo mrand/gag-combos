@@ -1,6 +1,15 @@
 import './InfoCard.css';
 
-export default function InfoCard() {
+/**
+ * 
+ * @param {Boolean} includeLink Whether or not "Take me to the Dashboard!" button is displayed.
+ * @param {Object} setInfoActive function for desktop layout to swap between info and dashboard. 
+ * @returns 
+ */
+export default function InfoCard({ 
+  includeLink=false, 
+  setInfoActive=null 
+}) {
   return (
     <div id="info">
       <h2>Information</h2>
@@ -11,6 +20,17 @@ export default function InfoCard() {
             Welcome to GagCombos.Info, your new go-to dashboard
             for finding the perfect combinations of gags to defeat the cogs! 
           </p>
+          {includeLink ? (
+            <button 
+              className='popup-btn'
+              onClick={() => {
+                localStorage.setItem('saw-info-card', true);
+                setInfoActive(false);
+              }}
+            >
+              Take Me to the Dashboard!
+            </button>
+          ) : (null)}
         </section>
         <section>
           <h3>How To Use</h3>

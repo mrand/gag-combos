@@ -1,5 +1,6 @@
 .popup {
   padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 .popup #info {
@@ -9,16 +10,16 @@
 
 .popup-btn {
   display: block;
-  background: var(--blue-dark); 
+  background: var(--blue-light); 
+  text-shadow: 0 0 4px var(--blue-dark);
+  margin-right: auto;
   color: #ffffff;
   text-align: center;
-  padding: 8px;
+  padding: 8px 16px;
   border-radius: 30px;
   font-weight: bold;
-  margin: 16px auto;
 }
 .popup-btn:hover {
-  background: var(--blue-light);
   box-shadow: 0 0 5px var(--blue-dark) inset;
 }
 
