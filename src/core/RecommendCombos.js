@@ -145,7 +145,6 @@ export class FindCombo {
 
       for (i=0; i < comboGags.length; i++) {
         let updateGag = comboGags[i];
-        // console.log('updateGag',updateGag,'i',i);
 
         comboGagsCopy = [...comboGags];
 
@@ -158,7 +157,6 @@ export class FindCombo {
           // gag can go no lower - make it a pass
           else if (updateGag.level === 1) {
             comboGagsCopy[i] = new Gag();
-            // console.log('next lowest: Pass');
 
           // replace gag with next lowest and test
           } else {
@@ -171,10 +169,8 @@ export class FindCombo {
 
           // update combo and check
           tempCombo = new Combo(cog, comboGagsCopy, this.isLured);
-          // console.log('tempCombo', tempCombo);
           if (!tempCombo.defeatsCog) { 
             i=0;
-            // console.log('!tempCombo.defeatsCog', i);
             break; 
           } else { 
             combo = tempCombo; 
