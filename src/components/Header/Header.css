@@ -17,7 +17,7 @@ header .wrapper {
   padding-top: 0;
   padding-bottom: 0;
 }
-@media (min-width: 851px) and (min-height: 851px) and (min-width: 1151px) {
+@media (min-width: 1151px) {
   header .wrapper { 
     justify-content: space-between;
     max-width: none; 

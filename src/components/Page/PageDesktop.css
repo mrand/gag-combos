@@ -45,6 +45,7 @@
   position: sticky;
   top: 49px;
   align-self: flex-start;
-  height: calc(100vh - 49px);
   background: var(--cog-panel-bg);
+  height: calc(100vh - 49px);
+  overflow: auto;
 }

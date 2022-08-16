@@ -177,10 +177,7 @@ function App() {
   );
   // console.log(state.toonState.toonOrgs);
   
-  let isMobile = (
-    (Math.min(windowSize.innerWidth, window.innerHeight) <= 850) ||
-    (windowSize.innerWidth <= 1150)
-  );
+  let isMobile = (windowSize.innerWidth <= 1150);
   return (
     <>
       {isMobile ? (
