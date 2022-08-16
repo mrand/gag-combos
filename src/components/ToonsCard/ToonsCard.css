@@ -1,7 +1,6 @@
 .toons-card {
   display: flex;
   flex-direction: column;
-  gap: 16px;
   background: var(--blue-light);
   border-radius: 20px;
   font-family: BowlbyOneSC,Arial,Roboto,Helvetica,sans-serif;
@@ -11,8 +10,8 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  padding: 16px;
   gap: 8px;
-  padding: 8px;
   background: #ffffff;
   border-radius: 20px;
 }
@@ -21,10 +20,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 4px;
   gap: 16px;
 }
-.toon-panel > *:not(:last-child) { border-bottom: 1px solid var(--blue-light); }
+.toon-panel > *:not(:last-child) { 
+  border-bottom: 1px solid var(--cog-panel-bg); 
+  padding-bottom: 8px;
+}
 
 .toon-name {
   --toon-color: #90d23a;  /* lime default */
@@ -38,11 +39,12 @@
   text-overflow: ellipsis;
 }
 
-.org-gag-container img { width: 48px; }
+.org-gag-container img { width: 36px; }
 
 .organic-picker { 
   height: 100%; 
-  display: block;
+  flex-direction: column;
+  gap: 8px;
 }
 .organic-picker b { 
   margin-bottom: auto; 
@@ -50,6 +52,7 @@
 }
 .organic-picker button {
   border-radius: 30px;
+  width: 100%;
 }
 .organic-picker button:not(.active) {
   background: var(--blue-dark);
@@ -70,7 +73,6 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-top: 8px;
 }
 .gag-btn img {
   width: 25px;
