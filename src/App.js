@@ -148,13 +148,18 @@ function App() {
     reducer, 
     {
       cogState: {
-        cog: new Cog(1),
+        cog: new Cog(12),
         isLured: false
       },
       toonState: {
-        numToons: 1,
-        toons:    [new Toon('None'), '', '', ''],
-        toonOrgs: ['None',           '', '', '']
+        numToons: 4,
+        toons:    [
+          new Toon('None'), 
+          new Toon('None'), 
+          new Toon('None'), 
+          new Toon('None')
+        ],
+        toonOrgs: ['None', 'None', 'None', 'None']
       },
       comboState: {
         comboType: 'Basic',
