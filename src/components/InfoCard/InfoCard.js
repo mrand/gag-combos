@@ -82,7 +82,7 @@ export default function InfoCard({
             TTO/TTR Gag Combos - Sound/Throw/Squirt/Drop
           </a>
           <a href='https://www.ethanyhong.me/ttcalc/' target='_blank' rel='noopener noreferrer'>
-            Toontown Calculator
+            Toontown Calculator*
           </a>
           <em>
             * Note: I am not sure if these resources are up to date with current TTR gag damage values.
