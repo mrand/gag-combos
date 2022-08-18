@@ -74,7 +74,6 @@ function LuredToggle({ state, dispatch }) {
                 'value': !state.cogState.isLured
               });
             }}
-            checked={state.isLured}
             defaultChecked={
               state.cogState.isLured ? 'checked' : null
             }
