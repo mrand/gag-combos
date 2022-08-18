@@ -171,7 +171,7 @@ function ToonPanel({ i, toon, dispatch }) {
 
 
 export default function ToonsCard({ state, dispatch }) {
-  let toons = state.toonState.toons;
+  let toons = state.toonState;
   
   return (
     <div id="toons">

@@ -211,8 +211,8 @@ export default function Combos({ state, dispatch }) {
 
   let cog =      state.cogState.cog;
   let isLured =  state.cogState.isLured;
-  let numToons = state.toonState.numToons;
-  let toonOrgs = state.toonState.toonOrgs;
+  let numToons = state.toonState.filter(toon => toon !== '').length;
+  let toonOrgs = state.toonState.map((toon) => toon !== '' ? toon.organic : '');
   let comboType = state.comboState.comboType;
   let gagFilters = state.comboState.gagFilters;
 

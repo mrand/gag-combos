@@ -44,58 +44,32 @@ function reducer(state, action) {
         case 'add':
           return {
             ...state,
-            toonState: {
-              ...state.toonState,
-              numToons: state.toonState.numToons + 1,
-              toons: state.toonState.toons.map((toon, i) => {
-                if (i===action.i) { 
-                  return new Toon('None'); 
-                } else { return toon; }
-              }),
-              toonOrgs: state.toonState.toonOrgs.map((orgGag, i) => {
-                if (i===action.i) { 
-                  return 'None'; 
-                } else { return orgGag; }
-              })
-            }
+            toonState: state.toonState.map((toon, i) => {
+              if (i===action.i) { 
+                return new Toon('None'); 
+              } else { return toon; }
+            })
           };
         // Remove Toon
         case 'remove':
           return {
             ...state,
-            toonState: {
-              ...state.toonState,
-              numToons: state.toonState.numToons - 1,
-              toons: state.toonState.toons.map((toon, i) => {
-                if (i===action.i) { 
-                  return ''; 
-                } else { return toon; }
-              }),
-              toonOrgs: state.toonState.toonOrgs.map((orgGag, i) => {
-                if (i===action.i) { 
-                  return ''; 
-                } else { return orgGag; }
-              })
-            }
+            toonState: state.toonState.map((toon, i) => {
+              if (i===action.i) { 
+                return ''; 
+              } else { return toon; }
+            })
           };
         // Update Organic Track
         default:
           return {
             ...state,
-            toonState: {
-              ...state.toonState,
-              toons: state.toonState.toons.map((toon, i) => {
-                if (i===action.i) { 
-                  toon.updateOrganic(action.value);
-                  return toon;
-                } else { return toon; }
-              }),
-              toonOrgs: state.toonState.toonOrgs.map((orgTrack, i) => {
-                if (i===action.i) {
-                  return action.value;
-                } else { return orgTrack; }
-              })
-            }
+            toonState: state.toonState.map((toon, i) => {
+              if (i===action.i) { 
+                toon.updateOrganic(action.value);
+                return toon;
+              } else { return toon; }
+            })
           };
       }
 
@@ -151,11 +125,12 @@ function App() {
         cog: new Cog(1),
         isLured: false
       },
-      toonState: {
-        numToons: 1,
-        toons:    [new Toon('None'), '', '', ''],
-        toonOrgs: ['None',           '', '', '']
-      },
+      toonState: [
+        new Toon(),  // Toon 1
+        '',          // Toon 2
+        '',          // Toon 3
+        ''           // Toon 4
+      ],
       comboState: {
         comboType: 'Basic',
         gagFilters: {
@@ -170,7 +145,7 @@ function App() {
       }
     }
   );
-  // console.log(state.toonState.toonOrgs);
+  // console.log(state.toonState);
   
   let isMobile = (windowSize.innerWidth <= 1150);
   return (
