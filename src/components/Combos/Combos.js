@@ -89,7 +89,7 @@ function ComboCell({ combo, isOnly }) {
 }
 
 
-function CombosGrid({ cog, toonOrgs, isLured, recommendCombos }) {
+function CombosGrid({ recommendCombos }) {
   return (
     <div className='combos-grid'>
       <>
@@ -230,9 +230,6 @@ export default function Combos({ state, dispatch }) {
         dispatch={dispatch}
       />
       <CombosGrid 
-        cog={cog}
-        toonOrgs={toonOrgs}
-        isLured={isLured}
         recommendCombos={recommendCombos}
       />
       {(!isLured && recommendCombos.recCombos.length > 0) ? (
