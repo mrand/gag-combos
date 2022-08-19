@@ -137,28 +137,37 @@ export class FindCombo {
     }
 
     // Decrease Gags if Possible
-    let comboGagsCopy;  // use copies to check before mutating actual objects
-    let tempCombo; 
     iterCount = 0;  // reset error check iteration counter
-    let i;
-    while (i !== 0) {
 
-      for (i=0; i < comboGags.length; i++) {
-        let updateGag = comboGags[i];
+    let comboGagsCopy;   // Use copies to check...
+    let thisTracksCopy;  // ...before mutating...
+    let tempCombo;       // ...actual objects.
+
+    let tmp;  // to check if combo is unchanged after for loop
+
+    while (true) {
+      tmp = {...combo};  // store initial state of combo before for loop
+
+      for (let i=0; i < comboGags.length; i++) {
 
         comboGagsCopy = [...comboGags];
+        tempCombo = {...combo};
+        thisTracksCopy = [...this.tracks];
 
-        // update gag is already a pass
-        if (updateGag.level === 0) { break; }
-        else {
-          // ignore lure
-          if (updateGag.track === 'Lure') { continue; }
+        let updateGag = comboGags[i];
+
+        if (
+          (updateGag.level > 0) &&            // ignore passes
+          (updateGag.track !== 'Toon-Up') &&  // ignore Toon-Up
+          (updateGag.track !== 'Lure')        // ignore Lure
+        ) {
           
-          // gag can go no lower - make it a pass
-          else if (updateGag.level === 1) {
+          // if gag can go no lower - make it a pass
+          if (updateGag.level === 1) {
             comboGagsCopy[i] = new Gag();
+            thisTracksCopy[i] = '';
 
-          // replace gag with next lowest and test
+          // else replace gag with next lowest
           } else {
             comboGagsCopy[i] = new Gag(
               this.tracks[i],
@@ -167,23 +176,26 @@ export class FindCombo {
             );
           }
 
-          // update combo and check
+          // update tempCombo and check
           tempCombo = new Combo(cog, comboGagsCopy, this.isLured);
-          if (!tempCombo.defeatsCog) { 
-            i=0;
-            break; 
-          } else { 
+          tempCombo.tryCombo();
+          if (tempCombo.defeatsCog) { 
             combo = tempCombo; 
-            comboGags = comboGagsCopy;
+            comboGags = [...comboGagsCopy];
+            this.tracks = [...thisTracksCopy];
           }
         }
       }
 
-      // Throw error after 3 iterations
-      // (a 4 gag combo will have a maximum of 3 downward iterations since 
-      // the 4th (weakest) gag was just raised up a level in the previous loop)
+      // while loop break condition:
+      // for loop has just checked all gags and made no changes to the combo
+      if (JSON.stringify(tmp) === JSON.stringify(combo)) break;
+
+      // Throw error after 21 iterations
+      // (We know at least 1 gag must stay fixed, so there are a maximum of 21 iterations for the 3 other gags, 
+      // and this can surely be more restrictive - but it should never be triggered anyway.)
       iterCount++;
-      if (iterCount>3) {
+      if (iterCount>21) {
         throw new Error('Welp, the while loop was stuck iterating downwards.'); 
       }
     }
@@ -316,10 +328,17 @@ export class RecommendCombos {
       });
     }
 
-    // remove combos with only lure and sound left
+    // remove combos with lure and sound but no trap
     // (some lure trap sound combos remove trap while optimizing, making the lure useless)
     recSolns = recSolns.filter(function (combo) { 
-      return JSON.stringify(Object.keys(combo.counts)) !== JSON.stringify(['Lure', 'Sound']);
+      return (
+        !(
+          Object.keys(combo.counts).includes('Lure') && 
+          Object.keys(combo.counts).includes('Sound') &&
+          !Object.keys(combo.counts).includes('Trap')
+        )
+      ) 
+      // return JSON.stringify(Object.keys(combo.counts)) !== JSON.stringify(['Lure', 'Sound']);
     });
 
     // optional filter - recommend best combos

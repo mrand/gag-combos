@@ -144,7 +144,7 @@ export class Combo {
     this.counts = this._countGagsByTrack();
     this.totalDamage = 0;
     this.defeatsCog = false;
-    this._tryCombo();
+    this.tryCombo();
   }
 
   _countGagsByTrack() {
@@ -159,7 +159,7 @@ export class Combo {
     return counts;
   }
 
-  _tryCombo() {
+  tryCombo() {
     // Get Dud, Lured, and Combo Multiplier Damages
     let mainDamage = 0;   // main multiplier damage 
     let luredDamage = 0;  // lured multiplier damage 

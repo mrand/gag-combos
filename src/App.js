@@ -135,12 +135,12 @@ function App() {
         comboType: 'Basic',
         gagFilters: {
           'Toon-Up': true,
-          'Trap': true,
-          'Lure': true,
-          'Sound': true,
-          'Throw': true,
-          'Squirt': true,
-          'Drop': true
+          'Trap':    true,
+          'Lure':    true,
+          'Sound':   true,
+          'Throw':   true,
+          'Squirt':  true,
+          'Drop':    true
         }
       }
     }
