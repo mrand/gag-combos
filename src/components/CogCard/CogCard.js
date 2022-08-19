@@ -56,7 +56,7 @@ function LuredToggle({ state, dispatch }) {
   return (
     <div className='lured-toggle'>
       {
-        (state.isLured) ? (
+        (state.cogState.isLured) ? (
           <h3 style={{color: 'var(--green)'}}>Cog is Lured</h3>
         ) : (
           <h3>Is Cog Lured?</h3> 
