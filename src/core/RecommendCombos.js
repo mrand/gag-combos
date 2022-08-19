@@ -45,30 +45,12 @@ export class FindCombo {
     toonOrgs=null,
     isLured=false
   ) {
-    // place empty values at end of org gags array
-    toonOrgs.sort((a,b) => a ? b ? a.localeCompare(b) : -1 : 1);
-
     this.numToons = tracks.length;
     this.tracks = this._sortTracks(tracks);
-    this.gags = this._getGags(tracks, toonOrgs);
+    this.toonOrgs = this._configToonOrgs(toonOrgs);
+    this.gags = this._getGags();
     this.isLured=isLured;
     this.solution = this.find(cog);
-  }
-
-  _getGags(tracks, toonOrgs) {
-    // requires both params
-    if (tracks===null || toonOrgs===null) return false;
-
-    let thisGags = [];
-    tracks.forEach((track, i) => {
-      if (toonOrgs[i] === track) {
-        thisGags.push(gagsContent["Organic"][track])
-      } else {
-        thisGags.push(gagsContent["Non-Organic"][track])
-      }
-    });
-
-    return thisGags;
   }
 
   _sortTracks(tracks) {
@@ -86,6 +68,38 @@ export class FindCombo {
     return tracks.sort(function(a,b) {
       return (ordering[a] - ordering[b] || a.localeCompare(b));
     });
+  }
+
+  _configToonOrgs(toonOrgs) {
+    let toonOrgsCopy = [...toonOrgs];  // mutate copy of toonOrgs
+    let thisToonOrgs = [];             // to be this.toonOrgs
+
+    this.tracks.forEach((track) => {
+      let trackIdx = toonOrgsCopy.indexOf(track); 
+      if (trackIdx !== -1) {
+        thisToonOrgs.push(track);          // add to thisToonOrgs
+        toonOrgsCopy.splice(trackIdx, 1);  // remove from toonOrgsCopy
+      } else {
+        thisToonOrgs.push('');
+      }
+    });
+    return thisToonOrgs;
+  }
+
+  _getGags() {
+    // requires both params
+    if (this.tracks===null || this.toonOrgs===null) return false;
+
+    let thisGags = [];
+    this.tracks.forEach((track, i) => {
+      if (this.toonOrgs[i] === track) {
+        thisGags.push(gagsContent["Organic"][track])
+      } else {
+        thisGags.push(gagsContent["Non-Organic"][track])
+      }
+    });
+
+    return thisGags;
   }
 
   find(cog) {
@@ -228,14 +242,14 @@ export class RecommendCombos {
     cog=null,
     isLured=false,
     numToons=0,
-    toonsOrg=[],
+    toonOrgs=[],
     comboType='All',
     gagFilters=null
   ) {
     this.cog = cog;
     this.isLured = isLured;
     this.numToons = numToons;
-    this.toonsOrg = [...toonsOrg];
+    this.toonOrgs = [...toonOrgs];
     this.comboType = comboType;
     this.gagFilters = gagFilters;
 
@@ -275,7 +289,7 @@ export class RecommendCombos {
       foundCombo = new FindCombo(
         this.cog,
         comboTracks,
-        this.toonsOrg,
+        this.toonOrgs,
         this.isLured
       );
       
@@ -368,9 +382,9 @@ export class RecommendCombos {
     }
 
     // sort gags - put 'Pass' at the end.
-    recSolns.forEach((combo) => {
-      combo.gags.sort((gag1, gag2) => (gag2.name !== 'Pass') ? 1 : -1);
-    });
+    // recSolns.forEach((combo) => {
+    //   combo.gags.sort((gag1, gag2) => (gag2.name !== 'Pass') ? 1 : -1);
+    // });
 
     return recSolns;
   }
