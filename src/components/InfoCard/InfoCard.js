@@ -74,7 +74,7 @@ export default function InfoCard({
           </p>
         </section>
         <section>
-          <h3>Other Resources</h3>
+          <h3>Similar Resources</h3>
           <p>
             Here are links to other great projects I found while developing this one:            
           </p>
@@ -88,7 +88,15 @@ export default function InfoCard({
             * May not be up to date with current TTR gag damage values.
           </em>
         </section>
-        
+        <section>
+          <h3>New to Toontown?</h3>
+          <a href='https://toontownrewritten.com/' target='_blank' rel='noopener noreferrer'>
+            Toontown Rewritten Homepage
+          </a>
+          <a href='https://toontownrewritten.fandom.com/wiki/Gags' target='_blank' rel='noopener noreferrer'>
+            TTR Gags Wiki
+          </a>
+        </section>
       </article>
     </div>
   );

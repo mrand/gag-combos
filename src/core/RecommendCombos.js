@@ -338,7 +338,6 @@ export class RecommendCombos {
           !Object.keys(combo.counts).includes('Trap')
         )
       ) 
-      // return JSON.stringify(Object.keys(combo.counts)) !== JSON.stringify(['Lure', 'Sound']);
     });
 
     // optional filter - recommend best combos
