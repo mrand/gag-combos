@@ -382,9 +382,9 @@ export class RecommendCombos {
     }
 
     // sort gags - put 'Pass' at the end.
-    // recSolns.forEach((combo) => {
-    //   combo.gags.sort((gag1, gag2) => (gag2.name !== 'Pass') ? 1 : -1);
-    // });
+    recSolns.forEach((combo) => {
+      combo.gags.sort((gag1, gag2) => (gag2.name !== 'Pass') ? 1 : -1);
+    });
 
     return recSolns;
   }
