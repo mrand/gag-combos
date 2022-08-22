@@ -27,13 +27,13 @@
       },
       {
         "name": "Pixie Dust",
-        "heal": 70,
+        "heal": 60,
         "targets_multi": false,
         "accuracy": 0.7
       },
       {
         "name": "Juggling Cubes",
-        "heal": 120,
+        "heal": 105,
         "targets_multi": true,
         "accuracy": 0.7
       },
@@ -71,7 +71,7 @@
       },
       {
         "name": "Trapdoor",
-        "damage": 70,
+        "damage": 85,
         "targets_multi": false,
         "accuracy": 1
       },
@@ -83,7 +83,7 @@
       },
       {
         "name": "Railroad",
-        "damage": 195,
+        "damage": 200,
         "targets_multi": true,
         "accuracy": 1
       }
@@ -291,7 +291,7 @@
       },
       {
         "name": "Safe",
-        "damage": 60,
+        "damage": 70,
         "targets_multi": false,
         "accuracy": 0.5
       },
@@ -337,13 +337,13 @@
       },
       {
         "name": "Pixie Dust",
-        "heal": 77,
+        "heal": 66,
         "targets_multi": false,
         "accuracy": 0.7
       },
       {
         "name": "Juggling Cubes",
-        "heal": 132,
+        "heal": 115,
         "targets_multi": true,
         "accuracy": 0.7
       },
@@ -381,7 +381,7 @@
       },
       {
         "name": "Trapdoor",
-        "damage": 77,
+        "damage": 93,
         "targets_multi": false,
         "accuracy": 1
       },
@@ -393,7 +393,7 @@
       },
       {
         "name": "Railroad",
-        "damage": 214,
+        "damage": 220,
         "targets_multi": true,
         "accuracy": 1
       }
@@ -601,7 +601,7 @@
       },
       {
         "name": "Safe",
-        "damage": 66,
+        "damage": 77,
         "targets_multi": false,
         "accuracy": 0.5
       },
