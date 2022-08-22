@@ -1,14 +1,7 @@
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useReducer } from 'react';
 import Cog from './core/Cog';
 import Toon from './core/Toon';
-import PageDesktop from './components/Page/PageDesktop';
-import PageMobile from './components/Page/PageMobile';
-
-
-function getWindowSize() {
-  const {innerWidth, innerHeight} = window;
-  return {innerWidth, innerHeight};
-}
+import Page from './components/Page/';
 
 
 function reducer(state, action) {
@@ -105,19 +98,6 @@ function reducer(state, action) {
 
 
 function App() {
-  const [windowSize, setWindowSize] = useState(getWindowSize());
-
-  useEffect(() => {
-    function handleWindowResize() {
-      setWindowSize(getWindowSize());
-    }
-    window.addEventListener('resize', handleWindowResize);
-    return () => {
-      window.removeEventListener('resize', handleWindowResize);
-    };
-  }, []);
-
-
   const [state, dispatch] = useReducer(
     reducer, 
     {
@@ -145,24 +125,12 @@ function App() {
       }
     }
   );
-  // console.log(state.toonState);
   
-  let isMobile = (windowSize.innerWidth <= 1150);
   return (
-    <>
-      {isMobile ? (
-        <PageMobile
-          state={state}
-          dispatch={dispatch}
-        />
-      ) : (
-        <PageDesktop
-          state={state}
-          dispatch={dispatch}
-        />
-      )}
-      
-    </>
+    <Page
+      state={state}
+      dispatch={dispatch}
+    />
   );
 }
 
