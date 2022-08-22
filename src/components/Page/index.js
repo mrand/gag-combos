@@ -3,6 +3,11 @@ import PageDesktop from './PageDesktop';
 import PageMobile from './PageMobile';
 
 
+function getWindowSize() {
+  const {innerWidth, innerHeight} = window;
+  return {innerWidth, innerHeight};
+}
+
 const throttle = (func, delay) => {
   let inProgress = false;
   return (...args) => {
@@ -19,25 +24,20 @@ const throttle = (func, delay) => {
 
 
 export default function PageIndex({ state, dispatch }) {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowSize, setWindowSize] = useState(getWindowSize());
 
   useEffect(() => {
-    // Throttled Resize Listener Callback Function
     const handleResize = throttle(() => {
-      // Ignore Height Changes
-      if (windowWidth !== window.innerWidth) { 
-        setWindowWidth(window.innerWidth);
-      }
+      setWindowSize(getWindowSize());
     }, 500);
-    // Add Listener
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize)
     };
-  }, [windowWidth]);
+  }, []);
 
-  // Return Appropriate Layout 
-  let isMobile = (windowWidth <= 1150);
+  let isMobile = (windowSize.innerWidth <= 1150);
+
   return (
     (isMobile) ? (
       <PageMobile
