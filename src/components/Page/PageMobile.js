@@ -8,7 +8,7 @@ import ToonsCard from '../ToonsCard/ToonsCard';
 import Combos from '../Combos/Combos';
 
 
-function ShowPage({ page, state, dispatch }) {
+function ShowPage({ page, state, dispatch, recommendations }) {
   if (page === 'toons') {
     return (
       <ToonsCard
@@ -29,6 +29,7 @@ function ShowPage({ page, state, dispatch }) {
       <Combos 
         state={state}
         dispatch={dispatch}
+        recommendations={recommendations}
       />
     );
   } else {
@@ -39,7 +40,7 @@ function ShowPage({ page, state, dispatch }) {
 }
 
 
-export default function PageMobile({ state, dispatch }) {
+export default function PageMobile({ state, dispatch, recommendations }) {
   const [page, setPage] = useState('home');
 
   return (
@@ -53,6 +54,7 @@ export default function PageMobile({ state, dispatch }) {
           page={page}
           state={state}
           dispatch={dispatch}
+          recommendations={recommendations}
         />
       </div>
     </>
