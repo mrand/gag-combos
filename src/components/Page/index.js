@@ -10,13 +10,23 @@ function getWindowSize() {
 }
 
 
+function ResizeCover() {
+  return (
+    <div id='resize-cover'>
+      <h2>Gag<br />Combos</h2>
+    </div>
+  );
+}
+
+
 export default function PageIndex({ state, dispatch }) {
-  // console.log('re-render');
   const [windowSize, setWindowSize] = useState(getWindowSize());
+  const [resizing, setResizing] = useState(false);
 
   const debounce = (fn, delay) => {
     let timerId;
     return (...args) => {
+      setResizing(true);
       clearTimeout(timerId);
       timerId = setTimeout(fn, delay, [...args]);
     };
@@ -25,6 +35,7 @@ export default function PageIndex({ state, dispatch }) {
   useEffect(() => {
     const handleResize = debounce(() => {
       setWindowSize(getWindowSize());
+      setResizing(false);
     }, 500);
     window.addEventListener("resize", handleResize);
     return () => {
@@ -34,7 +45,9 @@ export default function PageIndex({ state, dispatch }) {
 
   let isMobile = (windowSize.innerWidth <= 1150);
 
-  if (isMobile) {
+  if (resizing) {
+    return (<ResizeCover />);
+  } else if (isMobile) {
     return (
       <PageMobile
         state={state}
