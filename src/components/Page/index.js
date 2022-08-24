@@ -1,42 +1,38 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import PageDesktop from './PageDesktop';
 import PageMobile from './PageMobile';
 import './page.css';
 
 
-const debounce = (fn, delay) => {
-  let timerId;
-  return (...args) => {
-    clearTimeout(timerId);
-    timerId = setTimeout(fn, delay, [...args]);
-  };
-};
+function getWindowSize() {
+  const {innerWidth, innerHeight} = window;
+  return {innerWidth, innerHeight};
+}
 
 
 export default function PageIndex({ state, dispatch, recommendations }) {
   // console.log('re-render');
+  const [windowSize, setWindowSize] = useState(getWindowSize());
 
-  let windowWidth = useRef(window.innerWidth);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 1150);
-
-  const debouncedChangeHandler = debounce(() => {
-      // console.log(windowWidth.current, window.innerWidth);
-      if (
-        (windowWidth.current <= 1150 && window.innerWidth > 1150) ||
-        (windowWidth.current > 1150 && window.innerWidth <= 1150)
-      ) {
-        windowWidth.current = window.innerWidth;
-        // console.log('updated', windowWidth.current, window.innerWidth);
-        setIsMobile(windowWidth.current <= 1150);
-      }
-    }, 500);
+  const debounce = (fn, delay) => {
+    let timerId;
+    return (...args) => {
+      clearTimeout(timerId);
+      timerId = setTimeout(fn, delay, [...args]);
+    };
+  };
 
   useEffect(() => {
-    window.addEventListener("resize", debouncedChangeHandler);
+    const handleResize = debounce(() => {
+      setWindowSize(getWindowSize());
+    }, 500);
+    window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener("resize", debouncedChangeHandler)
+      window.removeEventListener("resize", handleResize)
     };
   }, []);
+
+  let isMobile = (windowSize.innerWidth <= 1150);
 
   if (isMobile) {
     return (
