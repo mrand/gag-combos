@@ -1,6 +1,5 @@
 import React from 'react';
 import './Combos.css';
-import { RecommendCombos } from '../../core/RecommendCombos';
 
 
 function ComboCell({ combo, isOnly }) {
@@ -207,22 +206,7 @@ function TitleContainer({ state, dispatch }) {
 }
  
 
-export default function Combos({ state, dispatch }) {
-
-  let cog =      state.cogState.cog;
-  let isLured =  state.cogState.isLured;
-  let numToons = state.toonState.filter(toon => toon !== '').length;
-  let toonOrgs = state.toonState.map((toon) => toon !== '' ? toon.organic : '');
-  let comboType = state.comboState.comboType;
-  let gagFilters = state.comboState.gagFilters;
-
-  let recommendCombos = new RecommendCombos(
-    cog, isLured,          // cog params
-    numToons, toonOrgs,    // toons params 
-    comboType, gagFilters  // combo params
-  )
-  // console.log(recommendCombos);
-
+export default function Combos({ state, dispatch, recommendations }) {
   return (
     <div id='combos'>
       <TitleContainer 
@@ -230,9 +214,9 @@ export default function Combos({ state, dispatch }) {
         dispatch={dispatch}
       />
       <CombosGrid 
-        recommendCombos={recommendCombos}
+        recommendCombos={recommendations}
       />
-      {(!isLured && recommendCombos.recCombos.length > 0) ? (
+      {(!recommendations.isLured && recommendations.recCombos.length > 0) ? (
         <h4>* Lure Accuracy Varies from 50% to 95%</h4>
       ) : ( null )}
       
