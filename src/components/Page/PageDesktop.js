@@ -8,7 +8,7 @@ import ToonsCard from '../ToonsCard/ToonsCard';
 import Combos from '../Combos/Combos';
 
 
-export default function PageDesktop({ state, dispatch, recommendations }) {
+export default function PageDesktop({ state, dispatch }) {
 
   // User Brought to Info Page Only on 1st Visit
   // localStorage.clear();
@@ -38,7 +38,6 @@ export default function PageDesktop({ state, dispatch, recommendations }) {
           <Combos 
             state={state}
             dispatch={dispatch}
-            recommendations={recommendations}
           />
           <CogCard 
             state={state}

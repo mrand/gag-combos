@@ -10,7 +10,7 @@ function getWindowSize() {
 }
 
 
-export default function PageIndex({ state, dispatch, recommendations }) {
+export default function PageIndex({ state, dispatch }) {
   // console.log('re-render');
   const [windowSize, setWindowSize] = useState(getWindowSize());
 
@@ -39,7 +39,6 @@ export default function PageIndex({ state, dispatch, recommendations }) {
       <PageMobile
         state={state}
         dispatch={dispatch}
-        recommendations={recommendations}
       />
     );
   } else {
@@ -47,7 +46,6 @@ export default function PageIndex({ state, dispatch, recommendations }) {
       <PageDesktop
         state={state}
         dispatch={dispatch}
-        recommendations={recommendations}
       />
     );
   }

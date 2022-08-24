@@ -2,7 +2,6 @@ import React, { useReducer } from 'react';
 import Cog from './core/Cog';
 import Toon from './core/Toon';
 import Page from './components/Page/';
-import { RecommendCombos } from './core/RecommendCombos';
 
 
 function reducer(state, action) {
@@ -98,22 +97,6 @@ function reducer(state, action) {
 }
 
 
-function getRecommendations(state) {
-  let cog =      state.cogState.cog;
-  let isLured =  state.cogState.isLured;
-  let numToons = state.toonState.filter(toon => toon !== '').length;
-  let toonOrgs = state.toonState.map((toon) => toon !== '' ? toon.organic : '');
-  let comboType = state.comboState.comboType;
-  let gagFilters = state.comboState.gagFilters;
-
-  return new RecommendCombos(
-    cog, isLured,          // cog params
-    numToons, toonOrgs,    // toons params 
-    comboType, gagFilters  // combo params
-  )
-}
-
-
 function App() {
   const [state, dispatch] = useReducer(
     reducer, 
@@ -144,12 +127,10 @@ function App() {
   );
   // console.log(state.toonState);
   
-  let recommendations = getRecommendations(state);
   return (
     <Page
       state={state}
       dispatch={dispatch}
-      recommendations={recommendations}
     />
   );
 }
