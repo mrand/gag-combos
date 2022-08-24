@@ -36,7 +36,7 @@ export default function PageIndex({ state, dispatch, recommendations }) {
     return () => {
       window.removeEventListener("resize", debouncedChangeHandler)
     };
-  }, []);
+  }, [debouncedChangeHandler]);
 
   if (isMobile) {
     return (
