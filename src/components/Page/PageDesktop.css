@@ -38,9 +38,25 @@
   align-self: flex-start;
   background: var(--blue-400);
   height: calc(100vh - 49px);
-  overflow: auto;
+  overflow-y: scroll
 }
+.page-wrap-desktop #toons::-webkit-scrollbar {
+  background: var(--blue-400);
+  width: 12px;
+}
+.page-wrap-desktop #toons::-webkit-scrollbar-track {
+  margin: 24px;
+}
+.page-wrap-desktop #toons::-webkit-scrollbar-thumb {
+  background: var(--blue-600);
+  border-radius: 30px;
+}
+.page-wrap-desktop #toons::-webkit-scrollbar-thumb:hover {
+  background: var(--blue-500);
+}
+
 .page-wrap-desktop #combos { margin: 0 auto; }
+
 .page-wrap-desktop #cog { 
   position: sticky;
   top: 49px;
