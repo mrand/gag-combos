@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PageDesktop from './PageDesktop';
 import PageMobile from './PageMobile';
+import './Page.css';
 
 
 const debounce = (fn, delay) => {

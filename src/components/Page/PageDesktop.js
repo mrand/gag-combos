@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import './PageDesktop.css';
 
-import HeaderDesktop from '../Header/HeaderDesktop';
+import { HeaderDesktop } from '../Header/Header';
 import InfoCard from '../InfoCard/InfoCard';
 import CogCard from '../CogCard/CogCard';
 import ToonsCard from '../ToonsCard/ToonsCard';
@@ -17,7 +16,7 @@ export default function PageDesktop({ state, dispatch, recommendations }) {
   );
 
   return (
-    <>
+    <div className='desktop'>
       <HeaderDesktop
         infoActive={infoActive}
         setInfoActive={setInfoActive}
@@ -30,7 +29,7 @@ export default function PageDesktop({ state, dispatch, recommendations }) {
             />
         </div>
       ) : (
-        <div className='page-wrap-desktop'>
+        <div className='page-wrap'>
           <ToonsCard
             state={state}
             dispatch={dispatch}
@@ -47,7 +46,7 @@ export default function PageDesktop({ state, dispatch, recommendations }) {
         </div>
       )}
       
-    </>
+    </div>
     
   );
 }

@@ -1,31 +1,32 @@
 import React, { useState } from 'react';
-import './PageMobile.css';
 
-import HeaderMobile from '../Header/HeaderMobile';
+import { HeaderMobile } from '../Header/Header';
 import InfoCard from '../InfoCard/InfoCard';
 import CogCard from '../CogCard/CogCard';
 import ToonsCard from '../ToonsCard/ToonsCard';
 import Combos from '../Combos/Combos';
 
 
-function ShowPage({ page, state, dispatch, recommendations }) {
+export default function PageMobile({ state, dispatch, recommendations }) {
+  const [page, setPage] = useState('home');
+
+  let displayedComponent;
   if (page === 'toons') {
-    return (
+    displayedComponent = (
       <ToonsCard
         state={state}
         dispatch={dispatch}
       />
     );
   } else if (page === 'cog') {
-    return (
+    displayedComponent = (
       <CogCard
         state={state}
         dispatch={dispatch}
       />
     );
-    
   } else if (page === 'combos') {
-    return (
+    displayedComponent = (
       <Combos 
         state={state}
         dispatch={dispatch}
@@ -33,31 +34,21 @@ function ShowPage({ page, state, dispatch, recommendations }) {
       />
     );
   } else {
-    return (
+    displayedComponent = (
       <InfoCard />
     );
   }
-}
-
-
-export default function PageMobile({ state, dispatch, recommendations }) {
-  const [page, setPage] = useState('home');
 
   return (
-    <>
+    <div className='mobile'>
       <HeaderMobile 
         page={page}
         setPage={setPage}
       />
-      <div className='page-wrap-mobile'>
-        <ShowPage 
-          page={page}
-          state={state}
-          dispatch={dispatch}
-          recommendations={recommendations}
-        />
+      <div className='page-wrap'>
+        {displayedComponent}
       </div>
-    </>
+    </div>
     
   );
 }

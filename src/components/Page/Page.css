@@ -1,14 +1,33 @@
-.popup {
-  padding-top: 16px;
-  padding-bottom: 16px;
+.mobile .page-wrap {
+  padding-bottom: 63px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+.mobile .page-wrap > * { 
+  padding: 16px;
+  width: 100%;
+  min-height: calc(100vh - 113px);
 }
 
-.popup #info {
+.mobile .wrapper, 
+.mobile .page-wrap {
   max-width: 850px;
   margin: auto;
 }
 
-.popup-btn {
+
+.desktop .popup {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.desktop .popup #info {
+  max-width: 850px;
+  margin: auto;
+}
+
+.desktop .popup-btn {
   display: block;
   background: var(--blue-400); 
   text-shadow: 0 0 4px var(--blue-600);
@@ -19,20 +38,20 @@
   border-radius: 30px;
   font-weight: bold;
 }
-.popup-btn:hover {
+.desktop .popup-btn:hover {
   box-shadow: 0 0 5px var(--blue-600) inset;
 }
 
-.page-wrap-desktop {
+.desktop .page-wrap {
   display: grid;
   grid-template-columns: 300px 1fr auto;
 }
 
-.page-wrap-desktop > * {  
+.desktop .page-wrap > * {  
   padding: 16px 24px; 
 }
 
-.page-wrap-desktop #toons { 
+.desktop .page-wrap #toons { 
   position: sticky;
   top: 49px;
   align-self: flex-start;
@@ -40,24 +59,24 @@
   height: calc(100vh - 49px);
   overflow-y: scroll
 }
-.page-wrap-desktop #toons::-webkit-scrollbar {
+.desktop .page-wrap #toons::-webkit-scrollbar {
   background: var(--blue-400);
   width: 12px;
 }
-.page-wrap-desktop #toons::-webkit-scrollbar-track {
+.desktop .page-wrap #toons::-webkit-scrollbar-track {
   margin: 24px;
 }
-.page-wrap-desktop #toons::-webkit-scrollbar-thumb {
+.desktop .page-wrap #toons::-webkit-scrollbar-thumb {
   background: var(--blue-600);
   border-radius: 30px;
 }
-.page-wrap-desktop #toons::-webkit-scrollbar-thumb:hover {
+.desktop .page-wrap #toons::-webkit-scrollbar-thumb:hover {
   background: var(--blue-500);
 }
 
-.page-wrap-desktop #combos { margin: 0 auto; }
+.desktop .page-wrap #combos { margin: 0 auto; }
 
-.page-wrap-desktop #cog { 
+.desktop .page-wrap #cog { 
   position: sticky;
   top: 49px;
   align-self: flex-start;

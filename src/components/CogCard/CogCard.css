@@ -1,3 +1,9 @@
+#cog { 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .cog-card {
   text-align: center; 
   position: relative;
@@ -127,11 +133,6 @@
 }
 
 
-
-.lured-toggle {
-  margin-top: auto;
-  text-align: center;
-}
 .lured-toggle > div {
   display: inline-flex;
   justify-content: center;
