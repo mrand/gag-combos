@@ -55,7 +55,9 @@ function MobileNav({ page, setPage }) {
                 onClick={() => setPage(linkText)}
               >
                 {getSVG(linkText)}
-                {linkText.charAt(0).toUpperCase() + linkText.slice(1)}
+                <span>
+                  {linkText.charAt(0).toUpperCase() + linkText.slice(1)}
+                </span>
               </button>
             )
           })
