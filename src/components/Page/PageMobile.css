@@ -11,11 +11,11 @@
 }
 
 .toons-card {
-  background: var(--blue-light);
-  border: 8px solid var(--blue-light);
+  background: var(--blue-400);
+  border: 8px solid var(--blue-400);
   gap: 0;
 }
-.toon-panel { border: 8px solid var(--blue-light); }
+.toon-panel { border: 8px solid var(--blue-400); }
 #cog { 
   display: flex;
   flex-direction: column;

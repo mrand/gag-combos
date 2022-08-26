@@ -1,7 +1,7 @@
 .cog-card {
   text-align: center; 
   position: relative;
-  background: var(--metal-light);
+  background: var(--grey-500);
   box-shadow: 0 0 5px #000000;
   padding: 12px;
   display: flex;
@@ -16,9 +16,9 @@
   position: absolute;
   width: 10px;
   height: 10px;
-  background: var(--metal-dark);
+  background: var(--grey-600);
   border-radius: 50%;
-  box-shadow: 0 0 2px 1px var(--metal-shadow);
+  box-shadow: 0 0 2px 1px var(--grey-700);
   overflow: hidden;
 }
 .cog-card .bolt:nth-of-type(1) { 
@@ -43,12 +43,12 @@
   top: 50%; left: 0;
   transform: translateY(-50%);
   width: 100%; height: 2px;
-  background: var(--metal-shadow);
+  background: var(--grey-700);
 }
 
 .cog-card > *:not(.bolt) {
-  background: var(--cog-panel-bg);
-  box-shadow: 0 0 4px 1px var(--metal-shadow) inset;
+  background: var(--grey-400);
+  box-shadow: 0 0 4px 1px var(--grey-700) inset;
   clip-path: polygon(
     12px 0%,
     calc(100% - 12px) 0%,
@@ -83,7 +83,7 @@
 
 .cog-stats b { 
   width: 130px;
-  color: var(--metal-shadow); 
+  color: var(--grey-700); 
   font-family: SpecialElite, cursive;
 }
 
@@ -115,15 +115,15 @@
   border-radius: 50px;
   margin: 1px;
   font-size: 12px;
-  box-shadow: 0 0 4px var(--metal-dark) inset;
+  box-shadow: 0 0 4px var(--grey-600) inset;
 }
 .cog-card button:not(.active) {
-  background: var(--metal-dark);
+  background: var(--grey-600);
   color: #ffffff;
 }
 
 .cog-card button:not(.active):hover {
-  background: var(--blue-light);
+  background: var(--blue-400);
 }
 
 
@@ -139,8 +139,8 @@
   gap: 16px;
   border-radius: 100px;
   background: #ffffff;
-  border: 8px solid var(--green);
-  box-shadow: 0 0 5px var(--metal-shadow);
+  border: 8px solid var(--green-500);
+  box-shadow: 0 0 5px var(--grey-700);
   padding: 0 8px;
 }
 .lured-toggle img {

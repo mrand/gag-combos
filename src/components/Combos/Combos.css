@@ -36,13 +36,13 @@
   border: 4px solid transparent;
 }
 .main-filters button:hover {
-  background: var(--blue-dark);
+  background: var(--blue-600);
   color: #ffffff;
 }
 .title-container button.active {
-  border-color: var(--blue-dark);
+  border-color: var(--blue-600);
   background: #ffffff;
-  color: var(--blue-dark);
+  color: var(--blue-600);
   box-shadow: none;
 }
 .title-container img {
@@ -53,7 +53,7 @@
 .gag-toggles button {
   position: relative;
   border-radius: 15px;
-  border: 4px solid var(--metal-shadow);
+  border: 4px solid var(--grey-700);
   line-height: 1em;
   padding: 4px;
   transform: scale(0.9);
@@ -66,7 +66,7 @@
   content: '+';
   font-size: 38px;
   line-height: 38px;
-  color: var(--metal-shadow);
+  color: var(--grey-700);
   position: absolute;
   top: 50%; left: 50%; transform: translate(-50%, -50%);
 }
@@ -79,9 +79,9 @@
 .combos-grid { 
   display: grid;
   grid-template-columns: 50% 50%;
-  background: var(--blue-dark);
+  background: var(--blue-600);
   border-radius: 20px;
-  border: 8px solid var(--blue-dark);
+  border: 8px solid var(--blue-600);
 }
 @media (max-width: 1375px) and (min-width: 1151px), (max-width: 850px) {
   .combos-grid {
@@ -99,7 +99,7 @@
   gap: 16px;
   background: #ffffff;
   border-radius: 20px;
-  border: 8px solid var(--blue-dark);
+  border: 8px solid var(--blue-600);
 }
 .combo-cell.span-2-cols {
   grid-column-start: 1;
@@ -111,7 +111,7 @@
 }
 .combo-cell.error-msg h3 {
   text-align: center;
-  color: var(--red);
+  color: var(--red-500);
   margin-bottom: 0;
 }
 
@@ -126,8 +126,8 @@
   flex-wrap: wrap;
   gap: 32px;
   padding: 16px 0; 
-  border-top: 4px solid var(--metal-light);
-  border-bottom: 4px solid var(--metal-light);
+  border-top: 4px solid var(--grey-500);
+  border-bottom: 4px solid var(--grey-500);
 }
 
 .gag-cell {
@@ -149,7 +149,7 @@
 
 .gag-cell img {
   width: 40px;
-  filter: drop-shadow(0 0 5px var(--metal-shadow));
+  filter: drop-shadow(0 0 5px var(--grey-700));
 }
 .gag-cell .gag-name { 
   min-height: 2.5em; 
@@ -182,7 +182,7 @@
   }
   .gag-cell:not(:last-of-type) {
     padding-bottom: 8px;
-    border-bottom: 4px dotted var(--metal-light);
+    border-bottom: 4px dotted var(--grey-500);
   }
 
   .gag-cell > div {

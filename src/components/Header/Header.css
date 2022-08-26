@@ -7,7 +7,7 @@ header {
 header,
 #mobile-nav {
   background: #ffffff;
-  box-shadow: 0 0 5px var(--metal-shadow);
+  box-shadow: 0 0 5px var(--grey-700);
   z-index: 100;
 }
 header .wrapper {
@@ -24,18 +24,18 @@ header .wrapper {
   }
 }
 
-header h1 { color: var(--blue-dark); }
+header h1 { color: var(--blue-600); }
 
 
 header button {
   background: 0;
   border-bottom: 3px solid transparent;
   border-radius: 10px 10px 0 0;
-  color: var(--blue-dark);
+  color: var(--blue-600);
 }
 
 header button.active {
-  border-bottom-color: var(--blue-dark);
+  border-bottom-color: var(--blue-600);
   background: 0;
   box-shadow: none;
 }
@@ -53,6 +53,6 @@ header button.active {
 
 #mobile-nav button {
   width: 100%;
-  border-left: 1px solid var(--cog-panel-bg);
+  border-left: 1px solid var(--grey-400);
 }
 #mobile-nav button:first-of-type { border-left: 0; }

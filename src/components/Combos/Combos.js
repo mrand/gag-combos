@@ -57,7 +57,7 @@ function ComboCell({ combo, isOnly }) {
                         <span
                           style={
                             JSON.stringify(solutionTracks)===JSON.stringify(['Drop']) ? 
-                            {color: 'var(--red)'} : {}
+                            {color: 'var(--red-500)'} : {}
                           }
                         ><b>Acc:</b> {gag.accuracy*100}%</span>
                       </>
@@ -79,7 +79,7 @@ function ComboCell({ combo, isOnly }) {
         <h4>
           Damage: 
           <span
-            style={combo.totalDamage === combo.cogHP ? {color: 'var(--green)'} : {}}
+            style={combo.totalDamage === combo.cogHP ? {color: 'var(--green-500)'} : {}}
           > {combo.totalDamage} / {combo.cogHP}</span>
         </h4>
       </div>

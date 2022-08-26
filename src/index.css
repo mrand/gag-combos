@@ -20,18 +20,16 @@ html { box-sizing: border-box; }
 
 html {
   /* Root Variables */
-  --metal-light: #838b90;
-  --metal-dark: #4e5355;
-  --metal-shadow: #3a3a3a;
-  --cog-panel-bg: #d2d2d2;
-  --blue-dark: #1a5493;
-  --blue-light: #5aaaff;
-  --red: #d82e00;
-  --yellow: #fad922;
-  --green: #07781f;
-
-  --toon-street: #f6ecd9;
-  --toon-street-stone: #ebddc5;
+  --grey-400: #d2d2d2;
+  --grey-500: #838b90;
+  --grey-600: #4e5355;
+  --grey-700: #3a3a3a;
+  --grey-800: #1b1b1d;
+  --blue-400: #5aaaff;
+  --blue-600: #1a5493;
+  --red-500: #d82e00;
+  --yellow-500: #fad922;
+  --green-500: #07781f;
 }
 
 body {
@@ -48,8 +46,8 @@ button {
   border: 0;
 }
 button.active {
-  box-shadow: 0 0 4px var(--metal-dark) inset;
-  background: var(--yellow);
+  box-shadow: 0 0 4px var(--grey-600) inset;
+  background: var(--yellow-500);
 }
 
 h1, h2, h3, h4, h5, h6 { 
@@ -59,7 +57,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .svg-btn {
-  --main-color: var(--blue-dark);
+  --main-color: var(--blue-600);
   --sub-color: #ffffff;
   background: var(--sub-color);
   color: var(--main-color);
@@ -108,7 +106,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--metal-dark);
+  background-color: var(--grey-600);
   border-radius: 34px;
 }
 .slider:before {
@@ -122,7 +120,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 50%;
 }
 .switch input:checked + .slider {
-  background-color: var(--blue-dark);
+  background-color: var(--blue-600);
 }
 .switch input:checked + .slider:before {
   -webkit-transform: translateX(26px);

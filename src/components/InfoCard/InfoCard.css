@@ -15,15 +15,15 @@
 }
 
 #info article {
-  background: var(--blue-dark);
-  border: 8px solid var(--blue-dark);
+  background: var(--blue-600);
+  border: 8px solid var(--blue-600);
   border-radius: 20px;
   font-size: 18px;
 }
 
 #info section {
   background: #ffffff;
-  border: 8px solid var(--blue-dark);
+  border: 8px solid var(--blue-600);
   border-radius: 20px;
   padding: 16px;
 }
@@ -40,7 +40,7 @@
 
 #info a { 
   display: block;
-  background: var(--blue-dark); 
+  background: var(--blue-600); 
   color: #ffffff;
   text-align: center;
   padding: 8px;
@@ -51,8 +51,8 @@
   text-decoration: none;
 }
 #info a:hover {
-  background: var(--blue-light);
-  box-shadow: 0 0 5px var(--blue-dark) inset;
+  background: var(--blue-400);
+  box-shadow: 0 0 5px var(--blue-600) inset;
 }
 
 #info em { 

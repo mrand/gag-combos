@@ -10,8 +10,8 @@
 
 .popup-btn {
   display: block;
-  background: var(--blue-light); 
-  text-shadow: 0 0 4px var(--blue-dark);
+  background: var(--blue-400); 
+  text-shadow: 0 0 4px var(--blue-600);
   margin-right: auto;
   color: #ffffff;
   text-align: center;
@@ -20,7 +20,7 @@
   font-weight: bold;
 }
 .popup-btn:hover {
-  box-shadow: 0 0 5px var(--blue-dark) inset;
+  box-shadow: 0 0 5px var(--blue-600) inset;
 }
 
 .page-wrap-desktop {
@@ -36,7 +36,7 @@
   position: sticky;
   top: 49px;
   align-self: flex-start;
-  background: var(--blue-light);
+  background: var(--blue-400);
   height: calc(100vh - 49px);
   overflow: auto;
 }
@@ -45,7 +45,7 @@
   position: sticky;
   top: 49px;
   align-self: flex-start;
-  background: var(--cog-panel-bg);
+  background: var(--grey-400);
   height: calc(100vh - 49px);
   overflow: auto;
 }
