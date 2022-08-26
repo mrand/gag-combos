@@ -95,21 +95,37 @@ function PageDesktop({ state, dispatch, recommendations }) {
 } 
 
 
-const debounce = (fn, delay) => {
-  let timerId;
+// const debounce = (fn, delay) => {
+//   let timerId;
+//   return (...args) => {
+//     clearTimeout(timerId);
+//     timerId = setTimeout(fn, delay, [...args]);
+//   };
+// };
+
+const throttle = (func, delay) => {
+  let inProgress = false;
   return (...args) => {
-    clearTimeout(timerId);
-    timerId = setTimeout(fn, delay, [...args]);
-  };
+    if (inProgress) {
+      return;
+    }
+    inProgress = true;
+    setTimeout(() => {
+      func(...args);
+      inProgress = false;
+    }, delay);
+  }
 };
 
 
 export default function Page({ state, dispatch, recommendations }) {
+  console.log('page re-render')
   let windowWidth = useRef(window.innerWidth);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1150);
 
-  const debouncedChangeHandler = debounce(() => {
+  const debouncedChangeHandler = throttle(() => {
       // console.log(windowWidth.current, window.innerWidth);
+      console.log('resize listener');
       if (
         (windowWidth.current <= 1150 && window.innerWidth > 1150) ||
         (windowWidth.current > 1150 && window.innerWidth <= 1150)
@@ -118,7 +134,7 @@ export default function Page({ state, dispatch, recommendations }) {
         // console.log('updated', windowWidth.current, window.innerWidth);
         setIsMobile(windowWidth.current <= 1150);
       }
-    }, 500);
+    }, 200);
 
   useEffect(() => {
     window.addEventListener("resize", debouncedChangeHandler);
