@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
 import Cog from './core/Cog';
 import Toon from './core/Toon';
-import Page from './components/Page/';
+import Page from './components/Page/Page';
 import { RecommendCombos } from './core/RecommendCombos';
 
 
