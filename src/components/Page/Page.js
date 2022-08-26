@@ -104,7 +104,35 @@ const debounce = (fn, delay) => {
 };
 
 
+function checkDev(state) {
+  if (
+    (state.cogState.cog.level === 9) &&
+    (state.toonState[0].organic === 'Lure') &&
+    (state.toonState[2].organic === 'Squirt') &&
+    (state.toonState[3].organic === 'Toon-Up') &&
+    (state.comboState.comboType === 'Best') &&
+    (JSON.stringify(state.comboState.gagFilters) === JSON.stringify({
+      'Toon-Up': false,
+      'Trap': true,
+      'Lure': false,
+      'Sound': true,
+      'Throw': true,
+      'Squirt': false,
+      'Drop': true
+    }))
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+
 export default function Page({ state, dispatch, recommendations }) {
+  if (checkDev(state)) {
+    alert('DevNote: Page re-render');
+  }
+
   let windowWidth = useRef(window.innerWidth);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1150);
 
