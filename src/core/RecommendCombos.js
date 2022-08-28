@@ -233,7 +233,6 @@ export class FindCombo {
 // console.log(`${testCombo.solution}`);
 
 
-
 /**
  * Filter Class that presents user with relevant combos
  */
@@ -363,7 +362,12 @@ export class RecommendCombos {
       });
 
       // Sort Combos by Total Damage
-      recSolns.sort((combo1, combo2) => (combo1.totalDamage > combo2.totalDamage) ? 1 : -1);
+      recSolns.sort(function(combo1, combo2) {
+        // equal damage combos sort equally
+        if (combo1.totalDamage === combo2.totalDamage) return 0;
+        // else sort by lowest to highest total damage
+        return (combo1.totalDamage > combo2.totalDamage) ? 1 : -1
+      });
 
       // Reduce Number of Displayed Combos
       // combos with total damage below hp+threshold
@@ -381,13 +385,22 @@ export class RecommendCombos {
       recSolns = tmp1;
     }
 
-    // sort gags - put 'Pass' at the end.
+
+    // Sort Remaining Recommended Combos' Gags
     recSolns.forEach((combo) => {
-      combo.gags.sort((gag1, gag2) => (gag2.name !== 'Pass') ? 1 : -1);
+      combo.gags.sort(function(a,b) {
+        // Put 'Pass' at End
+        if (a.name === 'Pass') return 1;
+        if (b.name === 'Pass') return -1;
+        // Otherwise Preserve Order
+        return 0;
+      });
     });
+    
 
     return recSolns;
   }
+
 
   _checkForError() {
     if (this.numToons === 0) {
