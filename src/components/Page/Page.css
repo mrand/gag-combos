@@ -1,12 +1,8 @@
 .mobile .page-wrap {
   padding-bottom: 63px;
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
 }
 .mobile .page-wrap > * { 
   padding: 16px;
-  width: 100%;
 }
 
 .mobile .wrapper, 
