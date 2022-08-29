@@ -47,6 +47,7 @@
 }
 .title-container img {
   width: 30px;
+  height: 30px;
 }
 
 .btns { gap: 0; }
@@ -148,7 +149,7 @@
 
 .gag-cell img {
   width: 40px;
-  height: auto;
+  height: 40px;
   filter: drop-shadow(0 0 5px var(--grey-700));
 }
 .gag-cell .gag-name { 
@@ -177,7 +178,7 @@
   .combo-cell:not(.expanded) .gag-cell img {
     display: block;
     width: min(40px, 10vw);
-    object-fit: contain;
+    height: min(40px, 10vw);
   }
   
   .combo-cell.expanded .gag-cell { 
@@ -233,5 +234,6 @@
  .expand-btn svg {
   fill: var(--blue-600);
   width: 24px;
+  height: 24px;
  }
  .expand-btn:hover svg { fill: var(--blue-500); }
