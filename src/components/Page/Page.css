@@ -69,7 +69,10 @@
   background: var(--blue-500);
 }
 
-.desktop .page-wrap #combos { margin: 0 auto; }
+.desktop .page-wrap #combos { 
+  width: min(100%, 900px);
+  margin: 0 auto; 
+}
 
 .desktop .page-wrap #cog { 
   position: sticky;
