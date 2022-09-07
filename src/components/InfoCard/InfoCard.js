@@ -85,7 +85,7 @@ export default function InfoCard({
             Toontown Calculator*
           </a>
           <em>
-            * May not be up to date with current TTR gag damage values.
+            * Not up to date with current TTR gag damage values.
           </em>
         </section>
         <section>
