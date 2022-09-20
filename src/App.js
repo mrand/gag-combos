@@ -129,7 +129,7 @@ function App() {
         ''           // Toon 4
       ],
       comboState: {
-        comboType: 'Basic',
+        comboType: 'All',
         gagFilters: {
           'Toon-Up': true,
           'Trap':    true,
