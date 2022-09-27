@@ -41,7 +41,7 @@ function getSVG(linkText) {
   return svgs[linkText];
 }
 
-export function NavMobile({ page, setPage }) {
+function MobileNav({ page, setPage }) {
   const pages = ['home', 'toons', 'cog', 'combos'];
   return (
     <nav id='mobile-nav'>
@@ -67,13 +67,19 @@ export function NavMobile({ page, setPage }) {
   );
 }
 
-export function HeaderMobile() {
+export function HeaderMobile({ page, setPage }) {
   return (
-    <header>
-      <div className='wrapper'>
-        <h1>Gag Combos</h1>
-      </div>
-    </header>
+    <>
+      <header>
+        <div className='wrapper'>
+          <h1>Gag Combos</h1>
+        </div>
+      </header>
+      <MobileNav 
+        page={page} 
+        setPage={setPage}
+      />
+    </>
   );
 }
 
