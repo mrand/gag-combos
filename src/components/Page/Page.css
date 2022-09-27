@@ -1,5 +1,14 @@
+.mobile {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+
 .mobile .page-wrap {
-  padding-bottom: 63px;
+  max-height: calc(100% - 49px - 63px);
+  overflow-y: auto;
 }
 .mobile .page-wrap > * { 
   padding: 16px;
@@ -7,8 +16,9 @@
 
 .mobile .wrapper, 
 .mobile .page-wrap {
+  width: 100%;
   max-width: 850px;
-  margin: auto;
+  margin: 0 auto;
 }
 
 
