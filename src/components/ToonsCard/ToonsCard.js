@@ -174,7 +174,7 @@ export default function ToonsCard({ state, dispatch }) {
   let toons = state.toonState;
   
   return (
-    <div id="toons">
+    <div id="toons" className="custom-scrollbar">
       <h2>Toons</h2>
       <div className='toons-card'>
         {toons.map((toon, i) => (

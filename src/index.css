@@ -51,6 +51,27 @@ button.active {
   background: var(--yellow-500);
 }
 
+.custom-scrollbar {
+  /* defaults */
+  --bar-width: 12px;
+  --bar-color: var(--blue-400); 
+  --thumb-color: var(--blue-600);
+  --thumb-hover-color: var(--blue-500);
+}
+.custom-scrollbar::-webkit-scrollbar {
+  background: var(--bar-color);
+  width: var(--bar-width);
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--bar-color);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--thumb-color);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--thumb-hover-color);
+}
+
 h1, h2, h3, h4, h5, h6 { 
   font-weight: normal;
   text-align: center; 

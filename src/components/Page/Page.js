@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Page.css';
-import { HeaderDesktop, HeaderMobile } from '../Header/Header';
+import { HeaderDesktop, HeaderMobile, NavMobile } from '../Header/Header';
 import InfoCard from '../InfoCard/InfoCard';
 import CogCard from '../CogCard/CogCard';
 import ToonsCard from '../ToonsCard/ToonsCard';
@@ -41,13 +41,14 @@ function PageMobile({ state, dispatch, recommendations }) {
 
   return (
     <div className='mobile'>
-      <HeaderMobile 
+      <HeaderMobile />
+      <div className='page-wrap custom-scrollbar'>
+        {displayedComponent}
+      </div>
+      <NavMobile 
         page={page}
         setPage={setPage}
       />
-      <div className='page-wrap'>
-        {displayedComponent}
-      </div>
     </div>
   );
 }

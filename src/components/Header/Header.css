@@ -40,11 +40,6 @@ header button.active {
   box-shadow: none;
 }
 
-#mobile-nav {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
 #mobile-nav .wrapper {
   padding: 0;
   display: flex;
