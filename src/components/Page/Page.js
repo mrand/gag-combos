@@ -103,43 +103,43 @@ function PageDesktop({ state, dispatch, recommendations }) {
 //   };
 // };
 
-const throttle = (func, delay) => {
-  let inProgress = false;
-  return (...args) => {
-    if (inProgress) {
-      return;
-    }
-    inProgress = true;
-    setTimeout(() => {
-      func(...args);
-      inProgress = false;
-    }, delay);
-  }
-};
+// const throttle = (func, delay) => {
+//   let inProgress = false;
+//   return (...args) => {
+//     if (inProgress) {
+//       return;
+//     }
+//     inProgress = true;
+//     setTimeout(() => {
+//       func(...args);
+//       inProgress = false;
+//     }, delay);
+//   }
+// };
 
 
 export default function Page({ state, dispatch, recommendations }) {
   let windowWidth = useRef(window.innerWidth);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1150);
 
-  const debouncedChangeHandler = throttle(() => {
-      // console.log(windowWidth.current, window.innerWidth);
-      if (
-        (windowWidth.current <= 1150 && window.innerWidth > 1150) ||
-        (windowWidth.current > 1150 && window.innerWidth <= 1150)
-      ) {
-        windowWidth.current = window.innerWidth;
-        // console.log('updated', windowWidth.current, window.innerWidth);
-        setIsMobile(windowWidth.current <= 1150);
-      }
-    }, 200);
+
+  function changeHandler() {
+    if (
+      (windowWidth.current <= 1150 && window.innerWidth > 1150) ||
+      (windowWidth.current > 1150 && window.innerWidth <= 1150)
+    ) {
+      windowWidth.current = window.innerWidth;
+      // console.log('updated', windowWidth.current, window.innerWidth);
+      setIsMobile(windowWidth.current <= 1150);
+    }
+  }
 
   useEffect(() => {
-    window.addEventListener("resize", debouncedChangeHandler);
+    window.addEventListener("resize", changeHandler);
     return () => {
-      window.removeEventListener("resize", debouncedChangeHandler)
+      window.removeEventListener("resize", changeHandler)
     };
-  }, [debouncedChangeHandler]);
+  }, []);
 
   if (isMobile) {
     return (
