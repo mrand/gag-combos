@@ -9,7 +9,7 @@ export default class Cog {
     this.hp = this._calculateHP();
     this.suit = this._getRandomSuit();
     this.cog = this._getRandomCog();
-    [this.suitImage, this.cogImage] = this._getImageNames();
+    this.image = this._getImageName();
   }
  
   _calculateHP() {
@@ -40,18 +40,15 @@ export default class Cog {
     return cogsOfSuit[indexes[Math.floor(Math.random() * indexes.length)]];  
   }
 
-  _getImageNames() {
+  _getImageName() {
     let suitConf = this.suit.toLowerCase();
     let cogConf = this.cog.replace(/[-&. ]/g,'').toLowerCase();
-    return [
-      `./img/cogs/symbol-${suitConf}.webp`,
-      `./img/cogs/${suitConf}-${cogConf}.webp`
-    ];
+    return `./img/cogs/${suitConf}-${cogConf}.webp`;
   }
 
   toString() {
     return (
-      `Cog: ${this.suit}, ${this.cog} Level ${this.level} (HP ${this.hp})\n- Suit Image: ${this.suitImage}\n- Cog Image: ${this.cogImage}`
+      `Cog: ${this.suit}, ${this.cog} Level ${this.level} (HP ${this.hp})\n- Image: ${this.image}`
     );
   }
 }

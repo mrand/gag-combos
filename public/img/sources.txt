@@ -15,8 +15,4 @@ img/
     cog_panel_reference.png: In-Game Screenshot
     gags_pattern.png:        https://toontownrewritten.com/
     icon-organic-mini:       ?
-    symbol-bossbot.webp:     https://toontownrewritten.fandom.com/wiki/Bossbots
-    symbol-lawbot.webp:      https://toontownrewritten.fandom.com/wiki/Lawbots
-    symbol-cashbot.webp:     https://toontownrewritten.fandom.com/wiki/Cashbots
-    symbol-sellbot.webp:     https://toontownrewritten.fandom.com/wiki/Sellbots
   mcnugget.webp              In-Game Screenshot

@@ -11,7 +11,7 @@ function CogStats({ cog }) {
   return (
     <div className='cog-stats'>
       <img 
-        src={cog.cogImage}
+        src={cog.image}
         alt={`${cog.cog} Cog`}
       />
       <b>{cog.cog}</b>
