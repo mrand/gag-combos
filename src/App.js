@@ -114,6 +114,26 @@ function getRecommendations(state) {
 }
 
 
+/**
+ * Get Saved Toons if they exist, else build new toons array.
+ * @returns array of toon objects
+ */
+function buildInitToonsObject() {
+  let toons = [];
+  let localToonOrg;
+  // fill saved toons
+  for (let i=0; i<4; i++) {
+    localToonOrg = localStorage.getItem('ToonOrg'+i);
+    toons.push(localToonOrg ? new Toon(localToonOrg) : '');
+  }
+  // 1st toon always set
+  if (toons.filter(toon => toon !== '').length === 0) {
+    toons[0] = new Toon();
+  }
+  return toons;
+}
+
+
 function App() {
   const [state, dispatch] = useReducer(
     reducer, 
@@ -122,12 +142,7 @@ function App() {
         cog: new Cog(1),
         isLured: false
       },
-      toonState: [
-        new Toon(),  // Toon 1
-        '',          // Toon 2
-        '',          // Toon 3
-        ''           // Toon 4
-      ],
+      toonState: buildInitToonsObject(),
       comboState: {
         comboType: 'All',
         gagFilters: {
@@ -142,7 +157,6 @@ function App() {
       }
     }
   );
-  // console.log(state.toonState);
   
   let recommendations = getRecommendations(state);
   return (

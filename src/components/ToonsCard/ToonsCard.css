@@ -29,6 +29,31 @@
   padding-bottom: 8px;
 }
 
+.toon-toggle .controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.toon-toggle .controls button { 
+  background: var(--blue-600);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 30px;
+}
+.toon-toggle .controls button.warn {
+  background: var(--red-500);
+}
+.toon-toggle .controls button:hover {
+   background: var(--blue-400); 
+   box-shadow: 0 0 4px var(--grey-600) inset;
+}
+.toon-toggle .controls button svg { 
+  fill: #ffffff;
+  width: 16px; 
+}
+
 .toon-name {
   --toon-color: #90d23a;  /* lime default */
   margin-top: 4px;
