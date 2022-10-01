@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './ToonsCard.css';
-// import './LaffMeter.css';
 
 
 function saveToon(i, setIsSaved, orgGag) {
@@ -62,9 +61,7 @@ function ToonToggle({ i, dispatch, active, setActive, isSaved, setIsSaved, toonO
           toonOrg={toonOrg}
         />
         {
-          isSaved ? (
-            null
-          ) : (
+          isSaved ? null : (
             <label className='switch'>
               <input 
                 type='checkbox' 
@@ -94,44 +91,10 @@ function ToonToggle({ i, dispatch, active, setActive, isSaved, setIsSaved, toonO
 
 function ToonStats({ toon }) {
   return (
-    // <div className='toon-stats'>
-    //   <div 
-    //     className={
-    //       'laff-meter' + 
-    //       ' ' + toon.species.toLowerCase() +
-    //       (toon.gender === 'Girl' ? ' girl' : '')
-    //     }
-    //     style={{'--toon-color': toon.color[1]}}
-    //   >
-    //     <div className='head'></div>
-    //     <span className='antler left'></span>
-    //     <span className='antler right'></span>
-    //     <span className='ear left'></span>
-    //     <span className='ear right'></span>
-    //     <span className='eye left'></span>
-    //     <span className='eye right'></span>
-    //     <svg 
-    //       className='mouth' 
-    //       viewBox="0 0 90 25" 
-    //       height="25" 
-    //       width="90"
-    //     >
-    //       <path d="M10,3 C15,35 75,35 80,3" />
-    //       <path d="M6,3 L14,1.5" />
-    //       <path d="M84,3 L76,1.5" />
-    //     </svg>
-    //   </div>
-    //   <b 
-    //     className='toon-name'
-    //     style={{'--toon-color': toon.color[1]}}
-    //   >
-    //     {toon.name}
-    //   </b>
-      <p className='org-gag-container'>
-        <span>Organic</span>
-        <img src={gagTracks[toon.organic]} alt={toon.organic + ' Gag'} />
-      </p>
-    // </div>
+    <p className='org-gag-container'>
+      <span>Organic</span>
+      <img src={gagTracks[toon.organic]} alt={toon.organic + ' Gag'} />
+    </p>
   );
 }
 
@@ -192,13 +155,9 @@ function ToonPanel({ i, toon, dispatch }) {
   const [orgPickerActive, setOrgPickerActive] = useState(false);
 
   return (
-    <div 
-      className='toon-panel'
-    >
+    <div className='toon-panel'>
       {
-        (orgPickerActive) ? (
-          null
-        ) : (
+        orgPickerActive ? null : (
           <ToonToggle 
             i={i}
             dispatch={dispatch}
@@ -211,34 +170,32 @@ function ToonPanel({ i, toon, dispatch }) {
         )
       }
       
-      {(active) ? (
-        <>
-          {
-            (orgPickerActive) ? (
-              null
-            ) : (
-              <ToonStats 
-                toon={toon} 
-                isSaved={isSaved}
-              />
-            )
-          }
-          {
-            (isSaved) ? (
-              null
-            ) : (
-              <OrganicPicker 
-                i={i} 
-                dispatch={dispatch}
-                orgPickerActive={orgPickerActive}
-                setOrgPickerActive={setOrgPickerActive}
-              />
-            )
-          }
-        </>
-      ) : (
-        null
-      )}
+      {
+        (active) ? (
+          <>
+            {
+              orgPickerActive ? null : (
+                <ToonStats 
+                  toon={toon} 
+                  isSaved={isSaved}
+                />
+              )
+            }
+            {
+              isSaved ? null : (
+                <OrganicPicker 
+                  i={i} 
+                  dispatch={dispatch}
+                  orgPickerActive={orgPickerActive}
+                  setOrgPickerActive={setOrgPickerActive}
+                />
+              )
+            }
+          </>
+        ) : (
+          null
+        )
+      }
     </div>
   );
 }
