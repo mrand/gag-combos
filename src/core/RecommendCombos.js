@@ -404,7 +404,9 @@ export class RecommendCombos {
 
   _checkForError() {
     if (this.numToons === 0) {
-      return 'You need at least 1 toon to defeat the cogs!';
+      return 'You need at least 1 toon to defeat the cogs! Use the \'Toons\' section to configure your toons.';
+    } else if (!this.cog) {
+      return 'There is no cog to defeat! Use the \'Cog\' section to choose a level.';
     } else if (this.recCombos.length === 0) {
       if (this.comboType === 'Best') {
         return 'No recommended "best" combos! Try the "All" filter instead.';

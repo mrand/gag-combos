@@ -27,14 +27,18 @@ function CogStats({ cog }) {
 
 
 function CogLevelPicker({ state, dispatch, setActive }) {
-
+  // check if cog obejct is set
+  let cogIsSet = state.cogState.cog !== null;
+  
   return (
     <div className='lvl-picker'>
       <b>Choose Cog Level</b>
       <div className='lvl-btns'>
         {lvlNums.map((lvl, i) => (
           <button
-            className={(state.cogState.cog.level-1 === i) ? 'active' : ''}
+            className={
+              (cogIsSet && state.cogState.cog.level-1 === i) ? 'active' : ''
+            }
             key={i}
             onClick={() => {
               dispatch({
@@ -100,7 +104,7 @@ export default function CogCard({ state, dispatch }) {
         <span className='bolt'></span>
         <span className='bolt'></span>
         {
-          (active) ? (
+          (active || !cog) ? (
             <CogLevelPicker 
               state={state}
               dispatch={dispatch}

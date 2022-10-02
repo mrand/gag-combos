@@ -139,7 +139,7 @@ function App() {
     reducer, 
     {
       cogState: {
-        cog: new Cog(1),
+        cog: null,
         isLured: false
       },
       toonState: buildInitToonsObject(),
