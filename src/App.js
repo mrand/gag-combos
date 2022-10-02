@@ -127,9 +127,9 @@ function buildInitToonsObject() {
     toons.push(localToonOrg ? new Toon(localToonOrg) : '');
   }
   // 1st toon always set
-  if (toons.filter(toon => toon !== '').length === 0) {
-    toons[0] = new Toon();
-  }
+  // if (toons.filter(toon => toon !== '').length === 0) {
+  //   toons[0] = new Toon();
+  // }
   return toons;
 }
 
