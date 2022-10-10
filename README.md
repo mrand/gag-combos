@@ -1,5 +1,5 @@
 <!-- Page Title -->
-<h1 align="center"> Pharaoh's Phury </h1> <br>
+<h1 align="center"> Gag Combos Info </h1> <br>
 
 <!-- Title Image -->
 <p align="center">
