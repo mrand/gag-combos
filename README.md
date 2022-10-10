@@ -20,4 +20,6 @@
 <!-- Links - Trailer, Play Game, Sources -->
 <p align="center">
   <a href="https://gagcombos.info/"><b>Click to View Website!</b></a>
+  •
+  <a href="/public/img/sources.txt">Image Sources</a>
 </p>

@@ -1,4 +1,4 @@
-img/
+/public/img/
   cogs/
     *.webp:                  https://toontownrewritten.fandom.com/wiki/Cogs
   gags/
