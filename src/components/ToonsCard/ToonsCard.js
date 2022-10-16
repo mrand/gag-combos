@@ -104,8 +104,10 @@ let gagTracks = {
   'Squirt': './img/gags/squirt-Squirting_Flower.png',
   'Drop': './img/gags/drop-Flower_Pot.png'
 };
-function OrganicPicker({ i, dispatch, orgPickerActive, setOrgPickerActive }) {
-  const [activeBtn, setActiveBtn] = useState(0);
+function OrganicPicker({ i, dispatch, orgPickerActive, setOrgPickerActive, toonOrg }) {
+  const [activeBtn, setActiveBtn] = useState(
+    Object.keys(gagTracks).indexOf(toonOrg) || 0
+  );
 
   return (
     <div className='organic-picker'>
@@ -180,6 +182,7 @@ function ToonPanel({ i, toon, dispatch }) {
             dispatch={dispatch}
             orgPickerActive={orgPickerActive}
             setOrgPickerActive={setOrgPickerActive}
+            toonOrg={toon.organic}
           />
         ) : null
       }
