@@ -16,5 +16,5 @@
   transition: 0.5s ease transform;
 }
 .reset-btn:hover svg {
-  transform: rotate(540deg);
+  transform: rotate(360deg);
 }

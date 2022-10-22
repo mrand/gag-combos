@@ -74,21 +74,6 @@ export default function InfoCard({
           </p>
         </section>
         <section>
-          <h3>Similar Resources</h3>
-          <p>
-            Here are links to other great projects I found while developing this one:            
-          </p>
-          <a href='https://zzzachzzz.github.io/toontown-combos/' target='_blank' rel='noopener noreferrer'>
-            TTO/TTR Gag Combos - Sound/Throw/Squirt/Drop
-          </a>
-          <a href='https://www.ethanyhong.me/ttcalc/' target='_blank' rel='noopener noreferrer'>
-            Toontown Calculator*
-          </a>
-          <em>
-            * Not up to date with current TTR gag damage values.
-          </em>
-        </section>
-        <section>
           <h3>New to Toontown?</h3>
           <a href='https://toontownrewritten.com/' target='_blank' rel='noopener noreferrer'>
             Toontown Rewritten Homepage
@@ -96,6 +81,16 @@ export default function InfoCard({
           <a href='https://toontownrewritten.fandom.com/wiki/Gags' target='_blank' rel='noopener noreferrer'>
             TTR Gags Wiki
           </a>
+        </section>
+        <section>
+          <h3>Changelog</h3>
+          <div className='entry'>
+            <h4>2022-10-22</h4>
+            <h5>Saving and Deleting</h5>
+            <p>
+              Dashboard now saves your setup by default, with buttons to reset toons, combos, and cog to their initial states if desired.
+            </p>
+          </div>
         </section>
       </article>
     </div>

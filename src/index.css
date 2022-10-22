@@ -89,9 +89,8 @@ h1, h2, h3, h4, h5, h6 {
   font-family: BowlbyOneSC,Arial,Roboto,Helvetica,sans-serif;
 }
 
-/* wraps an h2 tag and the reset button for a given component */
+/* wraps an h2 tag and a reset button component */
 .heading-btn-wrap {
-  /* border: 1px solid red; */
   display: flex;
   gap: 8px;
   align-items: center;

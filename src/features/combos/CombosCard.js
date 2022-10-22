@@ -257,7 +257,7 @@ function TitleContainer({ cellStates, setCellStates }) {
           <ResetButton 
             active={resetBtnActive}
             clickHandler={() => dispatch(reset())}
-            infoText="Reset Combos Defaults"
+            infoText="Reset Combos Options"
           />
         </div>
         <MainFilters 

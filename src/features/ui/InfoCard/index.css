@@ -6,7 +6,9 @@
 }
 
 #info,
-#info h3 { text-align: left; }
+#info h3,
+#info h4,
+#info h5 { text-align: left; }
 
 #info article,
 #info section {
@@ -29,6 +31,11 @@
 }
 
 #info section > *:not(h3) { margin-top: 12px; }
+
+#info .entry {
+  border-top: 1px solid var(--grey-400);
+  padding-top: 12px;
+}
 
 #info li { margin-left: 18px; }
 
