@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
-import { HeaderDesktop, HeaderMobile } from './components/Header/Header';
-import InfoCard from './components/InfoCard/InfoCard';
-import CogCard from './features/cog';
-import ToonsCard from './features/toons';
-import CombosCard from './features/combos';
+import { HeaderDesktop, HeaderMobile } from './features/ui/Header';
+import InfoCard from './features/ui/InfoCard';
+import CogCard from './features/cog/CogCard';
+import ToonsCard from './features/toons/ToonsCard';
+import CombosCard from './features/combos/CombosCard';
 
 
 function PageMobile() {
@@ -12,21 +12,13 @@ function PageMobile() {
 
   let displayedComponent;
   if (page === 'toons') {
-    displayedComponent = (
-      <ToonsCard />
-    );
+    displayedComponent = <ToonsCard />;
   } else if (page === 'cog') {
-    displayedComponent = (
-      <CogCard />
-    );
+    displayedComponent = <CogCard />;
   } else if (page === 'combos') {
-    displayedComponent = (
-      <CombosCard />
-    );
+    displayedComponent = <CombosCard />;
   } else {
-    displayedComponent = (
-      <InfoCard />
-    );
+    displayedComponent = <InfoCard />;
   }
 
   return (
@@ -93,7 +85,7 @@ function App() {
   let windowWidth = useRef(window.innerWidth);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1150);
 
-  const debouncedChangeHandler = throttle(() => {
+  const throttledChangeHandler = throttle(() => {
       // console.log(windowWidth.current, window.innerWidth);
       if (
         (windowWidth.current <= 1150 && window.innerWidth > 1150) ||
@@ -106,11 +98,11 @@ function App() {
     }, 200);
 
   useEffect(() => {
-    window.addEventListener("resize", debouncedChangeHandler);
+    window.addEventListener("resize", throttledChangeHandler);
     return () => {
-      window.removeEventListener("resize", debouncedChangeHandler)
+      window.removeEventListener("resize", throttledChangeHandler)
     };
-  }, [debouncedChangeHandler]);
+  }, [throttledChangeHandler]);
 
   return isMobile ? <PageMobile /> : <PageDesktop />;
 }

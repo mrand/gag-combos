@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setType, toggleExpanded, toggleTrack } from './comboSlice';
-import './index.css';
+import { reset, setType, toggleExpanded, toggleTrack } from './comboSlice';
+import './CombosCard.css';
 import Cog from '../cog/Cog';
 import { RecommendCombos } from './RecommendCombos';
+import ResetButton from '../ui/ResetButton';
 
 
 function ComboCell({ combo, isOnly, cellNum, cellStates, setCellStates }) {
@@ -82,8 +83,6 @@ function ComboCell({ combo, isOnly, cellNum, cellStates, setCellStates }) {
           className='combo-stats'
           style={expanded ? {justifyContent: 'center'} : {}}
         >
-          {/* <h4>{(combo.isLured) ? 'Cog is Lured' : ''}</h4> */}
-          {/* <h4>Cog HP: {combo.cogHP}</h4> */}
           <h4>
             Damage: 
             <span
@@ -93,30 +92,25 @@ function ComboCell({ combo, isOnly, cellNum, cellStates, setCellStates }) {
           {
             !expanded ? (
               <button
-                className='expand-btn'
+                className={'expand-btn' + (isDropOnly ? ' warn' : '')}
                 onClick={() => {
                   let newCellStates = [...cellStates];
                   newCellStates[cellNum] = !newCellStates[cellNum];
                   setCellStates(newCellStates);
                 }}
+                aria-label={"Toggle Gag Info"}
+                title={"Toggle Gag Info"}
               >
                 {
                   thisExpanded ? (
-                    <svg 
-                      style={isDropOnly ? {fill: 'var(--red-500)'} : {}}
-                      xmlns="http://www.w3.org/2000/svg" 
-                      viewBox="0 0 512 512"
-                    >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                       <span dangerouslySetInnerHTML={{__html: "<!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->"}}></span>
-                      <path d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM168 232C154.7 232 144 242.7 144 256C144 269.3 154.7 280 168 280H344C357.3 280 368 269.3 368 256C368 242.7 357.3 232 344 232H168z"/>
+                      <path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"/>
                     </svg>
                   ) : (
-                    <svg 
-                      style={isDropOnly ? {fill: 'var(--red-500)'} : {}}
-                      xmlns="http://www.w3.org/2000/svg" 
-                      viewBox="0 0 512 512">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512">
                       <span dangerouslySetInnerHTML={{__html: "<!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->"}}></span>
-                      <path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 128c17.67 0 32 14.33 32 32c0 17.67-14.33 32-32 32S224 177.7 224 160C224 142.3 238.3 128 256 128zM296 384h-80C202.8 384 192 373.3 192 360s10.75-24 24-24h16v-64H224c-13.25 0-24-10.75-24-24S210.8 224 224 224h32c13.25 0 24 10.75 24 24v88h16c13.25 0 24 10.75 24 24S309.3 384 296 384z"/>
+                      <path d="M144 80c0 26.5-21.5 48-48 48s-48-21.5-48-48s21.5-48 48-48s48 21.5 48 48zM0 224c0-17.7 14.3-32 32-32H96c17.7 0 32 14.3 32 32V448h32c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H64V256H32c-17.7 0-32-14.3-32-32z"/>
                     </svg>
                   )
                 }
@@ -175,6 +169,8 @@ function MainFilters({ cellStates, setCellStates }) {
           dispatch(setType('All'));
           setCellStates(new Array(cellStates.length).fill(expanded));
         }}
+        aria-label={"Show All Combos"}
+        title={"Show All Combos"}
       >All</button>
       <button
         className={comboType==='Basic' ? 'active' : ''}
@@ -182,6 +178,8 @@ function MainFilters({ cellStates, setCellStates }) {
           dispatch(setType('Basic'));
           setCellStates(new Array(cellStates.length).fill(expanded));
         }}
+        aria-label={"Show Basic Combos"}
+        title={"Show Basic Combos"}
       >Basic</button>
       <button
         className={comboType==='Best' ? 'active' : ''}
@@ -189,6 +187,8 @@ function MainFilters({ cellStates, setCellStates }) {
           dispatch(setType('Best'));
           setCellStates(new Array(cellStates.length).fill(expanded));
         }}
+        aria-label={"Show Best Combos"}
+        title={"Show Best Combos"}
       >Best</button>
     </div>
   );
@@ -216,6 +216,8 @@ function GagToggles() {
           onClick={() => {
             dispatch(toggleTrack(track));
           }}
+          aria-label={"Toggle "+track+" Track"}
+          title={"Toggle "+track+" Track"}
         >
           <img src={trackImgs[track]} alt={track + ' Gag'} />
         </button>
@@ -230,25 +232,34 @@ function ExpandAllToggle({ cellStates, setCellStates }) {
   const expanded = useSelector((state) => state.combos.expanded);
 
   return (
-    <label className='switch'>
-      <input 
-        type='checkbox' 
-        onChange={() => {
-          setCellStates(new Array(cellStates.length).fill(!expanded));
-          dispatch(toggleExpanded());
-        }}
-        defaultChecked={expanded}
-      />
-      <span className='slider'></span>
-    </label>
+    <button 
+      className={'switch' + (expanded ? ' on' : '')}
+      onClick={(e) => {
+        setCellStates(new Array(cellStates.length).fill(!expanded));
+        dispatch(toggleExpanded());
+      }}
+      aria-label="Toggle All Info"
+      title="Toggle All Info"
+    >
+    </button>
   );
 }
 
 function TitleContainer({ cellStates, setCellStates }) {
+  const resetBtnActive = useSelector((state) => state.combos.hasUpdates);
+  const dispatch = useDispatch();
+
   return (
     <div className='title-container'>
       <div>
-        <h2>Combos</h2>
+        <div className='heading-btn-wrap'>
+          <h2>Combos</h2>
+          <ResetButton 
+            active={resetBtnActive}
+            clickHandler={() => dispatch(reset())}
+            infoText="Reset Combos Defaults"
+          />
+        </div>
         <MainFilters 
           cellStates={cellStates}
           setCellStates={setCellStates}
@@ -276,8 +287,8 @@ export default function CombosCard() {
   const cogLevel = useSelector((state) => state.cog.level);
   const cog = cogLevel ? new Cog(cogLevel) : null;
   const isLured = useSelector((state) => state.cog.lured);
-  const numToons = useSelector((state) => state.toons.filter(toon => toon.active).length);
-  const toonOrgs = useSelector((state) => state.toons.map((toon) => toon.active ? toon.organic : ''));
+  const numToons = useSelector((state) => state.toons.toonlist.filter(toon => toon.active).length);
+  const toonOrgs = useSelector((state) => state.toons.toonlist.map((toon) => toon.active ? toon.organic : ''));
   const comboType = useSelector((state) => state.combos.type);
   const gagFilters = useSelector((state) => state.combos.filters);
 

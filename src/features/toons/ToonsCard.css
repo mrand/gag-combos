@@ -6,6 +6,7 @@
   border-radius: 20px;
   font-family: BowlbyOneSC,Arial,Roboto,Helvetica,sans-serif;
 }
+.mobile .toons-card { margin-top: 8px; }
 
 .toon-panel { 
   display: flex;
@@ -27,28 +28,6 @@
 .toon-panel > *:not(:last-child) { 
   border-bottom: 1px solid var(--grey-400); 
   padding-bottom: 8px;
-}
-
-.toon-toggle .controls {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-.toon-toggle .controls button { 
-  background: var(--blue-600);
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border-radius: 30px;
-}
-.toon-toggle .controls button:hover {
-   background: var(--blue-400); 
-   box-shadow: 0 0 4px var(--grey-600) inset;
-}
-.toon-toggle .controls button svg { 
-  fill: #ffffff;
-  width: 16px; 
 }
 
 .toon-name {
@@ -77,19 +56,6 @@
 .organic-picker button {
   border-radius: 30px;
   width: 100%;
-}
-.organic-picker button:not(.active) {
-  background: var(--blue-600);
-  color: #ffffff;
-}
-.organic-picker button:hover,
-.organic-picker button:focus {
-  background: var(--blue-400);
-  box-shadow: 0 0 5px var(--blue-600) inset;
-}
-
-.organic-picker button.active { 
-  background: var(--yellow-500); 
 }
 
 .gag-btn {

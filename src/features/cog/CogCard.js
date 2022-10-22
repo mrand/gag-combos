@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setLevel, toggleLured } from './cogSlice';
-import './index.css';
+import { reset, setLevel, toggleLured } from './cogSlice';
+import './CogCard.css';
 import Cog from './Cog';
+import ResetButton from '../ui/ResetButton';
 
 
 // list of possible cog levels (1 through 20)
@@ -48,6 +49,8 @@ function CogLevelPicker({ setActive }) {
               dispatch(setLevel(lvl));
               setActive(false);
             }}
+            title={"Level "+lvl+" Cog"}
+            aria-label={"Level "+lvl+" Cog"}
           >{lvl}</button>
         ))}
       </div>
@@ -71,18 +74,16 @@ function LuredToggle() {
       }
       <div>
         <img src='./img/gags/lure-10_Bill.png' alt='$10 Bill Lure Gag' />
-        <label className='switch'>
-          <input
-            type='checkbox'
-            onChange={() => {
-              dispatch(toggleLured());
-            }}
-            defaultChecked={
-              useSelector((state) => state.cog.lured) ? 'checked' : null
-            }
-          />
+        <button 
+          className={'switch' + (isLured ? ' on' : '')}
+          onClick={(e) => {
+            dispatch(toggleLured());
+          }}
+          title={"Toggle Cog Lured"}
+          aria-label={"Toggle Cog Lured"}
+        >
           <span className='slider'></span>
-        </label>
+        </button>
       </div>
     </div>
   );
@@ -93,13 +94,22 @@ export default function CogCard() {
   const [active, setActive] = useState(false);
 
   const cogLevel = useSelector((state) => state.cog.level);
+  const resetBtnActive = useSelector((state) => state.cog.hasUpdates);
+  const dispatch = useDispatch();
 
   // build cog object
   const cog = cogLevel ? new Cog(cogLevel) : null;
 
   return (
     <div id='cog'>
-      <h2>Cog</h2>
+      <div className='heading-btn-wrap'>
+        <h2>Cog</h2>
+        <ResetButton 
+          active={resetBtnActive}
+          clickHandler={() => dispatch(reset())}
+          infoText="Reset Cog"
+        />
+      </div>
       <div className='cog-card'>
         <span className='bolt'></span>
         <span className='bolt'></span>
@@ -115,7 +125,13 @@ export default function CogCard() {
             <>
               <CogStats cog={cog} />
               <div className='lvl-picker'>
-                <button onClick={() => setActive(true)}>Choose Cog Level</button>
+                <button 
+                  onClick={() => setActive(true)}
+                  title={"Choose New Cog Level"}
+                  aria-label={"Choose New Cog Level"}
+                >
+                  Choose Cog Level
+                </button>
               </div>
             </>
           )

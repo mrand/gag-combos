@@ -1,31 +1,29 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleToonActive, updateToonOrg } from './toonSlice';
-import './index.css';
-import Toon from './Toon';
+import { reset, toggleToonActive, updateToonOrg } from './toonSlice';
+import './ToonsCard.css';
+import ResetButton from '../ui/ResetButton';
 
 
-function ToonToggle({ i, dispatch, active, setActive, toonOrg }) {
+function ToonToggle({ i }) {
+  const active = useSelector((state) => state.toons.toonlist[i].active);
+  const dispatch = useDispatch();
+
   return (
     <div className='toon-toggle'>
       <h3>Toon {i+1}</h3>
       <div className='controls'>
         {
-          <label className='switch'>
-            <input 
-              type='checkbox' 
-              onChange={() => {
-                dispatch(toggleToonActive(i));
-                setActive(!active);
-              }}
-              defaultChecked={
-                active ? 'checked' : null
-              }
-            />
-            <span 
-              className='slider' 
-            ></span>
-          </label>
+          <button 
+            className={'switch' + (active ? ' on' : '')}
+            onClick={(e) => {
+              dispatch(toggleToonActive(i));
+            }}
+            title={"Toggle Toon "+(i+1)+" Active"}
+            aria-label={"Toggle Toon "+(i+1)}
+          >
+            <span className='slider'></span>
+          </button>
         }
       </div>
     </div>
@@ -72,6 +70,8 @@ function OrganicPicker({ i, dispatch, orgPickerActive, setOrgPickerActive, toonO
                   setActiveBtn(j);
                   setOrgPickerActive(false);
                 }}
+                title={"Set "+track+" Organic"}
+                aria-label={"Set "+track+" Organic"}
               >
                 <img src={gagTracks[track]} alt={track + ' Gag'} />
                 {track}
@@ -81,7 +81,13 @@ function OrganicPicker({ i, dispatch, orgPickerActive, setOrgPickerActive, toonO
         </>
         
       ) : (
-        <button onClick={() => setOrgPickerActive(true)}>Set Organic</button>
+        <button 
+          onClick={() => setOrgPickerActive(true)}
+          title={"Set Toon "+(i+1)+" Organic Gag"}
+          aria-label={"Set Toon "+(i+1)+" Organic Gag"}
+        >
+          Set Organic
+        </button>
       )}
     </div>
   );
@@ -89,10 +95,8 @@ function OrganicPicker({ i, dispatch, orgPickerActive, setOrgPickerActive, toonO
 
 
 function ToonPanel({ i, toon, dispatch }) {
-  const [active, setActive] = useState(
-    toon ? true : false
-  );
   const [orgPickerActive, setOrgPickerActive] = useState(false);
+  const active = useSelector((state) => state.toons.toonlist[i].active);
 
   return (
     <div className='toon-panel'>
@@ -102,8 +106,6 @@ function ToonPanel({ i, toon, dispatch }) {
           <ToonToggle 
             i={i}
             dispatch={dispatch}
-            active={active}
-            setActive={setActive}
             toonOrg={toon.organic}
           />
         ) : null
@@ -132,18 +134,22 @@ function ToonPanel({ i, toon, dispatch }) {
 
 
 export default function ToonsCard() {
-  const toons = useSelector((state) => state.toons);
+  const toons = useSelector((state) => state.toons.toonlist);
+  const resetBtnActive = useSelector((state) => state.toons.hasUpdates);
   const dispatch = useDispatch();
-
-  const toonObjects = toons.map((toon, i) => {
-    return (toon.active) ? new Toon(toon.active, toon.organic) : ''
-  });
 
   return (
     <div id="toons" className="custom-scrollbar">
-      <h2>Toons</h2>
+      <div className='heading-btn-wrap'>
+        <h2>Toons</h2>
+        <ResetButton 
+          active={resetBtnActive}
+          clickHandler={() => dispatch(reset())}
+          infoText="Reset All Toons"
+        />
+      </div>
       <div className='toons-card'>
-        {toonObjects.map((toon, i) => (
+        {toons.map((toon, i) => (
           <ToonPanel 
             key={i}
             i={i}

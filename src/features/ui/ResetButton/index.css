@@ -1,0 +1,20 @@
+
+
+.reset-btn {
+  /* border: 1px solid yellow; */
+  background: 0;
+  background-color: var(--blue-600);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  padding: 8px;
+}
+
+.reset-btn svg { 
+  fill: #000000;
+  fill: #ffffff;
+  transition: 0.5s ease transform;
+}
+.reset-btn:hover svg {
+  transform: rotate(540deg);
+}

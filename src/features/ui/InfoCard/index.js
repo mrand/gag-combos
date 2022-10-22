@@ -1,4 +1,4 @@
-import './InfoCard.css';
+import './index.css';
 
 /**
  * 

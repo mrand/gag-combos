@@ -5,6 +5,7 @@
 }
 
 .cog-card {
+  margin-top: 8px;
   text-align: center; 
   position: relative;
   background: var(--grey-500);
