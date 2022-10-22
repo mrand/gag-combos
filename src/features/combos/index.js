@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import './Combos.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { setType, toggleExpanded, toggleTrack } from './comboSlice';
+import './index.css';
+import Cog from '../cog/Cog';
+import { RecommendCombos } from './RecommendCombos';
 
 
-function ComboCell({ combo, isOnly, expanded, cellNum, cellStates, setCellStates }) {
+function ComboCell({ combo, isOnly, cellNum, cellStates, setCellStates }) {
+  const expanded = useSelector((state) => state.combos.expanded);
   let thisExpanded = cellStates[cellNum];
   let solutionTracks = Object.keys(combo.counts);
 
@@ -127,7 +132,7 @@ function ComboCell({ combo, isOnly, expanded, cellNum, cellStates, setCellStates
 }
 
 
-function CombosGrid({ recommendCombos, expanded, cellStates, setCellStates }) {
+function CombosGrid({ recommendCombos, cellStates, setCellStates }) {
   return (
     <div className='combos-grid'>
       <>
@@ -144,7 +149,6 @@ function CombosGrid({ recommendCombos, expanded, cellStates, setCellStates }) {
                 key={i}
                 combo={combo} 
                 isOnly={recommendCombos.recCombos.length===1}
-                expanded={expanded}
                 cellNum={i}
                 cellStates={cellStates}
                 setCellStates={setCellStates}
@@ -158,40 +162,31 @@ function CombosGrid({ recommendCombos, expanded, cellStates, setCellStates }) {
 }
 
 
-function MainFilters({ state, dispatch, expanded, cellStates, setCellStates }) {
-  let comboType = state.comboState.comboType;
+function MainFilters({ cellStates, setCellStates }) {
+  const dispatch = useDispatch();
+  const expanded = useSelector((state) => state.combos.expanded);
+  const comboType = useSelector((state) => state.combos.type);
+
   return (
     <div className='btns main-filters'>
       <button 
         className={comboType==='All' ? 'active' : ''}
         onClick={() => {
-          dispatch({
-            type: 'combo', 
-            'change': 'comboType',
-            'value': 'All'
-          });
+          dispatch(setType('All'));
           setCellStates(new Array(cellStates.length).fill(expanded));
         }}
       >All</button>
       <button
         className={comboType==='Basic' ? 'active' : ''}
         onClick={() => {
-          dispatch({
-            type: 'combo', 
-            'change': 'comboType',
-            'value': 'Basic'
-          });
+          dispatch(setType('Basic'));
           setCellStates(new Array(cellStates.length).fill(expanded));
         }}
       >Basic</button>
       <button
         className={comboType==='Best' ? 'active' : ''}
         onClick={() => {
-          dispatch({
-            type: 'combo', 
-            'change': 'comboType',
-            'value': 'Best'
-          });
+          dispatch(setType('Best'));
           setCellStates(new Array(cellStates.length).fill(expanded));
         }}
       >Best</button>
@@ -199,7 +194,10 @@ function MainFilters({ state, dispatch, expanded, cellStates, setCellStates }) {
   );
 }
 
-function GagToggles({ state, dispatch }) {
+function GagToggles() {
+  const dispatch = useDispatch();
+  const gagFilters = useSelector((state) => state.combos.filters);
+
   let trackImgs = {
     'Toon-Up': './img/gags/toonup-Feather.png',
     'Trap':    './img/gags/trap-Banana_Peel.png',
@@ -214,13 +212,9 @@ function GagToggles({ state, dispatch }) {
       {Object.keys(trackImgs).map((track, i) => (
         <button 
           key={i}
-          className={state.comboState.gagFilters[track] ? 'active' : ''}
+          className={gagFilters[track] ? 'active' : ''}
           onClick={() => {
-            dispatch({
-              type: 'combo', 
-              'change': '',
-              'value': track
-            });
+            dispatch(toggleTrack(track));
           }}
         >
           <img src={trackImgs[track]} alt={track + ' Gag'} />
@@ -231,14 +225,17 @@ function GagToggles({ state, dispatch }) {
 }
 
 
-function ExpandAllToggle({ expanded, setExpanded, cellStates, setCellStates }) {
+function ExpandAllToggle({ cellStates, setCellStates }) {
+  const dispatch = useDispatch();
+  const expanded = useSelector((state) => state.combos.expanded);
+
   return (
     <label className='switch'>
       <input 
         type='checkbox' 
         onChange={() => {
           setCellStates(new Array(cellStates.length).fill(!expanded));
-          setExpanded(!expanded);
+          dispatch(toggleExpanded());
         }}
         defaultChecked={expanded}
       />
@@ -247,31 +244,23 @@ function ExpandAllToggle({ expanded, setExpanded, cellStates, setCellStates }) {
   );
 }
 
-function TitleContainer({ state, dispatch, expanded, setExpanded, cellStates, setCellStates }) {
+function TitleContainer({ cellStates, setCellStates }) {
   return (
     <div className='title-container'>
       <div>
         <h2>Combos</h2>
         <MainFilters 
-          state={state}
-          dispatch={dispatch}
-          expanded={expanded}
           cellStates={cellStates}
           setCellStates={setCellStates}
         />
       </div>
       <div>
         <h3>Toggle Gag Tracks</h3>
-        <GagToggles
-          state={state}
-          dispatch={dispatch}
-        />
+        <GagToggles />
       </div>
       <div>
         <h3>Expand All Info</h3>
         <ExpandAllToggle 
-          expanded={expanded}
-          setExpanded={setExpanded}
           cellStates={cellStates}
           setCellStates={setCellStates}
         />
@@ -281,33 +270,39 @@ function TitleContainer({ state, dispatch, expanded, setExpanded, cellStates, se
 }
  
 
-export default function Combos({ state, dispatch, recommendations }) {
-  const [numCells, setNumCells] = useState(recommendations.recCombos.length);
-  const [expanded, setExpanded] = useState(false);
-  const [cellStates, setCellStates] = useState(
-    new Array(numCells).fill(expanded)
+export default function CombosCard() {
+  
+  // build new recommend combos object
+  const cogLevel = useSelector((state) => state.cog.level);
+  const cog = cogLevel ? new Cog(cogLevel) : null;
+  const isLured = useSelector((state) => state.cog.lured);
+  const numToons = useSelector((state) => state.toons.filter(toon => toon.active).length);
+  const toonOrgs = useSelector((state) => state.toons.map((toon) => toon.active ? toon.organic : ''));
+  const comboType = useSelector((state) => state.combos.type);
+  const gagFilters = useSelector((state) => state.combos.filters);
+
+  const recommendations = new RecommendCombos(
+    cog, isLured,          // cog params
+    numToons, toonOrgs,    // toons params 
+    comboType, gagFilters  // combo params
   );
 
+  const numCells = recommendations.recCombos.length;
+  const expanded = useSelector((state) => state.combos.expanded);
+
+  const [cellStates, setCellStates] = useState(new Array(numCells).fill(expanded));
   useEffect(() => {
-    setNumCells(recommendations.recCombos.length);
-  }, [recommendations]);
-  useEffect(() => {
-    setCellStates(new Array(numCells).fill(expanded));
-  }, [numCells, expanded])
+    setCellStates(new Array(numCells).fill(expanded))
+  }, [numCells, expanded]);
 
   return (
     <div id='combos'>
       <TitleContainer 
-        state={state}
-        dispatch={dispatch}
-        expanded={expanded}
-        setExpanded={setExpanded}
         cellStates={cellStates}
         setCellStates={setCellStates}
       />
       <CombosGrid 
         recommendCombos={recommendations}
-        expanded={expanded}
         cellStates={cellStates}
         setCellStates={setCellStates}
       />

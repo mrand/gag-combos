@@ -1,171 +1,118 @@
-import React, { useReducer } from 'react';
-import Cog from './core/Cog';
-import Toon from './core/Toon';
-import Page from './components/Page/Page';
-import { RecommendCombos } from './core/RecommendCombos';
+import React, { useState, useEffect, useRef } from 'react';
+import './App.css';
+import { HeaderDesktop, HeaderMobile } from './components/Header/Header';
+import InfoCard from './components/InfoCard/InfoCard';
+import CogCard from './features/cog';
+import ToonsCard from './features/toons';
+import CombosCard from './features/combos';
 
 
-function reducer(state, action) {
-  switch (action.type) {
+function PageMobile() {
+  const [page, setPage] = useState('home');
 
-    case 'cog':
-      switch (action.change) {
-        // Update Level
-        case 'level':
-          return {
-            ...state, 
-            cogState: {
-              ...state.cogState,
-              cog: new Cog(action.value)
-            } 
-          }; 
-        // Toggle Lured
-        case 'lured':
-          return {
-            ...state, 
-            cogState: {
-              ...state.cogState,
-              isLured: action.value
-            } 
-          }; 
-        default:
-          throw new Error();
-      }
-
-    case 'toon': 
-      switch (action.value) {
-        // Add Toon
-        case 'add':
-          return {
-            ...state,
-            toonState: state.toonState.map((toon, i) => {
-              if (i===action.i) { 
-                return new Toon('None'); 
-              } else { return toon; }
-            })
-          };
-        // Remove Toon
-        case 'remove':
-          return {
-            ...state,
-            toonState: state.toonState.map((toon, i) => {
-              if (i===action.i) { 
-                return ''; 
-              } else { return toon; }
-            })
-          };
-        // Update Organic Track
-        default:
-          return {
-            ...state,
-            toonState: state.toonState.map((toon, i) => {
-              if (i===action.i) { 
-                toon.updateOrganic(action.value);
-                return toon;
-              } else { return toon; }
-            })
-          };
-      }
-
-    case 'combo':
-      switch (action.change) {
-        // Update Combo Type
-        case 'comboType':
-          return {
-            ...state,
-            comboState: {
-              ...state.comboState,
-              comboType: action.value
-            }
-          }
-        // Update Track
-        default:
-          return {
-            ...state,
-            comboState: {
-              ...state.comboState,
-              gagFilters: {
-                ...state.comboState.gagFilters,
-                [action.value]: !state.comboState.gagFilters[action.value]
-              }
-            }
-          }
-      }
-      
-    default:
-      throw new Error();
+  let displayedComponent;
+  if (page === 'toons') {
+    displayedComponent = (
+      <ToonsCard />
+    );
+  } else if (page === 'cog') {
+    displayedComponent = (
+      <CogCard />
+    );
+  } else if (page === 'combos') {
+    displayedComponent = (
+      <CombosCard />
+    );
+  } else {
+    displayedComponent = (
+      <InfoCard />
+    );
   }
+
+  return (
+    <div className='mobile'>
+      <HeaderMobile 
+        page={page}
+        setPage={setPage}
+      />
+      <div className='page-wrap custom-scrollbar'>
+        {displayedComponent}
+      </div>
+    </div>
+  );
 }
 
 
-function getRecommendations(state) {
-  let cog =      state.cogState.cog;
-  let isLured =  state.cogState.isLured;
-  let numToons = state.toonState.filter(toon => toon !== '').length;
-  let toonOrgs = state.toonState.map((toon) => toon !== '' ? toon.organic : '');
-  let comboType = state.comboState.comboType;
-  let gagFilters = state.comboState.gagFilters;
-
-  return new RecommendCombos(
-    cog, isLured,          // cog params
-    numToons, toonOrgs,    // toons params 
-    comboType, gagFilters  // combo params
-  )
-}
-
-
-/**
- * Get Saved Toons if they exist, else build new toons array.
- * @returns array of toon objects
- */
-function buildInitToonsObject() {
-  let toons = [];
-  let localToonOrg;
-  // fill saved toons
-  for (let i=0; i<4; i++) {
-    localToonOrg = localStorage.getItem('ToonOrg'+i);
-    toons.push(localToonOrg ? new Toon(localToonOrg) : '');
-  }
-  // 1st toon always set
-  if (toons.filter(toon => toon !== '').length === 0) {
-    toons[0] = new Toon();
-  }
-  return toons;
-}
-
-
-function App() {
-  const [state, dispatch] = useReducer(
-    reducer, 
-    {
-      cogState: {
-        cog: new Cog(1),
-        isLured: false
-      },
-      toonState: buildInitToonsObject(),
-      comboState: {
-        comboType: 'All',
-        gagFilters: {
-          'Toon-Up': true,
-          'Trap':    true,
-          'Lure':    true,
-          'Sound':   true,
-          'Throw':   true,
-          'Squirt':  true,
-          'Drop':    true
-        }
-      }
-    }
+function PageDesktop() {
+  // User Brought to Info Page Only on 1st Visit
+  // localStorage.clear();
+  const [infoActive, setInfoActive] = useState(
+    ((localStorage.getItem('saw-info-card')) ? false : true )
   );
   
-  let recommendations = getRecommendations(state);
   return (
-    <Page
-      state={state}
-      dispatch={dispatch}
-      recommendations={recommendations}
-    />
+    <div className='desktop'>
+      <HeaderDesktop
+        infoActive={infoActive}
+        setInfoActive={setInfoActive}
+      />
+      {infoActive ? (
+        <div className='popup'>
+          <InfoCard 
+            includeLink={true} 
+            setInfoActive={setInfoActive} 
+            />
+        </div>
+      ) : (
+        <div className='page-wrap'>
+          <ToonsCard />
+          <CombosCard />
+          <CogCard />
+        </div>
+      )}
+    </div>
   );
+} 
+
+
+const throttle = (func, delay) => {
+  let inProgress = false;
+  return (...args) => {
+    if (inProgress) {
+      return;
+    }
+    inProgress = true;
+    setTimeout(() => {
+      func(...args);
+      inProgress = false;
+    }, delay);
+  }
+};
+
+function App() {
+  let windowWidth = useRef(window.innerWidth);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 1150);
+
+  const debouncedChangeHandler = throttle(() => {
+      // console.log(windowWidth.current, window.innerWidth);
+      if (
+        (windowWidth.current <= 1150 && window.innerWidth > 1150) ||
+        (windowWidth.current > 1150 && window.innerWidth <= 1150)
+      ) {
+        windowWidth.current = window.innerWidth;
+        // console.log('updated', windowWidth.current, window.innerWidth);
+        setIsMobile(windowWidth.current <= 1150);
+      }
+    }, 200);
+
+  useEffect(() => {
+    window.addEventListener("resize", debouncedChangeHandler);
+    return () => {
+      window.removeEventListener("resize", debouncedChangeHandler)
+    };
+  }, [debouncedChangeHandler]);
+
+  return isMobile ? <PageMobile /> : <PageDesktop />;
 }
 
 export default App;

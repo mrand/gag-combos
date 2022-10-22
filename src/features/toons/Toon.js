@@ -1,12 +1,17 @@
 // import toons from './toons.json';
 
 export default class Toon {
-  constructor(organic='None') {
+  constructor(active=true, organic='None') {
+    this.active = active;
     this.organic = organic;
     // this.species = this.randomSpecies();
     // this.gender = (this.fiftyFiftyChance()) ? 'Boy' : 'Girl';
     // this.color = this.randomColor();
     // this.name = this.randomName();
+  }
+
+  toggleActive() { 
+    this.active = !this.active; 
   }
 
   updateOrganic(organic='None') {

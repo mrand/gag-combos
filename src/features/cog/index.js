@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import './CogCard.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { setLevel, toggleLured } from './cogSlice';
+import './index.css';
+import Cog from './Cog';
 
 
 // list of possible cog levels (1 through 20)
@@ -26,7 +29,9 @@ function CogStats({ cog }) {
 }
 
 
-function CogLevelPicker({ state, dispatch, setActive }) {
+function CogLevelPicker({ setActive }) {
+  const cogLevel = useSelector((state) => state.cog.level);
+  const dispatch = useDispatch();
 
   return (
     <div className='lvl-picker'>
@@ -34,14 +39,13 @@ function CogLevelPicker({ state, dispatch, setActive }) {
       <div className='lvl-btns'>
         {lvlNums.map((lvl, i) => (
           <button
-            className={(state.cogState.cog.level-1 === i) ? 'active' : ''}
+            className={
+              (cogLevel-1 === i) ? 'active' : ''
+            }
             key={i}
+            value={lvl}
             onClick={() => {
-              dispatch({
-                type: 'cog',
-                'change': 'level',
-                'value': lvl
-              });
+              dispatch(setLevel(lvl));
               setActive(false);
             }}
           >{lvl}</button>
@@ -52,11 +56,14 @@ function CogLevelPicker({ state, dispatch, setActive }) {
 }
 
 
-function LuredToggle({ state, dispatch }) {
+function LuredToggle() {
+  const isLured = useSelector((state) => state.cog.lured);
+  const dispatch = useDispatch();
+
   return (
     <div className='lured-toggle'>
       {
-        (state.cogState.isLured) ? (
+        (isLured) ? (
           <h3 style={{color: 'var(--green-500)'}}>Cog is Lured</h3>
         ) : (
           <h3>Is Cog Lured?</h3> 
@@ -68,14 +75,10 @@ function LuredToggle({ state, dispatch }) {
           <input 
             type='checkbox' 
             onChange={() => {
-              dispatch({
-                type: 'cog',
-                'change': 'lured',
-                'value': !state.cogState.isLured
-              });
+              dispatch(toggleLured());
             }}
             defaultChecked={
-              state.cogState.isLured ? 'checked' : null
+              useSelector((state) => state.cog.lured) ? 'checked' : null
             }
           />
           <span className='slider'></span>
@@ -86,10 +89,13 @@ function LuredToggle({ state, dispatch }) {
 }
 
 
-export default function CogCard({ state, dispatch }) {
+export default function CogCard() {
   const [active, setActive] = useState(false);
 
-  const cog = state.cogState.cog;
+  const cogLevel = useSelector((state) => state.cog.level);
+
+  // build cog object
+  const cog = cogLevel ? new Cog(cogLevel) : null;
 
   return (
     <div id='cog'>
@@ -102,8 +108,6 @@ export default function CogCard({ state, dispatch }) {
         {
           (active) ? (
             <CogLevelPicker 
-              state={state}
-              dispatch={dispatch}
               setActive={setActive} 
             />
 
@@ -117,10 +121,7 @@ export default function CogCard({ state, dispatch }) {
           )
         }
       </div>
-      <LuredToggle
-        state={state}
-        dispatch={dispatch}
-      />
+      <LuredToggle />
     </div>
   );
 }

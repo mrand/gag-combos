@@ -110,7 +110,7 @@ export class Gag {
       }
     }
 
-    // Get Sound/Throw/Squirt Combo Multiplier
+    // Get Sound/Throw/Squirt/Drop Combo Multiplier
     if (
       (this.track === 'Sound' || this.track === 'Throw' || this.track === 'Squirt') &&
       (counts[this.track] > 1)
