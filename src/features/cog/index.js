@@ -13,14 +13,14 @@ for (let i=1; i<=20; i++) lvlNums.push(i);
 function CogStats({ cog }) {
   return (
     <div className='cog-stats'>
-      <img 
+      <img
         src={cog.image}
         alt={`${cog.cog} Cog`}
       />
       <b>{cog.cog}</b>
       <b>{cog.suit}</b>
       <span className='cog-level'>
-        Level {cog.level} 
+        Level {cog.level}
         <br />
         ({cog.hp} HP)
       </span>
@@ -66,14 +66,14 @@ function LuredToggle() {
         (isLured) ? (
           <h3 style={{color: 'var(--green-500)'}}>Cog is Lured</h3>
         ) : (
-          <h3>Is Cog Lured?</h3> 
+          <h3>Is Cog Lured?</h3>
         )
       }
       <div>
         <img src='./img/gags/lure-10_Bill.png' alt='$10 Bill Lure Gag' />
         <label className='switch'>
-          <input 
-            type='checkbox' 
+          <input
+            type='checkbox'
             onChange={() => {
               dispatch(toggleLured());
             }}
@@ -106,9 +106,9 @@ export default function CogCard() {
         <span className='bolt'></span>
         <span className='bolt'></span>
         {
-          (active) ? (
-            <CogLevelPicker 
-              setActive={setActive} 
+          (active || !cog) ? (
+            <CogLevelPicker
+              setActive={setActive}
             />
 
           ) : (
@@ -117,7 +117,7 @@ export default function CogCard() {
               <div className='lvl-picker'>
                 <button onClick={() => setActive(true)}>Choose Cog Level</button>
               </div>
-            </>            
+            </>
           )
         }
       </div>

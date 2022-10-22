@@ -31,7 +31,7 @@ function PageMobile() {
 
   return (
     <div className='mobile'>
-      <HeaderMobile 
+      <HeaderMobile
         page={page}
         setPage={setPage}
       />
@@ -49,7 +49,7 @@ function PageDesktop() {
   const [infoActive, setInfoActive] = useState(
     ((localStorage.getItem('saw-info-card')) ? false : true )
   );
-  
+
   return (
     <div className='desktop'>
       <HeaderDesktop
@@ -58,9 +58,9 @@ function PageDesktop() {
       />
       {infoActive ? (
         <div className='popup'>
-          <InfoCard 
-            includeLink={true} 
-            setInfoActive={setInfoActive} 
+          <InfoCard
+            includeLink={true}
+            setInfoActive={setInfoActive}
             />
         </div>
       ) : (
@@ -72,7 +72,7 @@ function PageDesktop() {
       )}
     </div>
   );
-} 
+}
 
 
 const throttle = (func, delay) => {

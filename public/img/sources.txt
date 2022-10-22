@@ -1,4 +1,4 @@
-img/
+/public/img/
   cogs/
     *.webp:                  https://toontownrewritten.fandom.com/wiki/Cogs
   gags/
@@ -16,3 +16,4 @@ img/
     gags_pattern.png:        https://toontownrewritten.com/
     icon-organic-mini:       ?
   mcnugget.webp              In-Game Screenshot
+  title-card.png	     Personally Created in Windows Paint3D
