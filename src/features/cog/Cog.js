@@ -4,11 +4,15 @@ export default class Cog {
   /** 
    * @param {number} level 
   */
-  constructor(level) {
+  constructor(
+    level,
+    suit=null,
+    name=null
+  ) {
     this.level = level;
     this.hp = this._calculateHP();
-    this.suit = this._getRandomSuit();
-    this.cog = this._getRandomCog();
+    this.suit = suit ? suit : this._getRandomSuit();
+    this.cog = name ? name : this._getRandomCog();
     this.image = this._getImageName();
   }
  

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { reset, setLevel, toggleLured } from './cogSlice';
+import { reset, setCog, toggleLured } from './cogSlice';
 import './CogCard.css';
 import Cog from './Cog';
 import ResetButton from '../ui/ResetButton';
@@ -46,7 +46,8 @@ function CogLevelPicker({ setActive }) {
             key={i}
             value={lvl}
             onClick={() => {
-              dispatch(setLevel(lvl));
+              let cog = new Cog(lvl);
+              dispatch(setCog({ level: cog.level, suit: cog.suit, name: cog.cog }));
               setActive(false);
             }}
             title={"Level "+lvl+" Cog"}
@@ -94,11 +95,13 @@ export default function CogCard() {
   const [active, setActive] = useState(false);
 
   const cogLevel = useSelector((state) => state.cog.level);
+  const cogSuit = useSelector((state) => state.cog.suit);
+  const cogName = useSelector((state) => state.cog.name);
   const resetBtnActive = useSelector((state) => state.cog.hasUpdates);
   const dispatch = useDispatch();
 
   // build cog object
-  const cog = cogLevel ? new Cog(cogLevel) : null;
+  const cog = cogLevel ? new Cog(cogLevel, cogSuit, cogName) : null;
 
   return (
     <div id='cog'>
