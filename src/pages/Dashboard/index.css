@@ -1,4 +1,6 @@
 #mobile-nav {
+  position: fixed;
+  bottom: 0;
   width: 100%;
 }
 
@@ -17,26 +19,25 @@
 
 
 .mobile .dashboard {
-  padding: 16px;
-  padding-bottom: calc(63px + 16px);
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  padding-bottom: 63px;
 }
-
 
 .mobile .dashboard #page > * { 
   padding: 16px;
 }
 
-.mobile .wrapper, 
-.mobile #page.dashboard {
+.mobile #page.dashboard, 
+.mobile #page.dashboard .wrapper {
   width: 100%;
   max-width: 850px;
   margin: 0 auto;
 }
 
 .desktop #page.dashboard .wrapper {
+  width: 100%;
   display: grid;
   grid-template-columns: 250px 1fr auto;
 }
@@ -55,7 +56,6 @@
   align-self: flex-start;
   height: calc(100vh - 49px - 36px);
   overflow-y: auto;
-  box-shadow: 0 5px 10px var(--grey-700);
 }
 
 .desktop .dashboard #toons { 

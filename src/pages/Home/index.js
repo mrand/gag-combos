@@ -9,7 +9,7 @@ function SplashScreen() {
   return (
     <section id="splash-screen">
       <div className='gag-images'>
-        <img src='/img/home/splash-1.png' alt='Splash Screen' />
+        <img src='/img/home/splash.png' alt='Splash Screen' />
       </div>
       <div id='splash-text' className='wrapper'>
         <h2>Gag Combos Info</h2>

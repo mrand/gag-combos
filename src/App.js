@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
-// import Changelog from './pages/Changelog';
+import Changelog from './pages/Changelog';
 
 const throttle = (func, delay) => {
   let inProgress = false;
@@ -57,7 +57,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/dashboard" element={<Dashboard />} />
-            {/* <Route path="/changelog" element={<Changelog />} /> */}
+            <Route path="/changelog" element={<Changelog />} />
             {/* 404 - redirect to Home */}
             <Route 
               path="*" 

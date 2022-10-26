@@ -4,7 +4,7 @@
 }
 #page.home > *:not(#splash-screen) { font-size: 20px; }
 
-#page.home .flex > * > * {
+#page.home :not(footer) .flex > * > * {
   margin-bottom: 16px;
 }
 
@@ -12,7 +12,7 @@
 #splash-screen {
   position: relative;
   background: var(--blue-600);
-  height: max(490px, 20em);
+  min-height: max(490px, 20em);
   overflow: hidden;
 }
 

@@ -6,6 +6,7 @@ import Header from '../../components/Header';
 import CogComponent from '../../features/cog/CogComponent';
 import ToonsComponent from '../../features/toons/ToonsComponent';
 import CombosComponent from '../../features/combos/CombosComponent';
+// import Footer from '../../components/Footer';
 
 
 function configMobileLink(page, link) {
@@ -74,7 +75,7 @@ function MobileNav({ tab, setTab }) {
 }
 
 
-function DashboardMobile({ tab, setTab }) {
+function DashboardMobile({ tab }) {
 
   let displayedComponent;
   if (tab === 'toons') {
@@ -88,27 +89,30 @@ function DashboardMobile({ tab, setTab }) {
   }
 
   return (
-    <>
+    <div className='wrapper'>
       {displayedComponent}
-    </>
+    </div>
   );
 }
 
 
 function DashboardDesktop() {
   return (
-    <div className='wrapper'>
-      <ToonsComponent />
-      <CombosComponent />
-      <CogComponent />
-    </div>
-  );
+    <>
+      <div className='wrapper'>
+        <ToonsComponent />
+        <CombosComponent />
+        <CogComponent />
+      </div>
+      {/* <Footer /> */}
+    </>
+);
 }
 
 
 export default function Dashboard() {
   const pageSize = useContext(PageSizeContext);
-  const [tab, setTab] = useState('toons');
+  const [tab, setTab] = useState('combos');
 
   return (
     <>
@@ -118,7 +122,6 @@ export default function Dashboard() {
           (pageSize==='mobile') ? (
             <DashboardMobile 
               tab={tab}
-              setTab={setTab}
             />
           ) : (
             <DashboardDesktop />

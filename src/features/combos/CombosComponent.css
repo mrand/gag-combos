@@ -87,6 +87,7 @@
   background: var(--blue-600);
   border-radius: 20px;
   border: 8px solid var(--blue-600);
+  box-shadow: 0 5px 10px var(--grey-700);
 }
 @media (max-width: 1375px) and (min-width: 1151px), (max-width: 850px) {
   .combos-grid { grid-template-columns: 1fr; }
@@ -114,7 +115,7 @@
   margin-bottom: 0;
 }
 
-.combo-cell h4 { line-height: 1em;}
+.combo-cell h4 { line-height: 1em; }
 
 .combo-gags {
   width: 100%;

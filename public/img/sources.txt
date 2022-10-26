@@ -5,9 +5,13 @@
     pass.png:                ?
     *.png:                   https://toontown.fandom.com/wiki/Gags
     *-organic.png:           https://toontown.fandom.com/wiki/Gags, Personally Edited
+  home/
+    splash.png               Personally Generated
   unused/
     cogs-screenshots/
       *.webp:                In-Game Screenshots
+    home/
+      c9t4-*.png             Website Screenshots (Used in Homepage Video)
     toons/
       Laff_Meter-*.png:      In-Game Screenshots
       Toon_*.webp:           https://toontownrewritten.fandom.com/wiki/Toons

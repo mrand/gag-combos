@@ -12,6 +12,7 @@ export default function Footer() {
         <div className='right'>
           <Link to="/">Home</Link>
           <Link to="/dashboard">Dashboard</Link>
+          <Link to="/changelog">Changelog</Link>
         </div>
       </div>
     </footer>

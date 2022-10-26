@@ -1,0 +1,31 @@
+#changelog {
+  padding-bottom: 32px;
+}
+#changelog h2 {
+  text-align: center;
+  margin-bottom: 16px;
+  font-size: 28px;
+}
+
+.changelog-entries {
+  background: var(--blue-600);
+  border: 8px solid var(--blue-600);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+#changelog section {
+  background: #ffffff;
+  border: 8px solid var(--blue-600);
+  border-radius: 20px;
+  padding: 16px;
+}
+
+#changelog section .block {
+  margin-top: 16px;
+}
+
+#changelog .block p {
+  margin-top: 8px;
+}
