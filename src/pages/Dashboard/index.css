@@ -31,8 +31,7 @@
   padding: 16px;
 }
 
-.mobile #page.dashboard, 
-.mobile #page.dashboard .wrapper {
+.mobile #dashboard-wrap {
   width: 100%;
   max-width: 850px;
   margin: 0 auto;

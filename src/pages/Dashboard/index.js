@@ -89,7 +89,7 @@ function DashboardMobile({ tab }) {
   }
 
   return (
-    <div className='wrapper'>
+    <div id="dashboard-wrap" className='wrapper'>
       {displayedComponent}
     </div>
   );
@@ -115,28 +115,20 @@ export default function Dashboard() {
   const [tab, setTab] = useState('combos');
 
   return (
-    <>
-      <div id='page' className='dashboard custom-scrollbar'>
+    <div id='page' className='dashboard custom-scrollbar'>
       <Header />
-        {
-          (pageSize==='mobile') ? (
-            <DashboardMobile 
-              tab={tab}
-            />
-          ) : (
-            <DashboardDesktop />
-          )
-        }
-      </div>
       {
         (pageSize==='mobile') ? (
-          <DashboardNav tab={tab} setTab={setTab} />
+          <>
+            <DashboardMobile tab={tab} />
+            <DashboardNav tab={tab} setTab={setTab} />
+          </>
+          
         ) : (
-          null
+          <DashboardDesktop />
         )
       }
-    </>
-    
+    </div>
   );
 
 }

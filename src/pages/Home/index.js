@@ -140,15 +140,13 @@ function Help() {
 
 export default function Home() {
   return (
-    <>
-      <div id='page' className='home custom-scrollbar'>
-        <Header />
-        <SplashScreen /> 
-        <Intro />
-        <About />
-        <Help />
-        <Footer />
-      </div>
-    </>
+    <div id='page' className='home custom-scrollbar'>
+      <Header />
+      <SplashScreen /> 
+      <Intro />
+      <About />
+      <Help />
+      <Footer />
+    </div>
   );
 }

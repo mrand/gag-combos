@@ -44,17 +44,15 @@ function ChangelogEntries() {
 
 export default function Changelog() {
   return (
-    <>
-      <div id='page' className='changelog custom-scrollbar'>
+    <div id='page' className='changelog custom-scrollbar'>
       <Header />
-        <article id='changelog-entries'>
-          <div className='wrapper'>
-            <h2>Changelog</h2>
-            <ChangelogEntries />
-          </div>
-        </article>
-        <Footer />
-      </div>
-    </>
+      <article id='changelog-entries'>
+        <div className='wrapper'>
+          <h2>Changelog</h2>
+          <ChangelogEntries />
+        </div>
+      </article>
+      <Footer />
+    </div>
   );
 }

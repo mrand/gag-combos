@@ -11,7 +11,7 @@
 
 #splash-screen {
   position: relative;
-  background: var(--blue-400);
+  background: var(--grey-400);
   min-height: max(490px, 20em);
   overflow: hidden;
 }
