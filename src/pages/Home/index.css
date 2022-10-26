@@ -11,7 +11,7 @@
 
 #splash-screen {
   position: relative;
-  background: var(--blue-600);
+  background: var(--blue-400);
   min-height: max(490px, 20em);
   overflow: hidden;
 }
@@ -30,8 +30,9 @@
   box-shadow: 0 5px 10px var(--grey-700);
 }
 #splash-text h2 {
-  font-size: 56px;
-  line-height: 56px;
+  --font-scale: min(56px, 7vw);
+  font-size: var(--font-scale);
+  line-height: var(--font-scale);
   background: #ffffff;
   color: var(--blue-600);
   padding: 16px;

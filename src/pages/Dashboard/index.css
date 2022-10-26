@@ -1,21 +1,23 @@
-#mobile-nav {
+#dashboard-nav {
   position: fixed;
   bottom: 0;
   width: 100%;
+  background: #ffffff;
+  box-shadow: 0 0 5px var(--grey-700);
+  z-index: 100;
 }
-
-#mobile-nav .wrapper {
+#dashboard-nav .wrapper {
   padding: 0;
   display: flex;
   justify-content: space-evenly;
 }
 
-#mobile-nav a,
-#mobile-nav button {
+#dashboard-nav a,
+#dashboard-nav button {
   width: 100%;
   border-left: 1px solid var(--grey-400);
 }
-#mobile-nav a { border-left: 0; }
+#dashboard-nav a { border-left: 0; }
 
 
 .mobile .dashboard {

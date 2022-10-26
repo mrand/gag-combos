@@ -14,7 +14,7 @@ function configMobileLink(page, link) {
 }
 
 /**
- * Function to store the Mobile Nav's SVG's
+ * Function to store the Dashboard Nav's SVG's
  * @param {String} linkText key corresponding to the svg image
  * @returns SVG corresponding to the given link's text
  */
@@ -48,10 +48,10 @@ function getSVG(linkText) {
   return svgs[linkText];
 }
 
-function MobileNav({ tab, setTab }) {
+function DashboardNav({ tab, setTab }) {
   const tabs = ['toons', 'cog', 'combos'];
   return (
-    <nav id='mobile-nav'>
+    <nav id='dashboard-nav'>
       <div className='wrapper'>
         {
           tabs.map((linkText, i) => {
@@ -130,7 +130,7 @@ export default function Dashboard() {
       </div>
       {
         (pageSize==='mobile') ? (
-          <MobileNav tab={tab} setTab={setTab} />
+          <DashboardNav tab={tab} setTab={setTab} />
         ) : (
           null
         )

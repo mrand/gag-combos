@@ -198,7 +198,10 @@ h1, h2, h3, h4, h5, h6 {
 ul li { margin-left: 1em; }
 
 .wrapper {
-  padding: 16px;
+  padding: 28px 16px;
   max-width: 1350px;
   margin: 0 auto;
+}
+.desktop #page .wrapper {
+  padding: 16px;
 }
