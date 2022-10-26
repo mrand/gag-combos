@@ -6,7 +6,7 @@ import Header from '../../components/Header';
 import CogComponent from '../../features/cog/CogComponent';
 import ToonsComponent from '../../features/toons/ToonsComponent';
 import CombosComponent from '../../features/combos/CombosComponent';
-// import Footer from '../../components/Footer';
+import Footer from '../../components/Footer';
 
 
 function configMobileLink(page, link) {
@@ -104,7 +104,7 @@ function DashboardDesktop() {
         <CombosComponent />
         <CogComponent />
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </>
 );
 }
@@ -116,8 +116,8 @@ export default function Dashboard() {
 
   return (
     <>
-      <Header />
       <div id='page' className='dashboard custom-scrollbar'>
+      <Header />
         {
           (pageSize==='mobile') ? (
             <DashboardMobile 

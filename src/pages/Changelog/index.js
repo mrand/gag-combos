@@ -45,8 +45,8 @@ function ChangelogEntries() {
 export default function Changelog() {
   return (
     <>
-      <Header />
       <div id='page' className='changelog custom-scrollbar'>
+      <Header />
         <article id='changelog-entries'>
           <div className='wrapper'>
             <h2>Changelog</h2>

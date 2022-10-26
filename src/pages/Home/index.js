@@ -141,8 +141,8 @@ function Help() {
 export default function Home() {
   return (
     <>
-      <Header />
       <div id='page' className='home custom-scrollbar'>
+        <Header />
         <SplashScreen /> 
         <Intro />
         <About />

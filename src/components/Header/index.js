@@ -79,7 +79,7 @@ export default function Header() {
               title="Navigate to Homepage"
               className={location === "/" ? "active" : ""}
             >
-              {pageSize==='mobile' ? "GC" : "Gag Combos"}
+              {pageSize==='mobile' ? "GC" : "Gag Combos Info"}
             </Link>
           </h1>
           {/* Desktop Nav */}

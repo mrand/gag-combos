@@ -6,8 +6,8 @@ import './index.css';
 export default function PrivacyPolicy() {
   return (
     <>
-      <Header />
       <div id='page' className='privacy custom-scrollbar'>
+        <Header />
 
         <article id='privacy-policy'>
           <div className='wrapper'>
