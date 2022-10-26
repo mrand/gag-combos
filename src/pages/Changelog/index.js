@@ -5,11 +5,11 @@ import './index.css';
 
 function ChangelogEntries() {
   return (
-    <div className='changelog-entries'>
+    <div className='formatted-article'>
       <section>
         <h3>2022-10-25</h3>
         <div className='block'>
-          <b>New Homepage</b>
+          <b>New Homepage!</b>
           <p>
             Introduced a new, flashier homepage!
           </p>
@@ -21,10 +21,11 @@ function ChangelogEntries() {
           </p>
         </div>
         <div className='block'>
-          <b>Changelog Page</b>
-          <p>
-            You're here! 
-          </p>
+          <b>Other New Pages</b>
+          <ul>
+            <li>Changelog Page (You're Here!)</li>
+            <li>Privacy Policy Page</li>
+          </ul>
         </div>
       </section>
       <section>
@@ -33,18 +34,6 @@ function ChangelogEntries() {
           <b>Saving & Deleting</b>
           <p>
             Dashboard now saves your setup by default, with buttons to reset toons, combos, and cog to their initial states if desired.
-          </p>
-        </div>
-        <div className='block warn' style={{color: "var(--red-500"}}>
-          <b>To-Do: Privacy Policy Page</b>
-          <p>
-            Privacy Policy page coming soon, since storing the dashboard setup using localStorage is considered "storing user information". 
-          </p>
-          <p>
-            Be assured in the meantime that this information stays on your browser, and it is not read by me or any 3rd parties.
-          </p>
-          <p>
-            Furthermore, you can always clear any stored information after each use with the reset buttons above the Toons, Combos, and Cog Sections on the Dashboard Page!
           </p>
         </div>
       </section>
@@ -57,8 +46,8 @@ export default function Changelog() {
   return (
     <>
       <Header />
-      <div id='page' className='custom-scrollbar'>
-        <article id='changelog'>
+      <div id='page' className='changelog custom-scrollbar'>
+        <article id='changelog-entries'>
           <div className='wrapper'>
             <h2>Changelog</h2>
             <ChangelogEntries />

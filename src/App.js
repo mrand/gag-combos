@@ -4,6 +4,7 @@ import './App.css';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import Changelog from './pages/Changelog';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 const throttle = (func, delay) => {
   let inProgress = false;
@@ -58,6 +59,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/changelog" element={<Changelog />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
             {/* 404 - redirect to Home */}
             <Route 
               path="*" 

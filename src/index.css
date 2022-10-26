@@ -47,6 +47,31 @@ body {
   font-family: Karla, sans-serif;
 }
 
+.formatted-article {
+  background: var(--blue-600);
+  border: 8px solid var(--blue-600);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  max-width: 50em;
+  margin: 0 auto;
+  margin-bottom: 32px;
+  box-shadow: 0 5px 10px var(--grey-700);
+}
+.formatted-article section {
+  background: #ffffff;
+  border: 8px solid var(--blue-600);
+  border-radius: 20px;
+  padding: 16px;
+}
+.formatted-article section .block {
+  margin-top: 16px;
+}
+
+.formatted-article section p {
+  margin-top: 8px;
+}
+
 a, button {
   cursor: pointer;
   padding: 8px;

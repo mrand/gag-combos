@@ -66,7 +66,7 @@
   content: '';
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
-  background: var(--blue-600);
+  background: var(--grey-400);
   opacity: 0.6;
 }
 .gag-images img {
@@ -75,6 +75,19 @@
 @keyframes slide {
   to { transform: translateX(calc(-1 * 3430px + 100vw)); }
 }
+
+/* non-animated blurred effect */
+/* .gag-images.blurred {
+  overflow: hidden;
+}
+.gag-images.blurred img {
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%; 
+  width: auto;
+  filter: blur(5px);
+  animation: none;
+} */
 
 
 #intro .flex { align-items: center; }

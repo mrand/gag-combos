@@ -9,7 +9,7 @@ function SplashScreen() {
   return (
     <section id="splash-screen">
       <div className='gag-images'>
-        <img src='/img/home/splash.png' alt='Splash Screen' />
+        <img src='/img/splash.png' alt='Splash Screen' />
       </div>
       <div id='splash-text' className='wrapper'>
         <h2>Gag Combos Info</h2>
@@ -125,10 +125,10 @@ function Help() {
         </div>
         <div className='right'>
           <h2>New to Toontown?</h2>
-          <a href='https://toontownrewritten.com/' target='_blank' rel='noopener noreferrer'>
+          <a href='https://toontownrewritten.com/'>
             Toontown Rewritten Homepage
           </a>
-          <a href='https://toontownrewritten.fandom.com/wiki/Gags' target='_blank' rel='noopener noreferrer'>
+          <a href='https://toontownrewritten.fandom.com/wiki/Gags'>
             TTR Gags Wiki
           </a>
         </div>

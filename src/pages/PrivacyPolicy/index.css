@@ -1,0 +1,16 @@
+#privacy-policy { 
+  position: relative; 
+  height: 100%;
+}
+#privacy-policy > * {
+  position: relative;
+  z-index: 1;
+}
+#privacy-policy .privacy-title {
+  padding-bottom: 16px;
+  text-align: center;
+}
+
+#page.privacy footer {
+  z-index: 1;
+}
