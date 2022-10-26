@@ -64,11 +64,7 @@ body {
   border-radius: 20px;
   padding: 16px;
 }
-.formatted-article section .block {
-  margin-top: 16px;
-}
-
-.formatted-article section p {
+.formatted-article section > *:not(h3) {
   margin-top: 8px;
 }
 

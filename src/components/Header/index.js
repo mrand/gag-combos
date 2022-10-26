@@ -74,7 +74,11 @@ export default function Header() {
         <div className='wrapper'>
           {/* Logo */}
           <h1>
-            <Link to="/" title="Navigate to Homepage">
+            <Link 
+              to="/" 
+              title="Navigate to Homepage"
+              className={location === "/" ? "active" : ""}
+            >
               {pageSize==='mobile' ? "GC" : "Gag Combos"}
             </Link>
           </h1>

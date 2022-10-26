@@ -14,7 +14,7 @@ export default function PrivacyPolicy() {
 
             <div className='privacy-title'>
               <h2>Privacy Policy</h2>
-              <i>Last Updated: 2022-10-25</i>
+              <i>Last Updated: 2022-10-26</i>
             </div>
             
 
@@ -51,11 +51,16 @@ export default function PrivacyPolicy() {
                   Neither us nor any 3rd parties see this saved information. It only serves as a convenience for you. 
                 </p>
                 <p>
-                  Furthermore, you can always clear any stored information after each use with the reset buttons above the Toons, Combos, and Cog Sections on the Dashboard Page!
+                  Furthermore, you can always clear this information after each use with the reset buttons above the Toons, Combos, and Cog Sections on the Dashboard Page!
                 </p>
               </section>
               <section>
                 <h3>You are safe when you come here.</h3>
+                <p>
+                  The Toontown Rewritten community is full of amazing individuals who volunteer their time and efforts.
+                  Gag Combos Info is no different. It is a fan-made tool which is designed to (hopefully) be a useful addition to the community and help its players!
+                  You and your data are safe when you visit this website.
+                </p>
               </section>
             </div>
             
