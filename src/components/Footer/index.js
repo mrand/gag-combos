@@ -4,17 +4,15 @@ import './index.css';
 export default function Footer() {
   return (
     <footer>
-      <div className='wrapper flex'>
-        <div className='left'>
-          <h2>Gag Combos Info</h2>
-          <p>The go-to Toontown Rewritten dashboard for defeating the cogs.</p>
-        </div>
-        <div className='right'>
+      <div className='wrapper'>
+        <h2>Gag Combos Info</h2>
+        <nav>
           <Link to="/">Home</Link>
           <Link to="/dashboard">Dashboard</Link>
+          <Link to="/faq">FAQ</Link>
           <Link to="/changelog">Changelog</Link>
           <Link to="/privacy">Privacy Policy</Link>
-        </div>
+        </nav>
       </div>
     </footer>
   );

@@ -82,7 +82,7 @@ function About() {
           </p>
           <p> 
             I have been playing Toontown since its release in 2003 (I even remember watching the Toontown commercials on Disney Channel as a kid!).
-            I've also played Toontown Rewritten since its Alpha days, back when you needed a key to wait in line to play!
+            I've also followed Toontown Rewritten since its Alpha days, back when you needed to have a special key to play!
           </p>
           <p>
             As a web developer, I wanted to provide a useful tool for the TTR community,

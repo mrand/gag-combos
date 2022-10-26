@@ -20,10 +20,10 @@ function HeaderNav({ location }) {
         Dashboard
       </Link>
       <Link 
-        to="/changelog" 
-        className={location === "/changelog" ? "active" : ""}
+        to="/faq" 
+        className={location === "/faq" ? "active" : ""}
       >
-        Changelog
+        FAQ
       </Link>
     </nav>
   );

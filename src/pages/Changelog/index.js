@@ -7,6 +7,24 @@ function ChangelogEntries() {
   return (
     <div className='formatted-article'>
       <section>
+        <h3>2022-10-26</h3>
+        <div className='block'>
+          <b>New FAQ Page</b>
+          <p>
+            Added a Frequently Asked Questions page describing site details.
+          </p>
+        </div>
+        <div className='block'>
+          <b>A Better Header (and Footer!)</b>
+          <p>
+            Header now includes more links, and a hamburger menu on mobile.
+          </p>
+          <p>
+            Footer includes links to ALL website pages.
+          </p>
+        </div>
+      </section>
+      <section>
         <h3>2022-10-25</h3>
         <div className='block'>
           <b>New Homepage!</b>
