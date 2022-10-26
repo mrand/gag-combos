@@ -1,71 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, createContext } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
-import { HeaderDesktop, HeaderMobile } from './features/ui/Header';
-import InfoCard from './features/ui/InfoCard';
-import CogCard from './features/cog/CogCard';
-import ToonsCard from './features/toons/ToonsCard';
-import CombosCard from './features/combos/CombosCard';
-
-
-function PageMobile() {
-  const [page, setPage] = useState('home');
-
-  let displayedComponent;
-  if (page === 'toons') {
-    displayedComponent = <ToonsCard />;
-  } else if (page === 'cog') {
-    displayedComponent = <CogCard />;
-  } else if (page === 'combos') {
-    displayedComponent = <CombosCard />;
-  } else {
-    displayedComponent = <InfoCard />;
-  }
-
-  return (
-    <div className='mobile'>
-      <HeaderMobile
-        page={page}
-        setPage={setPage}
-      />
-      <div className='page-wrap custom-scrollbar'>
-        {displayedComponent}
-      </div>
-    </div>
-  );
-}
-
-
-function PageDesktop() {
-  // User Brought to Info Page Only on 1st Visit
-  // localStorage.clear();
-  const [infoActive, setInfoActive] = useState(
-    ((localStorage.getItem('saw-info-card')) ? false : true )
-  );
-
-  return (
-    <div className='desktop'>
-      <HeaderDesktop
-        infoActive={infoActive}
-        setInfoActive={setInfoActive}
-      />
-      {infoActive ? (
-        <div className='popup'>
-          <InfoCard
-            includeLink={true}
-            setInfoActive={setInfoActive}
-            />
-        </div>
-      ) : (
-        <div className='page-wrap'>
-          <ToonsCard />
-          <CombosCard />
-          <CogCard />
-        </div>
-      )}
-    </div>
-  );
-}
-
+import Home from './pages/Home';
+import Dashboard from './pages/Dashboard';
+// import Changelog from './pages/Changelog';
 
 const throttle = (func, delay) => {
   let inProgress = false;
@@ -81,7 +19,10 @@ const throttle = (func, delay) => {
   }
 };
 
-function App() {
+
+export const PageSizeContext = createContext();
+
+export default function App() {
   let windowWidth = useRef(window.innerWidth);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1150);
 
@@ -104,7 +45,29 @@ function App() {
     };
   }, [throttledChangeHandler]);
 
-  return isMobile ? <PageMobile /> : <PageDesktop />;
-}
+  const mobileOrDesktop = isMobile ? 'mobile' : 'desktop';
+  return (
+    <PageSizeContext.Provider value={mobileOrDesktop}>
+      <div 
+        id='page-wrap'
+        className={mobileOrDesktop}
+      >
 
-export default App;
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            {/* <Route path="/changelog" element={<Changelog />} /> */}
+            {/* 404 - redirect to Home */}
+            <Route 
+              path="*" 
+              element={<Navigate replace to="/" />} 
+            />
+          </Routes>
+        </BrowserRouter>
+
+      </div>
+    </PageSizeContext.Provider>
+    
+  );
+}

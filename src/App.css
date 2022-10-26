@@ -1,98 +1,32 @@
-.mobile {
+#page-wrap {
   height: 100vh;
-  padding-bottom: 63px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: stretch;
 }
 
-.mobile .page-wrap {
+#page {
   height: 100%;
-  overflow-y: auto;
+  overflow-y: scroll;
+}
+
+.mobile .custom-scrollbar {
   /* tweak custom scrollbar */
   --bar-width: 4px;
   --bar-color: var(--grey-400);
 }
-.mobile .page-wrap > * { 
-  padding: 16px;
-}
 
-.mobile .wrapper, 
-.mobile .page-wrap {
-  width: 100%;
-  max-width: 850px;
-  margin: 0 auto;
+.flex {
+  display: flex;
+  gap: 24px;
 }
+.mobile .flex { flex-direction: column; }
+.desktop .flex {
+  flex-direction: row;
+  justify-content: space-between;
+}
+.flex > * { width: 100%; }
 
-
-.desktop .popup {
-  padding-top: 16px;
-  padding-bottom: 16px;
-}
-
-.desktop .popup #info {
-  max-width: 850px;
-  margin: auto;
-}
-
-.desktop .popup-btn {
-  display: block;
-  background: var(--blue-400); 
-  text-shadow: 0 0 4px var(--blue-600);
-  margin-right: auto;
-  color: #ffffff;
-  text-align: center;
-  padding: 8px 16px;
-  border-radius: 30px;
-  font-weight: bold;
-}
-.desktop .popup-btn:hover {
-  box-shadow: 0 0 5px var(--blue-600) inset;
-}
-
-.desktop .page-wrap {
-  display: grid;
-  grid-template-columns: 300px 1fr auto;
-}
-
-.desktop .page-wrap > * {  
-  padding: 16px 24px; 
-}
-
-.desktop .page-wrap #toons { 
-  position: sticky;
-  top: 49px;
-  align-self: flex-start;
-  background: var(--blue-400);
-  height: calc(100vh - 49px);
-  overflow-y: scroll
-}
-.desktop .page-wrap #toons::-webkit-scrollbar {
-  background: var(--blue-400);
-  width: 12px;
-}
-.desktop .page-wrap #toons::-webkit-scrollbar-track {
-  margin: 24px;
-}
-.desktop .page-wrap #toons::-webkit-scrollbar-thumb {
-  background: var(--blue-600);
-  border-radius: 30px;
-}
-.desktop .page-wrap #toons::-webkit-scrollbar-thumb:hover {
-  background: var(--blue-500);
-}
-
-.desktop .page-wrap #combos { 
-  width: min(100%, 900px);
-  margin: 0 auto; 
-}
-
-.desktop .page-wrap #cog { 
-  position: sticky;
-  top: 49px;
-  align-self: flex-start;
-  background: var(--grey-400);
-  height: calc(100vh - 49px);
-  overflow: auto;
-}
+.mobile .flex .right { text-align: center; }
+.desktop .flex .right { text-align: right; }

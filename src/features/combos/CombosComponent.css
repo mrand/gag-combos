@@ -107,15 +107,14 @@
   grid-column-end: 3;
 }
 
+.combo-cell h3 { text-align: center; }
+
 .combo-cell.error-msg h3 {
-  text-align: center;
   color: var(--red-500);
   margin-bottom: 0;
 }
 
-.combo-cell h4 {
-  line-height: 1em;
-}
+.combo-cell h4 { line-height: 1em;}
 
 .combo-gags {
   width: 100%;

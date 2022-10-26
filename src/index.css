@@ -4,6 +4,11 @@
 }
 
 @font-face {
+  font-family: Karla;
+  src: url(/public/fonts/Karla-Medium.ttf);
+}
+
+@font-face {
   font-family: SpecialElite;
   src: url(/public/fonts/SpecialElite-Regular.ttf);
 }
@@ -39,9 +44,10 @@ body {
   background-image:  linear-gradient(#e4e4e4 2px, transparent 2px), linear-gradient(90deg, #e4e4e4 2px, transparent 2px), linear-gradient(#e4e4e4 1px, transparent 1px), linear-gradient(90deg, #e4e4e4 1px, #f3f3f3 1px);
   background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
   background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+  font-family: Karla, sans-serif;
 }
 
-button {
+a, button {
   cursor: pointer;
   padding: 8px;
   font-weight: bold;
@@ -49,11 +55,13 @@ button {
   background: var(--blue-600);
   color: #ffffff;
 }
+a:hover, 
 button:hover {
   background: var(--blue-400);
   box-shadow: 0 0 5px var(--blue-600) inset;
   color: #ffffff;
 }
+a.active,
 button.active {
   box-shadow: 0 0 4px var(--grey-600) inset;
   background: var(--yellow-500);
@@ -64,8 +72,8 @@ button.warn:hover { box-shadow: 0 0 4px var(--red-600) inset; }
 
 .custom-scrollbar {
   /* defaults */
-  --bar-width: 12px;
-  --bar-color: var(--blue-400); 
+  --bar-width: 16px;
+  --bar-color: var(--grey-400); 
   --thumb-color: var(--blue-600);
   --thumb-hover-color: var(--blue-500);
 }
@@ -85,7 +93,6 @@ button.warn:hover { box-shadow: 0 0 4px var(--red-600) inset; }
 
 h1, h2, h3, h4, h5, h6 { 
   font-weight: normal;
-  text-align: center; 
   font-family: BowlbyOneSC,Arial,Roboto,Helvetica,sans-serif;
 }
 
@@ -163,7 +170,11 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateX(26px);
 }
 
+ul li { margin-left: 1em; }
 
 .wrapper {
   padding: 16px;
+  max-width: 1350px;
+  margin: 0 auto;
+  /* border: 1px solid red; */
 }

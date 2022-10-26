@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { reset, setCog, toggleLured } from './cogSlice';
-import './CogCard.css';
+import './CogComponent.css';
 import Cog from './Cog';
-import ResetButton from '../ui/ResetButton';
+import ResetButton from '../../components/ResetButton';
 
 
 // list of possible cog levels (1 through 20)
@@ -91,7 +91,7 @@ function LuredToggle() {
 }
 
 
-export default function CogCard() {
+export default function CogComponent() {
   const [active, setActive] = useState(false);
 
   const cogLevel = useSelector((state) => state.cog.level);

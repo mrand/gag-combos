@@ -133,7 +133,7 @@
   background: var(--blue-400);
 }
 
-
+.lured-toggle { margin-top: auto; }
 .lured-toggle > div {
   display: inline-flex;
   justify-content: center;

@@ -1,0 +1,13 @@
+footer {
+  background: var(--blue-600);
+  color: #ffffff;
+}
+
+footer a {
+  text-decoration: none;
+  display: block;
+  width: fit-content;
+  border-radius: 100px;
+  padding: 8px 16px;
+}
+.desktop footer a { margin-left: auto; }

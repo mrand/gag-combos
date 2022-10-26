@@ -1,6 +1,7 @@
+// THIS FILE CURRENTLY UNUSED
+
 // import toons from './toons.json';
 
-// WHOLE CLASS CURRENTLY UNUSED
 export default class Toon {
   constructor(active=true, organic='None') {
     this.active = active;
