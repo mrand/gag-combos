@@ -1,7 +1,4 @@
-#changelog-entries { 
-  position: relative; 
-  height: 100%;
-}
+#changelog-entries { position: relative; }
 
 #changelog-entries > .wrapper {
   position: relative;
