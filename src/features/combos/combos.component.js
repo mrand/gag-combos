@@ -6,6 +6,7 @@ import { Cog } from 'features/cog';
 import { RecommendCombos } from './modules';
 import gagColors from './data/gag-colors.data.json';
 import ResetButton from 'components/reset-button';
+import SliderButton from 'components/slider-button';
 
 
 function ComboCell({ combo, isOnly, cellNum, cellStates, setCellStates }) {
@@ -252,16 +253,14 @@ function ExpandAllToggle({ cellStates, setCellStates }) {
   const expanded = useSelector((state) => state.combos.expanded);
 
   return (
-    <button 
-      className={'switch' + (expanded ? ' on' : '')}
-      onClick={(e) => {
+    <SliderButton 
+      active={expanded}
+      clickHandler={() => {
         setCellStates(new Array(cellStates.length).fill(!expanded));
         dispatch(toggleExpanded());
       }}
-      aria-label="Toggle All Info"
-      title="Toggle All Info"
-    >
-    </button>
+      infoText="Toggle All Info"
+    />
   );
 }
 

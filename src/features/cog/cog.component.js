@@ -4,6 +4,7 @@ import { reset, setCog, toggleLured } from './cog.slice';
 import './cog.component.css';
 import Cog from './cog.module';
 import ResetButton from 'components/reset-button';
+import SliderButton from 'components/slider-button';
 
 
 // list of possible cog levels (1 through 20)
@@ -75,16 +76,11 @@ function LuredToggle() {
       }
       <div>
         <img src='./img/gags/lure-10_Bill.png' alt='$10 Bill Lure Gag' />
-        <button 
-          className={'switch' + (isLured ? ' on' : '')}
-          onClick={(e) => {
-            dispatch(toggleLured());
-          }}
-          title={"Toggle Cog Lured"}
-          aria-label={"Toggle Cog Lured"}
-        >
-          <span className='slider'></span>
-        </button>
+        <SliderButton 
+          active={isLured}
+          clickHandler={() => dispatch(toggleLured())}
+          infoText="Toggle Cog Lured"
+        />
       </div>
     </div>
   );

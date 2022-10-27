@@ -142,6 +142,9 @@
 .gag-cell.org {
   box-shadow: 0 0 0 4px var(--green-500) inset;
 }
+.combo-cell.expanded .gag-cell {
+  background: var(--grey-300);
+}
 
 .gag-cell > * {
   display: flex;

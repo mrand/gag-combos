@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { reset, toggleToonActive, updateToonOrg } from './toons.slice';
 import './toons.component.css';
 import ResetButton from 'components/reset-button';
+import SliderButton from 'components/slider-button';
 
 
 function ToonToggle({ i }) {
@@ -13,18 +14,11 @@ function ToonToggle({ i }) {
     <div className='toon-toggle'>
       <h3>Toon {i+1}</h3>
       <div className='controls'>
-        {
-          <button 
-            className={'switch' + (active ? ' on' : '')}
-            onClick={(e) => {
-              dispatch(toggleToonActive(i));
-            }}
-            title={"Toggle Toon "+(i+1)+" Active"}
-            aria-label={"Toggle Toon "+(i+1)}
-          >
-            <span className='slider'></span>
-          </button>
-        }
+        <SliderButton 
+          active={active}
+          clickHandler={() => dispatch(toggleToonActive(i))}
+          infoText={"Toggle Toon "+(i+1)+" Active"}
+        />
       </div>
     </div>
   );
