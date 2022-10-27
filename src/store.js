@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
-import cogReducer from 'features/cog/cogSlice';
-import toonReducer from 'features/toons/toonSlice';
-import comboReducer from 'features/combos/comboSlice';
+import { cogReducer } from 'features/cog';
+import { toonsReducer } from 'features/toons';
+import { combosReducer } from 'features/combos';
 
 // localStorage.clear();
 const persistentState = localStorage.getItem('state') ? JSON.parse(localStorage.getItem('state')) : {}
@@ -9,8 +9,8 @@ const persistentState = localStorage.getItem('state') ? JSON.parse(localStorage.
 const store = configureStore({
   reducer: {
     cog: cogReducer,
-    toons: toonReducer,
-    combos: comboReducer,
+    toons: toonsReducer,
+    combos: combosReducer,
   },
   preloadedState: persistentState
 });

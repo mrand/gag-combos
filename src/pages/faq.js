@@ -1,7 +1,6 @@
 import React from 'react';
-import Header from 'components/Header';
-import Footer from 'components/Footer';
-import './index.css';
+import Header from 'features/ui/header';
+import Footer from 'features/ui/footer';
 
 export default function FAQ() {
   return (
@@ -10,7 +9,7 @@ export default function FAQ() {
 
       <article id="faq-entries">
         <div className='wrapper'>
-          <h2>FAQ</h2>
+          <h2 className='standard-heading'>FAQ</h2>
           <div className='formatted-article'>
             <section>
               <h3>What is Toontown?</h3>

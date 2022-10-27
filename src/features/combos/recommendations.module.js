@@ -1,6 +1,6 @@
 import gags from './gags.json';
 import combos from './combos.json';
-import { Combo, Gag } from './Combo';
+import { Combo, Gag } from './combo.module';
 
 
 // eslint-disable-next-line no-extend-native

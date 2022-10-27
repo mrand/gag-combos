@@ -2,11 +2,11 @@ import React, { useState, useContext } from 'react';
 import { Navigate } from 'react-router-dom';
 import { PageSizeContext } from 'App';
 import './index.css';
-import Header from 'components/Header';
-import CogComponent from 'features/cog/CogComponent';
-import ToonsComponent from 'features/toons/ToonsComponent';
-import CombosComponent from 'features/combos/CombosComponent';
-import Footer from 'components/Footer';
+import Header from 'features/ui/header';
+import { CogComponent } from 'features/cog';
+import { ToonsComponent } from 'features/toons';
+import CombosComponent from 'features/combos/combos.component';
+import Footer from 'features/ui/footer';
 
 
 function configMobileLink(page, link) {
@@ -48,7 +48,7 @@ function getSVG(linkText) {
   return svgs[linkText];
 }
 
-function DashboardNav({ tab, setTab }) {
+function DashboardMobileNav({ tab, setTab }) {
   const tabs = ['toons', 'cog', 'combos'];
   return (
     <nav id='dashboard-nav'>
@@ -121,7 +121,7 @@ export default function Dashboard() {
         (pageSize==='mobile') ? (
           <>
             <DashboardMobile tab={tab} />
-            <DashboardNav tab={tab} setTab={setTab} />
+            <DashboardMobileNav tab={tab} setTab={setTab} />
           </>
           
         ) : (

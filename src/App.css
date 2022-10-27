@@ -13,11 +13,13 @@
   overflow-y: scroll;
 }
 
+
 .mobile .custom-scrollbar {
   /* tweak custom scrollbar */
   --bar-width: 4px;
   --bar-color: var(--grey-400);
 }
+
 
 .flex {
   display: flex;
@@ -33,3 +35,9 @@
 
 .mobile .flex .right { text-align: center; }
 .desktop .flex .right { text-align: right; }
+
+
+.standard-heading {
+  text-align: center;
+  margin-bottom: 16px;
+}

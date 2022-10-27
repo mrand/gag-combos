@@ -1,6 +1,5 @@
-import Header from 'components/Header';
-import Footer from 'components/Footer';
-import './index.css';
+import Header from 'features/ui/header';
+import Footer from 'features/ui/footer';
 
 
 function ChangelogEntries() {
@@ -66,7 +65,7 @@ export default function Changelog() {
       <Header />
       <article id='changelog-entries'>
         <div className='wrapper'>
-          <h2>Changelog</h2>
+          <h2 className='standard-heading'>Changelog</h2>
           <ChangelogEntries />
         </div>
       </article>

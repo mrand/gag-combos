@@ -1,0 +1,9 @@
+#intro .flex { align-items: center; }
+
+#intro .right {
+  display: flex;
+  justify-content: center;
+}
+.desktop #intro .right {
+  justify-content: flex-end;
+}

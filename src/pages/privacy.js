@@ -1,17 +1,16 @@
 import React from 'react';
-import Header from 'components/Header';
-import Footer from 'components/Footer';
-import './index.css';
+import Header from 'features/ui/header';
+import Footer from 'features/ui/footer';
 
 export default function PrivacyPolicy() {
   return (
-    <div id='page' className='privacy custom-scrollbar'>
+    <div id='page' className='custom-scrollbar'>
       <Header />
 
       <article id='privacy-policy'>
         <div className='wrapper'>
 
-          <div className='privacy-title'>
+          <div className='standard-heading'>
             <h2>Privacy Policy</h2>
             <i>Last Updated: 2022-10-26</i>
           </div>

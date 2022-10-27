@@ -1,5 +1,6 @@
 import cogs from './cogs.json';
 
+
 export default class Cog {
   /** 
    * @param {number} level 

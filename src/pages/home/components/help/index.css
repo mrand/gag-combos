@@ -1,0 +1,12 @@
+#help .right {
+  display: flex;
+  flex-direction: column;
+}
+.desktop #help .right {
+  align-items: flex-end;
+}
+#help a {
+  border-radius: 30px;
+  padding: 12px 16px;
+}
+#help a { text-decoration: none; }

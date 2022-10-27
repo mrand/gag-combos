@@ -1,0 +1,11 @@
+#about { background: var(--grey-400); }
+
+.desktop #about .flex { flex-direction: row-reverse; }
+
+#about img {
+  width: 100%;
+  max-width: 650px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 3px 3px 0 3px var(--grey-500);
+}

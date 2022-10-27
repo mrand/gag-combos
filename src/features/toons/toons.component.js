@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { reset, toggleToonActive, updateToonOrg } from './toonSlice';
-import './ToonsComponent.css';
-import ResetButton from 'components/ResetButton';
+import { reset, toggleToonActive, updateToonOrg } from './toons.slice';
+import './toons.component.css';
+import ResetButton from 'features/ui/reset-button';
 
 
 function ToonToggle({ i }) {
@@ -133,7 +133,7 @@ function ToonPanel({ i, toon, dispatch }) {
 }
 
 
-export default function ToonsCard() {
+export default function ToonsComponent() {
   const toons = useSelector((state) => state.toons.toonlist);
   const resetBtnActive = useSelector((state) => state.toons.hasUpdates);
   const dispatch = useDispatch();
