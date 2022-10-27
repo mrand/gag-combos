@@ -1,4 +1,4 @@
-import cogs from './cogs.json';
+import cogs from './cog.data.json';
 
 
 export default class Cog {

@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from 'features/ui/header';
-import Footer from 'features/ui/footer';
+import Header from 'components/header';
+import Footer from 'components/footer';
 
 export default function PrivacyPolicy() {
   return (

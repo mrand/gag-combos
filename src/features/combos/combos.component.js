@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { reset, setType, toggleExpanded, toggleTrack } from './combos.slice';
 import './combos.component.css';
 import Cog from 'features/cog/cog.module';
-import { RecommendCombos } from './recommendations.module';
-import ResetButton from 'features/ui/reset-button';
+import { RecommendCombos } from './modules';
+import ResetButton from 'components/reset-button';
 
 
 function ComboCell({ combo, isOnly, cellNum, cellStates, setCellStates }) {
@@ -281,7 +281,7 @@ function TitleContainer({ cellStates, setCellStates }) {
 }
  
 
-export default function CombosCard() {
+export default function CombosComponent() {
   
   // build new recommend combos object
   const cogLevel = useSelector((state) => state.cog.level);
