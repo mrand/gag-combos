@@ -63,6 +63,18 @@ function HamburgerButton({ mobileNavActive, setMobileNavActive }) {
 }
 
 
+function MobileNavBg({ setMobileNavActive }) {
+  return (
+    <button
+      id='mobile-nav-bg'
+      onClick={() => setMobileNavActive(false)}
+      aria-label="Close Main Navigation Menu"
+      title="Close Main Navigation Menu"
+    ></button>
+  );
+}
+
+
 export default function Header() {
   const pageSize = useContext(PageSizeContext);
   const location = useLocation().pathname;
@@ -107,6 +119,12 @@ export default function Header() {
           ) : null
         }
       </header>
+      {/* Mobile Nav Background */}
+      {
+        pageSize==='mobile' && mobileNavActive ? (
+          <MobileNavBg setMobileNavActive={setMobileNavActive} />
+        ) : null
+      }
     </>
   );
 }
