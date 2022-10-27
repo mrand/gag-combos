@@ -30,7 +30,7 @@ function CombosVisual() {
       </div>
       
 
-      <div className='video-wrap'>
+      <div className='video-wrap folded-corner'>
         <video
           width="394" height="168" autoPlay muted loop
         >

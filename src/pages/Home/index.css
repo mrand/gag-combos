@@ -112,7 +112,6 @@
   max-width: 100%;
   box-shadow: 3px 3px 0 3px var(--blue-700);
 }
-.desktop #combos-visual { transform: rotate(2deg); }
 
 #combos-visual .txt-wrap { 
   align-self: stretch;
@@ -155,9 +154,8 @@
   max-width: 650px;
   height: auto;
   border-radius: 20px;
-  box-shadow: 3px 3px 0 3px var(--green-500);
+  box-shadow: 3px 3px 0 3px var(--grey-500);
 }
-.desktop #about img { transform: rotate(-2deg) scale(0.9); }
 
 #help .right {
   display: flex;

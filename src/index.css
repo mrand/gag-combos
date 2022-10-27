@@ -48,6 +48,29 @@ body {
   font-family: Karla, sans-serif;
 }
 
+/* 
+  decorative class to fold in the corner of the element 
+  like a piece of paper 
+*/
+.folded-corner {
+  position: relative;
+  clip-path: polygon(
+    0 0, 
+    100% 0,
+    100% calc(100% - 32px), calc(100% - 32px) 100%,
+    0 100%
+  );
+}
+.folded-corner::after {
+  content: '';
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 32px; height: 32px;
+  background: var(--grey-400);
+  border-top-left-radius: 12px;
+  z-index: 1;
+}
+
 .formatted-article {
   background: var(--blue-600);
   border: 8px solid var(--blue-600);
