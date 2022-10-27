@@ -4,7 +4,7 @@
   width: 100%;
   background: #ffffff;
   box-shadow: 0 0 5px var(--grey-700);
-  z-index: 100;
+  z-index: 50;
 }
 #dashboard-nav .wrapper {
   padding: 0;
