@@ -9,7 +9,7 @@ export default function Dashboard() {
   const pageSize = useContext(PageSizeContext);
 
   return (
-    <div id='page' className='dashboard custom-scrollbar'>
+    <div id='page' className='dashboard custom-scrollbar with-grid-bg'>
       <Header />
       <DashboardComponent />
       {/* Dashboard Special Case - no footer on mobile */}

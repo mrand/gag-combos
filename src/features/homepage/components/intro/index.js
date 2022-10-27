@@ -4,7 +4,7 @@ import './index.css';
 
 export default function Intro() {
   return (
-    <section id='intro'>
+    <section id='intro' className='with-grid-bg'>
       <div className='wrapper flex'>
         <div className='left'>
           <h2>Welcome!</h2>

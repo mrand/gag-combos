@@ -3,7 +3,7 @@ import './index.css';
 
 export default function Help() {
   return (
-    <section id='help'>
+    <section id='help' className='with-grid-bg'>
       <div className='wrapper flex'>
         <div className='left'>
           <h2>How to Use</h2>

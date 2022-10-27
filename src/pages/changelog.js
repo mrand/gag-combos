@@ -7,7 +7,7 @@ export default function Changelog() {
     <div id='page' className='changelog custom-scrollbar'>
       <Header />
       
-      <article>
+      <article className='with-grid-bg'>
         <div className='wrapper'>
           <h2 className='standard-heading'>Changelog</h2>
           <div className='formatted-article'>

@@ -4,7 +4,7 @@ import Footer from 'components/footer';
 
 export default function PrivacyPolicy() {
   return (
-    <div id='page' className='custom-scrollbar'>
+    <div id='page' className='custom-scrollbar with-grid-bg'>
       <Header />
 
       <article id='privacy-policy'>

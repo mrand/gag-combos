@@ -42,55 +42,9 @@ html {
 
 body {
   background-color: #f3f3f3;
-  background-image: linear-gradient(#e4e4e4 2px, transparent 2px), linear-gradient(90deg, #e4e4e4 2px, transparent 2px), linear-gradient(#e4e4e4 1px, transparent 1px), linear-gradient(90deg, #e4e4e4 1px, #f3f3f3 1px);
-  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
-  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
   font-family: Karla, sans-serif;
 }
 
-/* 
-  decorative class to fold in the corner of the element 
-  like a piece of paper 
-*/
-.folded-corner {
-  position: relative;
-  clip-path: polygon(
-    0 0, 
-    100% 0,
-    100% calc(100% - 32px), calc(100% - 32px) 100%,
-    0 100%
-  );
-}
-.folded-corner::after {
-  content: '';
-  position: absolute;
-  bottom: 0; right: 0;
-  width: 32px; height: 32px;
-  background: var(--grey-400);
-  border-top-left-radius: 12px;
-  z-index: 1;
-}
-
-.formatted-article {
-  background: var(--blue-600);
-  border: 8px solid var(--blue-600);
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  max-width: 50em;
-  margin: 0 auto;
-  margin-bottom: 32px;
-  box-shadow: 0 5px 10px var(--grey-700);
-}
-.formatted-article section {
-  background: #ffffff;
-  border: 8px solid var(--blue-600);
-  border-radius: 20px;
-  padding: 16px;
-}
-.formatted-article section > *:not(h3) {
-  margin-top: 8px;
-}
 
 a, button {
   cursor: pointer;
@@ -115,6 +69,8 @@ button.active {
 button.warn { background: var(--red-500); }
 button.warn:hover { box-shadow: 0 0 4px var(--red-600) inset; }
 
+
+/* adjustable scrollbar */
 .custom-scrollbar {
   /* defaults */
   --bar-width: 15px;
@@ -136,10 +92,64 @@ button.warn:hover { box-shadow: 0 0 4px var(--red-600) inset; }
   background: var(--thumb-hover-color);
 }
 
+
+/* 
+  decorative class to fold in the corner of the element 
+  like a piece of paper 
+*/
+.folded-corner {
+  --fold-size: 32px;
+  --fold-color: var(--grey-400);
+  --container-border-radius: 12px;
+  position: relative;
+  clip-path: polygon(
+    0 0, 
+    100% 0,
+    100% calc(100% - var(--fold-size)), calc(100% - var(--fold-size)) 100%,
+    0 100%
+  );
+}
+.folded-corner::after {
+  content: '';
+  position: absolute;
+  bottom: 0; 
+  right: 0;
+  width: var(--fold-size); 
+  height: var(--fold-size);
+  background: var(--fold-color);
+  border-top-left-radius: var(--container-border-radius);
+  z-index: 1;
+}
+
+
+/* general default style for page elements */
+.formatted-article {
+  background: var(--blue-600);
+  border: 8px solid var(--blue-600);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  max-width: 50em;
+  margin: 0 auto;
+  margin-bottom: 32px;
+  box-shadow: 0 5px 10px var(--grey-700);
+}
+.formatted-article section {
+  background: #ffffff;
+  border: 8px solid var(--blue-600);
+  border-radius: 20px;
+  padding: 16px;
+}
+.formatted-article section > *:not(h3) {
+  margin-top: 8px;
+}
+
+
 h1, h2, h3, h4, h5, h6 { 
   font-weight: normal;
   font-family: BowlbyOneSC,Arial,Roboto,Helvetica,sans-serif;
 }
+
 
 /* wraps an h2 tag and a reset button component */
 .heading-btn-wrap {
@@ -149,6 +159,8 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
 }
 
+
+/* buttons containing an svg icon and text */
 .svg-btn {
   --main-color: var(--blue-600);
   --sub-color: #ffffff;
@@ -180,6 +192,7 @@ h1, h2, h3, h4, h5, h6 {
 .svg-btn.active svg {
   fill: var(--sub-color);
 }
+
 
 /* Toggle Switch Button */
 .switch {
@@ -215,8 +228,20 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateX(26px);
 }
 
+
 ul li { margin-left: 1em; }
 
+
+/* add a graph paper bg to elements */
+.with-grid-bg {
+  background-color: #f3f3f3;
+  background-image: linear-gradient(#e4e4e4 2px, transparent 2px), linear-gradient(90deg, #e4e4e4 2px, transparent 2px), linear-gradient(#e4e4e4 1px, transparent 1px), linear-gradient(90deg, #e4e4e4 1px, #f3f3f3 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}
+
+
+/* general content wrapper */
 .wrapper {
   padding: 28px 16px;
   max-width: 1350px;

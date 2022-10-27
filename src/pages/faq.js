@@ -4,7 +4,7 @@ import Footer from 'components/footer';
 
 export default function FAQ() {
   return (
-    <div id='page' className='faq custom-scrollbar'>
+    <div id='page' className='faq custom-scrollbar with-grid-bg'>
       <Header />
 
       <article id="faq-entries">
