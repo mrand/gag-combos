@@ -110,7 +110,7 @@
   padding: 8px;
   background: var(--blue-600);
   max-width: 100%;
-  box-shadow: 0 5px 10px var(--grey-700);
+  box-shadow: 3px 3px 0 3px var(--blue-700);
 }
 .desktop #combos-visual { transform: rotate(2deg); }
 
@@ -152,13 +152,12 @@
 .desktop #about .flex { flex-direction: row-reverse; }
 #about img {
   width: 100%;
+  max-width: 650px;
   height: auto;
   border-radius: 20px;
-  box-shadow: 0 5px 10px var(--grey-700);
+  box-shadow: 3px 3px 0 3px var(--green-500);
 }
 .desktop #about img { transform: rotate(-2deg) scale(0.9); }
-#about .right { text-align: justify; }
-
 
 #help .right {
   display: flex;

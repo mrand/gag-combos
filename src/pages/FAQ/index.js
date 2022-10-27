@@ -26,8 +26,10 @@ export default function FAQ() {
               <h3>What does this website do for Toontown?</h3>
               <p>
                 Toontown players play as "Toons", and engage in turn-based battles with enemies known as "Cogs".
-                In these battles, Toons attempt to defeat Cogs using combinations of "gags".
-                This tool finds the optimal combinations of gags that can defeat a cog in one shot.
+                In these battles, Toons attempt to defeat Cogs using combinations of "gags". The cog deals damage to the players each round until it is defeated, or until the players' toons "go sad".
+              </p>
+              <p>
+                This website finds the optimal combinations of gags that can defeat a cog in one round, based on a number of different factors that users can input.
               </p>
             </section>
             <section>
@@ -53,9 +55,6 @@ export default function FAQ() {
               <p>
                 At this time, Gag Combos Info does NOT provide info about Corporate Clash, or any other Toontown servers.
                 However, this website is very early in its development, and we do have plans to support CC in the future!
-              </p>
-              <p>
-                Also note that since Toontown Rewritten has rebalanced some gags' damage and accuracy values, this website does not currently provide info about the Original Toontown Online either.
               </p>
             </section>
           </div>

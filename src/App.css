@@ -21,10 +21,11 @@
 
 .flex {
   display: flex;
+  flex-direction: column;
   gap: 24px;
 }
-.mobile .flex { flex-direction: column; }
 .desktop .flex {
+  gap: 48px;
   flex-direction: row;
   justify-content: space-between;
 }
