@@ -7,6 +7,7 @@ import Changelog from 'pages/changelog';
 import PrivacyPolicy from 'pages/privacy';
 import FAQ from 'pages/faq';
 
+
 const throttle = (func, delay) => {
   let inProgress = false;
   return (...args) => {

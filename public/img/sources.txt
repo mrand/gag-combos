@@ -4,7 +4,6 @@
   gags/
     pass.png:                ?
     *.png:                   https://toontown.fandom.com/wiki/Gags
-    *-organic.png:           https://toontown.fandom.com/wiki/Gags, Personally Edited
   home/
     splash.png               Personally Generated
   unused/

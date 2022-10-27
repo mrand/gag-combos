@@ -1,18 +1,9 @@
 import React from 'react';
 import './index.css';
-import gagsObj from 'features/combos/gags.json';
-import { Gag } from 'features/combos/combo.module';
+import gagsObj from 'features/combos/data/gags.data.json';
+import gagColors from 'features/combos/data/gag-colors.data.json';
+import { Gag } from 'features/combos/modules';
 
-
-const gagColors = {
-  "Toon-Up": "#c55ae8",
-  "Trap":    "#e8e65a",
-  "Lure":    "#33bd35",
-  "Sound":   "#5470ef",
-  "Throw":   "#ed9f32",
-  "Squirt":  "#f55bd6",
-  "Drop":    "#32eaed"
-};
 
 function parseJSON() {
   let tracks = Object.keys(gagsObj["Organic"]);
@@ -20,9 +11,9 @@ function parseJSON() {
   let thisGag;
 
   let gagImages = [];
-  tracks.map((track, j) => {
+  tracks.forEach((track, j) => {
     thisTrack = gagsObj['Non-Organic'][track];
-    thisTrack.map((gag, k) => {
+    thisTrack.forEach((gag, k) => {
       thisGag = new Gag(track, k+1, false);
       gagImages.push({
         "name": thisGag.name,
@@ -39,7 +30,7 @@ function shuffle(array) {
   let curr_idx = array.length;
   let rand_idx;
   // while there are elements left to shuffle
-  while (curr_idx != 0) {
+  while (curr_idx !== 0) {
     // swap random remaining element with current element
     rand_idx = Math.floor(Math.random() * curr_idx);
     curr_idx--;

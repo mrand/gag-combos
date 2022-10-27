@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { reset, setType, toggleExpanded, toggleTrack } from './combos.slice';
 import './combos.component.css';
-import Cog from 'features/cog/cog.module';
+import { Cog } from 'features/cog';
 import { RecommendCombos } from './modules';
+import gagColors from './data/gag-colors.data.json';
 import ResetButton from 'components/reset-button';
 
 
@@ -34,18 +35,37 @@ function ComboCell({ combo, isOnly, cellNum, cellStates, setCellStates }) {
         <div className='combo-gags'>
           {combo.gags.map((gag, j) => (
             <div 
-              className='gag-cell'
+              // className='gag-cell'
+              className={'gag-cell' + (gag.organic==='Organic' ? ' org' : '')}
+              style={{background: thisExpanded ? (gagColors[gag.track] || "") : ""}}
               key={j}
             >
+              {
+                (gag.organic==="Organic") ? (
+                  <img 
+                    className='organic-icon'
+                    src="/img/unused/icon-organic-mini.png"
+                    alt={'Organic Icon'} 
+                  />
+                ) : null
+              }
               <div>
                 {(gag.track === 'Lure') ? (
                   <>
-                    <img src={'./img/gags/lure-10_bill.png'} alt={'$10 Bill'} />
+                    <img 
+                      className='gag-icon'
+                      src={'./img/gags/lure-10_bill.png'} 
+                      alt={'Organic $10 Bill'} 
+                    />
                     <b className='gag-name'>Lure (Any)</b>
                   </>  
                 ) : (
                   <>
-                    <img src={gag.image} alt={gag.name} />
+                    <img 
+                      className='gag-icon'
+                      src={gag.image} 
+                      alt={gag.name} 
+                    />
                     <b className='gag-name'>{gag.name}</b>
                   </>
                   
