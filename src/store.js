@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
-import cogReducer from './features/cog/cogSlice';
-import toonReducer from './features/toons/toonSlice';
-import comboReducer from './features/combos/comboSlice';
+import cogReducer from 'features/cog/cogSlice';
+import toonReducer from 'features/toons/toonSlice';
+import comboReducer from 'features/combos/comboSlice';
 
 // localStorage.clear();
 const persistentState = localStorage.getItem('state') ? JSON.parse(localStorage.getItem('state')) : {}

@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { reset, setType, toggleExpanded, toggleTrack } from './comboSlice';
 import './CombosComponent.css';
-import Cog from '../cog/Cog';
+import Cog from 'features/cog/Cog';
 import { RecommendCombos } from './RecommendCombos';
-import ResetButton from '../../components/ResetButton';
+import ResetButton from 'components/ResetButton';
 
 
 function ComboCell({ combo, isOnly, cellNum, cellStates, setCellStates }) {

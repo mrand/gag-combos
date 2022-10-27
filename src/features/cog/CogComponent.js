@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { reset, setCog, toggleLured } from './cogSlice';
 import './CogComponent.css';
 import Cog from './Cog';
-import ResetButton from '../../components/ResetButton';
+import ResetButton from 'components/ResetButton';
 
 
 // list of possible cog levels (1 through 20)

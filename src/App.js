@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef, createContext } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
-import Home from './pages/Home';
-import Dashboard from './pages/Dashboard';
-import Changelog from './pages/Changelog';
-import PrivacyPolicy from './pages/PrivacyPolicy';
-import FAQ from './pages/FAQ';
+import Home from 'pages/Home';
+import Dashboard from 'pages/Dashboard';
+import Changelog from 'pages/Changelog';
+import PrivacyPolicy from 'pages/PrivacyPolicy';
+import FAQ from 'pages/FAQ';
 
 const throttle = (func, delay) => {
   let inProgress = false;

@@ -1,12 +1,12 @@
 import React, { useState, useContext } from 'react';
 import { Navigate } from 'react-router-dom';
-import { PageSizeContext } from '../../App';
+import { PageSizeContext } from 'App';
 import './index.css';
-import Header from '../../components/Header';
-import CogComponent from '../../features/cog/CogComponent';
-import ToonsComponent from '../../features/toons/ToonsComponent';
-import CombosComponent from '../../features/combos/CombosComponent';
-import Footer from '../../components/Footer';
+import Header from 'components/Header';
+import CogComponent from 'features/cog/CogComponent';
+import ToonsComponent from 'features/toons/ToonsComponent';
+import CombosComponent from 'features/combos/CombosComponent';
+import Footer from 'components/Footer';
 
 
 function configMobileLink(page, link) {

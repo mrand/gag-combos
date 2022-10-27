@@ -1,7 +1,7 @@
 import React from 'react';
 import './background.css';
-import gagsObj from '../../features/combos/gags.json';
-import { Gag } from '../../features/combos/Combo';
+import gagsObj from 'features/combos/gags.json';
+import { Gag } from 'features/combos/Combo';
 
 
 const gagColors = {

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { reset, toggleToonActive, updateToonOrg } from './toonSlice';
 import './ToonsComponent.css';
-import ResetButton from '../../components/ResetButton';
+import ResetButton from 'components/ResetButton';
 
 
 function ToonToggle({ i }) {

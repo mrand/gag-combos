@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { PageSizeContext } from '../../App'
+import { PageSizeContext } from 'App'
 import { useLocation, Link } from 'react-router-dom';
 import './index.css';
 
