@@ -105,7 +105,6 @@ export default function ComboCell({ combo, isOnly, cellNum, cellStates, setCellS
         {/* gags */}
         <ComboGags 
           combo={combo} 
-          thisExpanded={thisExpanded}
           isDropOnly={isDropOnly}
         />
         {/* stats */}
