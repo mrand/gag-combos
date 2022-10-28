@@ -22,7 +22,7 @@ export default function About() {
           </p>
         </div>
         <div className='right'>
-          <img src='./img/mcnugget.webp' width='1000' height='600' alt='McNugget Portrait' />
+          <img src='./img/home/mcnugget.webp' width='1000' height='600' alt='McNugget Portrait' />
         </div>
       </div>
     </section>

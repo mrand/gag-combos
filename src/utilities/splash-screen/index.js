@@ -1,8 +1,9 @@
 import React from 'react';
 import './index.css';
-import gagsObj from 'features/combos/data/gags.data.json';
-import gagColors from 'features/combos/data/gag-colors.data.json';
-import { Gag } from 'features/combos/modules';
+import gagsObj from 'features/gags/data/gags.data.json';
+import gagColors from 'features/gags/data/gag-colors.data.json';
+import { Gag } from 'features/gags/modules';
+// import Header from 'components/header';
 
 
 function parseJSON() {
@@ -43,7 +44,7 @@ function shuffle(array) {
 function configureImages() {
   let gagImages = parseJSON();
   let copy = JSON.parse(JSON.stringify(gagImages));
-  gagImages = gagImages.concat(copy).concat(copy).concat(copy).concat(copy).concat(copy).concat(copy);
+  gagImages = gagImages.concat(copy).concat(copy).concat(copy).concat(copy).concat(copy).concat(copy).concat(copy);
   let shuffledImages = shuffle(gagImages);
   return shuffledImages;
 }
@@ -56,21 +57,23 @@ function configureImages() {
 export default function Background() {
   const shuffledImages = configureImages();
   return (
-    <div id='image-grid'>
-      {
-        shuffledImages.map((image, i) => {
-          return (
-            <div 
-              key={i} 
-              className='img-wrap' 
-              style={{background:image.bg}}
-            >
-              <img src={image.src} alt={image.name} />
-            </div>
-          )
-          
-        })
-      }
-    </div>
+    <>
+      {/* <Header /> */}
+      <div id='image-grid'>
+        {
+          shuffledImages.map((image, i) => {
+            return (
+              <div 
+                key={i} 
+                className='img-wrap' 
+                style={{background:image.bg}}
+              >
+                <img src={image.src} alt={image.name} />
+              </div>
+            )
+          })
+        }
+      </div>
+    </>
   );
 }

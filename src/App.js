@@ -6,6 +6,7 @@ import Dashboard from 'pages/dashboard';
 import Changelog from 'pages/changelog';
 import PrivacyPolicy from 'pages/privacy';
 import FAQ from 'pages/faq';
+// import Background from 'utilities/splash-screen';
 
 
 const throttle = (func, delay) => {
@@ -63,6 +64,7 @@ export default function App() {
             <Route path="/changelog" element={<Changelog />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/faq" element={<FAQ />} />
+            {/* <Route path="/bg" element={<Background />} /> */}
             {/* 404 - redirect to Home */}
             <Route 
               path="*" 

@@ -6,7 +6,7 @@ export default function SplashScreen() {
   return (
     <section id="splash-screen">
       <div className='gag-images'>
-        <img src='/img/splash.webp' alt='Splash Screen' width="3430" height="490" />
+        <img src='/img/home/splash-8.webp' alt='Splash Screen' width="3430" height="560" />
       </div>
       <div id='splash-text' className='wrapper'>
         <h2>Gag Combos Info</h2>
