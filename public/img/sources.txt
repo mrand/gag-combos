@@ -2,21 +2,20 @@
   cogs/
     *.webp:                  https://toontownrewritten.fandom.com/wiki/Cogs
   gags/
+    icon-organic-mini:       ?
     pass.png:                ?
     *.png:                   https://toontown.fandom.com/wiki/Gags
-  home/
-    splash.png               Personally Generated
   unused/
     cogs-screenshots/
       *.webp:                In-Game Screenshots
     home/
-      c9t4-*.png             Website Screenshots (Used in Homepage Video)
+      c9t4-*.png:            Website Screenshots (Used in Homepage Video)
     toons/
       Laff_Meter-*.png:      In-Game Screenshots
       Toon_*.webp:           https://toontownrewritten.fandom.com/wiki/Toons
     cog_panel_bg.png:        In-Game Screenshot, Personally Edited
     cog_panel_reference.png: In-Game Screenshot
     gags_pattern.png:        https://toontownrewritten.com/
-    icon-organic-mini:       ?
-  mcnugget.webp              In-Game Screenshot
-  title-card.png	     Personally Created in Windows Paint3D
+  mcnugget.webp:             In-Game Screenshot
+  splash.webp:               Personally Generated
+  title-card.png:	           Personally Created in Windows Paint3D

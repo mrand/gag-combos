@@ -32,7 +32,7 @@ function ComboGags({ combo, isDropOnly }) {
           (gag.organic==="Organic") ? (
             <img 
               className='organic-icon'
-              src="/img/unused/icon-organic-mini.png"
+              src="/img/gags/icon-organic-mini.png"
               alt={'Organic Icon'} 
             />
           ) : null

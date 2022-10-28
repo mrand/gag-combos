@@ -50,7 +50,7 @@ function configureImages() {
 
 
 /*
-  NOTE: This is used to generate the image, but is not used in the actual page.
+  NOTE: This is used to generate Homepage Splash Screen image, but is not used in the actual page.
   I wrote this code to make the image, then screenshotted it for use in the homepage.
 */
 export default function Background() {
