@@ -82,6 +82,7 @@
   text-align: left;
 }
 
+/* phones */
 @media (max-width: 500px) {
   .combo-cell h3 {
     font-size: 16px;
@@ -91,8 +92,7 @@
 
   .combo-cell:not(.expanded) .gag-cell { width: 100%; }
   .combo-cell:not(.expanded) .organic-icon {
-    width: min(25px, 5vw);
-    height: min(25px, 5vw);
+    width: min(30px, 7vw);
   }
   .combo-cell:not(.expanded) .gag-icon {
     width: min(40px, 10vw);
