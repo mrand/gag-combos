@@ -19,14 +19,13 @@ function ComboHeading({ solutionTracks }) {
 }
 
 
-function ComboGags({ combo, thisExpanded, isDropOnly }) {
+function ComboGags({ combo, isDropOnly }) {
   return (
   <div className='combo-gags'>
     {combo.gags.map((gag, j) => (
       <div 
-        // className='gag-cell'
         className={'gag-cell' + (gag.organic==='Organic' ? ' org' : '')}
-        style={{background: thisExpanded ? (gagColors[gag.track] || "") : ""}}
+        style={{background: (gagColors[gag.track] || "")}}
         key={j}
       >
         {

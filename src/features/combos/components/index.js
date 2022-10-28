@@ -43,7 +43,7 @@ export default function CombosComponent() {
         setCellStates={setCellStates}
       />
       {(!recommendations.isLured && recommendations.recCombos.length > 0) ? (
-        <h4 style={{marginTop: "16px"}}>* Lure Accuracy Varies from 50% to 95%</h4>
+        <h4 style={{marginTop: "16px", textAlign: "center"}}>* Lure Accuracy Varies from 50% to 95%</h4>
       ) : ( null )}
       
     </div>
