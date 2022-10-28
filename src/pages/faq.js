@@ -56,6 +56,26 @@ export default function FAQ() {
                 However, this website is very early in its development, and we do have plans to support CC in the future!
               </p>
             </section>
+            <section>
+              <h3>Why do others have updates to the website that I don't have yet?</h3>
+              <p>
+                Gag Combos Info is what is called a "Progressive Web App".
+                This just means it is a special type of website that allows you to download it onto your phone or computer as if it were an app.
+              </p>
+              <p>
+                However, progressive web apps comes with some tradeoffs in how users receive updates. 
+                When you visit the website, your device checks to see if there is any new content that needs to be updated.
+                If there is new content, your device makes a note to download these updates <i>the next time</i> that you visit the website.
+              </p>
+              <p>
+                Thus, to receive an update, you have to visit the website twice - once for your device to <i>detect</i> the updates and again for your device to <i>download</i> the updates.
+              </p>
+              <p>
+                Updates will naturally be downloaded on their own as you open and close the website in day-to-day use.
+                But if you ever hear of a new feature and want to force the updates right away on a device that doesn't have them yet, 
+                just close the website (if you have multiple tabs of the website open, close them ALL) and visit again!
+              </p>
+            </section>
           </div>
         </div>
       </article>
