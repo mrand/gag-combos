@@ -32,103 +32,13 @@
   border-bottom: 2px solid var(--grey-400);
 }
 
-.gag-cell {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  font-size: 12px;
-  width: min(100%, 72px);
-  padding: 8px;
-  border-radius: 12px;
-}
-.gag-cell.org {
-  box-shadow: 0 0 0 5px var(--green-500) inset;
-}
-.combo-cell.expanded .gag-cell {
-  background: var(--grey-300);
-}
-
-.gag-cell > * {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.gag-cell .gag-stats { margin-top: 12px; }
-
-.gag-cell .organic-icon {
-  position: absolute;
-  top: -5px; right: -5px;
-  width: 30px;
-  aspect-ratio: 1 / 1;
-  z-index: 1;
-}
-.gag-cell .gag-icon {
-  filter: drop-shadow(0 0 5px var(--grey-700));
-  width: 40px;
-  max-width: 100%;
-  height: auto;
-  flex: 1 1 0px;
-}
-.gag-cell .gag-name { 
-  min-height: 2.5em; 
-  line-height: 1.25em;
-}
-
-.gag-cell span {
-  align-self: stretch;
-  text-align: left;
-}
 
 /* phones */
 @media (max-width: 500px) {
-  .combo-cell h3 {
-    font-size: 16px;
-  }
-
+  .combo-cell h3 { font-size: 16px; }
   .combo-cell.expanded .combo-gags { flex-direction: column; }
-
-  .combo-cell:not(.expanded) .gag-cell { width: 100%; }
-  .combo-cell:not(.expanded) .organic-icon {
-    width: min(30px, 7vw);
-  }
-  .combo-cell:not(.expanded) .gag-icon {
-    width: min(40px, 10vw);
-    height: min(40px, 10vw);
-  }
-  
-  .combo-cell.expanded .gag-cell { 
-    width: 100%;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 16px;
-    text-align: left;
-  }
-
-  .combo-cell .gag-cell > div {
-    text-align: center;
-    font-size: 16px;
-  }
-  .combo-cell.expanded .gag-cell > div { width: 100px; }
-
-  .gag-cell .gag-name { min-height: 0; }
-
-  .combo-cell .gag-cell .gag-stats { margin-top: 0; }
 }
 
-/* tiny phones */
-@media (max-width: 375px) {
-  .combo-cell.expanded .gag-cell { flex-direction: column; }
-  .combo-cell.expanded .gag-cell > div { width: auto; }
-}
-
-/* expanded toggleable class */
-.combo-cell:not(.expanded) .gag-name,
-.combo-cell:not(.expanded) .gag-stats {
-  display: none;
-}
 
 .combo-stats {
   display: flex;

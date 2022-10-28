@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import './index.css';
-import gagColors from 'features/combos/data/gag-colors.data.json';
+import { GagCell } from 'features/gags';
 
 
 function ComboHeading({ solutionTracks }) {
@@ -23,64 +23,11 @@ function ComboGags({ combo, isDropOnly }) {
   return (
   <div className='combo-gags'>
     {combo.gags.map((gag, j) => (
-      <div 
-        className={'gag-cell' + (gag.organic==='Organic' ? ' org' : '')}
-        style={{background: (gagColors[gag.track] || "")}}
-        key={j}
-      >
-        {
-          (gag.organic==="Organic") ? (
-            <img 
-              className='organic-icon'
-              src="/img/gags/icon-organic-mini.png"
-              alt={'Organic Icon'} 
-            />
-          ) : null
-        }
-        <div>
-          {(gag.track === 'Lure') ? (
-            <>
-              <img 
-                className='gag-icon'
-                src={'./img/gags/lure-10_bill.png'} 
-                alt={'Organic $10 Bill'} 
-              />
-              <b className='gag-name'>Lure (Any)</b>
-            </>  
-          ) : (
-            <>
-              <img 
-                className='gag-icon'
-                src={gag.image} 
-                alt={gag.name} 
-              />
-              <b className='gag-name'>{gag.name}</b>
-            </>
-            
-          )}
-        </div>
-        <div className='gag-stats'>
-          {(gag.name === 'Pass') ? (null) : (
-            <>
-              {(gag.track === 'Lure') ? (
-                <>
-                  <span><b>Dmg:</b> 0</span>
-                  <span><b>Acc:</b> *</span>
-                </>
-              ) : (
-                <>
-                  <span><b>Dmg:</b> {gag.damage}</span>
-                  <span
-                    style={
-                      isDropOnly ? {color: 'var(--red-500)'} : {}
-                    }
-                  ><b>Acc:</b> {gag.accuracy*100}%</span>
-                </>
-              )}
-            </>
-          )}
-        </div>
-      </div>
+      <GagCell 
+        key={j} 
+        gag={gag} 
+        isDropOnly={isDropOnly} 
+      />
     ))}
   </div>
   );

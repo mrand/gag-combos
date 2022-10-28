@@ -1,5 +1,5 @@
-import gags from '../data/gags.data.json';
-import Gag from './gag.module';
+import gags from 'features/gags/data/gags.data.json';
+import Gag from 'features/gags/modules/gag.module';
 import Combo from './combo.module';
 
 
