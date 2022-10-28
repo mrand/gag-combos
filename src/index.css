@@ -25,6 +25,7 @@ html { box-sizing: border-box; }
 
 html {
   /* Root Variables */
+  --grey-200: #f3f3f3;
   --grey-300: #e7e7e7;
   --grey-400: #d2d2d2;
   --grey-500: #838b90;
@@ -42,7 +43,7 @@ html {
 }
 
 body {
-  background-color: #f3f3f3;
+  background-color: var(--grey-200);
   font-family: Karla, sans-serif;
 }
 
@@ -161,6 +162,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+li { margin-left: 1em; }
+
+
 /* buttons containing an svg icon and text */
 .svg-btn {
   --main-color: var(--blue-600);
@@ -193,9 +197,6 @@ h1, h2, h3, h4, h5, h6 {
 .svg-btn.active svg {
   fill: var(--sub-color);
 }
-
-
-ul li { margin-left: 1em; }
 
 
 /* add a graph paper bg to elements */
