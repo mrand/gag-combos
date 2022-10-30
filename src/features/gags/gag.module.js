@@ -1,4 +1,4 @@
-import gags from '../data/gags.data.json';
+import { gagsData } from './gag.data';
 
 
 export default class Gag {
@@ -27,7 +27,7 @@ export default class Gag {
     }
 
     // get gag object from JSON
-    let thisGag = gags[this.organic][this.track][this.level-1];
+    let thisGag = gagsData[this.track][this.level-1];
     
     // Toon-Up and Lure have no damage
     if (this.track === 'Toon-Up' || this.track === 'Lure') {
@@ -35,7 +35,7 @@ export default class Gag {
     }
     
     // Other Gags have damage
-    return [thisGag.name, thisGag.damage, thisGag.accuracy];
+    return [thisGag.name, thisGag.damage[this.organic.toLowerCase()][1], thisGag.accuracy];
 
   }
 

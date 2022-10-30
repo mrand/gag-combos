@@ -1,5 +1,5 @@
-import gags from 'features/gags/data/gags.data.json';
-import Gag from 'features/gags/modules/gag.module';
+import { gagsData } from 'features/gags';
+import { Gag } from 'features/gags';
 import Combo from './combo.module';
 
 
@@ -15,27 +15,6 @@ Array.prototype.hasNonZeroMin = function(attrib) {
       return ((prev[attrib] < curr[attrib]) && (prev[attrib] > 0) && (curr[attrib] > 0)) ? prev : curr; 
   })) || null;
 }
-
-
-function parseJSON(gags) {
-  let types = Object.keys(gags);
-  let tracks = Object.keys(gags.Organic);  // arbitrarily use Organic - same tracks as Non-Organic
-
-  types.forEach(type => {
-    tracks.forEach(track => {
-      gags[type][track].map((gag, i) => {
-        gag.organic = (type === 'Organic') ? true : false;
-        gag.track = track;
-        gag.level = i+1;
-        return gag;
-      });
-    });
-  });
-
-  return gags;
-}
-const gagsContent = parseJSON(gags);
-// console.log(gagsContent)
 
 
 export default class FindCombo {
@@ -86,19 +65,56 @@ export default class FindCombo {
     return thisToonOrgs;
   }
 
+
+  /*
+    replace: 
+    gag: {
+      stat: {
+        organic: org-val, 
+        non-organic: non-org-val
+      }
+    }
+     
+    with:
+    gag: {
+      stat: org-val
+    }
+
+    or: 
+    gag: {
+      stat: non-org-val
+    }
+  */ 
+  _mapGagStats(gag, organicText="non-organic") {
+    let thisStat;
+    let newGag = JSON.parse(JSON.stringify(gag));
+    ["accuracy", "damage", "heal"].forEach((stat) => {
+      if (
+        (Object.keys(newGag).includes(stat)) &&
+        (Object.keys(gag[stat]).includes(organicText))
+      ) {
+        thisStat = gag[stat][organicText];
+        newGag[stat] = (Array.isArray(thisStat)) ? thisStat[1] : thisStat;  // use highest stat value (for now)
+      }
+    });
+    newGag.organic = (organicText==="organic");
+    return newGag;
+  }
+
+  
   _getGags() {
     // requires both params
     if (this.tracks===null || this.toonOrgs===null) return false;
 
     let thisGags = [];
     this.tracks.forEach((track, i) => {
-      if (this.toonOrgs[i] === track) {
-        thisGags.push(gagsContent["Organic"][track])
-      } else {
-        thisGags.push(gagsContent["Non-Organic"][track])
-      }
+      thisGags.push(gagsData[track].map((gag, j) => {
+        gag.track = track;
+        gag.level = j+1;
+        let organicValue = (this.toonOrgs[i] === track) ? "organic" : "non-organic"; 
+        return this._mapGagStats(gag, organicValue);
+      }));
     });
-
     return thisGags;
   }
 

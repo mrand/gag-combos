@@ -1,5 +1,5 @@
 import './index.css';
-import gagColors from 'features/gags/data/gag-colors.data.json';
+import { trackColors } from 'features/gags';
 
 
 function OrganicIcon() {
@@ -72,7 +72,7 @@ export default function GagCell({ gag, isDropOnly=false }) {
   return (
     <div 
       className={'gag-cell' + (gag.organic==='Organic' ? ' org' : '')}
-      style={{background: (gagColors[gag.track] || "")}}
+      style={{background: (trackColors[gag.track] || "")}}
     >
       {(gag.organic==="Organic") ? <OrganicIcon /> : null}
       <GagImageAndName gag={gag} />
