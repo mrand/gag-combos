@@ -44,7 +44,7 @@ function shuffle(array) {
 function configureImages() {
   let gagImages = parseJSON();
   let copy = JSON.parse(JSON.stringify(gagImages));
-  gagImages = gagImages.concat(copy).concat(copy).concat(copy).concat(copy).concat(copy).concat(copy).concat(copy);
+  gagImages = gagImages.concat(copy).concat(copy).concat(copy).concat(copy).concat(copy).concat(copy);
   let shuffledImages = shuffle(gagImages);
   return shuffledImages;
 }
