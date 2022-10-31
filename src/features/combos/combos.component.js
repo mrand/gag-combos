@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import './index.css';
 import { reset, setType, toggleTrack, toggleExpanded } from 'features/combos/combos.slice';
+import { Cog } from 'features/cog';
+import { RecommendCombos } from './recommendations/modules';
+import './combos.component.css';
+import { CombosGrid } from './recommendations'; 
 import ResetButton from 'components/reset-button';
 import SliderButton from 'components/slider-button';
 
@@ -78,7 +81,7 @@ function GagToggles() {
 }
 
 
-export default function TitleContainer({ cellStates, setCellStates }) {
+function TitleContainer({ cellStates, setCellStates }) {
   const resetBtnActive = useSelector((state) => state.combos.hasUpdates);
   const expanded = useSelector((state) => state.combos.expanded);
   const dispatch = useDispatch();
@@ -117,3 +120,48 @@ export default function TitleContainer({ cellStates, setCellStates }) {
     </div>
   );
 }
+
+
+export default function CombosComponent() {
+  
+  // build new recommend combos object
+  const cogLevel = useSelector((state) => state.cog.level);
+  const cog = cogLevel ? new Cog(cogLevel) : null;
+  const isLured = useSelector((state) => state.cog.lured);
+  const numToons = useSelector((state) => state.toons.toonlist.filter(toon => toon.active).length);
+  const toonOrgs = useSelector((state) => state.toons.toonlist.map((toon) => toon.active ? toon.organic : ''));
+  const comboType = useSelector((state) => state.combos.type);
+  const gagFilters = useSelector((state) => state.combos.filters);
+
+  const recommendations = new RecommendCombos(
+    cog, isLured,          // cog params
+    numToons, toonOrgs,    // toons params 
+    comboType, gagFilters  // combo params
+  );
+
+  const numCells = recommendations.recCombos.length;
+  const expanded = useSelector((state) => state.combos.expanded);
+
+  const [cellStates, setCellStates] = useState(new Array(numCells).fill(expanded));
+  useEffect(() => {
+    setCellStates(new Array(numCells).fill(expanded))
+  }, [numCells, expanded]);
+
+  return (
+    <div id='combos'>
+      <TitleContainer 
+        cellStates={cellStates}
+        setCellStates={setCellStates}
+      />
+      <CombosGrid 
+        recommendCombos={recommendations}
+        cellStates={cellStates}
+        setCellStates={setCellStates}
+      />
+      {(!recommendations.isLured && recommendations.recCombos.length > 0) ? (
+        <h4 style={{marginTop: "16px", textAlign: "center"}}>* Lure Accuracy Varies from 50% to 95%</h4>
+      ) : ( null )}
+      
+    </div>
+  );
+} 

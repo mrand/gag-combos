@@ -1,6 +1,6 @@
-import { gagsData } from 'features/gags';
-import { Gag } from 'features/gags';
-import Combo from './combo.module';
+import { gagsData } from 'features/combos/gag';
+import { Gag } from 'features/combos/gag';
+import { Combo } from 'features/combos/combo';
 
 
 // eslint-disable-next-line no-extend-native

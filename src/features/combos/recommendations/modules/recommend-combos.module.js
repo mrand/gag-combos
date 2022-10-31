@@ -1,5 +1,5 @@
 import FindCombo from "./find-combo.module";
-import combos from '../data/combos.data.json';
+import combos from 'features/combos/combos.data.json';
 
 
 /**

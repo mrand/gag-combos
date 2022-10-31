@@ -1,5 +1,5 @@
-import './index.css';
-import { trackColors } from 'features/gags';
+import './gag.component.css';
+import { trackColors } from './gag.data';
 
 
 function OrganicIcon() {

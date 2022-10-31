@@ -1,6 +1,6 @@
 import React from 'react';
-import './index.css';
-import ComboCell from '../combo-cell';
+import './recommendations.component.css';
+import { ComboCell } from 'features/combos/combo';
 
 
 export default function CombosGrid({ recommendCombos, cellStates, setCellStates }) {

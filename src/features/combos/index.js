@@ -1,4 +1,4 @@
-import CombosComponent from './components';
 import combosReducer from './combos.slice';
+import CombosComponent from './combos.component';
 
-export { CombosComponent, combosReducer };
+export { combosReducer, CombosComponent };
