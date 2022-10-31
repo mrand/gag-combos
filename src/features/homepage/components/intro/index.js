@@ -9,7 +9,7 @@ export default function Intro() {
         <div className='left'>
           <h2>Welcome!</h2>
           <p>
-            Welcome to GagCombos.Info, your new go-to dashboard
+            Welcome to Gag Combos Info, your new go-to dashboard
             for finding the perfect combinations of gags to defeat the cogs! 
           </p>
           <br />
