@@ -130,6 +130,14 @@ import combos from 'features/combos/combos.data.json';
         return JSON.stringify(Object.keys(combo.counts)) !== JSON.stringify(['Drop']);
       });
 
+      // If Lured, Remove Combos with Sound
+      // Personal Opinion: Sometimes sound on lured cogs is useful. Leaving this out.
+      // if (this.isLured) {
+      //   recSolns = recSolns.filter(function (combo) { 
+      //     return !Object.keys(combo.counts).includes('Sound');
+      //   });
+      // }
+
       // Sort Combos by Total Damage
       recSolns.sort(function(combo1, combo2) {
         // equal damage combos sort equally
