@@ -12,12 +12,11 @@
   justify-content: space-evenly;
 }
 
-#dashboard-nav a,
 #dashboard-nav button {
   width: 100%;
   border-left: 1px solid var(--grey-400);
 }
-#dashboard-nav a { border-left: 0; }
+#dashboard-nav button:first-of-type { border-left: 0; }
 
 
 .mobile .dashboard {
