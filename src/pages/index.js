@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from 'components/header';
+import Header from 'features/ui/header';
 import { HomepageComponent } from 'features/homepage';
-import Footer from 'components/footer';
+import Footer from 'features/ui/footer';
 
 
 export default function Homepage() {

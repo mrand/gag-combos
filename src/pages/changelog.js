@@ -1,5 +1,5 @@
-import Header from 'components/header';
-import Footer from 'components/footer';
+import Header from 'features/ui/header';
+import Footer from 'features/ui/footer';
 
 
 export default function Changelog() {

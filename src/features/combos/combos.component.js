@@ -5,8 +5,8 @@ import { Cog } from 'features/cog';
 import { RecommendCombos } from './recommendations/modules';
 import './combos.component.css';
 import { RecommendationsComponent } from './recommendations'; 
-import ResetButton from 'components/reset-button';
-import SliderButton from 'components/slider-button';
+import ResetButton from 'features/ui/reset-button';
+import SliderButton from 'features/ui/slider-button';
 
 
 function MainFilters({ cellStates, setCellStates }) {
