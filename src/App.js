@@ -6,7 +6,6 @@ import Dashboard from 'pages/dashboard';
 import Changelog from 'pages/changelog';
 import PrivacyPolicy from 'pages/privacy';
 import FAQ from 'pages/faq';
-// import Background from 'utilities/splash-screen';
 
 
 const throttle = (func, delay) => {
@@ -31,16 +30,14 @@ export default function App() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1150);
 
   const throttledChangeHandler = throttle(() => {
-      // console.log(windowWidth.current, window.innerWidth);
-      if (
-        (windowWidth.current <= 1150 && window.innerWidth > 1150) ||
-        (windowWidth.current > 1150 && window.innerWidth <= 1150)
-      ) {
-        windowWidth.current = window.innerWidth;
-        // console.log('updated', windowWidth.current, window.innerWidth);
-        setIsMobile(windowWidth.current <= 1150);
-      }
-    }, 200);
+    if (
+      (windowWidth.current <= 1150 && window.innerWidth > 1150) ||
+      (windowWidth.current > 1150 && window.innerWidth <= 1150)
+    ) {
+      windowWidth.current = window.innerWidth;
+      setIsMobile(windowWidth.current <= 1150);
+    }
+  }, 200);
 
   useEffect(() => {
     window.addEventListener("resize", throttledChangeHandler);
@@ -64,7 +61,6 @@ export default function App() {
             <Route path="/changelog" element={<Changelog />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/faq" element={<FAQ />} />
-            {/* <Route path="/bg" element={<Background />} /> */}
             {/* 404 - redirect to Home */}
             <Route 
               path="*" 
