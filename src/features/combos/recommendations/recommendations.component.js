@@ -1,11 +1,16 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import './recommendations.component.css';
 import { ComboCell } from 'features/combos/combo';
+import { GagModal } from 'features/combos/gag';
 
 
 export default function RecommendationsComponent({ recommendCombos, cellStates, setCellStates }) {
+  const gagModalActive = useSelector((state) => state.gag.show);
+
   return (
     <div id='recommendations'>
+      {gagModalActive ? <GagModal /> : null}
       <>
         {(recommendCombos.errorMsg) ? (
           <div className='combo-cell span-2-cols error-msg'>

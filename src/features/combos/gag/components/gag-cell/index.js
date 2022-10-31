@@ -1,8 +1,10 @@
-import './gag.component.css';
-import { trackColors } from './gag.data';
+import { useDispatch } from 'react-redux';
+import { setGag } from 'features/combos/gag/gag.slice';
+import './index.css';
+import { trackColors } from '../../gag.data';
 
 
-function OrganicIcon() {
+export function OrganicIcon() {
   return (
     <img 
       className='organic-icon'
@@ -69,14 +71,21 @@ function GagStats({ gag, isDropOnly=false }) {
 
 
 export default function GagCell({ gag, isDropOnly=false }) {
+  const dispatch = useDispatch();
+
   return (
-    <div 
+    <button 
       className={'gag-cell' + (gag.organic==='Organic' ? ' org' : '')}
       style={{background: (trackColors[gag.track] || "")}}
+      onClick={() => {
+        dispatch(setGag(
+          JSON.parse(JSON.stringify(gag))
+        ));
+      }}
     >
       {(gag.organic==="Organic") ? <OrganicIcon /> : null}
       <GagImageAndName gag={gag} />
       <GagStats gag={gag} isDropOnly={isDropOnly} />
-    </div>
+    </button>
   );
 }

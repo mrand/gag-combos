@@ -19,7 +19,7 @@ export const comboSlice = createSlice({
   name: 'combos',
   initialState: initialState,
   reducers: {
-    reset: () => initialState,
+    resetCombos: () => initialState,
     setType: (state, action) => {
       state.hasUpdates = true;
       state.type = action.payload;
@@ -36,6 +36,6 @@ export const comboSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { reset, setType, toggleTrack, toggleExpanded } = comboSlice.actions;
+export const { resetCombos, setType, toggleTrack, toggleExpanded } = comboSlice.actions;
 
 export default comboSlice.reducer;

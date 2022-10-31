@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { reset, setType, toggleTrack, toggleExpanded } from 'features/combos/combos.slice';
+import { resetCombos, setType, toggleTrack, toggleExpanded } from 'features/combos/combos.slice';
 import { Cog } from 'features/cog';
 import { RecommendCombos } from './recommendations/modules';
 import './combos.component.css';
@@ -93,7 +93,7 @@ function TitleContainer({ cellStates, setCellStates }) {
           <h2>Combos</h2>
           <ResetButton 
             active={resetBtnActive}
-            clickHandler={() => dispatch(reset())}
+            clickHandler={() => dispatch(resetCombos())}
             infoText="Reset Combos Options"
           />
         </div>

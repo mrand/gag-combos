@@ -12,7 +12,7 @@ export const cogSlice = createSlice({
   name: 'cog',
   initialState: initialState,
   reducers: {
-    reset: () => initialState,
+    resetCog: () => initialState,
     setCog: (state, action) => {
       state.hasUpdates = true;
       state.level = action.payload.level;
@@ -27,6 +27,6 @@ export const cogSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { reset, setCog, toggleLured } = cogSlice.actions;
+export const { resetCog, setCog, toggleLured } = cogSlice.actions;
 
 export default cogSlice.reducer;

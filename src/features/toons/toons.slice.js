@@ -14,7 +14,7 @@ export const toonSlice = createSlice({
   name: 'toons',
   initialState: initialToonState,
   reducers: {
-    reset: () => initialToonState,
+    resetToons: () => initialToonState,
     toggleToonActive: (state, action) => {
       state.hasUpdates = true;
       state.toonlist[action.payload].active = !state.toonlist[action.payload].active;
@@ -32,6 +32,6 @@ export const toonSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { reset, toggleToonActive, updateToonOrg } = toonSlice.actions;
+export const { resetToons, toggleToonActive, updateToonOrg } = toonSlice.actions;
 
 export default toonSlice.reducer;

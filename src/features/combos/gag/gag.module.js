@@ -13,9 +13,9 @@ export default class Gag {
     this.level = level;
     [this.name, this.damage, this.accuracy] = this._getGagStats();
     this.image = this._getImageName();
-    // used by Combo class
-    this.luredMultiplier = 0;
-    this.comboMultiplier = 0;
+    
+    this.luredMultiplierDamage = 0;
+    this.comboMultiplierDamage = 0;
   }
 
   _getGagStats() {
@@ -116,6 +116,9 @@ export default class Gag {
     ) {
       comboMultiplier = 0.2;
     }
+
+    this.luredMultiplierDamage = Math.ceil(luredMultiplier * this.damage);
+    this.comboMultiplierDamage = Math.ceil(comboMultiplier * this.damage);
 
     return [dudMultiplier, luredMultiplier, comboMultiplier];
   }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { reset, setCog, toggleLured } from './cog.slice';
+import { resetCog, setCog, toggleLured } from './cog.slice';
 import './cog.component.css';
 import Cog from './cog.module';
 import ResetButton from 'features/ui/reset-button';
@@ -105,7 +105,7 @@ export default function CogComponent() {
         <h2>Cog</h2>
         <ResetButton 
           active={resetBtnActive}
-          clickHandler={() => dispatch(reset())}
+          clickHandler={() => dispatch(resetCog())}
           infoText="Reset Cog"
         />
       </div>
