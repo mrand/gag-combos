@@ -3,9 +3,9 @@ import './recommendations.component.css';
 import { ComboCell } from 'features/combos/combo';
 
 
-export default function CombosGrid({ recommendCombos, cellStates, setCellStates }) {
+export default function RecommendationsComponent({ recommendCombos, cellStates, setCellStates }) {
   return (
-    <div className='combos-grid'>
+    <div id='recommendations'>
       <>
         {(recommendCombos.errorMsg) ? (
           <div className='combo-cell span-2-cols error-msg'>

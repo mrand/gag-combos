@@ -4,7 +4,7 @@ import { reset, setType, toggleTrack, toggleExpanded } from 'features/combos/com
 import { Cog } from 'features/cog';
 import { RecommendCombos } from './recommendations/modules';
 import './combos.component.css';
-import { CombosGrid } from './recommendations'; 
+import { RecommendationsComponent } from './recommendations'; 
 import ResetButton from 'components/reset-button';
 import SliderButton from 'components/slider-button';
 
@@ -153,7 +153,7 @@ export default function CombosComponent() {
         cellStates={cellStates}
         setCellStates={setCellStates}
       />
-      <CombosGrid 
+      <RecommendationsComponent 
         recommendCombos={recommendations}
         cellStates={cellStates}
         setCellStates={setCellStates}
