@@ -13,55 +13,43 @@ export default function Changelog() {
           <div className='formatted-article'>
 
             <section>
-              <h3>2022-10-26</h3>
+              <h3>2022-10-31</h3>
+              <h4>Website Redesign!</h4>
               <div className='block'>
-                <b>New FAQ Page</b>
-                <p>
-                  Added a Frequently Asked Questions page describing site details.
-                </p>
-              </div>
-              <div className='block'>
-                <b>A Better Header (and Footer!)</b>
-                <p>
-                  Header now includes more links, and a hamburger menu on mobile.
-                </p>
-                <p>
-                  Footer includes links to ALL website pages.
-                </p>
-              </div>
-            </section>
-
-            <section>
-              <h3>2022-10-25</h3>
-              <div className='block'>
-                <b>New Homepage!</b>
+                <b>New Homepage</b>
                 <p>
                   Introduced a new, flashier homepage!
                 </p>
               </div>
               <div className='block'>
-                <b>Site Structure</b>
-                <p>
-                  Various under-the-hood changes to support multiple website pages going forward.
-                </p>
-              </div>
-              <div className='block'>
                 <b>Other New Pages</b>
                 <ul>
+                  <li>FAQ Page</li>
                   <li>Changelog Page (You're Here!)</li>
                   <li>Privacy Policy Page</li>
                 </ul>
+              </div>
+              <div className='block'>
+                <b>A Better Header (and Footer)</b>
+                <ul>
+                  <li>Header and its links have been restyled.</li>
+                  <li>Footer includes links to ALL website pages.</li>
+                </ul>
+              </div>
+              <div className='block'>
+                <b>Site Structure</b>
+                <p>
+                  Various under-the-hood changes to support multiple website pages and upcoming features!
+                </p>
               </div>
             </section>
 
             <section>
               <h3>2022-10-22</h3>
-              <div className='block'>
-                <b>Saving & Deleting</b>
-                <p>
-                  Dashboard now saves your setup by default, with buttons to reset toons, combos, and cog to their initial states if desired.
-                </p>
-              </div>
+              <h4>Saving & Deleting</h4>
+              <p>
+                Dashboard now saves your setup by default, with buttons to reset toons, combos, and cog to their initial states if desired.
+              </p>
             </section>
             
           </div>
