@@ -166,10 +166,7 @@ export default function ToonsComponent() {
             i={i}
             toon={toon} 
             pickerActive={orgPickersActive[i]}
-            setPickerActive={() => {
-              console.log(orgPickersActive, i);
-              setOrgPickersActive({ type: "update", idx: i });
-            }}
+            setPickerActive={() => setOrgPickersActive({ type: "update", idx: i })}
             dispatch={dispatch}
           />
         ))}
