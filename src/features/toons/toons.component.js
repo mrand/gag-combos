@@ -132,7 +132,7 @@ export default function ToonsComponent() {
   const dispatch = useDispatch();
 
   const initialOrgPickers = [false, false, false, false];
-  const reducer = (orgPickersActive, action) => {
+  const orgPickersReducer = (orgPickersActive, action) => {
     switch (action.type) {
       case "reset":
         return initialOrgPickers;
@@ -145,7 +145,7 @@ export default function ToonsComponent() {
         return initialOrgPickers;
     }
   };
-  const [orgPickersActive, setOrgPickersActive] = useReducer(reducer, initialOrgPickers);
+  const [orgPickersActive, setOrgPickersActive] = useReducer(orgPickersReducer, initialOrgPickers);
 
   return (
     <div id="toons" className="custom-scrollbar">
