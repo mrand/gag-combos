@@ -137,10 +137,9 @@ export default function ToonsComponent() {
       case "reset":
         return initialOrgPickers;
       case "update":
-        return [
-          ...orgPickersActive, 
-          orgPickersActive[action.idx] = !orgPickersActive[action.idx]
-        ];
+        let newOrgPickerActive = [...orgPickersActive];
+        newOrgPickerActive[action.idx] = !newOrgPickerActive[action.idx];
+        return newOrgPickerActive;
       default:
         return initialOrgPickers;
     }
