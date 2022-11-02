@@ -19,7 +19,6 @@ root.render(
 
 console.log('test update 5');
 const toast = ReactDOM.createRoot(document.getElementById('toast'));
-toast.render(<UpdateToast />);
 serviceWorkerRegistration.register({
   onUpdate: registration => {
     // alert('New version available. Ready to update?');
