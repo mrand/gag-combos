@@ -14,7 +14,6 @@ export default function GagModal() {
     (gagData.track === 'Lure') ? 1 : gagData.level,
     gagData.org
   );
-  console.log(gagData, gag);
 
   return (
     <div id="gag-modal">
