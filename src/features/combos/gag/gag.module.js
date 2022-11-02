@@ -57,20 +57,13 @@ export default class Gag {
       (this.track === 'Squirt') ||
       (this.track === 'Drop')
     ) {
-      if (this.organic === 'Organic') {
-        this.damage = thisGag.damage[organicTxt][1];
-      } else {
-        this.damage = thisGag.damage[organicTxt][0];
-      }
+      this.damage = thisGag.damage[organicTxt][1];
     } 
 
     // Heal - Toon-Up special
     if (this.track === 'Toon-Up') {
-      if (this.organic === 'Organic') {
-        this.heal = thisGag.heal[organicTxt][1];
-      } else {
-        this.heal = thisGag.heal[organicTxt][0];
-      }
+      this.heal = thisGag.heal[organicTxt][1];
+
     }
 
     // Level - Lure Special
