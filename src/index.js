@@ -20,11 +20,9 @@ root.render(
 const toast = ReactDOM.createRoot(document.getElementById('toast'));
 serviceWorkerRegistration.register({
   onUpdate: registration => {
-    // alert('New version available. Ready to update?');
     toast.render(<UpdateToast />);
     if (registration && registration.waiting) {
       registration.waiting.postMessage({ type: 'SKIP_WAITING' });
     }
-    // window.location.reload();
   }
 });
