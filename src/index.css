@@ -26,6 +26,17 @@ html { box-sizing: border-box; }
   padding: 0;
 }
 
+/* reduced motion */
+@media screen and
+  (prefers-reduced-motion: reduce), 
+  (update: slow) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
 html {
   /* Root Variables */
   --grey-200: #f3f3f3;
