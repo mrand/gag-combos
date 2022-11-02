@@ -13,13 +13,21 @@ export default function Changelog() {
           <div className='formatted-article'>
 
             <section>
-              <h3>2022-10-31</h3>
+              <h3>2022-11-01</h3>
               <h4>Website Redesign!</h4>
               <div className='block'>
                 <b>New Homepage</b>
                 <p>
                   Introduced a new, flashier homepage!
                 </p>
+              </div>
+              <div className='block'>
+                <b>Revamped Dashboard Page</b>
+                <ul>
+                  <li>Combo gags are now colored to match their gag track.</li>
+                  <li>Combo gags can now each be clicked to get detailed information about that gag.</li>
+                  <li>Fixed a bug with resetting toons which caused toons to disappear!</li>
+                </ul>
               </div>
               <div className='block'>
                 <b>Other New Pages</b>
