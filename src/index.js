@@ -17,11 +17,12 @@ root.render(
   </React.StrictMode>
 );
 
-console.log('test update 3');
+console.log('test update 4');
+const toast = ReactDOM.createRoot(document.getElementById('toast'));
 serviceWorkerRegistration.register({
   onUpdate: registration => {
     // alert('New version available. Ready to update?');
-    root.render(<UpdateToast />);
+    toast.render(<UpdateToast />);
     if (registration && registration.waiting) {
       registration.waiting.postMessage({ type: 'SKIP_WAITING' });
     }
