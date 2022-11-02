@@ -17,7 +17,6 @@ root.render(
   </React.StrictMode>
 );
 
-console.log('test update 6');
 const toast = ReactDOM.createRoot(document.getElementById('toast'));
 serviceWorkerRegistration.register({
   onUpdate: registration => {
