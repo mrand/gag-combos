@@ -5,6 +5,8 @@ import App from 'App';
 import store from 'store'
 import { Provider } from 'react-redux'
 import * as serviceWorkerRegistration from 'serviceWorkerRegistration';
+import UpdateToast from 'features/ui/update-toast';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,13 +17,14 @@ root.render(
   </React.StrictMode>
 );
 
-console.log('test update 1');
+console.log('test update 2');
 serviceWorkerRegistration.register({
   onUpdate: registration => {
-    alert('New version available. Ready to update?');
+    // alert('New version available. Ready to update?');
+    root.render(<UpdateToast />);
     if (registration && registration.waiting) {
       registration.waiting.postMessage({ type: 'SKIP_WAITING' });
     }
-    window.location.reload();
+    // window.location.reload();
   }
 });
