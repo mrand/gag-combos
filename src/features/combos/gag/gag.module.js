@@ -11,7 +11,14 @@ export default class Gag {
     this.organic = (org) ? "Organic" : "Non-Organic";
     this.track = track;
     this.level = level;
-    [this.name, this.damage, this.accuracy] = this._getGagStats();
+
+    this.accuracy = 0;
+    this.damage = 0; 
+    this.heal = 0;
+    this.name = ""; 
+    this.stun = 0;
+    this._getGagStats();
+    
     this.image = this._getImageName();
     
     this.luredMultiplierDamage = 0;
@@ -23,25 +30,70 @@ export default class Gag {
     // if any parameters are missing, treat it as a "Pass"
     if (this.organic === null || this.track === null || this.level === null) {
       this.level = 0;
-      return ['Pass', 0, null];
+      this.name = 'Pass';
+      return;
     }
 
     // get gag object from JSON
     let thisGag = gagsData[this.track][this.level-1];
+    let organicTxt = this.organic.toLowerCase(); 
     
-    // Toon-Up and Lure have no damage
-    if (this.track === 'Toon-Up' || this.track === 'Lure') {
-      return [thisGag.name, 0, thisGag.accuracy];
+    // Accuracy - Lure special
+    if (this.track === 'Lure') {
+      if (this.organic === 'Organic') {
+        this.accuracy = "60% - 95%";
+      } else {
+        this.accuracy = "50% - 95%";
+      }
+    } else {
+      this.accuracy = thisGag.accuracy;
     }
-    
-    // Other Gags have damage
-    return [thisGag.name, thisGag.damage[this.organic.toLowerCase()][1], thisGag.accuracy];
 
+    // Damage - Trap, Sound, Throw, Squirt, Drop special
+    if (
+      (this.track === 'Trap') || 
+      (this.track === 'Sound') ||
+      (this.track === 'Throw') ||
+      (this.track === 'Squirt') ||
+      (this.track === 'Drop')
+    ) {
+      if (this.organic === 'Organic') {
+        this.damage = thisGag.damage[organicTxt][1];
+      } else {
+        this.damage = thisGag.damage[organicTxt][0];
+      }
+    } 
+
+    // Heal - Toon-Up special
+    if (this.track === 'Toon-Up') {
+      if (this.organic === 'Organic') {
+        this.heal = thisGag.heal[organicTxt][1];
+      } else {
+        this.heal = thisGag.heal[organicTxt][0];
+      }
+    }
+
+    // Level - Lure Special
+    if (this.track === 'Lure') {
+      this.level = "1 - 7";
+    }
+
+    // Name - Lure Special
+    if (this.track === 'Lure') {
+      this.name = 'Lure (Any)';
+    } else {
+      this.name = thisGag.name;
+    }
+
+    // Stun - Lure Special
+    if (this.track === 'Lure') this.stun = "2 - 8";
   }
 
   _getImageName() {
     // Pass image doesn't adhere to naming format
     if (this.name === 'Pass') return './img/gags/Pass.png';
+    // Lure Uses Generic Image
+    if (this.track === 'Lure') return './img/gags/lure-10_Bill.png';
 
     let trackConf = this.track.split('-').join('').toLowerCase();
     let nameConf = this.name.split('$').join('').split(' ').join('_');

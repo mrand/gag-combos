@@ -16,6 +16,7 @@ button.gag-cell {
 
   border-radius: 12px;
   color: #000000;
+  background: var(--grey-300);
 }
 .gag-cell.org {
   box-shadow: 0 0 0 5px var(--green-500) inset;
@@ -60,8 +61,8 @@ button.gag-cell {
 /* phones */
 @media (max-width: 500px) {
   :not(.expanded) .gag-cell { width: 100%; }
-  :not(.expanded) .organic-icon { width: min(30px, 7vw); }
-  :not(.expanded) .gag-icon {
+  :not(.expanded) .gag-cell .organic-icon { width: min(30px, 7vw); }
+  :not(.expanded) .gag-cell .gag-icon {
     width: min(40px, 10vw);
     height: min(40px, 10vw);
   }

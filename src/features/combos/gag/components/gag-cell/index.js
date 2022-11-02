@@ -79,7 +79,11 @@ export default function GagCell({ gag, isDropOnly=false }) {
       style={{background: (trackColors[gag.track] || "")}}
       onClick={() => {
         dispatch(setGag(
-          JSON.parse(JSON.stringify(gag))
+          { 
+            track: gag.track, 
+            level: gag.level, 
+            org: (gag.organic==="Organic")
+          }
         ));
       }}
     >

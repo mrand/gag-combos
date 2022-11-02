@@ -2,126 +2,122 @@ import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { resetGag } from 'features/combos/gag/gag.slice';
 import './index.css';
-import { trackColors } from '../../gag.data';
 import { OrganicIcon } from "../gag-cell";
-
-
-function formatData(data) {
-  let formatted = JSON.parse(JSON.stringify(data));
-
-  // Accuracy
-  formatted.accuracy = (
-    (typeof data.accuracy === 'object') &&
-    (data.accuracy !== null)
-  ) ? (
-    "50% - 90%"  // lure
-  ) : (
-    (data.accuracy * 100) + "%"  // all else
-  );
-  // Organic
-  if (formatted.organic !== "Organic") delete formatted.organic;
-
-  // Lure or Pass
-  if (
-    (data.name==="Pass") ||
-    (data.track==="Lure")
-  ) {
-    delete formatted.track;
-    delete formatted.level;
-    delete formatted.luredMultiplierDamage;
-    delete formatted.comboMultiplierDamage;
-  }
-  // Lure
-  if (data.track==="Lure") {
-    formatted.name = "Lure (Any)";
-    formatted.accuracy = "50% - 90%"
-  }
-  // Pass
-  if (data.name==="Pass") {
-    delete formatted.accuracy;
-  }
-
-  return formatted;
-}
+import { trackColors, Gag } from "features/combos/gag";
 
 
 export default function GagModal() {
-  const data = useSelector((state) => state.gag.data);
+  const gagData = useSelector((state) => state.gag.data);
   const dispatch = useDispatch();
-
-  let gag = formatData(data);
+  let gag = new Gag(
+    gagData.track,
+    (gagData.track === 'Lure') ? 1 : gagData.level,
+    gagData.org
+  );
+  console.log(gagData, gag);
 
   return (
     <div id="gag-modal">
       <div className="wrapper">
+        <div className="modal-wrap custom-scrollbar">
 
-        <section>
-          {/* Image */}
-          <div 
-            className={"img-wrap" + ((gag.organic) ? " org" : "")}
-            style={{background: (trackColors[gag.track] || "")}}
-          >
-            {(gag.organic) ? <OrganicIcon /> : null}
-            <img 
-              className="gag-icon"
-              src={gag.image} 
-              alt={gag.name + " Gag"} 
-            />
-          </div>
-          {/* Name */}
-          <h3>
-            <span>{gag.name}</span>
-            <span>{(gag.organic) ? "(Organic)" : ""}</span>
-          </h3>
-        </section>
-        
-        {/* Track and Level */}
-        {
-          (gag.track && gag.level) ? (
-            <p>
-              {gag.track ? (<b>{gag.track}</b>) : null}
-              {gag.level ? (<span> - Level {gag.level}</span>) : null}
-            </p>
-          ) : null
-        }
+          <section className="main-details">
+            <div 
+              className={"img-wrap" + (gag.organic==="Organic" ? " org" : "")}
+              style={{background: (trackColors[gag.track] || "")}}
+            >
+              <img 
+                className="gag-icon"
+                src={gag.image} 
+                alt={gag.name + " gag"} 
+              />
+              {(gag.organic === "Organic") ? <OrganicIcon /> : null}
+            </div>
+            <div className="overview">
+              <h3>
+                {gag.name}
+                {
+                  (gag.organic === "Organic") ? (
+                    <>
+                      <br />
+                      <span>(Organic)</span>
+                    </>
+                  ) : null
+                  
+                }
+              </h3>
+            </div>
+          </section>
 
-        {/* Accuracy */}
-        {
-          (gag.accuracy || gag.damage) ? (
-            <section>
-              {gag.accuracy ? (<span><b>Accuracy</b>: {gag.accuracy}</span>) : null}
-              {gag.damage ? (<span><b>Damage</b>: {gag.damage}</span>) : null}
-            </section>
-          ) : null
-        }
-        
+          {
+            gag.name!=='Pass' ? (
+              <section className="gags-panel">
+                <div className="grid-wrap">
+                  {Object.keys(trackColors).map((track, i) => {
+                    return (
+                      <React.Fragment key={i}>
+                        <b style={{background: trackColors[track]}}>{track}</b>
+                        {[0,1,2,3,4,5,6].map((j) => {
+                          return (
+                            <span 
+                              key={j} 
+                              style={{
+                                background: (track===gag.track) ? trackColors[track] : "", 
+                                boxShadow: (j+1===gag.level && track===gag.track) ? "0 0 0 5px #000000" : "",
+                                zIndex: (j+1===gag.level && track===gag.track) ? "1" : ""
+                              }}
+                            >
+                              {j+1}
+                            </span>
+                          );
+                        })}
+                      </React.Fragment>
+                    );
+                  })}
+                </div>
+                <div className="track-lvl-txt">
+                  {gag.track ? (<span><b>Track</b>: {gag.track}</span>) : null}
+                  {gag.level > 0 ? (<span><b>Level</b>: {gag.level}</span>) : null}
+                </div>
+              </section>
+            ) : null
+          }
 
-        {
-          (gag.comboMultiplierDamage || gag.luredMultiplierDamage) ? (
-            <section>
-              {
-                (gag.luredMultiplierDamage) ? (
-                  <span><b>Lured Multiplier</b>: {"+"+gag.luredMultiplierDamage}</span>
-                ) : null
-              }
-              {
-                (gag.comboMultiplierDamage) ? (
-                  <span><b>Combo Multiplier</b>: {"+"+gag.comboMultiplierDamage}</span>
-                ) : null
-              }
-              <span><b>Total Damage</b>: {
-                gag.damage + gag.luredMultiplierDamage + gag.comboMultiplierDamage
-              }</span>
-            </section>
-          ) : null
-        }
+          {
+            gag.name!=='Pass' ? (
+              <section className="stats">
+                <h4>Stats</h4>
+                {gag.track==="Lure" ? (
+                  <span><b>Accuracy</b>: {gag.accuracy}</span>
+                ) : (
+                  <span><b>Accuracy</b>: {gag.accuracy*100+"%"}</span>
+                )}
+                {gag.damage!==0 ? (<span><b>Damage</b>: {gag.damage}</span>) : null}
+                {gag.heal!==0 ? (<span><b>Heal</b>: {gag.heal}</span>) : null}
+                {gag.stun!==0 ? (<span><b>Lured Rounds</b>: {gag.stun}</span>) : null}
+              </section>
+            ) : null
+          }
+          
+
+          {/* <section className="skill-points">
+            <h4>Skill Points</h4>
+            <input type="range" min="0" max="10" />
+            <div className="input-wrap">
+              <b>Min</b>
+              <b>Max</b>
+            </div>
+          </section> */}
+
+          
+        </div>
+
+        <div className="modal-btn">
+          <button onClick={() => dispatch(resetGag())}>
+            Close
+          </button>
+        </div>
         
-        
-        <button
-          onClick={() => dispatch(resetGag())}
-        >
-          Close
-        </button>
       </div>
     </div>
   );
