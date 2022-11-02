@@ -15,7 +15,7 @@ root.render(
   </React.StrictMode>
 );
 
-console.log('test service worker');
+console.log('test update 1');
 serviceWorkerRegistration.register({
   onUpdate: registration => {
     alert('New version available. Ready to update?');
