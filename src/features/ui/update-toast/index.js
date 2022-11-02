@@ -16,7 +16,6 @@ export default function UpdateToast() {
           <button onClick={() => window.location.reload()}>Close</button>
         </div>
       </div>
-      
     </div>
   );
 }
