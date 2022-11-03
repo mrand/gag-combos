@@ -13,6 +13,13 @@ export default function Changelog() {
           <div className='formatted-article'>
 
             <section>
+              <h3>2022-11-03</h3>
+              <h4>Social Media Card</h4>
+              <p>
+                Added a flashy card design for when the Gag Combos Info link is shared on social media.
+              </p>
+            </section>
+            <section>
               <h3>2022-11-02</h3>
               <h4>Instant Updates</h4>
               <ul>
