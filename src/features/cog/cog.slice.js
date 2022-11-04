@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
+const initialCogState = {
   hasUpdates: false,
   level: null,
   suit: null,
@@ -10,9 +10,9 @@ const initialState = {
 
 export const cogSlice = createSlice({
   name: 'cog',
-  initialState: initialState,
+  initialState: initialCogState,
   reducers: {
-    resetCog: () => initialState,
+    resetCog: () => initialCogState,
     setCog: (state, action) => {
       state.hasUpdates = true;
       state.level = action.payload.level;

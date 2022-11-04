@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
+const initialCombosState = {
   hasUpdates: false,
   type: 'All',
   filters: {
@@ -17,9 +17,9 @@ const initialState = {
 
 export const comboSlice = createSlice({
   name: 'combos',
-  initialState: initialState,
+  initialState: initialCombosState,
   reducers: {
-    resetCombos: () => initialState,
+    resetCombos: () => initialCombosState,
     setType: (state, action) => {
       state.hasUpdates = true;
       state.type = action.payload;

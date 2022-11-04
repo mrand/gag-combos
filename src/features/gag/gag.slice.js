@@ -1,15 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
+const initialGagState = {
   show: false,
   data: null
 }
 
 export const gagSlice = createSlice({
   name: 'gag',
-  initialState: initialState,
+  initialState: initialGagState,
   reducers: {
-    resetGag: () => initialState,
+    resetGag: () => initialGagState,
     setGag: (state, data) => {
       state.show = true;
       state.data = data.payload;

@@ -10,9 +10,9 @@ const persistentState = localStorage.getItem('state') ? JSON.parse(localStorage.
 const store = configureStore({
   reducer: {
     cog: cogReducer,
-    toons: toonsReducer,
     combos: combosReducer,
-    gag: gagReducer
+    gag: gagReducer,
+    toons: toonsReducer
   },
   preloadedState: persistentState
 });
