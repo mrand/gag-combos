@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { setGag } from 'features/combos/gag/gag.slice';
+import { setGag } from 'features/gag/gag.slice';
 import './index.css';
 import { trackColors } from '../../gag.data';
 

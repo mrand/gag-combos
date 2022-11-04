@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import './combo.component.css';
-import { GagCell } from 'features/combos/gag';
+import { GagCell } from 'features/gag';
 
 
 function ComboHeading({ solutionTracks }) {

@@ -1,15 +1,15 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import './recommendations.component.css';
-import { ComboCell } from 'features/combos/combo';
-import { GagModal } from 'features/combos/gag';
+import './index.css';
+import { ComboCell } from 'features/combo';
+import { GagModal } from 'features/gag';
 
 
-export default function RecommendationsComponent({ recommendCombos, cellStates, setCellStates }) {
+export default function CombosGrid({ recommendCombos, cellStates, setCellStates }) {
   const gagModalActive = useSelector((state) => state.gag.show);
 
   return (
-    <div id='recommendations'>
+    <div id='combos-grid'>
       {gagModalActive ? <GagModal /> : null}
       <>
         {(recommendCombos.errorMsg) ? (

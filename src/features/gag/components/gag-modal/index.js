@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { resetGag } from 'features/combos/gag/gag.slice';
+import { resetGag } from 'features/gag/gag.slice';
 import './index.css';
 import { OrganicIcon } from "../gag-cell";
-import { trackColors, Gag } from "features/combos/gag";
+import { trackColors, Gag } from "features/gag";
 
 
 export default function GagModal() {

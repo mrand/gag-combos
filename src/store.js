@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { cogReducer } from 'features/cog';
 import { toonsReducer } from 'features/toons';
 import { combosReducer } from 'features/combos';
-import { gagReducer } from 'features/combos/gag';
+import { gagReducer } from 'features/gag';
 
 // localStorage.clear();
 const persistentState = localStorage.getItem('state') ? JSON.parse(localStorage.getItem('state')) : {}
