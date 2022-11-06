@@ -128,7 +128,7 @@ export const gagsData = {
       "targets_multi": false,
       "accuracy": 1.0,
       "damage": {
-        "non-organic": [75, 80],
+        "non-organic": [75, 85],
         "organic": [83, 93]
       }
     },
