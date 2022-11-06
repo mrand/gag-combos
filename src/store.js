@@ -4,8 +4,9 @@ import { toonsReducer } from 'features/toons';
 import { combosReducer } from 'features/combos';
 import { gagReducer } from 'features/gag';
 
+
 // localStorage.clear();
-const persistentState = localStorage.getItem('state') ? JSON.parse(localStorage.getItem('state')) : {}
+const persistentState = localStorage.getItem('state') ? JSON.parse(localStorage.getItem('state')) : {};
 
 const store = configureStore({
   reducer: {
