@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialCogState = {
   hasUpdates: false,
   level: null,
+  isV2: false,
   suit: null,
   name: null,
   lured: false,
@@ -19,6 +20,10 @@ export const cogSlice = createSlice({
       state.suit = action.payload.suit;
       state.name = action.payload.name;
     },
+    toggleV2: (state) => {
+      state.hasUpdates = true;
+      state.isV2 = !state.isV2;
+    },
     toggleLured: (state) => {
       state.hasUpdates = true;
       state.lured = !state.lured;
@@ -27,6 +32,6 @@ export const cogSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { resetCog, setCog, toggleLured } = cogSlice.actions;
+export const { resetCog, setCog, toggleV2, toggleLured } = cogSlice.actions;
 
 export default cogSlice.reducer;

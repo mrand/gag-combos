@@ -7,10 +7,11 @@ import { TitleContainer } from './components';
 
 
 export default function CombosComponent() {
-  
+
   // build new recommend combos object
   const cogLevel = useSelector((state) => state.cog.level);
-  const cog = cogLevel ? new Cog(cogLevel) : null;
+  const cogV2 = useSelector((state) => state.cog.isV2);
+  const cog = cogLevel ? new Cog(cogLevel, cogV2) : null;
   const isLured = useSelector((state) => state.cog.lured);
   const numToons = useSelector((state) => state.toons.toonlist.filter(toon => toon.active).length);
   const toonOrgs = useSelector((state) => state.toons.toonlist.map((toon) => toon.active ? toon.organic : ''));
@@ -19,7 +20,7 @@ export default function CombosComponent() {
 
   const recommendations = new RecommendCombos(
     cog, isLured,          // cog params
-    numToons, toonOrgs,    // toons params 
+    numToons, toonOrgs,    // toons params
     comboType, gagFilters  // combo params
   );
 
@@ -33,15 +34,15 @@ export default function CombosComponent() {
 
   return (
     <div id='combos'>
-      <TitleContainer 
+      <TitleContainer
         cellStates={cellStates}
         setCellStates={setCellStates}
       />
-      <CombosGrid 
+      <CombosGrid
         recommendCombos={recommendations}
         cellStates={cellStates}
         setCellStates={setCellStates}
       />
     </div>
   );
-} 
+}

@@ -2,21 +2,23 @@ import cogs from './cog.data.json';
 
 
 export default class Cog {
-  /** 
-   * @param {number} level 
+  /**
+   * @param {number} level
   */
   constructor(
     level,
+    isV2=false,
     suit=null,
     name=null
   ) {
     this.level = level;
+    this.gagResistance = isV2 ? Math.floor(this.level * 1.5) : 0;
     this.hp = this._calculateHP();
     this.suit = suit ? suit : this._getRandomSuit();
     this.cog = name ? name : this._getRandomCog();
     this.image = this._getImageName();
   }
- 
+
   _calculateHP() {
   return (this.level+1)*(this.level+2) + (
     (this.level > 11) ? 14 : 0
@@ -24,7 +26,7 @@ export default class Cog {
   }
 
   _getRandomSuit() {
-    // level > 12 - FO cogs only 
+    // level > 12 - FO cogs only
     if (this.level > 12) return "Sellbot";
     // level <= 12, could be any suit
     const suits = Object.keys(cogs);
@@ -38,11 +40,11 @@ export default class Cog {
     if (this.level > 12) return cogsOfSuit[Math.floor(Math.random() * cogsOfSuit.length)];
 
     // level <= 12, choose a cog that could legitimately have that level
-    let minIndex = Math.max(this.level - 5, 0); 
-    let maxIndex = Math.min(this.level, 8); 
+    let minIndex = Math.max(this.level - 5, 0);
+    let maxIndex = Math.min(this.level, 8);
     let indexes = [];
     for (let i=minIndex; i<maxIndex; i++) indexes.push(i);
-    return cogsOfSuit[indexes[Math.floor(Math.random() * indexes.length)]];  
+    return cogsOfSuit[indexes[Math.floor(Math.random() * indexes.length)]];
   }
 
   _getImageName() {

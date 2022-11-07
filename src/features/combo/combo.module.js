@@ -1,10 +1,11 @@
 export default class Combo {
-  /** 
+  /**
    * @param {Cog} cog Cog object
    * @param {Array<Gag>} gags Array of Gag objects
   */
   constructor(cog, gags, isLured=false) {
     this.cogHP = cog.hp;
+    this.cogResistance = cog.gagResistance;
     this.gags = gags;
     this.isLured = isLured;
     this.counts = this._countGagsByTrack();
@@ -15,7 +16,7 @@ export default class Combo {
 
   _countGagsByTrack() {
     // count how many of each gag track are used
-    let counts = {}; 
+    let counts = {};
     this.gags.forEach((gag) => {
       if (gag.track) {
         (gag.track in counts) ? counts[gag.track]++ : counts[gag.track] = 1;
@@ -27,19 +28,20 @@ export default class Combo {
 
   tryCombo() {
     // Get Dud, Lured, and Combo Multiplier Damages
-    let mainDamage = 0;   // main multiplier damage 
-    let luredDamage = 0;  // lured multiplier damage 
+    let mainDamage = 0;   // main multiplier damage
+    let luredDamage = 0;  // lured multiplier damage
     let comboDamage = 0;  // combo multiplier damage
     let gagDudMultiplier;    // (=0 if dud)
     let gagLureMultiplier;   // (=0.5 if lured)
     let gagComboMultiplier;  // (=0.2 if combo)
     this.gags.forEach((gag) => {
+      let actualDamage = Math.max(gag.damage - this.cogResistance, 0);
       [
         gagDudMultiplier, gagLureMultiplier, gagComboMultiplier
       ] = gag.getDamageWithMultiplier(this.counts, this.isLured);
-      mainDamage  += (gag.damage * gagDudMultiplier)
-      luredDamage += (gag.damage * gagLureMultiplier);
-      comboDamage += (gag.damage * gagComboMultiplier);
+      mainDamage  += (actualDamage * gagDudMultiplier);
+      luredDamage += (actualDamage * gagLureMultiplier);
+      comboDamage += (actualDamage * gagComboMultiplier);
     });
 
     // Get Total Damage
