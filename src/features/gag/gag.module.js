@@ -40,14 +40,11 @@ export default class Gag {
     
     // Accuracy - Lure special
     if (this.track === 'Lure') {
-      if (this.organic === 'Organic') {
-        this.accuracy = "60% - 95%";
-      } else {
-        this.accuracy = "50% - 95%";
-      }
+      this.accuracy = thisGag.accuracy[organicTxt];
     } else {
       this.accuracy = thisGag.accuracy;
     }
+
 
     // Damage - Trap, Sound, Throw, Squirt, Drop special
     if (
@@ -66,27 +63,16 @@ export default class Gag {
 
     }
 
-    // Level - Lure Special
-    if (this.track === 'Lure') {
-      this.level = "1 - 7";
-    }
-
-    // Name - Lure Special
-    if (this.track === 'Lure') {
-      this.name = 'Lure (Any)';
-    } else {
-      this.name = thisGag.name;
-    }
+    // Name
+    this.name = thisGag.name;
 
     // Stun - Lure Special
-    if (this.track === 'Lure') this.stun = "2 - 8";
+    if (this.track === 'Lure') this.stun = thisGag.stun; 
   }
 
   _getImageName() {
     // Pass image doesn't adhere to naming format
     if (this.name === 'Pass') return './img/gags/Pass.png';
-    // Lure Uses Generic Image
-    if (this.track === 'Lure') return './img/gags/lure-10_Bill.png';
 
     let trackConf = this.track.split('-').join('').toLowerCase();
     let nameConf = this.name.split('$').join('').split(' ').join('_');

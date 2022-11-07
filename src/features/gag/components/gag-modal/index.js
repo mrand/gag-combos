@@ -11,9 +11,15 @@ export default function GagModal() {
   const dispatch = useDispatch();
   let gag = new Gag(
     gagData.track,
-    (gagData.track === 'Lure') ? 1 : gagData.level,
+    gagData.level,
     gagData.org
   );
+  if (gag.track === "Lure") {
+    gag.level = null;
+    gag.accuracy = (gag.organic === "Organic") ? "60% - 95%" : "50% - 95%";
+    gag.stun = "2 - 8";
+
+  }
 
   return (
     <div id="gag-modal">
@@ -34,7 +40,7 @@ export default function GagModal() {
             </div>
             <div className="overview">
               <h3>
-                {gag.name}
+                {gag.track === "Lure" ? "Lure (Any)" : gag.name}
                 {
                   (gag.organic === "Organic") ? (
                     <>
