@@ -12,6 +12,15 @@ export default function Changelog() {
           <h2 className='standard-heading'>Changelog</h2>
           <div className='formatted-article'>
 
+
+            <section>
+              <h3>2022-11-07</h3>
+              <h4>v2.0 Cog Support</h4>
+              <p>
+                You can now toggle whether your cog is a v2.0 to account for reinforced plating in the combo calculations!
+              </p>
+            </section>
+
             <section>
               <h3>2022-11-03</h3>
               <h4>Social Media Card</h4>
@@ -19,6 +28,7 @@ export default function Changelog() {
                 Added a flashy card design for when the Gag Combos Info link is shared on social media.
               </p>
             </section>
+
             <section>
               <h3>2022-11-02</h3>
               <h4>Instant Updates</h4>
