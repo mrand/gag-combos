@@ -15,10 +15,8 @@ export default function DamageCount() {
   let combo = new Combo(new Cog(1), gagObjs, false);
   
   return (
-    (gagslist.length > 0) ? (
-      <div className="damage-count">
-        <h3>Total Damage = {combo.totalDamage}</h3>
-      </div>
-    ) : null
+    <div className="damage-count">
+      <h3>Total Damage = {combo.totalDamage}</h3>
+    </div>
   );
 }

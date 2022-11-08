@@ -1,37 +1,16 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { resetGags, addGag, toggleOrg } from 'features/calculator/calculator.slice';
-import { PageSizeContext } from 'App';
+import { resetGags, addGag } from 'features/calculator/calculator.slice';
 import { trackColors, Gag } from 'features/gag';
-import SliderButton from 'features/ui/slider-button';
-import GagButton from '../gag-btn';
+import HoverBox from '../hover-box';
+import { ToggleOrganic } from 'features/gag/components';
+import { GagButton } from 'features/gag/components';
 import GagsList from '../gags-list';
-import './index.css';
 import DamageCount from '../damage-count';
+import './index.css';
 
 
-function OrganicToggle() {
-  const org = useSelector((state) => state.calculator.orgToggle);
-  const dispatch = useDispatch();
-
-  return (
-    <div className="organic-toggle">
-      <div>
-        <img src="/img/gags/icon-organic-mini.png" alt="Organic Symbol" />
-        {/* <h3>Organic?</h3> */}
-        <SliderButton 
-          active={org}
-          clickHandler={() => dispatch(toggleOrg())}
-          infoText="Toggle Organic Gags"
-        />
-      </div>
-    </div>
-  );
-}
-
-
-function GagTrackButtons({ track }) {
-  const org = useSelector((state) => state.calculator.orgToggle);
+function GagTrackButtons({ track, org }) {
   const dispatch = useDispatch();
 
   return (
@@ -61,67 +40,9 @@ function GagTrackButtons({ track }) {
 }
 
 
-function HoverBox() {
-  const pageSize = useContext(PageSizeContext);
-  const hoveredGag = useSelector((state) => state.calculator.hoveredGag);
-
-  if (pageSize === 'desktop') {
-
-    const gag = hoveredGag ? new Gag(
-      hoveredGag.track,
-      hoveredGag.level,
-      hoveredGag.org
-    ) : null;
-
-    let statTitle;
-    let statVal;
-    let affectsText;
-    if (gag) {
-      if (gag.track === "Toon-Up") { 
-        statTitle = "Heal" ;
-        statVal = gag.heal;
-      } else if (gag.track === "Lure") { 
-        statTitle = "Lure";
-        statVal = gag.stun;
-      } else { 
-        statTitle = "Damage";
-        statVal = gag.damage; 
-      }
-      if (gag.track === "Toon-Up") {
-        affectsText = gag.targetsMulti ? "All Toons" : "Single Toon";
-      } else {
-        affectsText = gag.targetsMulti ? "All Cogs" : "Single Cog";
-      }
-    }
-
-    return (
-      <div className="hover-box">
-        {
-          gag ? (
-            <>
-              <div className="overview">
-                <h4>{gag.name}</h4>
-                <img src={gag.image} alt={gag.name} />
-              </div>
-              <div className="stats">
-                <span><b>Accuracy:</b> {(gag.accuracy*100)+"%"}</span>
-                <span><b>{statTitle}:</b> {statVal}</span>
-                <span><b>Affects:</b> {affectsText}</span>
-              </div>
-            </>
-          ) : null
-        }
-      </div>
-    );
-
-  } else {
-    return null;
-  }
-}
-
-
 export default function GagsPicker() {
   const gagslist = useSelector((state) => state.calculator.gagslist);
+  const org = useSelector((state) => state.calculator.orgToggle);
   const dispatch = useDispatch();
 
   return (
@@ -144,12 +65,18 @@ export default function GagsPicker() {
             }
           </h3>
           <HoverBox />
-          <OrganicToggle />
+          <ToggleOrganic />
         </div>
         <div className="picker-wrap custom-scrollbar">
           {
             Object.keys(trackColors).map((track, i) => {
-              return <GagTrackButtons key={i} track={track} />
+              return (
+                <GagTrackButtons 
+                  key={i} 
+                  track={track} 
+                  org={org}
+                />
+              )
             })
           }
         </div>

@@ -1,0 +1,10 @@
+.toggle-v2 .toggle { 
+  --accent: var(--red-600); 
+  padding: 6px 8px;
+}
+
+.toggle-v2 .toggle h3 {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: SpecialElite, cursive; 
+}

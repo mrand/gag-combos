@@ -14,6 +14,12 @@ function HeaderNav({ location }) {
         Home
       </Link>
       <Link 
+        to="/calculator"
+        className={location === "/calculator" ? "active" : ""}
+      >
+        Calculator
+      </Link>
+      <Link 
         to="/dashboard"
         className={location === "/dashboard" ? "active" : ""}
       >

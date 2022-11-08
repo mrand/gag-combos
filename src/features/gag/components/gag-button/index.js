@@ -10,7 +10,7 @@ export default function GagButton({ gag, clickHandler=null, hasX=false }) {
 
   return (
     <button 
-      className="gag-btn"
+      className="gag-button"
       onMouseEnter={() => dispatch(setHoveredGag({ 
         track: gag.track, 
         level: gag.level, 

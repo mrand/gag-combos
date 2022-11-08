@@ -134,32 +134,11 @@
 }
 
 
-
-#cog .toggle {
-  --accent: var(--blue-600);
+#cog .toggle-lured, 
+#cog .toggle-v2 {
   text-align: center;
 }
-#cog .toggle > div {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  border-radius: 100px;
-  background: #ffffff;
-  border: 8px solid var(--accent);
-  box-shadow: 0 0 5px var(--grey-700);
-  padding: 0 8px;
-}
-#cog .toggle img,
-#cog .toggle svg {
-  height: 50px;
-}
-#cog .toggle.lured-toggle { --accent: var(--green-500); }
-#cog .toggle.v2-toggle { --accent: var(--red-600); }
 
-.lured-toggle { margin-top: auto; }
-.v2-toggle { margin-top: 8px; }
-.v2-toggle svg {
-  fill: var(--accent);
-  padding: 4px;
-}
+#cog .toggle-lured { margin-top: auto; }
+#cog .toggle-v2 { margin-top: 8px; }
+

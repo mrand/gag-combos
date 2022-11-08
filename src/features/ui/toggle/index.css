@@ -1,0 +1,24 @@
+.toggle {
+  --accent: var(--blue-600);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  border-radius: 100px;
+  background: #ffffff;
+  border: 8px solid var(--accent);
+  box-shadow: 0 0 5px var(--grey-700);
+  padding: 0 8px;
+}
+
+.toggle img,
+.toggle svg {
+  height: 50px;
+}
+
+.toggle svg {
+  fill: var(--accent);
+  padding: 4px;
+}
+
+/* .toggle .slider.on:not(:hover) { background: var(--accent); } */

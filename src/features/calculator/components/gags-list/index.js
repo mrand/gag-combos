@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { deleteGag, setHoveredGag } from 'features/calculator/calculator.slice';
 import './index.css';
 import { Gag } from 'features/gag';
-import GagButton from '../gag-btn';
+import { GagButton } from 'features/gag/components';
 
 
 function GagsListContainer({ gagslist }) {
@@ -35,7 +35,6 @@ function GagsListContainer({ gagslist }) {
 
 export default function GagsList() {
   const gagslist = useSelector((state) => state.calculator.gagslist);
-  // console.log(gagslist);
 
   return (
     <div className="gags-list">

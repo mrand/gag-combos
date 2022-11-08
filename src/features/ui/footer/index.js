@@ -9,6 +9,7 @@ export default function Footer() {
         <h2>Gag Combos Info</h2>
         <nav>
           <Link to="/">Home</Link>
+          <Link to="/calculator">Calculator</Link>
           <Link to="/dashboard">Dashboard</Link>
           <Link to="/faq">FAQ</Link>
           <Link to="/changelog">Changelog</Link>

@@ -12,6 +12,16 @@ export default function Changelog() {
           <h2 className='standard-heading'>Changelog</h2>
           <div className='formatted-article'>
 
+            <section>
+              <h3>2022-11-08</h3>
+              <h4>New Gag Calculator Page!</h4>
+              <p>
+                Not everyone wants the combos recommendations provided by the dashboard page.
+                That's why we've added a new calculator page to Gag Combos Info!
+                Choose any combination of gags for yourself on this page,
+                and the calculator will show you which cogs your combo will defeat.
+              </p>
+            </section>
 
             <section>
               <h3>2022-11-07</h3>
