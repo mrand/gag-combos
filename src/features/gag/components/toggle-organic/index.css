@@ -1,6 +1,6 @@
 .toggle-organic { text-align: center; }
 .toggle-organic .toggle { 
-  --accent: var(--green-500); 
+  --accent: var(--green-400); 
   padding: 8px;
 }
 .toggle-organic .toggle img { height: 30px; }
