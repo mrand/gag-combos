@@ -4,13 +4,15 @@ const initialCalculatorState = {
   gagslist: [],
   hoveredGag: null,
   orgToggle: false,
+  // totalDamage: 0,
+  isV2: false
 }
 
 export const calculatorSlice = createSlice({
   name: 'calculator',
   initialState: initialCalculatorState,
   reducers: {
-    resetCalculator: (state) => {
+    resetGags: (state) => {
       return {
         ...state,
         gagslist: initialCalculatorState.gagslist
@@ -52,10 +54,13 @@ export const calculatorSlice = createSlice({
     toggleOrg: (state) => {
       state.orgToggle = !state.orgToggle;
     },
+    toggleV2: (state) => {
+      state.isV2 = !state.isV2;
+    },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { resetCalculator, addGag, deleteGag, setHoveredGag, toggleOrg  } = calculatorSlice.actions;
+export const { resetGags, addGag, deleteGag, setHoveredGag, toggleOrg, toggleV2  } = calculatorSlice.actions;
 
 export default calculatorSlice.reducer;

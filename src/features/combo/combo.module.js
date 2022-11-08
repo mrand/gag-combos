@@ -4,6 +4,7 @@ export default class Combo {
    * @param {Array<Gag>} gags Array of Gag objects
   */
   constructor(cog, gags, isLured=false) {
+    this.cogLevel = cog.level;
     this.cogHP = cog.hp;
     this.cogResistance = cog.gagResistance;
     this.gags = gags;
@@ -22,7 +23,6 @@ export default class Combo {
         (gag.track in counts) ? counts[gag.track]++ : counts[gag.track] = 1;
       }
     });
-    // console.log(counts);
     return counts;
   }
 

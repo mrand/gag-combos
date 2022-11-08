@@ -1,0 +1,11 @@
+.damage-count { grid-column: 1 / 5; }
+.damage-count h3 { 
+  justify-content: center; 
+}
+
+.damage-count div {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+.mobile .damage-count div { justify-content: space-between; }

@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { resetCalculator, addGag, toggleOrg } from 'features/calculator/calculator.slice';
+import { resetGags, addGag, toggleOrg } from 'features/calculator/calculator.slice';
 import { PageSizeContext } from 'App';
 import { trackColors, Gag } from 'features/gag';
 import SliderButton from 'features/ui/slider-button';
 import GagButton from '../gag-btn';
 import GagsList from '../gags-list';
 import './index.css';
+import DamageCount from '../damage-count';
 
 
 function OrganicToggle() {
@@ -131,7 +132,7 @@ export default function GagsPicker() {
             {
               (gagslist.length > 0) ? (
                 <button
-                  onClick={() => dispatch(resetCalculator())}
+                  onClick={() => dispatch(resetGags())}
                   title="Reset Calculator"
                   aria-label="Reset Calculator"
                 >
@@ -153,6 +154,7 @@ export default function GagsPicker() {
           }
         </div>
         <GagsList />
+        <DamageCount />
       </div>
     </div>
   );

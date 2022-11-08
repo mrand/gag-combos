@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteGag } from 'features/calculator/calculator.slice';
+import { deleteGag, setHoveredGag } from 'features/calculator/calculator.slice';
 import './index.css';
 import { Gag } from 'features/gag';
 import GagButton from '../gag-btn';
@@ -17,7 +17,10 @@ function GagsListContainer({ gagslist }) {
             <React.Fragment key={i}>
               <GagButton 
                 gag={thisGag} 
-                clickHandler={() => dispatch(deleteGag({index: i}))}
+                clickHandler={() => {
+                  dispatch(deleteGag({index: i}))
+                  dispatch(setHoveredGag(null))
+                }}
                 hasX={true}
               />
               {(i < gagslist.length-1) ? (<span>+</span>) : null}
