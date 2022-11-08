@@ -18,6 +18,7 @@ function GagsListContainer({ gagslist }) {
               <GagButton 
                 gag={thisGag} 
                 clickHandler={() => dispatch(deleteGag({index: i}))}
+                hasX={true}
               />
               {(i < gagslist.length-1) ? (<span>+</span>) : null}
             </React.Fragment>
@@ -31,7 +32,7 @@ function GagsListContainer({ gagslist }) {
 
 export default function GagsList() {
   const gagslist = useSelector((state) => state.calculator.gagslist);
-  console.log(gagslist);
+  // console.log(gagslist);
 
   return (
     <div className="gags-list">

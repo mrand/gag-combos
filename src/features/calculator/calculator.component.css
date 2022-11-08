@@ -1,17 +1,36 @@
+#gags-picker .custom-scrollbar {
+  --bar-width: 8px;
+  --thumb-color: var(--blue-500);
+  --thumb-hover-color: var(--blue-400);
+}
+#gags-picker ::-webkit-scrollbar {
+  background: 0;
+}
+#gags-picker ::-webkit-scrollbar-track {
+  border-radius: 30px;
+  margin: 24px;
+}
+#gags-picker ::-webkit-scrollbar-thumb {
+  border-radius: 30px;
+}
+
+
 .desktop #gags-picker {
   max-width: 926px;
   margin: auto;
   margin-bottom: 24px; 
 }
+
+
 #gags-picker .wrapper {
   width: fit-content;
   max-width: 100%;
-  background: var(--blue-600);
+  background: var(--grey-400);
   border-radius: 24px;
-  box-shadow: 3px 3px 0 3px var(--blue-700);
+  box-shadow: 3px 3px 0 3px var(--grey-500);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  gap: 8px;
 }
 .mobile #gags-picker .wrapper { 
   width: 100%;
@@ -19,7 +38,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: 0;
+  padding-right: 0;
+  padding-left: 0;
 }
+
 
 #gags-picker .heading-btn-wrap {
   grid-column: 4 / 5;
@@ -30,11 +53,22 @@
 }
 .mobile #gags-picker .heading-btn-wrap {
   grid-column: 1 / 5;
-  gap: 0;
+  width: calc(100% - 32px);
+  max-width: 650px;
+  padding: 16px;
+  background: var(--grey-400);
+  border-radius: 20px;
+  box-shadow: 0 4px 4px var(--grey-700);
+  margin-bottom: 8px;
+}
+@media (min-width: 400px) {
+  .mobile #gags-picker .heading-btn-wrap {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 #gags-picker h3 {
-  /* color: #ffffff; */
   text-align: center;
   min-height: 35px;
   display: flex;
@@ -49,9 +83,10 @@
   width: 100%;
   background: var(--red-500);
   border-radius: 100px;
-  /* font-family: BowlbyOneSC,Arial,Roboto,Helvetica,sans-serif;
-  font-weight: normal; */
   font-family: Karla, sans-serif;
+  font-family: BowlbyOneSC,Arial,Roboto,Helvetica,sans-serif;
+  font-weight: normal;
+  color: #000000;
 }
 
 .organic-toggle {
@@ -87,7 +122,8 @@
 .mobile .picker-wrap {
   grid-column: 1 / 5;
   grid-row: 2 / 3;
-  padding-bottom: 16px;
+  padding: 16px;
+  padding-top: 0;
 }
 
 .gag-track { 

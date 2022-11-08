@@ -17,10 +17,23 @@ export const calculatorSlice = createSlice({
       }
     },
     addGag: (state, action) => {
+      // Pre-defined Order
+      let ordering = {
+        'Toon-Up': 1,
+        'Trap':    2,
+        'Lure':    3,
+        'Sound':   4,
+        'Throw':   5,
+        'Squirt':  6,
+        'Drop':    7
+      }
+
       return (state.gagslist.length < 16) ? (
         {
           ...state,
-          gagslist: [...state.gagslist, action.payload]
+          gagslist: [...state.gagslist, action.payload].slice().sort(function(a,b) {
+            return (ordering[a.track] - ordering[b.track] || a.track.localeCompare(b.track));
+          })
         }
       ) : {...state}
     },
