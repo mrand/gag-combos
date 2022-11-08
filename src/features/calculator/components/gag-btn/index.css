@@ -1,0 +1,22 @@
+button.gag-btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  background: linear-gradient(var(--blue-500), var(--blue-400));
+  box-shadow: 0 2px 4px var(--grey-700);
+  border: 2px solid var(--blue-600);
+  padding: 2px 16px;
+  width: fit-content;
+}
+button.gag-btn:hover { box-shadow: 0 2px 4px var(--grey-700) inset; }
+
+button.gag-btn img { width: 35px; }
+
+
+button.gag-btn .organic-icon {
+  position: absolute;
+  top: -8px; right: -8px;
+  width: 25px;
+}

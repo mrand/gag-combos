@@ -17,6 +17,7 @@ export default class Gag {
     this.heal = 0;
     this.name = ""; 
     this.stun = 0;
+    this.targetsMulti = false;
     this._getGagStats();
     
     this.image = this._getImageName();
@@ -68,6 +69,9 @@ export default class Gag {
 
     // Stun - Lure Special
     if (this.track === 'Lure') this.stun = thisGag.stun; 
+
+    // Targets Multi
+    this.targetsMulti = thisGag.targets_multi;
   }
 
   _getImageName() {

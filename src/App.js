@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import Home from 'pages';
 import Dashboard from 'pages/dashboard';
+import Calculator from 'pages/calculator';
 import Changelog from 'pages/changelog';
 import PrivacyPolicy from 'pages/privacy';
 import FAQ from 'pages/faq';
@@ -58,6 +59,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/calculator" element={<Calculator />} />
             <Route path="/changelog" element={<Changelog />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/faq" element={<FAQ />} />

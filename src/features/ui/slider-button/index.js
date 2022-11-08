@@ -4,7 +4,7 @@ import './index.css';
 
 export default function SliderButton({ 
   active=false,
-  clickHandler=false,
+  clickHandler=null,
   infoText="Slider Button"
 }) {
   return (
