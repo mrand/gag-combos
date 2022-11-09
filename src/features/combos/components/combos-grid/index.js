@@ -6,7 +6,7 @@ import { GagModal } from 'features/gag';
 
 
 export default function CombosGrid({ recommendCombos, cellStates, setCellStates }) {
-  const gagModalActive = useSelector((state) => state.gag.show);
+  const gagModalActive = useSelector((state) => state.recommendations.gag.modal.show);
 
   return (
     <div id='combos-grid'>

@@ -1,13 +1,13 @@
 import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { resetGag } from 'features/gag/gag.slice';
+import { resetGagModal } from "features/recommendations/recommendations.slice";
 import './index.css';
 import { OrganicIcon } from "../gag-cell";
 import { trackColors, Gag } from "features/gag";
 
 
 export default function GagModal() {
-  const gagData = useSelector((state) => state.gag.data);
+  const gagData = useSelector((state) => state.recommendations.gag.modal.data);
   const dispatch = useDispatch();
   let gag = new Gag(
     gagData.track,
@@ -118,7 +118,7 @@ export default function GagModal() {
         </div>
 
         <div className="modal-btn">
-          <button onClick={() => dispatch(resetGag())}>
+          <button onClick={() => dispatch(resetGagModal())}>
             Close
           </button>
         </div>

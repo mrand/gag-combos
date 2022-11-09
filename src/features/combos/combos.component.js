@@ -9,14 +9,14 @@ import { TitleContainer } from './components';
 export default function CombosComponent() {
 
   // build new recommend combos object
-  const cogLevel = useSelector((state) => state.cog.level);
-  const cogV2 = useSelector((state) => state.cog.isV2);
+  const cogLevel = useSelector((state) => state.recommendations.cog.level);
+  const cogV2 = useSelector((state) => state.recommendations.cog.isV2);
   const cog = cogLevel ? new Cog(cogLevel, cogV2) : null;
-  const isLured = useSelector((state) => state.cog.lured);
-  const numToons = useSelector((state) => state.toons.toonlist.filter(toon => toon.active).length);
-  const toonOrgs = useSelector((state) => state.toons.toonlist.map((toon) => toon.active ? toon.organic : ''));
-  const comboType = useSelector((state) => state.combos.type);
-  const gagFilters = useSelector((state) => state.combos.filters);
+  const isLured = useSelector((state) => state.recommendations.cog.lured);
+  const numToons = useSelector((state) => state.recommendations.toons.toonList.filter(toon => toon.active).length);
+  const toonOrgs = useSelector((state) => state.recommendations.toons.toonList.map((toon) => toon.active ? toon.organic : ''));
+  const comboType = useSelector((state) => state.recommendations.combos.type);
+  const gagFilters = useSelector((state) => state.recommendations.combos.filters);
 
   const recommendations = new RecommendCombos(
     cog, isLured,          // cog params
@@ -25,7 +25,7 @@ export default function CombosComponent() {
   );
 
   const numCells = recommendations.recCombos.length;
-  const expanded = useSelector((state) => state.combos.expanded);
+  const expanded = useSelector((state) => state.recommendations.combos.expanded);
 
   const [cellStates, setCellStates] = useState(new Array(numCells).fill(expanded));
   useEffect(() => {

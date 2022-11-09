@@ -19,11 +19,11 @@ function CogsListEntry({ level, isV2, remainingHP }) {
 
 
 export default function CogsList() {
-  const gagslist = useSelector((state) => state.calculator.gagslist);
-  const isV2 = useSelector((state) => state.calculator.isV2);
+  const gagsList = useSelector((state) => state.calculator.gag.gagsList);
+  const isV2 = useSelector((state) => state.calculator.cog.isV2);
   const dispatch = useDispatch();
 
-  let gagObjs = gagslist.map((gag, i) => {
+  let gagObjs = gagsList.map((gag, i) => {
     return new Gag(gag.track, gag.level, gag.org);
   });
 

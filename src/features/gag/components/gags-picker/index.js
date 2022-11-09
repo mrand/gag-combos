@@ -41,8 +41,8 @@ function GagTrackButtons({ track, org }) {
 
 
 export default function GagsPicker() {
-  const gagslist = useSelector((state) => state.calculator.gagslist);
-  const org = useSelector((state) => state.calculator.orgToggle);
+  const gagsList = useSelector((state) => state.calculator.gag.gagsList);
+  const org = useSelector((state) => state.calculator.gag.organic);
   const dispatch = useDispatch();
 
   return (
@@ -51,7 +51,7 @@ export default function GagsPicker() {
         <div className="heading-btn-wrap">
           <h3>
             {
-              (gagslist.length > 0) ? (
+              (gagsList.length > 0) ? (
                 <button
                   onClick={() => dispatch(resetGags())}
                   title="Reset Calculator"

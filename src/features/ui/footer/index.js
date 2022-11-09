@@ -10,7 +10,7 @@ export default function Footer() {
         <nav>
           <Link to="/">Home</Link>
           <Link to="/calculator">Calculator</Link>
-          <Link to="/dashboard">Dashboard</Link>
+          <Link to="/recommendations">Recommendations</Link>
           <Link to="/faq">FAQ</Link>
           <Link to="/changelog">Changelog</Link>
           <Link to="/privacy">Privacy Policy</Link>

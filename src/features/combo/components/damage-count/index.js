@@ -7,9 +7,9 @@ import './index.css';
 
 
 export default function DamageCount() {
-  const gagslist = useSelector((state) => state.calculator.gagslist);
+  const gagsList = useSelector((state) => state.calculator.gag.gagsList);
 
-  let gagObjs = gagslist.map((gag) => {
+  let gagObjs = gagsList.map((gag) => {
     return new Gag(gag.track, gag.level, gag.org);
   });
   let combo = new Combo(new Cog(1), gagObjs, false);

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { resetCog, setCog, toggleV2 } from './cog.slice';
+import { resetCog, setCog, toggleCogV2 } from 'features/recommendations/recommendations.slice';
 import './cog.component.css';
 import Cog from './cog.module';
 import ResetButton from 'features/ui/reset-button';
@@ -32,7 +32,7 @@ function CogStats({ cog }) {
 
 
 function CogLevelPicker({ setActive }) {
-  const cogLevel = useSelector((state) => state.cog.level);
+  const cogLevel = useSelector((state) => state.recommendations.cog.level);
   const dispatch = useDispatch();
 
   return (
@@ -64,11 +64,11 @@ function CogLevelPicker({ setActive }) {
 export default function CogComponent() {
   const [active, setActive] = useState(false);
 
-  const cogLevel = useSelector((state) => state.cog.level);
-  const cogV2 = useSelector((state) => state.cog.isV2);
-  const cogSuit = useSelector((state) => state.cog.suit);
-  const cogName = useSelector((state) => state.cog.name);
-  const resetBtnActive = useSelector((state) => state.cog.hasUpdates);
+  const cogLevel = useSelector((state) => state.recommendations.cog.level);
+  const cogV2 = useSelector((state) => state.recommendations.cog.isV2);
+  const cogSuit = useSelector((state) => state.recommendations.cog.suit);
+  const cogName = useSelector((state) => state.recommendations.cog.name);
+  const resetBtnActive = useSelector((state) => state.recommendations.cog.hasUpdates);
   const dispatch = useDispatch();
 
   // build cog object
@@ -114,7 +114,7 @@ export default function CogComponent() {
       <ToggleLured />
       <ToggleV2 
         active={cogV2}
-        clickHandler={() => dispatch(toggleV2())} 
+        clickHandler={() => dispatch(toggleCogV2())} 
       />
     </div>
   );

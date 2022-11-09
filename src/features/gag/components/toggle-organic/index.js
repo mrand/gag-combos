@@ -6,7 +6,7 @@ import './index.css';
 
 
 export default function ToggleOrganic() {
-  const org = useSelector((state) => state.calculator.orgToggle);
+  const org = useSelector((state) => state.calculator.gag.organic);
   const dispatch = useDispatch();
 
   return (

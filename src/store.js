@@ -1,21 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { calculatorReducer } from 'features/calculator';
-import { cogReducer } from 'features/cog';
-import { toonsReducer } from 'features/toons';
-import { combosReducer } from 'features/combos';
-import { gagReducer } from 'features/gag';
+import { recommendationsReducer } from 'features/recommendations';
 
 
-localStorage.clear();
+// localStorage.clear();
 const persistentState = localStorage.getItem('state') ? JSON.parse(localStorage.getItem('state')) : {};
 
 const store = configureStore({
   reducer: {
     calculator: calculatorReducer,
-    cog: cogReducer,
-    combos: combosReducer,
-    gag: gagReducer,
-    toons: toonsReducer
+    recommendations: recommendationsReducer,
   },
   preloadedState: persistentState
 });

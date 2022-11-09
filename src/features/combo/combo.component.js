@@ -35,7 +35,7 @@ function ComboGags({ combo, isDropOnly }) {
 
 
 export default function ComboCell({ combo, isOnly, cellNum, cellStates, setCellStates }) {
-  const expanded = useSelector((state) => state.combos.expanded);
+  const expanded = useSelector((state) => state.recommendations.combos.expanded);
   let thisExpanded = cellStates[cellNum];
   let solutionTracks = Object.keys(combo.counts);
 

@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { setGag } from 'features/gag/gag.slice';
+import { setGagModal } from 'features/recommendations/recommendations.slice';
 import './index.css';
 import { trackColors } from '../../gag.data';
 
@@ -78,7 +78,7 @@ export default function GagCell({ gag, isDropOnly=false }) {
       className={'gag-cell' + (gag.organic==='Organic' ? ' org' : '')}
       style={{background: (trackColors[gag.track] || "")}}
       onClick={() => {
-        dispatch(setGag(
+        dispatch(setGagModal(
           { 
             track: gag.track, 
             level: gag.level, 

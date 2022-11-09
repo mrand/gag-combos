@@ -1,11 +1,11 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleLured } from 'features/cog/cog.slice';
+import { toggleCogLured } from 'features/recommendations/recommendations.slice';
 import Toggle from 'features/ui/toggle';
 import './index.css';
 
 export default function ToggleLured() {
-  const isLured = useSelector((state) => state.cog.lured);
+  const isLured = useSelector((state) => state.recommendations.cog.lured);
   const dispatch = useDispatch();
 
   return (
@@ -20,7 +20,7 @@ export default function ToggleLured() {
       <Toggle 
         icon={<img src='./img/gags/lure-10_Bill.png' alt='$10 Bill Lure Gag' />}
         active={isLured}
-        clickHandler={() => dispatch(toggleLured())}
+        clickHandler={() => dispatch(toggleCogLured())}
         infoText="Toggle Cog Lured"
       />
     </div>

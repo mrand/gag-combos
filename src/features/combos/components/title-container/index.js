@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { resetCombos, setType, toggleTrack, toggleExpanded } from 'features/combos/combos.slice';
+import { resetCombos, setComboType, toggleGagTrack, toggleCombosExpanded } from 'features/recommendations/recommendations.slice';
 import './index.css';
 import ResetButton from 'features/ui/reset-button';
 import SliderButton from 'features/ui/slider-button';
@@ -8,15 +8,15 @@ import SliderButton from 'features/ui/slider-button';
 
 function MainFilters({ cellStates, setCellStates }) {
   const dispatch = useDispatch();
-  const expanded = useSelector((state) => state.combos.expanded);
-  const comboType = useSelector((state) => state.combos.type);
+  const expanded = useSelector((state) => state.recommendations.combos.expanded);
+  const comboType = useSelector((state) => state.recommendations.combos.type);
 
   return (
     <div className='btns main-filters'>
       <button 
         className={comboType==='All' ? 'active' : ''}
         onClick={() => {
-          dispatch(setType('All'));
+          dispatch(setComboType('All'));
           setCellStates(new Array(cellStates.length).fill(expanded));
         }}
         aria-label={"Show All Combos"}
@@ -25,7 +25,7 @@ function MainFilters({ cellStates, setCellStates }) {
       <button
         className={comboType==='Basic' ? 'active' : ''}
         onClick={() => {
-          dispatch(setType('Basic'));
+          dispatch(setComboType('Basic'));
           setCellStates(new Array(cellStates.length).fill(expanded));
         }}
         aria-label={"Show Basic Combos"}
@@ -34,7 +34,7 @@ function MainFilters({ cellStates, setCellStates }) {
       <button
         className={comboType==='Best' ? 'active' : ''}
         onClick={() => {
-          dispatch(setType('Best'));
+          dispatch(setComboType('Best'));
           setCellStates(new Array(cellStates.length).fill(expanded));
         }}
         aria-label={"Show Best Combos"}
@@ -47,7 +47,7 @@ function MainFilters({ cellStates, setCellStates }) {
 
 function GagToggles() {
   const dispatch = useDispatch();
-  const gagFilters = useSelector((state) => state.combos.filters);
+  const gagFilters = useSelector((state) => state.recommendations.combos.filters);
 
   let trackImgs = {
     'Toon-Up': './img/gags/toonup-Feather.png',
@@ -65,7 +65,7 @@ function GagToggles() {
           key={i}
           className={gagFilters[track] ? 'active' : ''}
           onClick={() => {
-            dispatch(toggleTrack(track));
+            dispatch(toggleGagTrack(track));
           }}
           aria-label={"Toggle "+track+" Track"}
           title={"Toggle "+track+" Track"}
@@ -79,8 +79,8 @@ function GagToggles() {
 
 
 export default function TitleContainer({ cellStates, setCellStates }) {
-  const resetBtnActive = useSelector((state) => state.combos.hasUpdates);
-  const expanded = useSelector((state) => state.combos.expanded);
+  const resetBtnActive = useSelector((state) => state.recommendations.combos.hasUpdates);
+  const expanded = useSelector((state) => state.recommendations.combos.expanded);
   const dispatch = useDispatch();
 
   return (
@@ -109,7 +109,7 @@ export default function TitleContainer({ cellStates, setCellStates }) {
           active={expanded}
           clickHandler={() => {
             setCellStates(new Array(cellStates.length).fill(!expanded));
-            dispatch(toggleExpanded());
+            dispatch(toggleCombosExpanded());
           }}
           infoText="Toggle All Info"
         />

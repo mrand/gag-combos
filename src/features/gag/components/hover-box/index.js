@@ -7,7 +7,7 @@ import './index.css';
 
 export default function HoverBox() {
   const pageSize = useContext(PageSizeContext);
-  const hoveredGag = useSelector((state) => state.calculator.hoveredGag);
+  const hoveredGag = useSelector((state) => state.calculator.gag.hoveredGag);
 
   if (pageSize === 'desktop') {
 

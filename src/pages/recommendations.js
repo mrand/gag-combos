@@ -1,10 +1,13 @@
 import React, { useState, useContext } from 'react';
 import { Navigate } from 'react-router-dom';
 import { PageSizeContext } from 'App';
-import './dashboard.component.css';
+import 'features/recommendations/index.css';
+
+import Header from 'features/ui/header';
 import { CogComponent } from 'features/cog';
 import { ToonsComponent } from 'features/toons';
 import { CombosComponent } from 'features/combos';
+import Footer from 'features/ui/footer';
 
 
 function configMobileLink(page, link) {
@@ -35,10 +38,10 @@ function getSVG(linkText) {
   return svgs[linkText];
 }
 
-function DashboardMobileNav({ tab, setTab }) {
+function RecommendationsMobileNav({ tab, setTab }) {
   const tabs = ['toons', 'cog', 'combos'];
   return (
-    <nav id='dashboard-nav'>
+    <nav id='recommendations-nav'>
       <div className='wrapper'>
         {
           tabs.map((linkText, i) => {
@@ -62,7 +65,7 @@ function DashboardMobileNav({ tab, setTab }) {
 }
 
 
-function DashboardMobile({ tab }) {
+function RecommendationsMobile({ tab }) {
 
   let displayedComponent;
   if (tab === 'toons') {
@@ -76,14 +79,14 @@ function DashboardMobile({ tab }) {
   }
 
   return (
-    <div id="dashboard-wrap" className='wrapper'>
+    <div id="recommendations-wrap" className='wrapper'>
       {displayedComponent}
     </div>
   );
 }
 
 
-function DashboardDesktop() {
+function RecommendationsDesktop() {
   return (
     <div className='wrapper'>
       <ToonsComponent />
@@ -94,18 +97,28 @@ function DashboardDesktop() {
 }
 
 
-export default function DashboardComponent() {
+export default function Dashboard() {
   const pageSize = useContext(PageSizeContext);
   const [tab, setTab] = useState('combos');
 
   return (
-    pageSize==='mobile' ? (
-      <>
-        <DashboardMobile tab={tab} />
-        <DashboardMobileNav tab={tab} setTab={setTab} />
-      </>
-    ) : (
-      <DashboardDesktop />
-    )
+    <div id='page' className='recommendations custom-scrollbar with-grid-bg'>
+      <Header />
+      {
+        pageSize==='mobile' ? (
+          <>
+            <RecommendationsMobile tab={tab} />
+            <RecommendationsMobileNav tab={tab} setTab={setTab} />
+          </>
+        ) : (
+          <RecommendationsDesktop />
+        )
+      }
+      {/* Dashboard Special Case - no footer on mobile */}
+      {pageSize==='mobile' ? null : <Footer />}
+      {/* {pageSize==='mobile' && tab!=='combos'  ? null : <Footer />} */}
+      {/* <Footer /> */}
+    </div>
   );
+
 }

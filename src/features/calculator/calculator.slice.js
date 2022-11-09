@@ -1,11 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+
 export const initialCalculatorState = {
-  gagslist: [],
-  hoveredGag: null,
-  orgToggle: false,
-  isV2: false
+  cog: { isV2: false },
+  gag: {
+    gagsList: [],
+    hoveredGag: null,
+    organic: false
+  }
 }
+
 
 export const calculatorSlice = createSlice({
   name: 'calculator',
@@ -14,7 +18,10 @@ export const calculatorSlice = createSlice({
     resetGags: (state) => {
       return {
         ...state,
-        gagslist: initialCalculatorState.gagslist
+        gag: {
+          ...state.gag,
+          gagsList: initialCalculatorState.gag.gagsList
+        }
       }
     },
     addGag: (state, action) => {
@@ -28,38 +35,44 @@ export const calculatorSlice = createSlice({
         'Squirt':  6,
         'Drop':    7
       }
-
-      return (state.gagslist.length < 16) ? (
+      return (state.gag.gagsList.length < 16) ? (
         {
           ...state,
-          gagslist: [...state.gagslist, action.payload].slice().sort(function(a,b) {
-            return (ordering[a.track] - ordering[b.track] || a.track.localeCompare(b.track));
-          })
+          gag: {
+            ...state.gag,
+            gagsList: [...state.gag.gagsList, action.payload].slice().sort(function(a,b) {
+              return (ordering[a.track] - ordering[b.track] || a.track.localeCompare(b.track));
+            })
+          }
         }
       ) : {...state}
     },
     deleteGag: (state, action) => {
       return {
         ...state,
-        gagslist:[
-          ...state.gagslist.slice(0, action.payload.index),
-          ...state.gagslist.slice(action.payload.index + 1),
-        ]
+        gag: {
+          ...state.gag,
+          gagsList:[
+            ...state.gag.gagsList.slice(0, action.payload.index),
+            ...state.gag.gagsList.slice(action.payload.index + 1),
+          ]
+        }
       }
     },
     setHoveredGag: (state, action) => {
-      state.hoveredGag = action.payload
+      state.gag.hoveredGag = action.payload
     },
     toggleOrg: (state) => {
-      state.orgToggle = !state.orgToggle;
+      state.gag.organic = !state.gag.organic;
     },
     toggleV2: (state) => {
-      state.isV2 = !state.isV2;
+      state.cog.isV2 = !state.cog.isV2;
     },
   },
 })
 
-// Action creators are generated for each case reducer function
+
 export const { resetGags, addGag, deleteGag, setHoveredGag, toggleOrg, toggleV2  } = calculatorSlice.actions;
+
 
 export default calculatorSlice.reducer;

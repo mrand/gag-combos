@@ -1,13 +1,13 @@
 import React, { useState, useReducer } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { resetToons, toggleToonActive, updateToonOrg } from './toons.slice';
+import { resetToons, toggleToonActive, updateToonOrganic } from 'features/recommendations/recommendations.slice';
 import './toons.component.css';
 import ResetButton from 'features/ui/reset-button';
 import SliderButton from 'features/ui/slider-button';
 
 
 function ToonToggle({ i }) {
-  const active = useSelector((state) => state.toons.toonlist[i].active);
+  const active = useSelector((state) => state.recommendations.toons.toonList[i].active);
   const dispatch = useDispatch();
 
   return (
@@ -60,7 +60,7 @@ function OrganicPicker({ i, dispatch, pickerActive, setPickerActive, toonOrg }) 
                   'gag-btn' + ((activeBtn === j) ? ' active' : '')
                 }
                 onClick={() => {
-                  dispatch(updateToonOrg({ i: i, track: track }));
+                  dispatch(updateToonOrganic({ i: i, track: track }));
                   setActiveBtn(j);
                   setPickerActive();
                 }}
@@ -89,7 +89,7 @@ function OrganicPicker({ i, dispatch, pickerActive, setPickerActive, toonOrg }) 
 
 
 function ToonPanel({ i, toon, pickerActive, setPickerActive, dispatch }) {
-  const active = useSelector((state) => state.toons.toonlist[i].active);
+  const active = useSelector((state) => state.recommendations.toons.toonList[i].active);
 
   return (
     <div className='toon-panel'>
@@ -127,8 +127,8 @@ function ToonPanel({ i, toon, pickerActive, setPickerActive, dispatch }) {
 
 
 export default function ToonsComponent() {
-  const toons = useSelector((state) => state.toons.toonlist);
-  const resetBtnActive = useSelector((state) => state.toons.hasUpdates);
+  const toons = useSelector((state) => state.recommendations.toons.toonList);
+  const resetBtnActive = useSelector((state) => state.recommendations.toons.hasUpdates);
   const dispatch = useDispatch();
 
   const initialOrgPickers = [false, false, false, false];

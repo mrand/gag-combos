@@ -20,10 +20,10 @@ function HeaderNav({ location }) {
         Calculator
       </Link>
       <Link 
-        to="/dashboard"
-        className={location === "/dashboard" ? "active" : ""}
+        to="/recommendations"
+        className={location === "/recommendations" ? "active" : ""}
       >
-        Dashboard
+        Recommendations
       </Link>
       <Link 
         to="/faq" 
