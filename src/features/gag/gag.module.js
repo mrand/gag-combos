@@ -100,7 +100,7 @@ export default class Gag {
     if (
       (this.track === 'Drop') &&
       (counts['Lure'] > 0) && 
-      !('Trap' in counts) && 
+      (!('Trap' in counts) || counts['Trap'] > 1) && 
       !('Sound' in counts) && 
       !('Throw' in counts) &&
       !('Squirt' in counts)
