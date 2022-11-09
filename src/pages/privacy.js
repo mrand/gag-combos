@@ -41,15 +41,15 @@ export default function PrivacyPolicy() {
             <section>
               <h3>So why does Gag Combos Info need a Privacy Policy?</h3>
               <p>
-                Gag Combos Info uses something called localStorage to save your dashboard choices so when you close your browser and come back, you do not have to re-enter everything. 
+                Gag Combos Info uses something called localStorage to save your Calculator page and Recommendations page choices so when you close your browser and come back, you do not have to re-enter everything. 
               </p>
               <p>
                 Unlike using a database or cookies, localStorage is saved and read entirely by your browser on YOUR end.
-                Thus, the information saved from the dashboard page exists ONLY in your browser. 
+                Thus, the information saved from these pages exists ONLY in your browser. 
                 Neither us nor any 3rd parties see this saved information. It only serves as a convenience for you. 
               </p>
               <p>
-                Furthermore, you can always clear this information after each use with the reset buttons above the Toons, Combos, and Cog Sections on the Dashboard Page!
+                Furthermore, you can always clear this information after each use with the "Reset Gags" button on the Calculator page and the reset buttons above the Toons, Combos, and Cog Sections on the Recommendations Page!
               </p>
             </section>
             <section>
