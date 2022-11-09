@@ -13,13 +13,16 @@ export default function Changelog() {
           <div className='formatted-article'>
 
             <section>
-              <h3>2022-11-08</h3>
+              <h3>2022-11-09</h3>
               <h4>New Gag Calculator Page!</h4>
               <p>
-                Not everyone wants the combos recommendations provided by the dashboard page.
+                Sometimes it's easier to build your own combination of gags than it is to scroll through a list of recommendations.
                 That's why we've added a new calculator page to Gag Combos Info!
                 Choose any combination of gags for yourself on this page,
                 and the calculator will show you which cogs your combo will defeat.
+              </p>
+              <p>
+                Renamed "Dashboard" page to "Recommendations" to better reflect its purpose.
               </p>
             </section>
 
