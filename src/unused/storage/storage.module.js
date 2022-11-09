@@ -1,3 +1,4 @@
+import { initialCalculatorState } from "features/calculator/calculator.slice";
 import { initialCogState } from "features/cog/cog.slice";
 import { initialCombosState } from "features/combos/combos.slice";
 import { initialGagState } from "features/gag/gag.slice";
@@ -7,11 +8,12 @@ import { initialToonState } from "features/toons/toons.slice";
 /**
  * Problem with this class,
  * it only resolves changes to the keys and structure of the object.
- * If ever a key's VALUE's type changes, it will not be caught by this.
+ * If ever a key's value's TYPE changes, it will not be caught by this.
 */
 export default class Storage {
   constructor() {
     this.schema = {
+      calculator: initialCalculatorState,
       cog: initialCogState,
       combos: initialCombosState,
       gag: initialGagState,

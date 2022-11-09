@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialCalculatorState = {
+export const initialCalculatorState = {
   gagslist: [],
   hoveredGag: null,
   orgToggle: false,
