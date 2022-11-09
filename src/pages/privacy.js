@@ -12,7 +12,7 @@ export default function PrivacyPolicy() {
 
           <div className='standard-heading'>
             <h2>Privacy Policy</h2>
-            <i>Last Updated: 2022-10-26</i>
+            <i>Last Updated: 2022-11-09</i>
           </div>
           
 
