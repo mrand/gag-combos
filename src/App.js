@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, createContext } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
-import Home from 'pages';
+import Home from 'pages/home';
 import Dashboard from 'pages/dashboard';
 import Calculator from 'pages/calculator';
 import Changelog from 'pages/changelog';
