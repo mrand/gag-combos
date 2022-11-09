@@ -4,7 +4,6 @@ const initialCalculatorState = {
   gagslist: [],
   hoveredGag: null,
   orgToggle: false,
-  // totalDamage: 0,
   isV2: false
 }
 

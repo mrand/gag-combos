@@ -2,11 +2,11 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { resetGags, addGag } from 'features/calculator/calculator.slice';
 import { trackColors, Gag } from 'features/gag';
-import HoverBox from '../hover-box';
+import { HoverBox } from 'features/gag/components';
 import { ToggleOrganic } from 'features/gag/components';
 import { GagButton } from 'features/gag/components';
-import GagsList from '../gags-list';
-import DamageCount from '../damage-count';
+import { GagsList } from 'features/gag/components';
+import { DamageCount } from 'features/combo/components';
 import './index.css';
 
 
