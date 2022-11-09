@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import './index.css';
 
 
@@ -6,32 +7,15 @@ export default function Help() {
     <section id='help' className='with-grid-bg'>
       <div className='wrapper flex'>
         <div className='left'>
-          <h2>How to Use</h2>
-          <ul>
-            <li>
-              Configure the number of toons and their organic gags using the "Toons" section.
-            </li>
-            <li>
-              Use the "Cog" section to set the cog level and whether or not it is currently lured.
-            </li>
-            <li>
-              The "Combos" section will display the gag combos that will defeat your cog!
-            </li>
-            <li>
-              You can use the combos section filters to display only certain types of combos
-              or to filter out gag tracks you don't want to use.
-            </li>
-          </ul>
-          <i>Note: This utility is only for Toontown Rewritten!</i>
+          <h2>Need Help?</h2>
+          <Link to="/faq">Frequently Asked Questions</Link>
+          <Link to="/changelog">Changelog</Link>
+          <i>Note: This utility is currently only for Toontown Rewritten!</i>
         </div>
         <div className='right'>
           <h2>New to Toontown?</h2>
-          <a href='https://toontownrewritten.com/'>
-            Toontown Rewritten Homepage
-          </a>
-          <a href='https://toontownrewritten.fandom.com/wiki/Gags'>
-            TTR Gags Wiki
-          </a>
+          <Link to="https://toontownrewritten.com/">Toontown Rewritten Homepage</Link>
+          <Link to="https://toontownrewritten.fandom.com/wiki/Gags">TTR Gags Wiki</Link>
         </div>
       </div>
     </section>

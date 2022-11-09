@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import CombosVisual from '../combos-visual';
 import './index.css';
 
@@ -9,19 +10,15 @@ export default function Intro() {
         <div className='left'>
           <h2>Welcome!</h2>
           <p>
-            Welcome to Gag Combos Info, your new go-to dashboard
-            for finding the perfect combinations of gags to defeat the cogs! 
+            Welcome to Gag Combos Info, your new go-to resource
+            for finding the perfect combinations of gags to defeat the cogs!
           </p>
-          <br />
           <p>
-            Use the Combo Picker Dashboard to find gag combos for...
+            Get recommended combos for any situation on the "Recommendations" page or 
+            build your own combos on the "Calculator" page!
           </p>
-          <ul>
-            <li>Any Cog Level 1 through 20</li>
-            <li>Any Number of Toons</li>
-            <li>Any Set of Organic Gags</li>
-            <li>Any Combination of Gag Tracks</li>
-          </ul>
+          <Link to="/recommendations">Combos Recommendations</Link>
+          <Link to="/calculator">Gag Calculator</Link>
         </div>
         <div className='right'>
           <CombosVisual />
