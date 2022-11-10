@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { setHoveredGag } from 'features/calculator/calculator.slice';
+import { setHoveredGag } from 'features/calculator';
 import './index.css';
 import { OrganicIcon } from 'features/gag/components/gag-cell';
 

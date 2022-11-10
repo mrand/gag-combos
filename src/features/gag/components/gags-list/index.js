@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteGag, setHoveredGag } from 'features/calculator/calculator.slice';
+import { deleteGag, setHoveredGag } from 'features/calculator';
 import './index.css';
 import { Gag } from 'features/gag';
 import { GagButton } from 'features/gag/components';

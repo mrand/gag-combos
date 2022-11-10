@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { resetCog, setCog, toggleCogV2 } from 'features/recommendations/recommendations.slice';
+import { resetCog, setCog, toggleCogV2 } from 'features/recommendations';
 import './cog.component.css';
 import Cog from './cog.module';
 import ResetButton from 'features/ui/reset-button';

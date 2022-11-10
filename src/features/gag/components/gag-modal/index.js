@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { resetGagModal } from "features/recommendations/recommendations.slice";
+import { resetGagModal } from "features/recommendations";
 import './index.css';
 import { OrganicIcon } from "../gag-cell";
 import { trackColors, Gag } from "features/gag";

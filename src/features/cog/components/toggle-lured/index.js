@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleCogLured } from 'features/recommendations/recommendations.slice';
+import { toggleCogLured } from 'features/recommendations';
 import Toggle from 'features/ui/toggle';
 import './index.css';
 

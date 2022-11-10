@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleV2 } from 'features/calculator/calculator.slice';
+import { toggleV2 } from 'features/calculator';
 import { Cog } from 'features/cog';
 import { Gag } from 'features/gag';
 import { Combo } from 'features/combo';

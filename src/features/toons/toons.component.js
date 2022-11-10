@@ -1,6 +1,6 @@
 import React, { useState, useReducer } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { resetToons, toggleToonActive, updateToonOrganic } from 'features/recommendations/recommendations.slice';
+import { resetToons, toggleToonActive, updateToonOrganic } from 'features/recommendations';
 import './toons.component.css';
 import ResetButton from 'features/ui/reset-button';
 import SliderButton from 'features/ui/slider-button';

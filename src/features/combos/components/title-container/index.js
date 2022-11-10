@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { resetCombos, setComboType, toggleGagTrack, toggleCombosExpanded } from 'features/recommendations/recommendations.slice';
+import { resetCombos, setComboType, toggleGagTrack, toggleCombosExpanded } from 'features/recommendations';
 import './index.css';
 import ResetButton from 'features/ui/reset-button';
 import SliderButton from 'features/ui/slider-button';

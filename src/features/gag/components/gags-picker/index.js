@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { resetGags, addGag } from 'features/calculator/calculator.slice';
+import { resetGags, addGag } from 'features/calculator';
 import { trackColors, Gag } from 'features/gag';
 import { HoverBox } from 'features/gag/components';
 import { ToggleOrganic } from 'features/gag/components';

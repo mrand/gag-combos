@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { setGagModal } from 'features/recommendations/recommendations.slice';
+import { setGagModal } from 'features/recommendations';
 import './index.css';
 import { trackColors } from '../../gag.data';
 
