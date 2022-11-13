@@ -50,7 +50,7 @@ export default class Cog {
   _getImageName() {
     let suitConf = this.suit.toLowerCase();
     let cogConf = this.cog.replace(/[-&. ]/g,'').toLowerCase();
-    return `./img/cogs/${suitConf}-${cogConf}.webp`;
+    return `/img/cogs/${suitConf}-${cogConf}.webp`;
   }
 
   toString() {
