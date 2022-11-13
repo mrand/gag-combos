@@ -1,13 +1,12 @@
 #page.not-found .with-grid-bg { height: 100%; }
 
 #page.not-found .formatted-article {
-  /* text-align: center; */
-  background: var(--red-600);
-  border-color: var(--red-600);
-  box-shadow: 3px 3px 0 3px var(--red-700);
+  background: var(--grey-600);
+  border-color: var(--grey-600);
+  box-shadow: 3px 3px 0 3px var(--grey-700);
 }
 #page.not-found .formatted-article section {
-  border-color: var(--red-600);
+  border-color: var(--grey-600);
 }
 
 #page.not-found .formatted-article a {
@@ -22,7 +21,6 @@
 }
 
 #page.not-found .cog-grid {
-  background: var(--red-600);
   display: flex;
   justify-content: center;
   padding: 4px;
