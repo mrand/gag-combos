@@ -3,7 +3,6 @@
 #page.not-found .formatted-article {
   background: var(--grey-600);
   border-color: var(--grey-600);
-  box-shadow: 3px 3px 0 3px var(--grey-700);
 }
 #page.not-found .formatted-article section {
   border-color: var(--grey-600);
