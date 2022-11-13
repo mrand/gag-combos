@@ -16,12 +16,8 @@ export default function Changelog() {
               <h3>2022-11-13</h3>
               <h4>404 Page</h4>
               <p>
-                We've noticed some suspicious cog activity on the outskirts of Gag Combos Info.
-                Although we are keeping an eye out, Toons should use extreme caution when navigating uncharted territory.
-              </p>
-              <p>
-                (Previously, 404 would simply redirect you to the homepage. 
-                Now, a custom 404 page lets users know the page they are trying to visit doesn't exist.)
+                Added a new 404 page to let you know if the page you are trying to visit doesn't exist.
+                (Previously, a 404 error would simply redirect you to the homepage.) 
               </p>
             </section>
 
