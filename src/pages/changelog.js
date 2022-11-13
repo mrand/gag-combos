@@ -13,6 +13,19 @@ export default function Changelog() {
           <div className='formatted-article'>
 
             <section>
+              <h3>2022-11-13</h3>
+              <h4>404 Page</h4>
+              <p>
+                We've noticed some suspicious cog activity on the outskirts of Gag Combos Info.
+                Although we are keeping an eye out, Toons should use extreme caution when navigating uncharted territory.
+              </p>
+              <p>
+                (Previously, 404 would simply redirect you to the homepage. 
+                Now, a custom 404 page lets users know the page they are trying to visit doesn't exist.)
+              </p>
+            </section>
+
+            <section>
               <h3>2022-11-09</h3>
               <h4>New Gag Calculator Page!</h4>
               <p>

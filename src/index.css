@@ -53,6 +53,7 @@ html {
   --red-400: #fd3902;
   --red-500: #d82e00;
   --red-600: #8b1e00;
+  --red-700: #701800;
   --yellow-500: #fad922;
   --green-400: #07a129;
   --green-500: #07781f;
@@ -158,6 +159,7 @@ button.warn:hover { box-shadow: 0 0 4px var(--red-600) inset; }
   border: 8px solid var(--blue-600);
   border-radius: 20px;
   padding: 16px;
+  width: 100%;
 }
 .formatted-article section > *:not(h3) {
   margin-top: 8px;
@@ -218,8 +220,14 @@ li { margin-left: 1em; }
 
 /* add a graph paper bg to elements */
 .with-grid-bg {
-  background-color: #f3f3f3;
-  background-image: linear-gradient(#e4e4e4 2px, transparent 2px), linear-gradient(90deg, #e4e4e4 2px, transparent 2px), linear-gradient(#e4e4e4 1px, transparent 1px), linear-gradient(90deg, #e4e4e4 1px, #f3f3f3 1px);
+  --bg: #f3f3f3;
+  --fg: #e4e4e4;
+  background-color: var(--bg);
+  background-image: 
+    linear-gradient(var(--fg) 2px, transparent 2px), 
+    linear-gradient(90deg, var(--fg) 2px, transparent 2px), 
+    linear-gradient(var(--fg) 1px, transparent 1px), 
+    linear-gradient(90deg, var(--fg) 1px, var(--bg) 1px);
   background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
   background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
 }

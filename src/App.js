@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, createContext } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from 'pages/home';
 import Dashboard from 'pages/recommendations';
@@ -7,6 +7,7 @@ import Calculator from 'pages/calculator';
 import Changelog from 'pages/changelog';
 import PrivacyPolicy from 'pages/privacy';
 import FAQ from 'pages/faq';
+import NotFound from 'pages/not-found';
 
 
 const throttle = (func, delay) => {
@@ -25,6 +26,7 @@ const throttle = (func, delay) => {
 
 
 export const PageSizeContext = createContext();
+
 
 export default function App() {
   let windowWidth = useRef(window.innerWidth);
@@ -50,10 +52,7 @@ export default function App() {
   const mobileOrDesktop = isMobile ? 'mobile' : 'desktop';
   return (
     <PageSizeContext.Provider value={mobileOrDesktop}>
-      <div 
-        id='page-wrap'
-        className={mobileOrDesktop}
-      >
+      <div id='page-wrap' className={mobileOrDesktop}>
 
         <BrowserRouter>
           <Routes>
@@ -63,16 +62,12 @@ export default function App() {
             <Route path="/changelog" element={<Changelog />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/faq" element={<FAQ />} />
-            {/* 404 - redirect to Home */}
-            <Route 
-              path="*" 
-              element={<Navigate replace to="/" />} 
-            />
+            {/* 404 */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
 
       </div>
     </PageSizeContext.Provider>
-    
   );
 }
