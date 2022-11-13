@@ -81,7 +81,7 @@ export default class Gag {
     let trackConf = this.track.split('-').join('').toLowerCase();
     let nameConf = this.name.split('$').join('').split(' ').join('_');
 
-    return (`./img/gags/${trackConf}-${nameConf}.png`);
+    return (`/img/gags/${trackConf}-${nameConf}.png`);
   }
 
   /**
