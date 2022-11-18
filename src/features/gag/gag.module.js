@@ -78,8 +78,8 @@ export default class Gag {
     // Pass image doesn't adhere to naming format
     if (this.name === 'Pass') return './img/gags/Pass.png';
 
-    let trackConf = this.track.split('-').join('').toLowerCase();
-    let nameConf = this.name.split('$').join('').split(' ').join('_');
+    let trackConf = this.track.replace(/-/g,'').toLowerCase();
+    let nameConf = this.name.replace(/[$ ]/g,'').toLowerCase();
 
     return (`/img/gags/${trackConf}-${nameConf}.png`);
   }

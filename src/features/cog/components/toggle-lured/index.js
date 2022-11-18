@@ -18,7 +18,7 @@ export default function ToggleLured() {
         )
       }
       <Toggle 
-        icon={<img src='./img/gags/lure-10_Bill.png' alt='$10 Bill Lure Gag' />}
+        icon={<img src='./img/gags/lure-10bill.png' alt='$10 Bill Lure Gag' />}
         active={isLured}
         clickHandler={() => dispatch(toggleCogLured())}
         infoText="Toggle Cog Lured"

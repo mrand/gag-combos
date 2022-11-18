@@ -50,13 +50,13 @@ function GagToggles() {
   const gagFilters = useSelector((state) => state.recommendations.combos.filters);
 
   let trackImgs = {
-    'Toon-Up': './img/gags/toonup-Feather.png',
-    'Trap':    './img/gags/trap-Banana_Peel.png',
-    'Lure':    './img/gags/lure-1_Bill.png',
-    'Sound':   './img/gags/sound-Bike_Horn.png',
-    'Throw':   './img/gags/throw-Cupcake.png',
-    'Squirt':  './img/gags/squirt-Squirting_Flower.png',
-    'Drop':    './img/gags/drop-Flower_Pot.png'
+    'Toon-Up': './img/gags/toonup-feather.png',
+    'Trap':    './img/gags/trap-bananapeel.png',
+    'Lure':    './img/gags/lure-1bill.png',
+    'Sound':   './img/gags/sound-bikehorn.png',
+    'Throw':   './img/gags/throw-cupcake.png',
+    'Squirt':  './img/gags/squirt-squirtingflower.png',
+    'Drop':    './img/gags/drop-flowerpot.png'
   };
   return (
     <div className='btns gag-toggles'>

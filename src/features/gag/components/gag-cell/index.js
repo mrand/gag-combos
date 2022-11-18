@@ -22,7 +22,7 @@ function GagImageAndName({ gag }) {
         <>
           <img 
             className='gag-icon'
-            src={'./img/gags/lure-10_bill.png'} 
+            src={'./img/gags/lure-10bill.png'} 
             alt={'Organic $10 Bill'} 
           />
           <b className='gag-name'>Lure (Any)</b>
