@@ -1,25 +1,23 @@
 import React from 'react';
 import './index.css';
-import gagsObj from 'features/gags/data/gags.data.json';
-import gagColors from 'features/gags/data/gag-colors.data.json';
-import { Gag } from 'features/gags/modules';
+import { trackColors, gagsData, Gag } from 'features/gag';
 // import Header from 'components/header';
 
 
 function parseJSON() {
-  let tracks = Object.keys(gagsObj["Organic"]);
+  let tracks = Object.keys(trackColors);
   let thisTrack;
   let thisGag;
 
   let gagImages = [];
   tracks.forEach((track, j) => {
-    thisTrack = gagsObj['Non-Organic'][track];
+    thisTrack = gagsData[track];
     thisTrack.forEach((gag, k) => {
       thisGag = new Gag(track, k+1, false);
       gagImages.push({
         "name": thisGag.name,
         "src":  thisGag.image,
-        "bg":   gagColors[thisGag.track]
+        "bg":   trackColors[thisGag.track]
       });
     })
   })
