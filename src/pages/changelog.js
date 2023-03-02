@@ -13,6 +13,14 @@ export default function Changelog() {
           <div className='formatted-article'>
 
             <section>
+              <h3>2023-03-02</h3>
+              <h4>Fixed Broken Links</h4>
+              <p>
+                Fixed two broken links on the homepage.
+              </p>
+            </section>
+
+            <section>
               <h3>2022-11-13</h3>
               <h4>404 Page</h4>
               <p>
