@@ -14,8 +14,8 @@ export default function Help() {
         </div>
         <div className='right'>
           <h2>New to Toontown?</h2>
-          <a href="https://toontownrewritten.com/" target="_blank">Toontown Rewritten Homepage</a>
-          <a href="https://toontownrewritten.fandom.com/wiki/Gags" target="_blank">TTR Gags Wiki</a>
+          <a href="https://toontownrewritten.com/" target="_blank" rel="noopener noreferrer">Toontown Rewritten Homepage</a>
+          <a href="https://toontownrewritten.fandom.com/wiki/Gags" target="_blank" rel="noopener noreferrer">TTR Gags Wiki</a>
         </div>
       </div>
     </section>
