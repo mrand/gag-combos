@@ -31,6 +31,7 @@
     ],
     "notLured": [
       ["Trap", "Lure"],
+      ["Lure", "Sound"],
       ["Lure", "Throw"],
       ["Lure", "Squirt"]
     ],
@@ -59,6 +60,7 @@
       ["Trap", "Lure", "Throw"],
       ["Trap", "Lure", "Squirt"],
       ["Trap", "Lure", "Drop"],
+      ["Lure", "Sound", "Sound"],
       ["Lure", "Throw", "Throw"],
       ["Lure", "Throw", "Squirt"],
       ["Lure", "Throw", "Drop"],
@@ -105,6 +107,7 @@
       ["Trap", "Lure", "Squirt", "Squirt"],
       ["Trap", "Lure", "Squirt", "Drop"],
       ["Trap", "Lure", "Drop", "Drop"],
+      ["Lure", "Sound", "Sound", "Sound"],
       ["Lure", "Throw", "Throw", "Throw"],
       ["Lure", "Throw", "Throw", "Squirt"],
       ["Lure", "Throw", "Throw", "Drop"],

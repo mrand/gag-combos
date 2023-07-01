@@ -110,18 +110,6 @@ import combos from 'features/combos/combos.data.json';
       });
     }
 
-    // remove combos with lure and sound but no trap
-    // (some lure trap sound combos remove trap while optimizing, making the lure useless)
-    recSolns = recSolns.filter(function (combo) { 
-      return (
-        !(
-          Object.keys(combo.counts).includes('Lure') && 
-          Object.keys(combo.counts).includes('Sound') &&
-          !Object.keys(combo.counts).includes('Trap')
-        )
-      ) 
-    });
-
     // optional filter - recommend best combos
     if (this.comboType === 'Best') {
 
