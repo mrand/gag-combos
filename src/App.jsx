@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef, createContext } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './App.css';
 import Home from '~/pages/home';
 import Dashboard from '~/pages/recommendations';
 import Calculator from '~/pages/calculator';

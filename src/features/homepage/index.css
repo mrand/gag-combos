@@ -6,3 +6,18 @@
 #page.home :not(footer) .flex > * > * {
   margin-bottom: 16px;
 }
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.desktop .flex {
+  gap: 48px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.flex > * { width: 100%; }
+
+.mobile .flex .right { text-align: center; }
+.desktop .flex .right { text-align: right; }
