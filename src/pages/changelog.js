@@ -13,6 +13,18 @@ export default function Changelog() {
           <div className='formatted-article'>
 
             <section>
+              <h3>2023-07-04</h3>
+              <h4>Combo Recommendation Descriptions & Warnings</h4>
+              <p>
+                Added text descriptions and warnings for some combos that are considered good or bad strategy.
+                A Combo Card's Info button will now be colored green if it is marked as good and has a description,
+                or red if it is marked as bad and has a warning.
+                Clicking the combo's info button will reveal the text description or warning (if it exists)
+                alongside the gags' details. 
+              </p>
+            </section>
+
+            <section>
               <h3>2023-03-02</h3>
               <h4>Fixed Broken Links</h4>
               <p>
