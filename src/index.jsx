@@ -24,4 +24,3 @@ if ("serviceWorker" in navigator) {
   });
 }
 
-// test service worker 3
