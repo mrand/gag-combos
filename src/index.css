@@ -1,18 +1,18 @@
 @font-face {
   font-family: BowlbyOneSC;
-  src: url(/public/fonts/BowlbyOneSC-Regular.ttf);
+  src: url(/fonts/BowlbyOneSC-Regular.ttf);
   font-display: swap;
 }
 
 @font-face {
   font-family: Karla;
-  src: url(/public/fonts/Karla-Medium.ttf);
+  src: url(/fonts/Karla-Medium.ttf);
   font-display: swap;
 }
 
 @font-face {
   font-family: SpecialElite;
-  src: url(/public/fonts/SpecialElite-Regular.ttf);
+  src: url(/fonts/SpecialElite-Regular.ttf);
   font-display: swap;
 }
 
