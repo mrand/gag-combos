@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import '~/index.css';
-import App from '~/App';
-import store from '~/store';
+import 'index.css';
+import App from 'App';
+import store from 'store';
 import { Provider } from 'react-redux';
-import { registerSW } from 'virtual:pwa-register'
-import UpdateToast from '~/features/ui/update-toast';
+import * as serviceWorkerRegistration from 'serviceWorkerRegistration';
+import UpdateToast from 'features/ui/update-toast';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -18,6 +18,11 @@ root.render(
 );
 
 const toast = ReactDOM.createRoot(document.getElementById('toast'));
-registerSW({
-  onNeedRefresh() { toast.render(<UpdateToast />) }
+serviceWorkerRegistration.register({
+  onUpdate: registration => {
+    toast.render(<UpdateToast />);
+    if (registration && registration.waiting) {
+      registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+    }
+  }
 });
