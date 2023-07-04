@@ -15,7 +15,8 @@ export default defineConfig(() => {
     },
     plugins: [
       VitePWA({
-        registerType: 'autoUpdate',
+        registerType: 'prompt',
+        // registerType: 'autoUpdate',
       }),
       react()
     ],
