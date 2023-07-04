@@ -27,9 +27,8 @@
   display: flex;
   justify-content: center;
   gap: 8px;
-  padding: 8px;
+  padding: 8px 8px 0 8px;
   border-top: 2px solid var(--grey-400);
-  border-bottom: 2px solid var(--grey-400);
 }
 
 
@@ -41,23 +40,23 @@
 
 
 .combo-info {
-  border-radius: 12px;
+  --accent: var(--grey-600);
   padding: 8px;
   font-size: 0.9rem;
   line-height: 1.2rem;
-  color: var(--grey-600);
+  color: var(--accent);
+
+  border-width: 0 0 0 5px;
+  border-style: solid;
+  border-color: var(--accent);
 }
-.combo-info.bad {
-  background: var(--red-500);
-  color: var(--bg);
-}
-.combo-info.good {
-  background: var(--green-400);
-  color: var(--bg);
-}
+.combo-info.bad { --accent: var(--red-500); }
+.combo-info.good { --accent: var(--green-500); }
 
 
 .combo-stats {
+  border-top: 2px solid var(--grey-400);
+  padding-top: 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
