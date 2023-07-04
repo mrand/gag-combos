@@ -1,0 +1,14 @@
+{
+  "All Drop": {
+    "indicator": "bad",
+    "text": "Drop-only combos have low accuracy. Consider adding a stun gag (Trap + Lure, Sound, Throw, or Squirt) to increase the accuracy."
+  },
+  "Lure-Sound and Throw-Squirt": {
+    "indicator": "bad",
+    "text": "Using Sound on a Lured cog before other toons use Throw or Squirt prevents those gags from having 1.5x Lure knockback damage. Consider having all toons use the same gag track on the Lured cog."
+  },
+  "Lure-Sound Only": {
+    "indicator": "good",
+    "text": "Although it is a bad idea to use Sound on Lured cogs if other toons are using Throw and Squirt, using Lure before all other toons use Sound will ensure that the Sound gags hit (assuming the Lure doesn't miss)."
+  }
+}

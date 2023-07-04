@@ -19,14 +19,13 @@ function ComboHeading({ solutionTracks }) {
 }
 
 
-function ComboGags({ combo, isDropOnly }) {
+function ComboGags({ combo }) {
   return (
     <div className='combo-gags'>
       {combo.gags.map((gag, j) => (
         <GagCell 
           key={j} 
           gag={gag} 
-          isDropOnly={isDropOnly} 
         />
       ))}
     </div>
@@ -38,8 +37,7 @@ export default function ComboCell({ combo, isOnly, cellNum, cellStates, setCellS
   const expanded = useSelector((state) => state.recommendations.combos.expanded);
   let thisExpanded = cellStates[cellNum];
   let solutionTracks = Object.keys(combo.counts);
-
-  let isDropOnly = JSON.stringify(solutionTracks)===JSON.stringify(['Drop']);
+  let infoIndicator = combo.info.indicator;
 
   return (
     <div 
@@ -50,10 +48,15 @@ export default function ComboCell({ combo, isOnly, cellNum, cellStates, setCellS
         {/* heading */}
         <ComboHeading solutionTracks={solutionTracks} />
         {/* gags */}
-        <ComboGags 
-          combo={combo} 
-          isDropOnly={isDropOnly}
-        />
+        <ComboGags combo={combo} />
+        {/* Info */}
+        {
+          infoIndicator && thisExpanded && (
+            <div className={'combo-info ' + combo.info.indicator}>
+             {combo.info.text} 
+            </div>
+          )
+        }
         {/* stats */}
         <div 
           className='combo-stats'
@@ -68,7 +71,7 @@ export default function ComboCell({ combo, isOnly, cellNum, cellStates, setCellS
           {
             !expanded ? (
               <button
-                className={'expand-btn' + (isDropOnly ? ' warn' : '')}
+                className={'expand-btn' + (infoIndicator ? ' '+infoIndicator : '')}
                 onClick={() => {
                   let newCellStates = [...cellStates];
                   newCellStates[cellNum] = !newCellStates[cellNum];

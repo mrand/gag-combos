@@ -40,6 +40,23 @@
 }
 
 
+.combo-info {
+  border-radius: 12px;
+  padding: 8px;
+  font-size: 0.9rem;
+  line-height: 1.2rem;
+  color: var(--grey-600);
+}
+.combo-info.bad {
+  background: var(--red-500);
+  color: var(--bg);
+}
+.combo-info.good {
+  background: var(--green-400);
+  color: var(--bg);
+}
+
+
 .combo-stats {
   display: flex;
   justify-content: space-between;

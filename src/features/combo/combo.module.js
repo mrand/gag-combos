@@ -1,3 +1,5 @@
+import comboInfo from 'features/combo/combo.data.json';
+
 export default class Combo {
   /**
    * @param {Cog} cog Cog object
@@ -12,6 +14,10 @@ export default class Combo {
     this.counts = this._countGagsByTrack();
     this.totalDamage = 0;
     this.defeatsCog = false;
+    this.info = {
+      indicator: null,
+      text: []
+    };
     this.tryCombo();
   }
 
@@ -51,6 +57,38 @@ export default class Combo {
       return true;
     }
     return false;
+  }
+
+
+  /**
+   * Add warnings or extra information about the combo if applicable.
+  */ 
+  getDetailedInfo() {
+
+    const thisComboTracks = JSON.stringify(Object.keys(this.counts)); 
+
+    // Drop Only
+    if (thisComboTracks === JSON.stringify(['Drop'])) {
+      this.info = comboInfo['All Drop'];
+    }
+
+    // Sound on Lured Cogs before Throw/Squirt
+    if (
+      [
+        JSON.stringify(['Lure', 'Sound', 'Throw']),
+        JSON.stringify(['Lure', 'Sound', 'Squirt']),
+        JSON.stringify(['Lure', 'Sound', 'Throw', 'Squirt']),
+      ]
+      .includes(thisComboTracks)
+    ) {
+      this.info = comboInfo['Lure-Sound and Throw-Squirt'];
+    }
+
+    // Lure and Sound Only - Secured Sound
+    if (thisComboTracks === JSON.stringify(['Lure', 'Sound'])) {
+      this.info = comboInfo['Lure-Sound Only'];
+    }
+    
   }
 
 

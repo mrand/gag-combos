@@ -43,7 +43,7 @@ function GagImageAndName({ gag }) {
 }
 
 
-function GagStats({ gag, isDropOnly=false }) {
+function GagStats({ gag }) {
   return (
     <div className='gag-stats'>
       {(gag.name === 'Pass') ? (null) : (
@@ -56,11 +56,7 @@ function GagStats({ gag, isDropOnly=false }) {
           ) : (
             <>
               <span><b>Dmg:</b> {gag.damage}</span>
-              <span 
-                style={isDropOnly ? {color: 'var(--red-500)'} : {}}
-              >
-                <b>Acc:</b> {gag.accuracy*100}%
-              </span>
+              <span><b>Acc:</b> {gag.accuracy*100}%</span>
             </>
           )}
         </>
@@ -70,7 +66,7 @@ function GagStats({ gag, isDropOnly=false }) {
 }
 
 
-export default function GagCell({ gag, isDropOnly=false }) {
+export default function GagCell({ gag }) {
   const dispatch = useDispatch();
 
   return (
@@ -89,7 +85,7 @@ export default function GagCell({ gag, isDropOnly=false }) {
     >
       {(gag.organic==="Organic") ? <OrganicIcon /> : null}
       <GagImageAndName gag={gag} />
-      <GagStats gag={gag} isDropOnly={isDropOnly} />
+      <GagStats gag={gag} />
     </button>
   );
 }
