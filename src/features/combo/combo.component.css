@@ -41,14 +41,13 @@
 
 .combo-info {
   --accent: var(--grey-600);
-  padding: 8px;
+  border-color: var(--accent);
+  border-style: solid;
+  border-width: 0 0 0 4px;
+  color: var(--accent);
   font-size: 0.9rem;
   line-height: 1.2rem;
-  color: var(--accent);
-
-  border-width: 0 0 0 5px;
-  border-style: solid;
-  border-color: var(--accent);
+  padding: 8px;
 }
 .combo-info.bad { --accent: var(--red-500); }
 .combo-info.good { --accent: var(--green-500); }
