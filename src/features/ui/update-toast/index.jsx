@@ -14,9 +14,6 @@ export default function UpdateToast() {
           <h2>Gag Combos Info has an Update!</h2>
           <p>View the Changelog page for more information.</p>
           <button onClick={() => window.location.reload()}>Close</button>
-          <p style="display:none;">
-            Test Update Toast Trigger Service Worker
-          </p>
         </div>
       </div>
     </div>
