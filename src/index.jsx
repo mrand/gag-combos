@@ -18,6 +18,9 @@ root.render(
 );
 
 const toast = ReactDOM.createRoot(document.getElementById('toast'));
-registerSW({
-  onNeedRefresh() { toast.render(<UpdateToast />) }
-});
+if ("serviceWorker" in navigator) {
+  const updateSW = registerSW({
+    onNeedRefresh() { toast.render(<UpdateToast />) }
+  });
+}
+
