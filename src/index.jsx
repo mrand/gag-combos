@@ -21,5 +21,3 @@ const toast = ReactDOM.createRoot(document.getElementById('toast'));
 registerSW({
   onNeedRefresh() { toast.render(<UpdateToast />) }
 });
-
-// test
