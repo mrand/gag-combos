@@ -113,9 +113,9 @@ import combos from '~/features/combos/combos.data.json';
     // optional filter - recommend best combos
     if (this.comboType === 'Best') {
 
-      // Remove Drop-Only Combos
+      // Remove Combos Marked as Bad
       recSolns = recSolns.filter(function (combo) { 
-        return JSON.stringify(Object.keys(combo.counts)) !== JSON.stringify(['Drop']);
+        return (combo.info.indicator !== 'bad');
       });
 
       // Sort Combos by Total Damage
