@@ -69,7 +69,7 @@ export default function ComboCell({ combo, isOnly, cellNum, cellStates, setCellS
             > {combo.totalDamage} / {combo.cogHP}</span>
           </h4>
           {
-            !expanded ? (
+            !expanded && (
               <button
                 className={'expand-btn' + (infoIndicator ? ' '+infoIndicator : '')}
                 onClick={() => {
@@ -94,8 +94,6 @@ export default function ComboCell({ combo, isOnly, cellNum, cellStates, setCellS
                   )
                 }
               </button>
-            ) : (
-              null
             )
           }
         </div>
