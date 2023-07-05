@@ -208,7 +208,6 @@ export default class FindCombo {
 
           // update tempCombo and check
           tempCombo = new Combo(cog, comboGagsCopy, this.isLured);
-          tempCombo.tryCombo();
           if (tempCombo.defeatsCog) { 
             combo = tempCombo; 
             comboGags = [...comboGagsCopy];
@@ -229,8 +228,6 @@ export default class FindCombo {
         throw new Error('Welp, the while loop was stuck iterating downwards.'); 
       }
     }
-
-    combo.getDetailedInfo();
 
     return combo;
   }

@@ -32,7 +32,25 @@ export default class Combo {
     return counts;
   }
 
-  tryCombo() {
+  /**
+   * Add warnings or extra information about the combo if applicable.
+  */ 
+  _getDetails() {
+    // generate a key from this combo's unique gag tracks
+    const thisInfoKey = Object.keys(this.counts)
+      .join('-')
+      .toLowerCase();
+    if (!comboInfo["mapsToData"][thisInfoKey]) return false;
+
+    // use the key to get the map to any descriptions/warnings
+    const infoMap = comboInfo["mapsToData"][thisInfoKey];
+    if (!comboInfo["data"][infoMap]) return false;
+    
+    // set descriptions/warnings for this combo
+    this.info = comboInfo["data"][infoMap];
+  }
+
+  _getDamage() {
     // Get Dud, Lured, and Combo Multiplier Damages
     let mainDamage = 0;   // main multiplier damage
     let luredDamage = 0;  // lured multiplier damage
@@ -50,47 +68,20 @@ export default class Combo {
       comboDamage += (actualDamage * gagComboMultiplier);
     });
 
-    // Get Total Damage
+    // Check Total Damage
     this.totalDamage = mainDamage + Math.ceil(luredDamage) + Math.ceil(comboDamage);
-    if (this.totalDamage >= this.cogHP) {
-      this.defeatsCog = true;
-      return true;
-    }
-    return false;
+
+    // defeats cog
+    if (this.totalDamage >= this.cogHP) this.defeatsCog = true;
   }
 
+  tryCombo() {
+    this._getDamage();
+    if (!this.defeatsCog) return false;
 
-  /**
-   * Add warnings or extra information about the combo if applicable.
-  */ 
-  getDetailedInfo() {
-
-    const thisComboTracks = JSON.stringify(Object.keys(this.counts)); 
-
-    // Drop Only
-    if (thisComboTracks === JSON.stringify(['Drop'])) {
-      this.info = comboInfo['All Drop'];
-    }
-
-    // Sound on Lured Cogs before Throw/Squirt
-    if (
-      [
-        JSON.stringify(['Lure', 'Sound', 'Throw']),
-        JSON.stringify(['Lure', 'Sound', 'Squirt']),
-        JSON.stringify(['Lure', 'Sound', 'Throw', 'Squirt']),
-      ]
-      .includes(thisComboTracks)
-    ) {
-      this.info = comboInfo['Lure-Sound and Throw-Squirt'];
-    }
-
-    // Lure and Sound Only - Secured Sound
-    if (thisComboTracks === JSON.stringify(['Lure', 'Sound'])) {
-      this.info = comboInfo['Lure-Sound Only'];
-    }
-    
+    this._getDetails();  // get combo details
+    return true;
   }
-
 
   toString() {
     return (
