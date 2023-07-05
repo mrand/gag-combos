@@ -77,8 +77,8 @@ export default function ComboCell({ combo, isOnly, cellNum, cellStates, setCellS
                   newCellStates[cellNum] = !newCellStates[cellNum];
                   setCellStates(newCellStates);
                 }}
-                aria-label={"Toggle Gag Info"}
-                title={"Toggle Gag Info"}
+                aria-label={"Toggle Combo Info"}
+                title={"Toggle Combo Info"}
               >
                 {
                   thisExpanded ? (
