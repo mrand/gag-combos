@@ -59,6 +59,7 @@ function GagStats({ gag }) {
               <span><b>Acc:</b> {gag.accuracy*100}%</span>
             </>
           )}
+          <span><b>AtkAcc:</b> {Math.round(gag.atkAcc*100)}%</span>
         </>
       )}
     </div>
@@ -71,6 +72,7 @@ export default function GagCell({ gag }) {
 
   return (
     <button 
+    title='View more details about this gag'
       className={'gag-cell' + (gag.organic==='Organic' ? ' org' : '')}
       style={{background: (trackColors[gag.track] || "")}}
       onClick={() => {

@@ -124,13 +124,26 @@ export default class FindCombo {
     // Initialize Combo with Level 1 Gags
     let comboGags = [];
     for (let i=0; i<this.numToons; i++) {
-      comboGags.push(
-        new Gag(
-          this.tracks[i],
-          1,
-          this.gags[i][0].organic
-        )
-      );
+      // special case, Lure - use level 5 gag since algorithm won't increment Lure
+      if (this.tracks[i] === "Lure") {
+        comboGags.push(
+          new Gag(
+            this.tracks[i],
+            5,
+            this.gags[i][0].organic
+          )
+        );
+      // normal case
+      } else {
+        comboGags.push(
+          new Gag(
+            this.tracks[i],
+            1,
+            this.gags[i][0].organic
+          )
+        );
+      }
+      
     }
 
     // Initialize Combo

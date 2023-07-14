@@ -24,7 +24,6 @@ export default function CombosGrid({ recommendCombos, cellStates, setCellStates 
               <ComboCell 
                 key={i}
                 combo={combo} 
-                isOnly={recommendCombos.recCombos.length===1}
                 cellNum={i}
                 cellStates={cellStates}
                 setCellStates={setCellStates}

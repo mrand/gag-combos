@@ -129,7 +129,7 @@ import combos from '~/features/combos/combos.data.json';
       // Reduce Number of Displayed Combos
       // combos with total damage below hp+threshold
       let tmp1 = recSolns.filter(function(combo) {
-        return combo.totalDamage <= combo.cogHP + Math.ceil(Math.sqrt(combo.cogHP)); 
+        return combo.totalDamage <= combo.cog.hp + Math.ceil(Math.sqrt(combo.cog.hp)); 
       });
       // if still more than 4 combos...
       if (tmp1.length > 4) {
@@ -140,6 +140,14 @@ import combos from '~/features/combos/combos.data.json';
         });
       }
       recSolns = tmp1;
+
+      // Sort Combos by Combo Accuracy
+      recSolns.sort(function(combo1, combo2) {
+        // equal damage combos sort equally
+        if (combo1.accuracy === combo2.accuracy) return 0;
+        // else sort by lowest to highest total damage
+        return (combo1.accuracy < combo2.accuracy) ? 1 : -1
+      });
     }
 
 

@@ -86,6 +86,127 @@ export default class Gag {
 
   /**
    * 
+   * @param {dict} counts A dictionary containing how many gags of each track are used in a particular combo.
+   * @param {boolean} isLured Whether or not the cog is lured.
+   * @param {int} cogLevel The cog's level.
+   */
+  getAccuracyWithCombo(counts, isLured, cog) {
+
+    /*
+    100% Accuracy Cases:
+    */
+    if (
+
+      // Pass
+      this.name === 'Pass' ||
+      
+      // Trap
+      this.track === 'Trap' ||
+
+      // Sound on Lured Cogs
+      (
+        (
+          !Object.keys(counts).includes('Trap') && 
+          Object.keys(counts).includes('Lure') &&
+          this.track === 'Sound'
+        ) || (
+          !Object.keys(counts).includes('Trap') && 
+          isLured &&
+          this.track === 'Sound'
+        )
+      ) ||
+      
+      // Throw on Lured Cogs
+      (
+        (
+          !Object.keys(counts).includes('Trap') && 
+          !Object.keys(counts).includes('Sound') && 
+          Object.keys(counts).includes('Lure') &&
+          this.track === 'Throw'
+        ) || (
+          !Object.keys(counts).includes('Trap') && 
+          !Object.keys(counts).includes('Sound') && 
+          isLured &&
+          this.track === 'Throw'
+        )
+      ) ||
+      
+      // Squirt on Lured Cogs
+      (
+        (
+          !Object.keys(counts).includes('Trap') && 
+          !Object.keys(counts).includes('Sound') && 
+          !Object.keys(counts).includes('Throw') && 
+          Object.keys(counts).includes('Lure') &&
+          this.track === 'Squirt'
+        ) || (
+          !Object.keys(counts).includes('Trap') && 
+          !Object.keys(counts).includes('Sound') && 
+          !Object.keys(counts).includes('Throw') && 
+          isLured &&
+          this.track === 'Squirt'
+        )
+      )
+    ) {
+      this.atkAcc = 1.0;
+      return;
+    }
+
+
+    // Proposed Accuracy := Gag's Base Accuracy
+    const propAcc = this.accuracy * 100;  
+
+
+    /*
+    Track Experience := (highest gag level in track - 1) * 10
+    Assume maximum track experience.
+    */
+    const trackExp = 60;
+
+
+    // Target Defense
+    const tgtDef = cog.tgtDef;
+
+
+    /*
+    Previous Hits
+    Assume all previous gags hit.
+    */
+    let prevHits = 0;  
+    for (const [track, count] of Object.entries(counts)) {
+      if (track === this.track) break;  // do not count current track
+      if (track !== 'Lure') {
+        prevHits += (20 * count);
+      }
+    }
+
+
+    /*
+    Lured Ratio := (number of lured cogs) / (total cogs in battle) * 100
+    Total cogs in battle assumed to be 1 for recommendations. 
+    */
+    let luredRatio = 0;
+    if (!(this.track in ['Toon-Up', 'Trap', 'Drop'])) {
+      if (
+        (
+          (this.track === 'Sound') ||
+          (this.level === 7 && this.track in ['Throw', 'Squirt'])
+        ) && (
+          isLured || 'Lure' in counts
+        )
+      ) {
+        luredRatio = 100;
+      }
+    }
+
+    const bonus = prevHits + luredRatio; 
+    const atkAcc = Math.min(propAcc + trackExp + tgtDef + bonus, 95) / 100;
+
+    this.atkAcc = atkAcc;
+  }
+
+  /**
+   * 
    * @param {dict} counts A dictionary containing how many gags of each track are used in a particular combo. 
    */
   getDamageWithMultiplier(counts, isLured) {

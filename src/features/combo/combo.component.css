@@ -1,5 +1,5 @@
 .combo-cell {
-  padding: 12px 24px;
+  padding: 16px 24px;
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -13,22 +13,23 @@
   grid-column-end: 3;
 }
 
-.combo-cell h3 { text-align: center; }
+.combo-cell hr { border: 1px solid var(--grey-400); }
+
+.combo-cell h3 {
+  line-height: 1em;
+  text-align: center;
+}
 
 .combo-cell.error-msg h3 {
   color: var(--red-500);
   margin-bottom: 0;
 }
 
-.combo-cell h4 { line-height: 1em; }
-
 .combo-gags {
   width: 100%;
   display: flex;
   justify-content: center;
   gap: 8px;
-  padding: 8px 8px 0 8px;
-  border-top: 2px solid var(--grey-400);
 }
 
 
@@ -37,7 +38,10 @@
   .combo-cell h3 { font-size: 16px; }
   .combo-cell.expanded .combo-gags { flex-direction: column; }
 }
-
+/* tiny phones */
+@media (max-width: 350px) {
+  .combo-cell .combo-gags { flex-direction: column; }
+}
 
 .combo-info {
   --accent: var(--grey-600);
@@ -53,13 +57,28 @@
 .combo-info.good { --accent: var(--green-500); }
 
 
-.combo-stats {
-  border-top: 2px solid var(--grey-400);
-  padding-top: 8px;
+.combo-footer {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
+  align-items: end;
+  gap: 8px;
+}
+
+.combo-stats {
+  flex-grow: 1;
+  display: grid;
+  gap: 8px;
+}
+
+
+.combo-stats h4 {
+  line-height: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5ch;
+}
+.stat-value {
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .expand-btn {
@@ -68,6 +87,7 @@
   width: 24px;
   height: 24px;
   padding: 0;
+  flex-shrink: 0;
 }
 .expand-btn svg {
   position: absolute;

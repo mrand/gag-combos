@@ -50,9 +50,9 @@ export default function CogsList() {
             return (
               <CogsListEntry 
                 key={i}
-                level={combo.cogLevel}
+                level={combo.cog.level}
                 isV2={isV2}
-                remainingHP={Math.max(combo.cogHP - combo.totalDamage, 0)}
+                remainingHP={Math.max(combo.cog.hp - combo.totalDamage, 0)}
               />
             );
           })

@@ -6,14 +6,13 @@ export default class Combo {
    * @param {Array<Gag>} gags Array of Gag objects
   */
   constructor(cog, gags, isLured=false) {
-    this.cogLevel = cog.level;
-    this.cogHP = cog.hp;
-    this.cogResistance = cog.gagResistance;
+    this.cog = cog;
     this.gags = gags;
     this.isLured = isLured;
     this.counts = this._countGagsByTrack();
     this.totalDamage = 0;
     this.defeatsCog = false;
+    this.accuracy = 1.0;
     this.info = {
       indicator: null,
       text: []
@@ -30,6 +29,24 @@ export default class Combo {
       }
     });
     return counts;
+  }
+
+  _getAccuracy() {
+    
+    let trackAccuracies = {};
+    this.gags.forEach((gag) => {
+      gag.getAccuracyWithCombo(this.counts, this.isLured, this.cog);
+      (gag.track in trackAccuracies)
+        ? trackAccuracies[gag.track].push(gag.atkAcc)
+        : trackAccuracies[gag.track] = [gag.atkAcc];
+    });
+
+    let comboAccuracy = 1;
+    for (let ta in trackAccuracies) {
+      comboAccuracy *= Math.max(...trackAccuracies[ta]);
+    }
+
+    this.accuracy = Math.round(comboAccuracy * 1000) / 10;
   }
 
   /**
@@ -59,7 +76,7 @@ export default class Combo {
     let gagLureMultiplier;   // (=0.5 if lured)
     let gagComboMultiplier;  // (=0.2 if combo)
     this.gags.forEach((gag) => {
-      let actualDamage = Math.max(gag.damage - this.cogResistance, 0);
+      let actualDamage = Math.max(gag.damage - this.cog.v2Resistance, 0);
       [
         gagDudMultiplier, gagLureMultiplier, gagComboMultiplier
       ] = gag.getDamageWithMultiplier(this.counts, this.isLured);
@@ -72,7 +89,7 @@ export default class Combo {
     this.totalDamage = mainDamage + Math.ceil(luredDamage) + Math.ceil(comboDamage);
 
     // defeats cog
-    if (this.totalDamage >= this.cogHP) this.defeatsCog = true;
+    if (this.totalDamage >= this.cog.hp) this.defeatsCog = true;
   }
 
   tryCombo() {
@@ -80,12 +97,13 @@ export default class Combo {
     if (!this.defeatsCog) return false;
 
     this._getDetails();  // get combo details
+    this._getAccuracy();  // get combo accuracy
     return true;
   }
 
   toString() {
     return (
-      `Combo: \nCog HP: ${this.cogHP} \nGags: [\n${
+      `Combo: \nCog HP: ${this.cog.hp} \nGags: [\n${
         this.gags.map(gag => `${gag}`).join(',\n')
       }\n]\nDamage: ${this.totalDamage}\nDefeats Cog: ${this.defeatsCog}`
     );

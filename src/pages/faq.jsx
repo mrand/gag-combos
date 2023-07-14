@@ -63,6 +63,80 @@ export default function FAQ() {
               </ul>
             </section>
             <section>
+              <h3>How is each Combo's probability calculated on the Recommendations Page?</h3>
+              <p>
+                In Toontown Rewritten, the probability that a gag hits a
+                cog is called <code>atkAcc</code>, or attack accuracy, 
+                and is defined as <code>
+                  atkAcc = propAcc + trackExp + tgtDef + bonus
+                </code>.
+                You can <a 
+                  className='no-style' 
+                  href="https://github.com/QED1224/Toontown-Resources/blob/master/README.md#toon-atk-acc"
+                  target="_blank" rel="noopener noreferrer"
+                >
+                  read about the specifics of this equation here
+                </a>.
+              </p>
+              <p>
+                Gag Combos Info (in its current state) must make some assumptions in this equation for each gag in a recommended gag combo 
+                in order to get the probability of the entire combo. Those assumptions are as follows:
+              </p>
+              <ul>
+                <li>
+                  <p>
+                    <code>propAcc</code> for Lure gags is assumed to be at its level 5 gag ($10 Bill) value.
+                    Lure gags have an accuracy range of 50% to 95%,
+                    and although recommending the level 7 Presentation gag would yield the highest accuracy,
+                    it is not usually a feasible option in-game, mostly being reserved for special cases.
+                    Hypno Goggles (level 6) and $10 Bill (level 5) have the next best accuracy, 70% normally and 80% for organic.
+                    Therefore, $10 Bill is used, yielding a 70% to 80% base Lure accuracy in all Lure combos. 
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <code>trackExp</code> is assumed to be at its maximum value of 60.
+                  </p>
+                  <p>
+                    Although this assumption inflates the probabilities of low-level gag combos,
+                    it gives more accurate probabilities relating to end-game scenarios 
+                    where high-level gag combos may utilize low-level gags.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <code>tgtDef</code> is capped at its level 12 value for level 13+ cogs.
+                  </p>
+                  <p>
+                    Toontown Rewritten support confirmed via email on 2023/07/10 that level 13+ tgtDef values
+                    are being kept secret to keep the mystery in Field Offices (the only in-game area containing level 13+ cogs).
+                    They also warned that these values are occasionally tweaked and subject to change,
+                    and that anyone claiming to know these values may be incorrect. Thus, Gag Combos Info 
+                    disregards hearsay that level 20 tgtDef is -65, instead opting to cap tgtDef at -55 for all 13+ cogs until further notice.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <code>prevHits</code> assumes all previous gags in the combo have hit.
+                    This is a necessary assumption to the probability that the entire combo is successful.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <code>luredRatio</code> assumes that there is exactly 1 cog in the battle.
+                    This is because the recommendations page recommends combos for a single cog. 
+                  </p>
+                </li>
+              </ul>
+              <p>
+              </p>
+              <p>
+                After obtaining each gag's probability, Gag Combos Info multiplies the gag probabilities together,
+                using only the maximum gag probability from groups of gags in the same track.
+                Lastly, this number is rounded to 1 decimal place.
+              </p>
+            </section>
+            <section>
               <h3>Does this Tool Work for Toontown: Coporate Clash?</h3>
               <p>
                 At this time, Gag Combos Info does NOT provide info about Corporate Clash, or any other Toontown servers.
