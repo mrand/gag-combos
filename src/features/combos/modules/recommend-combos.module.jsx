@@ -193,7 +193,7 @@ import combos from '~/features/combos/combos.data.json';
       return 'There is no cog to defeat! Use the \'Cog\' section to choose a level.';
     } else if (this.recCombos.length === 0) {
       if (this.comboType === 'Best') {
-        return 'No recommended "best" combos! Try the "All" filter instead.';
+        return 'No recommended "best" combos! Try another filter instead.';
       } else if (
         JSON.stringify(this.gagFilters) !== JSON.stringify({
           'Toon-Up': true,
