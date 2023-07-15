@@ -94,6 +94,8 @@ import combos from '~/features/combos/combos.data.json';
   }
 
   _filterSolns(recSolns) {
+    // Initial Filter
+    
     // remove non-unique combos
     recSolns = recSolns.reduce(function (p, c) {
       // if the next object's 'counts' is not found in the output array
@@ -110,14 +112,11 @@ import combos from '~/features/combos/combos.data.json';
       });
     }
 
-    // optional filter - recommend best combos
-    if (this.comboType === 'Best') {
 
-      // Remove Combos Marked as Bad
-      recSolns = recSolns.filter(function (combo) { 
-        return (combo.info.indicator !== 'bad');
-      });
-
+    // Custom Filters
+    
+    // Filter by Damage
+    if (this.comboType === 'Damage') {
       // Sort Combos by Total Damage
       recSolns.sort(function(combo1, combo2) {
         // equal damage combos sort equally
@@ -125,27 +124,47 @@ import combos from '~/features/combos/combos.data.json';
         // else sort by lowest to highest total damage
         return (combo1.totalDamage > combo2.totalDamage) ? 1 : -1
       });
+    }
 
-      // Reduce Number of Displayed Combos
-      // combos with total damage below hp+threshold
-      let tmp1 = recSolns.filter(function(combo) {
-        return combo.totalDamage <= combo.cog.hp + Math.ceil(Math.sqrt(combo.cog.hp)); 
-      });
-      // if still more than 4 combos...
-      if (tmp1.length > 4) {
-        // ...get combos with total damage <= 4th best combo
-        let combo4damage = tmp1[3].totalDamage;
-        tmp1 = tmp1.filter(function(combo) {
-          return combo.totalDamage <= combo4damage; 
-        });
-      }
-      recSolns = tmp1;
-
+    // Filter by Accuracy
+    if (this.comboType === 'Accuracy') {
       // Sort Combos by Combo Accuracy
       recSolns.sort(function(combo1, combo2) {
         // equal damage combos sort equally
         if (combo1.accuracy === combo2.accuracy) return 0;
         // else sort by lowest to highest total damage
+        return (combo1.accuracy < combo2.accuracy) ? 1 : -1
+      });
+    }
+
+    // Filter by Best
+    if (this.comboType === 'Best') {
+
+      // Reduce Number of Displayed Combos
+      recSolns = recSolns.filter(function(combo) {
+        return (
+          // remove combos marked as bad
+          combo.info.indicator !== 'bad'
+          // remove combos with total damage below hp+threshold
+          && combo.totalDamage <= combo.cog.hp + Math.ceil(Math.sqrt(combo.cog.hp) / 2)
+          // remove combos with accuracy below 90%
+          && combo.accuracy >= 90
+        ); 
+      });
+
+      // Sort Combos
+      recSolns.sort(function(combo1, combo2) {
+
+        // sort by damage for same accuracy combos 
+        if (combo1.accuracy === combo2.accuracy) {
+          return (combo1.totalDamage > combo2.totalDamage) ? 1 : -1;
+        }
+
+        // prefer combos with 100% accuracy
+        if (combo1.accuracy === 100) return -1;
+        if (combo2.accuracy === 100) return 1;
+
+        // sort by accuracy
         return (combo1.accuracy < combo2.accuracy) ? 1 : -1
       });
     }

@@ -42,18 +42,14 @@ function ComboStats({ combo, expanded }) {
           style={combo.totalDamage === combo.cog.hp ? {color: 'var(--green-500)'} : {}}
         >{combo.totalDamage} / {combo.cog.hp}</span>
       </h4>
-      {
-        expanded &&
-        <h4
-          title='Probability: Read more about this statistic on the FAQ page.'
-        >
-          Probability: <span 
-            className='stat-value'
-            style={combo.accuracy > 90 ? {color: 'var(--green-500)'} : {}}
-          >~{combo.accuracy}%</span>
-        </h4>
-      }
-      
+      <h4
+        title='Combo Accuracy: Read more about this statistic on the FAQ page.'
+      >
+        Accuracy: <span 
+          className='stat-value'
+          style={combo.accuracy > 90 ? {color: 'var(--green-500)'} : {}}
+        >~{combo.accuracy}%</span>
+      </h4>
     </div>
   );
 }

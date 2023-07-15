@@ -32,6 +32,24 @@ function MainFilters({ cellStates, setCellStates }) {
         title={"Show Basic Combos"}
       >Basic</button>
       <button
+        className={comboType==='Damage' ? 'active' : ''}
+        onClick={() => {
+          dispatch(setComboType('Damage'));
+          setCellStates(new Array(cellStates.length).fill(expanded));
+        }}
+        aria-label={"Filter Combos by Damage"}
+        title={"Filter Combos by Damage"}
+      >Damage</button>
+      <button
+        className={comboType==='Accuracy' ? 'active' : ''}
+        onClick={() => {
+          dispatch(setComboType('Accuracy'));
+          setCellStates(new Array(cellStates.length).fill(expanded));
+        }}
+        aria-label={"Filter Combos by Accuracy"}
+        title={"Filter Combos by Accuracy"}
+      >Accuracy</button>
+      <button
         className={comboType==='Best' ? 'active' : ''}
         onClick={() => {
           dispatch(setComboType('Best'));
