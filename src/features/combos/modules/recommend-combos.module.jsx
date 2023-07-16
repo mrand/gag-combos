@@ -117,22 +117,30 @@ import combos from '~/features/combos/combos.data.json';
     
     // Filter by Damage
     if (this.comboType === 'Damage') {
-      // Sort Combos by Total Damage
       recSolns.sort(function(combo1, combo2) {
-        // equal damage combos sort equally
-        if (combo1.totalDamage === combo2.totalDamage) return 0;
-        // else sort by lowest to highest total damage
-        return (combo1.totalDamage > combo2.totalDamage) ? 1 : -1
+
+        // prefer higher accuracy for same damage combos 
+        if (combo1.totalDamage === combo2.totalDamage) {
+          if (combo1.accuracy === combo2.accuracy) return 0;
+          return (combo1.accuracy > combo2.accuracy) ? -1 : 1;
+        }
+
+        // sort by damage
+        return (combo1.totalDamage < combo2.totalDamage) ? -1 : 1
       });
     }
 
     // Filter by Accuracy
     if (this.comboType === 'Accuracy') {
-      // Sort Combos by Combo Accuracy
       recSolns.sort(function(combo1, combo2) {
-        // equal damage combos sort equally
-        if (combo1.accuracy === combo2.accuracy) return 0;
-        // else sort by lowest to highest total damage
+
+        // prefer lower damage for same accuracy combos 
+        if (combo1.accuracy === combo2.accuracy) {
+          if (combo1.totalDamage === combo2.totalDamage) return 0;
+          return (combo1.totalDamage > combo2.totalDamage) ? 1 : -1;
+        }
+
+        // sort by accuracy
         return (combo1.accuracy < combo2.accuracy) ? 1 : -1
       });
     }
@@ -152,17 +160,15 @@ import combos from '~/features/combos/combos.data.json';
         ); 
       });
 
-      // Sort Combos
+
+      // Sort Combos by Accuracy then Damage
       recSolns.sort(function(combo1, combo2) {
 
-        // sort by damage for same accuracy combos 
+        // prefer lower damage for same accuracy combos 
         if (combo1.accuracy === combo2.accuracy) {
+          if (combo1.totalDamage === combo2.totalDamage) return 0;
           return (combo1.totalDamage > combo2.totalDamage) ? 1 : -1;
         }
-
-        // prefer combos with 100% accuracy
-        if (combo1.accuracy === 100) return -1;
-        if (combo2.accuracy === 100) return 1;
 
         // sort by accuracy
         return (combo1.accuracy < combo2.accuracy) ? 1 : -1
