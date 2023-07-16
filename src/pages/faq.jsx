@@ -67,7 +67,7 @@ export default function FAQ() {
               <p>
                 In Toontown Rewritten, the probability that a gag hits a
                 cog is called <code>atkAcc</code>, or attack accuracy, 
-                and is defined as <code>
+                and is defined by the equation <code>
                   atkAcc = propAcc + trackExp + tgtDef + bonus
                 </code>.
                 You can <a 
@@ -108,7 +108,7 @@ export default function FAQ() {
                     <code>tgtDef</code> is capped at its level 12 value for level 13+ cogs.
                   </p>
                   <p>
-                    Toontown Rewritten support confirmed via email on 2023/07/10 that level 13+ tgtDef values
+                    Toontown Rewritten support confirmed via email on 2023-07-10 that level 13+ tgtDef values
                     are being kept secret to keep the mystery in Field Offices (the only in-game area containing level 13+ cogs).
                     They also warned that these values are occasionally tweaked and are subject to change,
                     and that anyone claiming to know these values may be incorrect. Thus, Gag Combos Info 
