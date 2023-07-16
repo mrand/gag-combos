@@ -63,7 +63,7 @@ export default function FAQ() {
               </ul>
             </section>
             <section>
-              <h3>How is each Combo's probability calculated on the Recommendations Page?</h3>
+              <h3>How is each Combo's accuracy calculated on the Recommendations Page?</h3>
               <p>
                 In Toontown Rewritten, the probability that a gag hits a
                 cog is called <code>atkAcc</code>, or attack accuracy, 
@@ -110,7 +110,7 @@ export default function FAQ() {
                   <p>
                     Toontown Rewritten support confirmed via email on 2023/07/10 that level 13+ tgtDef values
                     are being kept secret to keep the mystery in Field Offices (the only in-game area containing level 13+ cogs).
-                    They also warned that these values are occasionally tweaked and subject to change,
+                    They also warned that these values are occasionally tweaked and are subject to change,
                     and that anyone claiming to know these values may be incorrect. Thus, Gag Combos Info 
                     disregards hearsay that level 20 tgtDef is -65, instead opting to cap tgtDef at -55 for all 13+ cogs until further notice.
                   </p>
@@ -124,7 +124,7 @@ export default function FAQ() {
                 <li>
                   <p>
                     <code>luredRatio</code> assumes that there is exactly 1 cog in the battle.
-                    This is because the recommendations page recommends combos for a single cog. 
+                    This is because the recommendations page recommends combos based on a single cog.
                   </p>
                 </li>
               </ul>
@@ -140,7 +140,7 @@ export default function FAQ() {
               <h3>Does this Tool Work for Toontown: Coporate Clash?</h3>
               <p>
                 At this time, Gag Combos Info does NOT provide info about Corporate Clash, or any other Toontown servers.
-                However, this website is very early in its development, and we do have plans to support CC in the future!
+                However, this website is still in development, and we do have plans to support CC in the future!
               </p>
             </section>
           </div>
