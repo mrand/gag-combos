@@ -72,7 +72,7 @@ export default function GagCell({ gag }) {
 
   return (
     <button 
-    title='View more details about this gag'
+      title={'View details about '+(gag.organic==='Organic' ? gag.organic+' ' : '')+gag.name}
       className={'gag-cell' + (gag.organic==='Organic' ? ' org' : '')}
       style={{background: (trackColors[gag.track] || "")}}
       onClick={() => {
