@@ -13,51 +13,20 @@ function MainFilters({ cellStates, setCellStates }) {
 
   return (
     <div className='btns main-filters'>
-      <button 
-        className={comboType==='All' ? 'active' : ''}
-        onClick={() => {
-          dispatch(setComboType('All'));
+      <span>Filter by: </span>
+      <select 
+        value={comboType ? comboType : 'All'}
+        onChange={(e) => {
+          dispatch(setComboType(e.target.value));
           setCellStates(new Array(cellStates.length).fill(expanded));
         }}
-        aria-label={"Show All Combos"}
-        title={"Show All Combos"}
-      >All</button>
-      <button
-        className={comboType==='Basic' ? 'active' : ''}
-        onClick={() => {
-          dispatch(setComboType('Basic'));
-          setCellStates(new Array(cellStates.length).fill(expanded));
-        }}
-        aria-label={"Show Basic Combos"}
-        title={"Show Basic Combos"}
-      >Basic</button>
-      <button
-        className={comboType==='Damage' ? 'active' : ''}
-        onClick={() => {
-          dispatch(setComboType('Damage'));
-          setCellStates(new Array(cellStates.length).fill(expanded));
-        }}
-        aria-label={"Filter Combos by Damage"}
-        title={"Filter Combos by Damage"}
-      >Damage</button>
-      <button
-        className={comboType==='Accuracy' ? 'active' : ''}
-        onClick={() => {
-          dispatch(setComboType('Accuracy'));
-          setCellStates(new Array(cellStates.length).fill(expanded));
-        }}
-        aria-label={"Filter Combos by Accuracy"}
-        title={"Filter Combos by Accuracy"}
-      >Accuracy</button>
-      <button
-        className={comboType==='Best' ? 'active' : ''}
-        onClick={() => {
-          dispatch(setComboType('Best'));
-          setCellStates(new Array(cellStates.length).fill(expanded));
-        }}
-        aria-label={"Show Best Combos"}
-        title={"Show Best Combos"}
-      >Best</button>
+      >
+        {
+          ['All', 'Basic', 'Damage', 'Accuracy', 'Best'].map((filter, i) => (
+            <option key={i} value={filter}>{filter}</option>   
+          ))
+        }
+      </select>
     </div>
   );
 }

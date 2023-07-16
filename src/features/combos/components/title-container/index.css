@@ -21,10 +21,6 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 8px;
-}
-.title-container .btns.gag-toggles {
-  gap: 0;
 }
 
 
@@ -41,22 +37,24 @@
 
 
 .main-filters {
+  align-items: center;
   background: var(--blue-600);
+  color: #ffffff;
   border-radius: 100px;
   border: 4px solid var(--blue-600);
 }
-.main-filters button { 
-  color: #ffffff; 
-  border-radius: 100px;
-  background: 0;
+.main-filters span { padding-inline: 8px; }
+.main-filters select {
+  border-radius: 30px;
+  border: 0;
+  padding: 4px;
 }
-.main-filters button:hover {
-  background: var(--blue-400);
-  color: #ffffff;
+.main-filters option {
+  outline: 1px solid red;
+  background: #ffffff;
+  color: var(--blue-600);
 }
 
-
-.gag-toggles { gap: 0; }
 
 .gag-toggles button {
   position: relative;
