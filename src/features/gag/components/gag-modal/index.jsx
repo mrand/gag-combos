@@ -14,12 +14,6 @@ export default function GagModal() {
     gagData.level,
     gagData.org
   );
-  if (gag.track === "Lure") {
-    gag.level = null;
-    gag.accuracy = (gag.organic === "Organic") ? "60% - 95%" : "50% - 95%";
-    gag.stun = "2 - 8";
-
-  }
 
   return (
     <div id="gag-modal">
@@ -40,7 +34,7 @@ export default function GagModal() {
             </div>
             <div className="overview">
               <h3>
-                {gag.track === "Lure" ? "Lure (Any)" : gag.name}
+                {gag.name}
                 {
                   (gag.organic === "Organic") ? (
                     <>
@@ -92,28 +86,13 @@ export default function GagModal() {
             gag.name!=='Pass' ? (
               <section className="stats">
                 <h4>Stats</h4>
-                {gag.track==="Lure" ? (
-                  <span><b>Accuracy</b>: {gag.accuracy}</span>
-                ) : (
-                  <span><b>Accuracy</b>: {gag.accuracy*100+"%"}</span>
-                )}
+                <span><b>Accuracy</b>: {gag.accuracy*100+"%"}</span>
                 {gag.damage!==0 ? (<span><b>Damage</b>: {gag.damage}</span>) : null}
                 {gag.heal!==0 ? (<span><b>Heal</b>: {gag.heal}</span>) : null}
                 {gag.stun!==0 ? (<span><b>Lured Rounds</b>: {gag.stun}</span>) : null}
               </section>
             ) : null
           }
-          
-
-          {/* <section className="skill-points">
-            <h4>Skill Points</h4>
-            <input type="range" min="0" max="10" />
-            <div className="input-wrap">
-              <b>Min</b>
-              <b>Max</b>
-            </div>
-          </section> */}
-
           
         </div>
 
