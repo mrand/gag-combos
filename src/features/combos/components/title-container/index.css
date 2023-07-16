@@ -52,8 +52,12 @@
   color: var(--blue-600);
   font-weight: bold;
 }
+.main-filters select:hover {
+  background: var(--blue-400);
+  box-shadow: 0 0 5px var(--blue-600) inset;
+  color: #ffffff;
+}
 .main-filters option {
-  outline: 1px solid red;
   background: #ffffff;
   color: var(--blue-600);
 }
