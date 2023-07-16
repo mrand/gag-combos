@@ -45,7 +45,7 @@ function ComboStats({ combo, expanded }) {
       <h4 title='Combo Accuracy: Read more about this statistic on the FAQ page.'>
         Accuracy: <span 
           className='stat-value'
-          style={combo.accuracy > 90 ? {color: 'var(--green-500)'} : {}}
+          style={combo.accuracy === 100 ? {color: 'var(--green-500)'} : {}}
         >{combo.accuracy}%</span>
       </h4>
     </div>
