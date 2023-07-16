@@ -48,6 +48,9 @@
   border-radius: 30px;
   border: 0;
   padding: 4px;
+  background: #ffffff;
+  color: var(--blue-600);
+  font-weight: bold;
 }
 .main-filters option {
   outline: 1px solid red;
