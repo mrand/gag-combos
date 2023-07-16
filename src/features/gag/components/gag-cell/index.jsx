@@ -18,26 +18,12 @@ export function OrganicIcon() {
 function GagImageAndName({ gag }) {
   return (
     <div>
-      {(gag.track === 'Lure') ? (
-        <>
-          <img 
-            className='gag-icon'
-            src={'./img/gags/lure-10bill.png'} 
-            alt={'Organic $10 Bill'} 
-          />
-          <b className='gag-name'>Lure (Any)</b>
-        </>  
-      ) : (
-        <>
-          <img 
-            className='gag-icon'
-            src={gag.image} 
-            alt={gag.name} 
-          />
-          <b className='gag-name'>{gag.name}</b>
-        </>
-        
-      )}
+      <img 
+        className='gag-icon'
+        src={gag.image} 
+        alt={gag.name} 
+      />
+      <b className='gag-name'>{gag.name}</b>
     </div>
   );
 }
@@ -48,17 +34,8 @@ function GagStats({ gag }) {
     <div className='gag-stats'>
       {(gag.name === 'Pass') ? (null) : (
         <>
-          {(gag.track === 'Lure') ? (
-            <>
-              <span><b>Dmg:</b> 0</span>
-              <span><b>Acc:</b> *</span>
-            </>
-          ) : (
-            <>
-              <span><b>Dmg:</b> {gag.damage}</span>
-              <span><b>Acc:</b> {gag.accuracy*100}%</span>
-            </>
-          )}
+          <span><b>Dmg:</b> {gag.damage}</span>
+          <span><b>Acc:</b> {gag.accuracy*100}%</span>
           <span><b>AtkAcc:</b> {Math.round(gag.atkAcc*100)}%</span>
         </>
       )}
