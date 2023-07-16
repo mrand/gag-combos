@@ -54,9 +54,11 @@ export default class Combo {
   */ 
   _getDetails() {
     // generate a key from this combo's unique gag tracks
-    const thisInfoKey = Object.keys(this.counts)
+    let thisInfoKey = Object.keys(this.counts)
       .join('-')
       .toLowerCase();
+
+    if (this.isLured) thisInfoKey = 'lure-'+thisInfoKey;
     if (!comboInfo["mapsToData"][thisInfoKey]) return false;
 
     // use the key to get the map to any descriptions/warnings
