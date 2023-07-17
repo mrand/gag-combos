@@ -242,6 +242,24 @@ export default class FindCombo {
       }
     }
 
+
+    // Set Lure level based on cog level
+    if (this.tracks.includes('Lure')) {
+      for (let i=0; i < comboGags.length; i++) {
+        let updateGag = comboGags[i];
+        if (updateGag.track==='Lure') {
+          comboGags[i] = new Gag(
+            this.tracks[i],
+            cog.level > 17 ? 7 : Math.min(cog.level, 6),
+            this.gags[i][updateGag.level].organic
+          );
+          // update combo and check
+          combo = new Combo(cog, comboGags, this.isLured);
+        }
+      }
+    }
+
+    
     return combo;
   }
 
