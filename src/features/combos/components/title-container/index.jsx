@@ -32,7 +32,7 @@ function MainFilters({ cellStates, setCellStates }) {
       </div>
 
       <div>
-        <span>Sort by: </span>
+        <span>Sort by:</span>
         <select 
           value={comboSort ? comboSort : 'None'}
           onChange={(e) => {

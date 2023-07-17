@@ -58,9 +58,13 @@ export default function ComboCell({ combo, cellNum, cellStates, setCellStates })
   let thisExpanded = cellStates[cellNum];
   let solutionTracks = Object.keys(combo.counts);
   let infoIndicator = combo.info.indicator;
+  const isPerfect = (combo.totalDamage === combo.cog.hp) && (combo.accuracy === 100);
 
   return (
-    <div className={'combo-cell' + (thisExpanded ? ' expanded' : '')}>
+    <div 
+      className={'combo-cell' + (thisExpanded ? ' expanded' : '')}
+      style={isPerfect ? {borderColor: "var(--green-400)"} : {}}
+    >
 
       {/* heading */}
       <ComboHeading solutionTracks={solutionTracks} />
