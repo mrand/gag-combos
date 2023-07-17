@@ -41,17 +41,19 @@ function MainFilters({ cellStates, setCellStates }) {
           }}
           title='Change Combo Sorting'
         >
-          {
-            [
-              'None', 
-              'Accuracy', 
-              'Damage', 
-              'Accuracy+Damage', 
-              'Damage+Accuracy'
-            ].map((sortVal, i) => (
-              <option key={i} value={sortVal}>{sortVal}</option>   
-            ))
-          }
+          <optgroup label='Sort by:'>
+            {
+              [
+                'None', 
+                'Accuracy', 
+                'Damage', 
+                'Accuracy+Damage', 
+                'Damage+Accuracy'
+              ].map((sortVal, i) => (
+                <option key={i} value={sortVal}>{sortVal}</option>   
+              ))
+            }
+          </optgroup>
         </select>
       </div>
       
