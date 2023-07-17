@@ -58,7 +58,30 @@ export default function FAQ() {
                 </li>
                 <li>
                   You can use the combos section filters to display only certain types of combos
-                  or to filter out gag tracks you don't want to use.
+                  or to filter out gag tracks you don't want to use. 
+                  You can also choose how you want the displayed combos to be sorted.
+                </li>
+              </ul>
+            </section>
+            <section>
+              <h3>How are "Best" Combos Chosen on the Recommendations Page?</h3>
+              <p>
+                "Best" Gag Combos are arbitrarily defined as combos meeting the following criteria: 
+              </p>
+              <ul>
+                <li>
+                  Combo Accuracy is greater than or equal to 90%.
+                </li>
+                <li>
+                  Total Combo Damage satisfies the following inequality:
+                  <code>[Cog HP] &lt;= [Combo Damage] &lt;= [Cog HP] + ceil(sqrt[Cog HP] / 2)</code>.
+                </li>
+                <li>
+                  The combo is not flagged as "bad" based on the utilized tracks,
+                  which happens for Drop-Only Combos (due to low accuracy),
+                  or Sound-on-Lured-Cogs-before-Throw-or-Squirt 
+                  (due to it preventing lured knockback damage)
+                  (Sound-Only-on-Lured-Cogs is not flagged since a successful Lure gives the Sound 100% accuracy).
                 </li>
               </ul>
             </section>
