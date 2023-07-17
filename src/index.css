@@ -165,8 +165,6 @@ code {
   background: var(--blue-600);
   border: 8px solid var(--blue-600);
   border-radius: 20px;
-  display: flex;
-  flex-direction: column;
   max-width: 50em;
   margin: 0 auto;
   margin-bottom: 32px;
@@ -178,9 +176,10 @@ code {
   border-radius: 20px;
   padding: 16px;
   width: 100%;
-}
-.formatted-article section > *:not(h3) {
-  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+  overflow: hidden;
 }
 
 
@@ -200,6 +199,14 @@ h1, h2, h3, h4, h5, h6 {
 
 
 li { margin-left: 1em; }
+
+
+table { border-collapse: collapse; }
+thead { border-bottom: 2px solid var(--grey-400); }
+th, td {
+  border: 1px solid var(--grey-400);
+  padding: 0.25ch 0.5ch;
+}
 
 
 .standard-heading {
@@ -239,6 +246,12 @@ li { margin-left: 1em; }
 }
 .svg-btn.active svg {
   fill: var(--sub-color);
+}
+
+
+ul {
+  display: grid;
+  gap: 0.5em;
 }
 
 

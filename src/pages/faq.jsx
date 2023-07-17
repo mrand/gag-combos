@@ -85,12 +85,62 @@ export default function FAQ() {
               <ul>
                 <li>
                   <p>
-                    <code>propAcc</code> for Lure gags is assumed to be at its level 5 gag ($10 Bill) value.
-                    Lure gags have an accuracy range of 50% to 95%,
-                    and although recommending the level 7 Presentation gag would yield the highest accuracy,
-                    it is not usually a feasible option in-game, mostly being reserved for special cases.
-                    Hypno Goggles (level 6) and $10 Bill (level 5) have the next best accuracy, 70% normally and 80% for organic.
-                    Therefore, $10 Bill is used, yielding a 70% to 80% base Lure accuracy in all Lure combos. 
+                    <code>propAcc</code> for Lure gags is based on the cog level.
+                    A recommended combos' Lure gag is chosen using the following table:
+                  </p>
+                  <br />
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Cog Level</th>
+                        <th>Lure Level</th>
+                        <th>propAcc</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>50%-60%</td>
+                      </tr>
+                      <tr>
+                        <td>2-3</td>
+                        <td>2</td>
+                        <td>50%-60%</td>
+                      </tr>
+                      <tr>
+                        <td>4-5</td>
+                        <td>3</td>
+                        <td>60%-70%</td>
+                      </tr>
+                      <tr>
+                        <td>6-8</td>
+                        <td>4</td>
+                        <td>60%-70%</td>
+                      </tr>
+                      <tr>
+                        <td>9-13</td>
+                        <td>5</td>
+                        <td>70%-80%</td>
+                      </tr>
+                      <tr>
+                        <td>14-17</td>
+                        <td>6</td>
+                        <td>70%-80%</td>
+                      </tr>
+                      <tr>
+                        <td>18-20</td>
+                        <td>7</td>
+                        <td>95%</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br />
+                  <p>
+                    Lure gags have an accuracy that varies from 50% to 95%, 
+                    so this choice does affect combo accuracy, but is more reasonable to gameplay, 
+                    as it doesn't recommend a gag that won't give a toon any XP, 
+                    and doesn't over-recommend high-level Lure gags.
                   </p>
                 </li>
                 <li>
