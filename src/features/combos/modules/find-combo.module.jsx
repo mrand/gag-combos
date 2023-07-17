@@ -124,16 +124,28 @@ export default class FindCombo {
     // Initialize Combo with Level 1 Gags
     let comboGags = [];
     for (let i=0; i<this.numToons; i++) {
-      // special case, Lure - use level 5 gag since algorithm won't increment Lure
+
+      // ...special case, Lure:
       if (this.tracks[i] === "Lure") {
+
+        // set gag level based on cog level
+        let lureLevel = 
+          (cog.level >= 18) ? 7
+        : (cog.level >= 14) ? 6
+        : (cog.level >= 9)  ? 5
+        : (cog.level >= 6)  ? 4
+        : (cog.level >= 4)  ? 3
+        : (cog.level >= 2)  ? 2 
+                            : 1;
         comboGags.push(
           new Gag(
             this.tracks[i],
-            5,
+            lureLevel,
             this.gags[i][0].organic
           )
         );
-      // normal case
+
+      // ...normal case:
       } else {
         comboGags.push(
           new Gag(
@@ -143,7 +155,6 @@ export default class FindCombo {
           )
         );
       }
-      
     }
 
     // Initialize Combo
@@ -241,34 +252,6 @@ export default class FindCombo {
         throw new Error('Welp, the while loop was stuck iterating downwards.'); 
       }
     }
-
-
-    // Set Lure level based on cog level
-    if (this.tracks.includes('Lure')) {
-
-      let lureLevel = 
-          (cog.level >= 18) ? 7
-        : (cog.level >= 14) ? 6
-        : (cog.level >= 9)  ? 5
-        : (cog.level >= 6)  ? 4
-        : (cog.level >= 4)  ? 3
-        : (cog.level >= 2)  ? 2 
-                            : 1;
-
-      for (let i=0; i < comboGags.length; i++) {
-        let updateGag = comboGags[i];
-        if (updateGag.track==='Lure') {
-          comboGags[i] = new Gag(
-            this.tracks[i],
-            lureLevel,
-            this.gags[i][updateGag.level].organic
-          );
-          // update combo and check
-          combo = new Combo(cog, comboGags, this.isLured);
-        }
-      }
-    }
-
     
     return combo;
   }
