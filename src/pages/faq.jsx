@@ -64,6 +64,12 @@ export default function FAQ() {
               </ul>
             </section>
             <section>
+              <h3>How are "Basic" Combos Chosen on the Recommendations Page?</h3>
+              <p>
+                "Basic" Gag Combos are combos where all toons use the same gag track.
+              </p>
+            </section>
+            <section>
               <h3>How are "Best" Combos Chosen on the Recommendations Page?</h3>
               <p>
                 "Best" Gag Combos are arbitrarily defined as combos meeting the following criteria: 
