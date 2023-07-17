@@ -16,12 +16,13 @@ export default function CombosComponent() {
   const numToons = useSelector((state) => state.recommendations.toons.toonList.filter(toon => toon.active).length);
   const toonOrgs = useSelector((state) => state.recommendations.toons.toonList.map((toon) => toon.active ? toon.organic : ''));
   const comboType = useSelector((state) => state.recommendations.combos.type);
+  const comboSort = useSelector((state) => state.recommendations.combos.sort);
   const gagFilters = useSelector((state) => state.recommendations.combos.filters);
 
   const recommendations = new RecommendCombos(
-    cog, isLured,          // cog params
-    numToons, toonOrgs,    // toons params
-    comboType, gagFilters  // combo params
+    cog, isLured,                     // cog params
+    numToons, toonOrgs,               // toons params
+    comboType, comboSort, gagFilters  // combo params
   );
 
   const numCells = recommendations.recCombos.length;

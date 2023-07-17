@@ -12,6 +12,7 @@ import combos from '~/features/combos/combos.data.json';
     numToons=0,
     toonOrgs=[],
     comboType='All',
+    comboSort='None',
     gagFilters=null
   ) {
     this.cog = cog;
@@ -19,6 +20,7 @@ import combos from '~/features/combos/combos.data.json';
     this.numToons = numToons;
     this.toonOrgs = [...toonOrgs];
     this.comboType = comboType;
+    this.comboSort = comboSort;
     this.gagFilters = gagFilters;
 
     this.gagComboTracks = this._getGagComboTracks();
@@ -66,23 +68,11 @@ import combos from '~/features/combos/combos.data.json';
       } 
     });
     
-    // filter solutions
-    recSolns = this._filterByGags(recSolns);
+    // filter and sort solutions
     recSolns = this._filterSolns(recSolns);
+    recSolns = this._sortSolns(recSolns);
+    recSolns = this._sortSolnGags(recSolns);
  
-    return recSolns;
-  }
-
-  _filterByGags(recSolns) {
-    if (this.gagFilters) {
-      let tracks = Object.keys(this.gagFilters);
-      for (let i=0; i<tracks.length; i++) {
-        let track = tracks[i];
-        if (!this.gagFilters[track]) {
-          recSolns = this._filterByGag(recSolns, track);
-        }
-      }
-    }
     return recSolns;
   }
 
@@ -94,61 +84,22 @@ import combos from '~/features/combos/combos.data.json';
   }
 
   _filterSolns(recSolns) {
-    // Initial Filter
-    
-    // remove non-unique combos
-    recSolns = recSolns.reduce(function (p, c) {
-      // if the next object's 'counts' is not found in the output array
-      // push the object into the output array
-      if (!p.some(function (el) { return JSON.stringify(el.counts) === JSON.stringify(c.counts); })) p.push(c);
-      return p;
-    }, []);
 
-    // remove combos with only drop left if cog is lured
-    // (some lured cog drop combos remove the stun gag while optimizing)
-    if (this.isLured) {
-      recSolns = recSolns.filter(function (combo) { 
-        return JSON.stringify(Object.keys(combo.counts)) !== JSON.stringify(['Drop']);
-      });
-    }
+    // Custom Filters...
 
-
-    // Custom Filters
-    
-    // Filter by Damage
-    if (this.comboType === 'Damage') {
-      recSolns.sort(function(combo1, combo2) {
-
-        // prefer higher accuracy for same damage combos 
-        if (combo1.totalDamage === combo2.totalDamage) {
-          if (combo1.accuracy === combo2.accuracy) return 0;
-          return (combo1.accuracy > combo2.accuracy) ? -1 : 1;
+    // ...by Gag Tracks
+    if (this.gagFilters) {
+      let tracks = Object.keys(this.gagFilters);
+      for (let i=0; i<tracks.length; i++) {
+        let track = tracks[i];
+        if (!this.gagFilters[track]) {
+          recSolns = this._filterByGag(recSolns, track);
         }
-
-        // sort by damage
-        return (combo1.totalDamage < combo2.totalDamage) ? -1 : 1
-      });
+      }
     }
 
-    // Filter by Accuracy
-    if (this.comboType === 'Accuracy') {
-      recSolns.sort(function(combo1, combo2) {
-
-        // prefer lower damage for same accuracy combos 
-        if (combo1.accuracy === combo2.accuracy) {
-          if (combo1.totalDamage === combo2.totalDamage) return 0;
-          return (combo1.totalDamage > combo2.totalDamage) ? 1 : -1;
-        }
-
-        // sort by accuracy
-        return (combo1.accuracy < combo2.accuracy) ? 1 : -1
-      });
-    }
-
-    // Filter by Best
+    // ...Best Combos Only
     if (this.comboType === 'Best') {
-
-      // Reduce Number of Displayed Combos
       recSolns = recSolns.filter(function(combo) {
         return (
           // remove combos marked as bad
@@ -159,24 +110,81 @@ import combos from '~/features/combos/combos.data.json';
           && combo.accuracy >= 90
         ); 
       });
+    }
 
 
-      // Sort Combos by Accuracy then Damage
+    // Normal Filters...
+    
+    // ...Remove Non-Unique Combos
+    recSolns = recSolns.reduce(function (p, c) {
+      // if the next object's 'counts' is not found in the output array
+      // push the object into the output array
+      if (!p.some(function (el) { return JSON.stringify(el.counts) === JSON.stringify(c.counts); })) p.push(c);
+      return p;
+    }, []);
+
+    // ...Remove Drop-Only combos if Cog is Lured
+    // (some lured cog drop combos remove the stun gag while optimizing)
+    if (this.isLured) {
+      recSolns = recSolns.filter(function (combo) { 
+        return JSON.stringify(Object.keys(combo.counts)) !== JSON.stringify(['Drop']);
+      });
+    }
+
+    return recSolns;
+  }
+
+
+  _sortSolns(recSolns) {
+
+    // Custom Sort...
+
+    // ...by Damage
+    if (this.comboSort === 'Damage') {
       recSolns.sort(function(combo1, combo2) {
+        if (combo1.totalDamage === combo2.totalDamage) return 0;
+        return (combo1.totalDamage < combo2.totalDamage) ? -1 : 1
+      });
+    }
 
+    // ...by Accuracy
+    if (this.comboSort === 'Accuracy') {
+      recSolns.sort(function(combo1, combo2) {
+        if (combo1.accuracy === combo2.accuracy) return 0;
+        return (combo1.accuracy < combo2.accuracy) ? 1 : -1
+      });
+    }
+
+    // ...by Damage+Accuracy
+    if (this.comboSort === 'Damage+Accuracy') {
+      recSolns.sort(function(combo1, combo2) {
+        // prefer higher accuracy for same damage combos 
+        if (combo1.totalDamage === combo2.totalDamage) {
+          if (combo1.accuracy === combo2.accuracy) return 0;
+          return (combo1.accuracy > combo2.accuracy) ? -1 : 1;
+        }
+        // sort by damage
+        return (combo1.totalDamage < combo2.totalDamage) ? -1 : 1
+      });
+    }
+
+    // ...by Accuracy+Damage
+    if (this.comboSort === 'Accuracy+Damage') {
+      recSolns.sort(function(combo1, combo2) {
         // prefer lower damage for same accuracy combos 
         if (combo1.accuracy === combo2.accuracy) {
           if (combo1.totalDamage === combo2.totalDamage) return 0;
           return (combo1.totalDamage > combo2.totalDamage) ? 1 : -1;
         }
-
         // sort by accuracy
         return (combo1.accuracy < combo2.accuracy) ? 1 : -1
       });
     }
 
+    return recSolns;
+  }
 
-    // Sort Remaining Recommended Combos' Gags
+  _sortSolnGags(recSolns) {
     recSolns.forEach((combo) => {
       combo.gags.sort(function(a,b) {
         // Put 'Pass' at End
@@ -186,8 +194,6 @@ import combos from '~/features/combos/combos.data.json';
         return 0;
       });
     });
-    
-
     return recSolns;
   }
 

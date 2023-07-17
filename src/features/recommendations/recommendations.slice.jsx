@@ -13,6 +13,7 @@ export const initialRecommendationsState = {
   combos: {
     hasUpdates: false,
     type: 'All',
+    sort: 'None',
     filters: {
       'Toon-Up': true,
       'Trap':    true,
@@ -75,6 +76,10 @@ export const recommendationsSlice = createSlice({
       state.combos.hasUpdates = true;
       state.combos.type = action.payload;
     },
+    setComboSort: (state, action) => {
+      state.combos.hasUpdates = true;
+      state.combos.sort = action.payload;
+    },
     toggleGagTrack: (state, action) => {
       state.combos.hasUpdates = true;
       state.combos.filters[action.payload] = !state.combos.filters[action.payload];
@@ -123,7 +128,7 @@ export const recommendationsSlice = createSlice({
 
 export const {
   resetCog, setCog, toggleCogV2, toggleCogLured,
-  resetCombos, setComboType, toggleGagTrack, toggleCombosExpanded,
+  resetCombos, setComboType, setComboSort, toggleGagTrack, toggleCombosExpanded,
   resetGagModal, setGagModal,
   resetToons, toggleToonActive, updateToonOrganic
 } = recommendationsSlice.actions;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { resetCombos, setComboType, toggleGagTrack, toggleCombosExpanded } from '~/features/recommendations';
+import { resetCombos, setComboType, setComboSort, toggleGagTrack, toggleCombosExpanded } from '~/features/recommendations';
 import './index.css';
 import ResetButton from '~/features/ui/reset-button';
 import SliderButton from '~/features/ui/slider-button';
@@ -10,23 +10,51 @@ function MainFilters({ cellStates, setCellStates }) {
   const dispatch = useDispatch();
   const expanded = useSelector((state) => state.recommendations.combos.expanded);
   const comboType = useSelector((state) => state.recommendations.combos.type);
+  const comboSort = useSelector((state) => state.recommendations.combos.sort);
 
   return (
     <div className='btns main-filters'>
-      <span>Filter by: </span>
-      <select 
-        value={comboType ? comboType : 'All'}
-        onChange={(e) => {
-          dispatch(setComboType(e.target.value));
-          setCellStates(new Array(cellStates.length).fill(expanded));
-        }}
-      >
+
+      <div>
         {
-          ['All', 'Basic', 'Damage', 'Accuracy', 'Best'].map((filter, i) => (
-            <option key={i} value={filter}>{filter}</option>   
+          ['All', 'Basic', 'Best'].map((filterVal, i) => (
+            <button 
+              key={i}
+              className={comboType===filterVal ? 'active' : ''}
+              onClick={() => {
+                dispatch(setComboType(filterVal));
+                setCellStates(new Array(cellStates.length).fill(expanded));
+              }}
+              title={'Filter Combos by: '+filterVal}
+            >{filterVal}</button>
           ))
         }
-      </select>
+      </div>
+
+      <div>
+        <span>Sort by: </span>
+        <select 
+          value={comboSort ? comboSort : 'None'}
+          onChange={(e) => {
+            dispatch(setComboSort(e.target.value));
+            setCellStates(new Array(cellStates.length).fill(expanded));
+          }}
+          title='Change Combo Sorting'
+        >
+          {
+            [
+              'None', 
+              'Accuracy', 
+              'Damage', 
+              'Accuracy+Damage', 
+              'Damage+Accuracy'
+            ].map((sortVal, i) => (
+              <option key={i} value={sortVal}>{sortVal}</option>   
+            ))
+          }
+        </select>
+      </div>
+      
     </div>
   );
 }
