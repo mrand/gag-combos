@@ -17,17 +17,20 @@
   }
 }
 
-.title-container .btns {
+
+.main-filters {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-}
-
-
-.main-filters {
-  display: grid;
   gap: 8px;
 }
+@media (max-width: 40rem) {
+  .main-filters {
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
 .main-filters div {
   align-items: center;
   background: var(--blue-600);
@@ -63,6 +66,11 @@
 }
 
 
+.gag-toggles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .gag-toggles button {
   background: 0;
   border: 4px solid var(--grey-700);
