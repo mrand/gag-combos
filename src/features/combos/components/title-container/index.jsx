@@ -16,7 +16,7 @@ function MainFilters({ cellStates, setCellStates }) {
     <div className='btns main-filters'>
 
       <div>
-        <span>Filter by:</span>
+        <span>Type</span>
         <select 
           onChange={(e) => {
             dispatch(setComboType(e.target.value));
@@ -38,7 +38,7 @@ function MainFilters({ cellStates, setCellStates }) {
       </div>
 
       <div>
-        <span>Sort by:</span>
+        <span>Sort by</span>
         <select 
           onChange={(e) => {
             dispatch(setComboSort(e.target.value));

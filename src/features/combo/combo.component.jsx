@@ -33,7 +33,7 @@ function ComboGags({ combo }) {
 }
 
 
-function ComboStats({ combo, expanded }) {
+function ComboStats({ combo }) {
   return (
     <div className='combo-stats'>
       <h4>
@@ -88,7 +88,7 @@ export default function ComboCell({ combo, cellNum, cellStates, setCellStates })
         className='combo-footer'
         style={expanded ? {justifyContent: 'center'} : {}}
       >
-        <ComboStats combo={combo} expanded={expanded || thisExpanded} />
+        <ComboStats combo={combo} />
         {
           !expanded && (
             <button
