@@ -14,7 +14,9 @@ export default defineConfig(() => {
       outDir: 'build',
     },
     plugins: [
-      VitePWA(),
+      VitePWA({
+        registerType: 'autoUpdate',
+      }),
       react()
     ],
   };

@@ -3,10 +3,8 @@ import "./index.css";
 
 
 export default function UpdateToast() {
-  console.log('swtest2');
   return (
     <div id="update-toast">
-      <span style={{display:"none"}}></span>
       <div className="wrapper">
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
