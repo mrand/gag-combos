@@ -45,7 +45,7 @@ function MainFilters({ cellStates, setCellStates }) {
             setCellStates(new Array(cellStates.length).fill(expanded));
           }}
           value={comboSort ? comboSort : 'Default'}
-          title='Sort Recommended Combos'
+          title='Change Combos Sort'
         >
           {
             [
