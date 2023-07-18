@@ -9,6 +9,8 @@ import SliderButton from '~/features/ui/slider-button';
 function MainFilters({ cellStates, setCellStates }) {
   const dispatch = useDispatch();
   const expanded = useSelector((state) => state.recommendations.combos.expanded);
+  const comboType = useSelector((state) => state.recommendations.combos.type);
+  const comboSort = useSelector((state) => state.recommendations.combos.sort);
 
   return (
     <div className='btns main-filters'>
@@ -20,6 +22,7 @@ function MainFilters({ cellStates, setCellStates }) {
             dispatch(setComboType(e.target.value));
             setCellStates(new Array(cellStates.length).fill(expanded));
           }}
+          value={comboType ? comboType : 'All'}
           title='Filter Combos by Type'
         >
           {
@@ -41,6 +44,7 @@ function MainFilters({ cellStates, setCellStates }) {
             dispatch(setComboSort(e.target.value));
             setCellStates(new Array(cellStates.length).fill(expanded));
           }}
+          value={comboSort ? comboSort : 'Default'}
           title='Sort Recommended Combos'
         >
           {
