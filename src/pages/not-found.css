@@ -8,20 +8,10 @@
   border-color: var(--grey-600);
 }
 
-#page.not-found .formatted-article a {
-  background: 0;
-  padding: 0;
-  color: var(--blue-600);
-  box-shadow: none;
-  text-decoration: none;
-}
-#page.not-found .formatted-article a:hover {
-  text-decoration: underline;
-}
-
 #page.not-found .cog-grid {
   display: flex;
   justify-content: center;
+  flex-direction: row;
   padding: 4px;
   gap: 4px;
   background: var(--grey-800);

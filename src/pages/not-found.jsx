@@ -26,7 +26,11 @@ export default function NotFound() {
   const cogsList = generateCogsList();
 
   return (
-    <div id="page" className="not-found">
+    <div 
+      id="page" 
+      className="not-found"
+      style={{"--blue-400": "#243242", "--blue-600": "#14191f"}}
+    >
       <Header />
       
       <article className="with-grid-bg">
@@ -36,7 +40,8 @@ export default function NotFound() {
             <section>
               <h3>Looks like the cogs have taken over this page!</h3>
               <p>
-                While we investigate, you should head back to the <Link to="/">Homepage</Link>.
+                While we investigate, you should head back to 
+                the <Link to="/" className="no-style">Homepage</Link>.
               </p>
             </section>
             <section className="cog-grid">
