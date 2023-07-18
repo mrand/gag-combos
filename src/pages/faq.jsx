@@ -41,7 +41,7 @@ export default function FAQ() {
                 </p>
               </Accordion>
               <Accordion
-                title='Does this Tool Work for Toontown: Coporate Clash?'
+                title='Does this Tool Work for Toontown: Corporate Clash?'
               >
                 <p>
                   At this time, Gag Combos Info does NOT provide info about Corporate Clash, or any other Toontown servers.
