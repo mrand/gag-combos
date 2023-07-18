@@ -17,7 +17,16 @@ root.render(
   </React.StrictMode>
 );
 
+
+// Display Notifications for Major Updates
 const toast = ReactDOM.createRoot(document.getElementById('toast'));
-registerSW({
-  onNeedRefresh() { toast.render(<UpdateToast />) }
-});
+const lastMajorUpdate = "202307172029";
+const localLastUpdateNotification = localStorage.getItem('lun');
+if (!localLastUpdateNotification) localStorage.setItem('lun', lastMajorUpdate);
+if (lastMajorUpdate !== localLastUpdateNotification) {
+  localStorage.setItem('lun', lastMajorUpdate);
+  toast.render(<UpdateToast />)
+}
+
+
+registerSW({ immediate: true });
