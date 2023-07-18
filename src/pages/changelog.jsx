@@ -1,5 +1,6 @@
 import Header from '~/features/ui/header';
 import Footer from '~/features/ui/footer';
+import { Link } from "react-router-dom";
 
 
 export default function Changelog() {
@@ -11,6 +12,27 @@ export default function Changelog() {
         <div className='wrapper'>
           <h2 className='standard-heading'>Changelog</h2>
           <div className='formatted-article'>
+
+            <section>
+              <h3>2023-07-17</h3>
+              <h4>Added Accuracies to Combo Recommendations!</h4>
+              <ul>
+                <li>
+                  Added accuracies to each recommended gag combo on the recommendations page!
+                  Read more about the way this is calculated on 
+                  the <Link to="/faq" className="no-style">FAQ page</Link>.
+                </li>
+                <li>
+                  Added options to sort combo recommendations by 
+                  "Accuracy", "Damage", "Accuracy+Damage", and "Damage+Accuracy".
+                  These sorting options were separated out from the previous "Best" filter,
+                  which used to sort its output by Combo Damage (before Combo Accuracy existed), 
+                  and now no longer sorts its output by default. 
+                  Thus, now you can filter combos by "All", "Basic", or "Best" (as before),
+                  and decide exactly how you'd like the output of any of these filters to be sorted.
+                </li>
+              </ul>
+            </section>
 
             <section>
               <h3>2023-07-04</h3>
