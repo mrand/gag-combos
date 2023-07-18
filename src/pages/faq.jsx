@@ -41,10 +41,11 @@ export default function FAQ() {
                 </p>
               </Accordion>
               <Accordion
-                title='Does this Tool Work for Toontown: Corporate Clash?'
+                title='Does this website work for Toontown: Corporate Clash?'
               >
                 <p>
-                  At this time, Gag Combos Info does NOT provide info about Corporate Clash, or any other Toontown servers.
+                  At this time, Gag Combos Info only provides information about Toontown Rewritten, 
+                  and does NOT provide info about Corporate Clash or any other Toontown servers.
                   However, this website is still in development, and we do have plans to support CC in the future!
                 </p>
               </Accordion>
@@ -75,7 +76,7 @@ export default function FAQ() {
                     Configure the number of toons and their organic gags using the "Toons" section.
                   </li>
                   <li>
-                    Use the "Cog" section to set the cog level and whether or not it is currently lured.
+                    Use the "Cog" section to set the cog level and whether or not it is currently lured or v2.0.
                   </li>
                   <li>
                     The "Combos" section will display the gag combos that will defeat your cog!
