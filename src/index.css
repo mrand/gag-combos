@@ -178,7 +178,7 @@ code {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0.25em;
+  gap: 0.5em;
   overflow: hidden;
 }
 
@@ -187,6 +187,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
   font-family: BowlbyOneSC,Arial,Roboto,Helvetica,sans-serif;
 }
+h2, h3, h4, h5, h6 { line-height: 1em; }
 
 
 /* wraps an h2 tag and a reset button component */
