@@ -3,6 +3,7 @@ import "./index.css";
 
 
 export default function UpdateToast() {
+  console.log('swtest');
   return (
     <div id="update-toast">
       <div className="wrapper">
