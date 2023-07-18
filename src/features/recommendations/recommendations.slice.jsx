@@ -13,7 +13,7 @@ export const initialRecommendationsState = {
   combos: {
     hasUpdates: false,
     type: 'All',
-    sort: 'None',
+    sort: 'Default',
     filters: {
       'Toon-Up': true,
       'Trap':    true,

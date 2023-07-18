@@ -16,34 +16,38 @@ function MainFilters({ cellStates, setCellStates }) {
     <div className='btns main-filters'>
 
       <div>
-        {
-          ['All', 'Basic', 'Best'].map((filterVal, i) => (
-            <button 
-              key={i}
-              className={comboType===filterVal ? 'active' : ''}
-              onClick={() => {
-                dispatch(setComboType(filterVal));
-                setCellStates(new Array(cellStates.length).fill(expanded));
-              }}
-              title={'Filter Combos by: '+filterVal}
-            >{filterVal}</button>
-          ))
-        }
+        <span>Filter by:</span>
+        <select 
+          onChange={(e) => {
+            dispatch(setComboType(e.target.value));
+            setCellStates(new Array(cellStates.length).fill(expanded));
+          }}
+          title='Change Combos Filter'
+        >
+          {
+            [
+              'All', 
+              'Basic', 
+              'Best', 
+            ].map((filterVal, i) => (
+              <option key={i} value={filterVal}>{filterVal}</option>   
+            ))
+          }
+        </select>
       </div>
 
       <div>
         <span>Sort by:</span>
         <select 
-          value={comboSort ? comboSort : 'None'}
           onChange={(e) => {
             dispatch(setComboSort(e.target.value));
             setCellStates(new Array(cellStates.length).fill(expanded));
           }}
-          title='Change Combo Sorting'
+          title='Change Combos Sorting'
         >
           {
             [
-              'None', 
+              'Default', 
               'Accuracy', 
               'Damage', 
               'Accuracy+Damage', 
