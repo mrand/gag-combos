@@ -22,7 +22,7 @@ root.render(
 // Display Notifications for Major Updates
 const toast = ReactDOM.createRoot(document.getElementById('toast'));
 // check last major update against local last update notification
-const lastMajorUpdate = "202307172029";
+const lastMajorUpdate = "202307172150";
 let localLastUpdateNotification = localStorage.getItem('lun');
 // if local doesn't exist, set it
 if (!localLastUpdateNotification) {
