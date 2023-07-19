@@ -31,25 +31,21 @@
   max-width: 100%;
 }
 #gag-modal .modal-wrap {
-  max-height: 65vh;
-  overflow-y: auto;
+  --bar-width: 4px;
   --thumb-color: var(--blue-400);
-  --bar-width: 4px
+  border-bottom: 3px solid var(--blue-700);
+  max-height: 50vh;
+  overflow-y: auto;
 }
-.mobile #gag-modal .modal-wrap {
-  border-bottom: 1px solid #000000;
-}
+.desktop #gag-modal .modal-wrap { max-height: 65vh; }
 
-#gag-modal .modal-wrap > * { 
-  display: block; 
-  border: 8px solid var(--blue-600);
-}
+
 #gag-modal section {
-  padding: 16px;
-  border-radius: 20px;
   background: #ffffff;
+  border: 8px solid var(--blue-600);
+  border-radius: 20px;
+  padding: 16px;
 }
-
 
 /* Gag Image and Name Area */
 #gag-modal .main-details {
@@ -85,29 +81,11 @@
 .main-details h3 { line-height: 100%; }
 
 
-/* Gag Stats */
-#gag-modal .stats,
-#gag-modal .stats > div {
-  display: grid;
-}
-
-#gag-modal .stats {
-  text-align: left;
-}
-#gag-modal .stats > div {
-  border-top: 1px solid var(--grey-400);
-  padding-block: 8px;
-}
-#gag-modal ul { gap: 0.25em; }
-
-
 /* Gag Panel */
-#gag-modal .gags-panel .track-lvl-txt {
-  display: flex;
-  flex-direction: column;
-  margin-top: 8px;
+#gag-modal .gags-panel {
+  display: grid;
+  gap: 4px;
 }
-
 #gag-modal .gags-panel .grid-wrap {
   --border-radius: 10px;
   --border-width: 3px;
@@ -138,6 +116,13 @@
 .grid-wrap span:nth-of-type(7) { border-top-right-radius: var(--child-border-radius); }
 .grid-wrap span:last-of-type { border-bottom-right-radius: var(--child-border-radius); }
 
+
+/* Gag Stats */
+#gag-modal .stat { text-align: left; }
+#gag-modal .stat ul { gap: 0; }
+
+
+/* Close Modal Button */
 #gag-modal .modal-btn {
   border: 8px solid var(--blue-600);
 }

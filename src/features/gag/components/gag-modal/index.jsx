@@ -20,6 +20,7 @@ export default function GagModal() {
       <div className="wrapper">
         <div className="modal-wrap custom-scrollbar">
 
+          {/* Gag Heading */}
           <section className="main-details">
             <div 
               className={"img-wrap" + (gag.organic==="Organic" ? " org" : "")}
@@ -48,68 +49,68 @@ export default function GagModal() {
             </div>
           </section>
 
-          {
-            gag.name!=='Pass' ? (
-              <section className="gags-panel">
-                <div className="grid-wrap">
-                  {Object.keys(trackColors).map((track, i) => {
-                    return (
-                      <React.Fragment key={i}>
-                        <b style={{background: trackColors[track]}}>{track}</b>
-                        {[0,1,2,3,4,5,6].map((j) => {
-                          return (
-                            <span 
-                              key={j} 
-                              style={{
-                                background: (track===gag.track) ? trackColors[track] : "", 
-                                boxShadow: (j+1===gag.level && track===gag.track) ? "0 0 0 5px #000000" : "",
-                                zIndex: (j+1===gag.level && track===gag.track) ? "1" : ""
-                              }}
-                            >
-                              {j+1}
-                            </span>
-                          );
-                        })}
-                      </React.Fragment>
-                    );
-                  })}
-                </div>
-                <div className="track-lvl-txt">
-                  {gag.track ? (<span><b>Track</b>: {gag.track}</span>) : null}
-                  {gag.level > 0 ? (<span><b>Level</b>: {gag.level}</span>) : null}
-                </div>
-              </section>
-            ) : null
-          }
+          {/* Gag Overview */}
+          <section className="gags-panel">
+            <h4>Overview</h4>
+            {/* gags grid */}
+            <div 
+              className="grid-wrap"
+              style={gag.level===0 ? {filter: "grayscale(1)", opacity: "0.25"} : {}}
+            >
+              {Object.keys(trackColors).map((track, i) => {
+                return (
+                  <React.Fragment key={i}>
+                    <b style={{background: trackColors[track]}}>{track}</b>
+                    {[0,1,2,3,4,5,6].map((j) => {
+                      return (
+                        <span 
+                          key={j} 
+                          style={{
+                            background: (track===gag.track) ? trackColors[track] : "", 
+                            boxShadow: (j+1===gag.level && track===gag.track) ? "0 0 0 5px #000000" : "",
+                            zIndex: (j+1===gag.level && track===gag.track) ? "1" : ""
+                          }}
+                        >
+                          {j+1}
+                        </span>
+                      );
+                    })}
+                  </React.Fragment>
+                );
+              })}
+            </div>
+            {/* track/level text */}
+            <div>
+              <div><b>Track</b>: {gag.track || "None"}</div>
+              <div><b>Level</b>: {gag.level || "None"}</div>
+            </div>
+          </section>
 
+          {/* Gag Stats */}
           {
-            gag.name!=='Pass' ? (
-              <section className='stats'>
-                <h4>Stats</h4>
-                {
-                  Object.entries(gagData.comboStats).map(([stat, val], i) => (
-                    <div className='stat' key={i}>
-                      <h5>{stat}</h5>
-                      <ul>
-                      {
-                        Object.entries(val).map(([subStat, subVal], j) => (
-                          <li key={j}>
-                            <b>{subStat}: </b>{stat==='accuracy' ? subVal*100+"%" : subVal}
-                          </li>
-                        ))
-                      }
-                      </ul>
-                    </div>
-                  ))
-                }
+            Object.entries(gagData.comboStats).map(([stat, val], i) => (
+              <section className='stat' key={i}>
+                <h4>{stat}</h4>
+                <ul>
+                  {
+                    Object.entries(val).map(([subStat, subVal], j) => (
+                      <li key={j}>
+                        <b>{subStat}: </b>{stat==='accuracy' ? subVal*100+"%" : subVal}
+                      </li>
+                    ))
+                  }
+                </ul>
               </section>
-            ) : null
+            ))
           }
           
         </div>
 
         <div className="modal-btn">
-          <button onClick={() => dispatch(resetGagModal())}>
+          <button
+            onClick={() => dispatch(resetGagModal())}
+            title="Close Gag Details"
+          >
             Close
           </button>
         </div>
