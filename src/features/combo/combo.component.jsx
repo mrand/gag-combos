@@ -36,17 +36,19 @@ function ComboGags({ combo }) {
 function ComboStats({ combo }) {
   return (
     <div className='combo-stats'>
-      <h4>
-        Damage: <span
-          className='stat-value'
-          style={combo.totalDamage === combo.cog.hp ? {color: 'var(--green-500)'} : {}}
-        >{combo.totalDamage} / {combo.cog.hp}</span>
+      <h4 
+        style={combo.totalDamage === combo.cog.hp ? {color: 'var(--green-500)'} : {}}
+        title='Combo Damage'
+      >
+        <span>Damage:</span>
+        <span>{combo.totalDamage} / {combo.cog.hp}</span>
       </h4>
-      <h4 title='Combo Accuracy: Read more about this statistic on the FAQ page.'>
-        Accuracy: <span 
-          className='stat-value'
-          style={combo.accuracy === 100 ? {color: 'var(--green-500)'} : {}}
-        >{combo.accuracy}%</span>
+      <h4 
+        title='Combo Accuracy: Read more about this statistic on the FAQ page.'
+        style={combo.accuracy === 100 ? {color: 'var(--green-500)'} : {}}
+      >
+        <span>Accuracy:</span>
+        <span>{combo.accuracy}%</span>
       </h4>
     </div>
   );

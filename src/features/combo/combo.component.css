@@ -68,17 +68,11 @@
   display: grid;
   gap: 8px;
 }
-
-
 .combo-stats h4 {
   line-height: 1em;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5ch;
-}
-.stat-value {
-  display: inline-block;
-  white-space: nowrap;
 }
 
 .expand-btn {
