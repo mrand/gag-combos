@@ -11,19 +11,24 @@ export default class Gag {
     this.organic = (org) ? "Organic" : "Non-Organic";
     this.track = track;
     this.level = level;
-
-    this.accuracy = 0;
-    this.damage = 0; 
-    this.heal = 0;
     this.name = ""; 
+    
+    this.accuracy = {
+      base: 0,
+      attack: 0
+    };
+    this.damage = {
+      base: 0,
+      luredMultiplier: 0,
+      comboMultiplier: 0,
+    };
+
+    this.heal = 0;
     this.stun = 0;
     this.targetsMulti = false;
+
     this._getGagStats();
-    
     this.image = this._getImageName();
-    
-    this.luredMultiplierDamage = 0;
-    this.comboMultiplierDamage = 0;
   }
 
   _getGagStats() {
@@ -41,9 +46,9 @@ export default class Gag {
     
     // Accuracy - Lure special
     if (this.track === 'Lure') {
-      this.accuracy = thisGag.accuracy[organicTxt];
+      this.accuracy.base = thisGag.accuracy[organicTxt];
     } else {
-      this.accuracy = thisGag.accuracy;
+      this.accuracy.base = thisGag.accuracy;
     }
 
 
@@ -55,7 +60,7 @@ export default class Gag {
       (this.track === 'Squirt') ||
       (this.track === 'Drop')
     ) {
-      this.damage = thisGag.damage[organicTxt][1];
+      this.damage.base = thisGag.damage[organicTxt][1];
     } 
 
     // Heal - Toon-Up special
@@ -148,13 +153,13 @@ export default class Gag {
         )
       )
     ) {
-      this.atkAcc = 1.0;
+      this.accuracy.attack = 1.0;
       return;
     }
 
 
     // Proposed Accuracy := Gag's Base Accuracy
-    const propAcc = this.accuracy * 100;  
+    const propAcc = this.accuracy.base * 100;  
 
 
     /*
@@ -164,8 +169,11 @@ export default class Gag {
     const trackExp = 60;
 
 
-    // Target Defense
-    const tgtDef = cog.tgtDef;
+    /*
+    Target Defense defined by cog
+    Special Case: Toon-Up always equals 0.
+    */
+    const tgtDef = (this.track==='Toon-Up') ? 0 : cog.tgtDef;
 
 
     /*
@@ -200,9 +208,9 @@ export default class Gag {
     }
 
     const bonus = prevHits + luredRatio; 
-    const atkAcc = Math.min(propAcc + trackExp + tgtDef + bonus, 95) / 100;
 
-    this.atkAcc = atkAcc;
+    const atkAcc = Math.min(propAcc + trackExp + tgtDef + bonus, 95) / 100;
+    this.accuracy.attack = atkAcc;
   }
 
   /**
@@ -215,7 +223,7 @@ export default class Gag {
     let comboMultiplier = 0;
 
     // 'Pass', 'Lure', and 'Toon-Up' have no damage to multiply
-    if (this.damage === 0) return [0, 0, 0];
+    if (this.damage.base === 0) return [0, 0, 0];
 
     // Drop on Lure Dud
     if (
@@ -273,15 +281,15 @@ export default class Gag {
       comboMultiplier = 0.2;
     }
 
-    this.luredMultiplierDamage = Math.ceil(luredMultiplier * this.damage);
-    this.comboMultiplierDamage = Math.ceil(comboMultiplier * this.damage);
+    this.damage.luredMultiplier = Math.ceil(luredMultiplier * this.damage.base);
+    this.damage.comboMultiplier = Math.ceil(comboMultiplier * this.damage.base);
 
     return [dudMultiplier, luredMultiplier, comboMultiplier];
   }
 
   toString() {
     return (
-      `Gag: ${this.organic} ${this.track}, ${this.level} - ${this.name}, Damage: ${this.damage}`
+      `Gag: ${this.organic} ${this.track}, ${this.level} - ${this.name}, Damage: ${this.damage.base}`
       // \n- Image: ${this.image}`
     );
   }

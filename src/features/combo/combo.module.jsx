@@ -33,19 +33,23 @@ export default class Combo {
 
   _getAccuracy() {
     
-    let trackAccuracies = {};
+    // Use maximum attack accuracy from groups of gags of the same track.
+    let maxAtkAccs = {};
     this.gags.forEach((gag) => {
       gag.getAccuracyWithCombo(this.counts, this.isLured, this.cog);
-      (gag.track in trackAccuracies)
-        ? trackAccuracies[gag.track].push(gag.atkAcc)
-        : trackAccuracies[gag.track] = [gag.atkAcc];
+      (gag.track in maxAtkAccs)
+        ? maxAtkAccs[gag.track] = Math.max(gag.accuracy.attack, maxAtkAccs[gag.track])
+        : maxAtkAccs[gag.track] = gag.accuracy.attack;
     });
+    this.gags.forEach((gag) => gag.accuracy.attack = maxAtkAccs[gag.track]);
 
+    // Calculate combo accuracy using gags' attack accuracy values. 
     let comboAccuracy = 1;
-    for (let ta in trackAccuracies) {
-      comboAccuracy *= Math.max(...trackAccuracies[ta]);
+    for (let ta in maxAtkAccs) {
+      comboAccuracy *= maxAtkAccs[ta];
     }
 
+    // format value as 0-100 with 1 decimal place
     this.accuracy = Math.round(comboAccuracy * 1000) / 10;
   }
 
@@ -78,7 +82,7 @@ export default class Combo {
     let gagLureMultiplier;   // (=0.5 if lured)
     let gagComboMultiplier;  // (=0.2 if combo)
     this.gags.forEach((gag) => {
-      let actualDamage = Math.max(gag.damage - this.cog.v2Resistance, 0);
+      let actualDamage = Math.max(gag.damage.base - this.cog.v2Resistance, 0);
       [
         gagDudMultiplier, gagLureMultiplier, gagComboMultiplier
       ] = gag.getDamageWithMultiplier(this.counts, this.isLured);

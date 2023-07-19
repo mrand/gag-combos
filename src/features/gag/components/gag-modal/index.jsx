@@ -84,13 +84,37 @@ export default function GagModal() {
 
           {
             gag.name!=='Pass' ? (
-              <section className="stats">
-                <h4>Stats</h4>
-                <span><b>Accuracy</b>: {gag.accuracy*100+"%"}</span>
-                {gag.damage!==0 ? (<span><b>Damage</b>: {gag.damage}</span>) : null}
-                {gag.heal!==0 ? (<span><b>Heal</b>: {gag.heal}</span>) : null}
-                {gag.stun!==0 ? (<span><b>Lured Rounds</b>: {gag.stun}</span>) : null}
-              </section>
+              <>
+              
+                <section className='stats'>
+                  <h4>Stats</h4>
+                  <span className='stat'><b>Accuracy</b>: {gag.accuracy.base*100+"%"}</span>
+                  {gag.damage.base!==0 ? (<span className='stat'><b>Damage</b>: {gag.damage.base}</span>) : null}
+                  {gag.heal!==0 ? (<span className='stat'><b>Heal</b>: {gag.heal}</span>) : null}
+                  {gag.stun!==0 ? (<span className='stat'><b>Lured Rounds</b>: {gag.stun}</span>) : null}
+                </section>
+
+                <section className='stats'>
+                  <h4>Attack Details</h4>
+                  {
+                    Object.entries(gagData.comboStats).map(([stat, val], i) => (
+                      <div className='stat' key={i}>
+                        <h5>{stat}</h5>
+                        <ul>
+                        {
+                          Object.entries(val).map(([subStat, subVal], j) => (
+                            <li key={j}>
+                              <b>{subStat}: </b>{stat==='accuracy' ? subVal*100+"%" : subVal}
+                            </li>
+                          ))
+                        }
+                        </ul>
+                      </div>
+                    ))
+                  }
+                </section>
+
+              </>
             ) : null
           }
           

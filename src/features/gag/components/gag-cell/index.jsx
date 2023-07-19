@@ -34,9 +34,9 @@ function GagStats({ gag }) {
     <div className='gag-stats'>
       {(gag.name === 'Pass') ? (null) : (
         <>
-          <span><b>Dmg:</b> {gag.damage}</span>
-          <span><b>Acc:</b> {gag.accuracy*100}%</span>
-          <span><b>AtkAcc:</b> {Math.round(gag.atkAcc*100)}%</span>
+          <span><b>Dmg:</b> {gag.damage.base}</span>
+          <span><b>Acc:</b> {gag.accuracy.base*100}%</span>
+          <span><b>AtkAcc:</b> {Math.round(gag.accuracy.attack*100)}%</span>
         </>
       )}
     </div>
@@ -57,7 +57,11 @@ export default function GagCell({ gag }) {
           { 
             track: gag.track, 
             level: gag.level, 
-            org: (gag.organic==="Organic")
+            org: (gag.organic==="Organic"),
+            comboStats: {
+              accuracy: gag.accuracy,
+              damage: gag.damage
+            }
           }
         ));
       }}

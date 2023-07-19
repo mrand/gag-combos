@@ -9,6 +9,7 @@
   padding: 16px;
   text-align: center;
 }
+/* modal background */
 #gag-modal::before {
   content: '';
   position: absolute;
@@ -50,6 +51,7 @@
 }
 
 
+/* Gag Image and Name Area */
 #gag-modal .main-details {
   display: flex;
   align-items: center;
@@ -83,17 +85,23 @@
 .main-details h3 { line-height: 100%; }
 
 
-#gag-modal .stats > * { display: block; }
-
-
-.skill-points input { width: 100%; }
-
-.skill-points .input-wrap { 
-  display: flex; 
-  justify-content: space-between;
-  gap: 8px;
+/* Gag Stats */
+#gag-modal .stats,
+#gag-modal .stats > div {
+  display: grid;
 }
 
+#gag-modal .stats {
+  text-align: left;
+}
+#gag-modal .stats > div {
+  border-top: 1px solid var(--grey-400);
+  padding-block: 8px;
+}
+#gag-modal ul { gap: 0.25em; }
+
+
+/* Gag Panel */
 #gag-modal .gags-panel .track-lvl-txt {
   display: flex;
   flex-direction: column;
