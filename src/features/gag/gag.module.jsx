@@ -14,13 +14,13 @@ export default class Gag {
     this.name = ""; 
     
     this.accuracy = {
-      base: 0,
-      attack: 0
+      'Base': 1.0,
+      'Attack': 1.0
     };
     this.damage = {
-      base: 0,
-      luredMultiplier: 0,
-      comboMultiplier: 0,
+      'Base': 0,
+      'Lured Multiplier': 0,
+      'Combo Multiplier': 0,
     };
 
     this.heal = 0;
@@ -46,9 +46,9 @@ export default class Gag {
     
     // Accuracy - Lure special
     if (this.track === 'Lure') {
-      this.accuracy.base = thisGag.accuracy[organicTxt];
+      this.accuracy['Base'] = thisGag.accuracy[organicTxt];
     } else {
-      this.accuracy.base = thisGag.accuracy;
+      this.accuracy['Base'] = thisGag.accuracy;
     }
 
 
@@ -60,7 +60,7 @@ export default class Gag {
       (this.track === 'Squirt') ||
       (this.track === 'Drop')
     ) {
-      this.damage.base = thisGag.damage[organicTxt][1];
+      this.damage['Base'] = thisGag.damage[organicTxt][1];
     } 
 
     // Heal - Toon-Up special
@@ -153,13 +153,13 @@ export default class Gag {
         )
       )
     ) {
-      this.accuracy.attack = 1.0;
+      this.accuracy['Attack'] = 1.0;
       return;
     }
 
 
     // Proposed Accuracy := Gag's Base Accuracy
-    const propAcc = this.accuracy.base * 100;  
+    const propAcc = this.accuracy['Base'] * 100;  
 
 
     /*
@@ -183,9 +183,7 @@ export default class Gag {
     let prevHits = 0;  
     for (const [track, count] of Object.entries(counts)) {
       if (track === this.track) break;  // do not count current track
-      if (track !== 'Lure') {
-        prevHits += (20 * count);
-      }
+      prevHits += (20 * count);
     }
 
 
@@ -210,7 +208,7 @@ export default class Gag {
     const bonus = prevHits + luredRatio; 
 
     const atkAcc = Math.min(propAcc + trackExp + tgtDef + bonus, 95) / 100;
-    this.accuracy.attack = atkAcc;
+    this.accuracy['Attack'] = atkAcc;
   }
 
   /**
@@ -223,7 +221,7 @@ export default class Gag {
     let comboMultiplier = 0;
 
     // 'Pass', 'Lure', and 'Toon-Up' have no damage to multiply
-    if (this.damage.base === 0) return [0, 0, 0];
+    if (this.damage['Base'] === 0) return [0, 0, 0];
 
     // Drop on Lure Dud
     if (
@@ -281,15 +279,15 @@ export default class Gag {
       comboMultiplier = 0.2;
     }
 
-    this.damage.luredMultiplier = Math.ceil(luredMultiplier * this.damage.base);
-    this.damage.comboMultiplier = Math.ceil(comboMultiplier * this.damage.base);
+    this.damage['Lured Multiplier'] = Math.ceil(luredMultiplier * this.damage['Base']);
+    this.damage['Combo Multiplier'] = Math.ceil(comboMultiplier * this.damage['Base']);
 
     return [dudMultiplier, luredMultiplier, comboMultiplier];
   }
 
   toString() {
     return (
-      `Gag: ${this.organic} ${this.track}, ${this.level} - ${this.name}, Damage: ${this.damage.base}`
+      `Gag: ${this.organic} ${this.track}, ${this.level} - ${this.name}, Damage: ${this.damage['Base']}`
       // \n- Image: ${this.image}`
     );
   }

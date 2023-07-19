@@ -29,7 +29,7 @@ export default function HoverBox() {
         statVal = gag.stun;
       } else { 
         statTitle = "Damage";
-        statVal = gag.damage.base; 
+        statVal = gag.damage['Base']; 
       }
       if (gag.track === "Toon-Up") {
         affectsText = gag.targetsMulti ? "All Toons" : "Single Toon";
@@ -48,7 +48,7 @@ export default function HoverBox() {
                 <img src={gag.image} alt={gag.name} />
               </div>
               <div className="stats">
-                <span><b>Accuracy:</b> {(gag.accuracy.base*100)+"%"}</span>
+                <span><b>Accuracy:</b> {(gag.accuracy['Base']*100)+"%"}</span>
                 <span><b>{statTitle}:</b> {statVal}</span>
                 <span><b>Affects:</b> {affectsText}</span>
               </div>

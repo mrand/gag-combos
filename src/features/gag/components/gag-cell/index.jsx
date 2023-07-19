@@ -34,9 +34,9 @@ function GagStats({ gag }) {
     <div className='gag-stats'>
       {(gag.name === 'Pass') ? (null) : (
         <>
-          <span><b>Dmg:</b> {gag.damage.base}</span>
-          <span><b>Acc:</b> {gag.accuracy.base*100}%</span>
-          <span><b>AtkAcc:</b> {Math.round(gag.accuracy.attack*100)}%</span>
+          <span><b>Dmg:</b> {gag.damage['Base']}</span>
+          <span><b>Acc:</b> {gag.accuracy['Base']*100}%</span>
+          <span><b>AtkAcc:</b> {Math.round(gag.accuracy['Attack']*100)}%</span>
         </>
       )}
     </div>
