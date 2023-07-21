@@ -2,12 +2,9 @@
 header {
   position: sticky;
   top: 0;
-}
-
-header {
+  z-index: 100;
   background: #ffffff;
   box-shadow: 0 0 5px var(--grey-700);
-  z-index: 100;
 }
 header .wrapper {
   display: flex;

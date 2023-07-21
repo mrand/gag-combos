@@ -95,7 +95,7 @@ export default function GagModal() {
                   {
                     Object.entries(val).map(([subStat, subVal], j) => (
                       <li key={j}>
-                        <b>{subStat}: </b>{stat==='accuracy' ? subVal*100+"%" : subVal}
+                        <b>{subStat}: </b>{stat==='accuracy' ? Math.round(subVal*100)+"%" : subVal}
                       </li>
                     ))
                   }
