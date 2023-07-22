@@ -226,7 +226,7 @@ export default class Gag {
     // Drop on Lure Dud
     if (
       (this.track === 'Drop') &&
-      (counts['Lure'] > 0) && 
+      (isLured || counts['Lure'] > 0) && 
       (!('Trap' in counts) || counts['Trap'] > 1) && 
       !('Sound' in counts) && 
       !('Throw' in counts) &&

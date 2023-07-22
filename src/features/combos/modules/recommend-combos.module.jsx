@@ -123,13 +123,6 @@ import combos from '~/features/combos/combos.data.json';
       return p;
     }, []);
 
-    // ...Remove Drop-Only combos if Cog is Lured
-    // (some lured cog drop combos remove the stun gag while optimizing)
-    if (this.isLured) {
-      recSolns = recSolns.filter(function (combo) { 
-        return JSON.stringify(Object.keys(combo.counts)) !== JSON.stringify(['Drop']);
-      });
-    }
 
     return recSolns;
   }
