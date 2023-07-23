@@ -118,18 +118,38 @@ export default class FindCombo {
     return thisGags;
   }
 
+
+  _getCurrComboGags(tracks, levels) {
+    let comboGags = [];
+    for (let i=0; i<this.numToons; i++) {
+      comboGags.push(
+        new Gag(
+          tracks[i],
+          levels[i],
+          this.gags[i][0].organic
+        )
+      );
+    }
+    return comboGags;
+  }
+
+
   find(cog) {
     if (!cog || !this.gags || this.gags.length === 0) return false;
 
-    // Initialize Combo with Level 1 Gags
-    let comboGags = [];
+
+    // Copy Tracks Object
+    let gagTracks = JSON.parse(JSON.stringify(this.tracks));
+
+    // Initialize Gags at Level 1*
+    // let gagLvls = Array(this.numToons).fill(1);
+    let gagLvls = [];
     for (let i=0; i<this.numToons; i++) {
+      let currLvl = 1;
 
-      // ...special case, Lure:
-      if (this.tracks[i] === "Lure") {
-
-        // set gag level based on cog level
-        let lureLevel = 
+      // *Special case, Lure:
+      if (gagTracks[i] === "Lure") {
+        currLvl = 
           (cog.level >= 18) ? 7
         : (cog.level >= 14) ? 6
         : (cog.level >= 9)  ? 5
@@ -137,50 +157,45 @@ export default class FindCombo {
         : (cog.level >= 4)  ? 3
         : (cog.level >= 2)  ? 2 
                             : 1;
-        comboGags.push(
-          new Gag(
-            this.tracks[i],
-            lureLevel,
-            this.gags[i][0].organic
-          )
-        );
+      } 
 
-      // ...normal case:
-      } else {
-        comboGags.push(
-          new Gag(
-            this.tracks[i],
-            1,
-            this.gags[i][0].organic
-          )
-        );
-      }
+      gagLvls.push(currLvl);
     }
 
-    // Initialize Combo
-    let combo = new Combo(cog, comboGags, this.isLured);
-
-    // Find Optimal Combo
-    let iterCount = 0;  // error check - iteration counter
+    // Get Current Combo Gags
+    let comboGags = this._getCurrComboGags(gagTracks, gagLvls);
+    
+    // Find Minimum Successful Combo
+    let combo = new Combo(
+      cog, 
+      comboGags, 
+      this.isLured
+    );
+    let iterCount = 0;
     while (!combo.defeatsCog) {
 
-      // find minimum level gag (not Lure or Toon-Up, which have 0 damage)
-      let tmp = comboGags.filter(function(gag) { return gag.track !== "Lure"; });
-      let updateGag = tmp.hasNonZeroMin('level');
-      let updateGagIndex = comboGags.findIndex(x => (x === updateGag));
+      // find minimum level gag (filter out Lure and Toon-Up, which have 0 damage)
+      let filteredGags = comboGags.filter(function(gag) { return gag.damage['Base'] !== 0; });
+      let minNonzeroLevel = filteredGags.hasNonZeroMin('level').level;
+      let minNonzeroIndex = comboGags.findIndex(gag => (gag.level === minNonzeroLevel && gag.damage['Base'] !== 0));
+
+      // find minimum level gag (no filter here - lure and toon-up levels would align with other gags)
+      // let minNonzeroLevel = Math.min(...gagLvls.filter(Boolean));
+      // let minNonzeroIndex = gagLvls.findIndex(x => (x === minNonzeroLevel));
 
       // lowest gag can go no higher ?
-      if (updateGag.level === 7) return false;
+      if (minNonzeroLevel === 7) return false;
 
-      // replace weakest gag with next highest gag
-      comboGags[updateGagIndex] = new Gag(
-        this.tracks[updateGagIndex],
-        updateGag.level+1,
-        this.gags[updateGagIndex][updateGag.level].organic
+      // add 1 to lowest gag level
+      Object.assign(gagLvls[minNonzeroIndex], gagLvls[minNonzeroIndex]++);
+      comboGags = this._getCurrComboGags(gagTracks, gagLvls);
+
+      // Get Current Combo
+      combo = new Combo(
+        cog, 
+        comboGags, 
+        this.isLured
       );
-      // update combo and check
-      combo = new Combo(cog, comboGags, this.isLured);
-      if (combo.defeatsCog) break;
 
       // Throw error after 29 iterations
       // (a 4 gag combo will have a maximum of 28 iterations)
@@ -188,61 +203,69 @@ export default class FindCombo {
       if (iterCount>28) {
         throw new Error('Welp, the while loop was stuck iterating upwards.'); 
       }
-    }
+
+    };
+
 
     // Decrease Gags if Possible
     iterCount = 0;  // reset error check iteration counter
-
-    let comboGagsCopy;   // Use copies to check...
-    let thisTracksCopy;  // ...before mutating...
-    let tempCombo;       // ...actual objects.
-
-    let tmp;  // to check if combo is unchanged after for loop
-
+    
     while (true) {
-      tmp = {...combo};  // store initial state of combo before for loop
 
-      for (let i=0; i < comboGags.length; i++) {
+      // store initial state of combo before for loop
+      let lastSuccessfulCombo = new Combo(
+        cog, 
+        this._getCurrComboGags(gagTracks, gagLvls), 
+        this.isLured
+      );
+      
+      // try to lower each gag
+      for (let i=0; i<gagLvls.length; i++) {
 
-        comboGagsCopy = [...comboGags];
-        tempCombo = {...combo};
-        thisTracksCopy = [...this.tracks];
+        // use separate objects to check before mutating actual object 
+        let currComboGags = this._getCurrComboGags(gagTracks, gagLvls);
+        let currCombo = new Combo(
+          cog, 
+          currComboGags,
+          this.isLured
+        );
 
-        let updateGag = comboGags[i];
+        // ignore Passes, Toon-Up, Lure, Duds
+        if (currCombo.gags[i].damage['Base'] > 0) {
 
-        if (
-          (updateGag.level > 0) &&            // ignore passes
-          (updateGag.track !== 'Toon-Up') &&  // ignore Toon-Up
-          (updateGag.track !== 'Lure')        // ignore Lure
-        ) {
-          
-          // if gag can go no lower - make it a pass
-          if (updateGag.level === 1) {
-            comboGagsCopy[i] = new Gag();
-            thisTracksCopy[i] = '';
+          let currGagLvls = JSON.parse(JSON.stringify(gagLvls));
 
-          // else replace gag with next lowest
-          } else {
-            comboGagsCopy[i] = new Gag(
-              this.tracks[i],
-              updateGag.level-1,
-              this.gags[i][updateGag.level-1].organic
+          // subtract 1 from current gag level
+          Object.assign(currGagLvls[i], currGagLvls[i]--);
+          currComboGags = this._getCurrComboGags(gagTracks, currGagLvls);
+
+          // Get Current Combo
+          currCombo = new Combo(
+            cog, 
+            currComboGags, 
+            this.isLured
+          );
+
+          // update returnable combo if currCombo is successful
+          if (currCombo.defeatsCog) { 
+            Object.assign(gagLvls[i], gagLvls[i]--);
+            comboGags = this._getCurrComboGags(gagTracks, gagLvls);
+            combo = new Combo(
+              cog, 
+              this._getCurrComboGags(gagTracks, gagLvls), 
+              this.isLured
             );
           }
 
-          // update tempCombo and check
-          tempCombo = new Combo(cog, comboGagsCopy, this.isLured);
-          if (tempCombo.defeatsCog) { 
-            combo = tempCombo; 
-            comboGags = [...comboGagsCopy];
-            this.tracks = [...thisTracksCopy];
-          }
-        }
+        } 
       }
 
       // while loop break condition:
       // for loop has just checked all gags and made no changes to the combo
-      if (JSON.stringify(tmp) === JSON.stringify(combo)) break;
+      if (JSON.stringify(lastSuccessfulCombo) === JSON.stringify(combo)) {
+        this.tracks = gagTracks;
+        break;
+      }
 
       // Throw error after 21 iterations
       // (We know at least 1 gag must stay fixed, so there are a maximum of 21 iterations for the 3 other gags, 

@@ -8,11 +8,11 @@ export default class Gag {
    * @param {boolean} org Gag is organic (true/false)
   */
   constructor(track=null, level=null, org=null) {
-    this.organic = (org) ? "Organic" : "Non-Organic";
-    this.track = track;
-    this.level = level;
-    this.name = ""; 
-    
+    // Defaults
+    this.organic = 'Non-Organic';
+    this.track = '';
+    this.level = 0;
+    this.name = 'Pass'; 
     this.accuracy = {
       'Base': 1.0,
       'Attack': 1.0
@@ -23,23 +23,22 @@ export default class Gag {
       'Lured Multiplier': 0,
       'Combo Multiplier': 0,
     };
-
     this.heal = 0;
     this.stun = 0;
     this.targetsMulti = false;
-
-    this._getGagStats();
+    // Override Defaults based on given parameters
+    this._getGagStats(track, level, org);
     this.image = this._getImageName();
   }
 
-  _getGagStats() {
+  _getGagStats(track, level, org) {
 
     // if any parameters are missing, treat it as a "Pass"
-    if (this.organic === null || this.track === null || this.level === null) {
-      this.level = 0;
-      this.name = 'Pass';
-      return;
-    }
+    if (!track || !level) return;
+
+    this.track = track;
+    this.level = level;
+    this.organic = (org) ? 'Organic' : 'Non-Organic';
 
     // get gag object from JSON
     let thisGag = gagsData[this.track][this.level-1];
