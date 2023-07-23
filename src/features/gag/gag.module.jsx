@@ -279,8 +279,8 @@ export default class Gag {
       comboMultiplier = 0.2;
     }
 
-    this.damage['Lured Multiplier'] = Math.ceil(luredMultiplier * this.damage['Base']);
-    this.damage['Combo Multiplier'] = Math.ceil(comboMultiplier * this.damage['Base']);
+    this.damage['Lured Multiplier'] = Math.round(luredMultiplier * this.damage['Base'] * 10) / 10;
+    this.damage['Combo Multiplier'] = Math.round(comboMultiplier * this.damage['Base'] * 10) / 10;
 
     return [dudMultiplier, luredMultiplier, comboMultiplier];
   }
