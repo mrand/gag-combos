@@ -19,6 +19,7 @@ export default class Gag {
     };
     this.damage = {
       'Base': 0,
+      'Attack': 0,
       'Lured Multiplier': 0,
       'Combo Multiplier': 0,
     };
@@ -279,8 +280,8 @@ export default class Gag {
       comboMultiplier = 0.2;
     }
 
-    this.damage['Lured Multiplier'] = Math.round(luredMultiplier * this.damage['Base'] * 10) / 10;
-    this.damage['Combo Multiplier'] = Math.round(comboMultiplier * this.damage['Base'] * 10) / 10;
+    this.damage['Lured Multiplier'] = Math.round(luredMultiplier * this.damage['Attack'] * 10) / 10;
+    this.damage['Combo Multiplier'] = Math.round(comboMultiplier * this.damage['Attack'] * 10) / 10;
 
     return [dudMultiplier, luredMultiplier, comboMultiplier];
   }

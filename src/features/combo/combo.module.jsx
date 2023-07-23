@@ -82,13 +82,13 @@ export default class Combo {
     let gagLureMultiplier;   // (=0.5 if lured)
     let gagComboMultiplier;  // (=0.2 if combo)
     this.gags.forEach((gag) => {
-      let actualDamage = Math.max(gag.damage['Base'] - this.cog.v2Resistance, 0);
+      gag.damage['Attack'] = Math.max(gag.damage['Base'] - this.cog.v2Resistance, 0);
       [
         gagDudMultiplier, gagLureMultiplier, gagComboMultiplier
       ] = gag.getDamageWithMultiplier(this.counts, this.isLured);
-      mainDamage  += (actualDamage * gagDudMultiplier);
-      luredDamage += (actualDamage * gagLureMultiplier);
-      comboDamage += (actualDamage * gagComboMultiplier);
+      mainDamage  += (gag.damage['Attack'] * gagDudMultiplier);
+      luredDamage += (gag.damage['Attack'] * gagLureMultiplier);
+      comboDamage += (gag.damage['Attack'] * gagComboMultiplier);
     });
 
     // Check Total Damage
