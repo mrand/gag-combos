@@ -17,7 +17,7 @@ export function OrganicIcon() {
 
 function GagImageAndName({ gag }) {
   return (
-    <div>
+    <div className='gag-icon-name-wrap'>
       <img 
         className='gag-icon'
         src={gag.image} 
@@ -31,15 +31,18 @@ function GagImageAndName({ gag }) {
 
 function GagStats({ gag }) {
   return (
-    <div className='gag-stats'>
-      {(gag.name === 'Pass') ? (null) : (
-        <>
-          <span><b>Dmg:</b> {gag.damage['Base']}</span>
-          <span><b>Acc:</b> {gag.accuracy['Base']*100}%</span>
-          <span><b>AtkAcc:</b> {Math.round(gag.accuracy['Attack']*100)}%</span>
-        </>
-      )}
-    </div>
+    <>
+      <div className='gag-stats'>
+        <b className='stat-title'>Base</b>
+        <span><b>Dmg:</b> {gag.damage['Base']}</span>
+        <span><b>Acc:</b> {gag.accuracy['Base']*100}%</span>
+      </div>
+      <div className='gag-stats'>
+        <b className='stat-title'>Attack</b>
+        <span><b>Dmg:</b> {gag.damage['Attack']}</span>
+        <span><b>Acc:</b> {gag.accuracy['Attack']*100}%</span>
+      </div>
+    </>
   );
 }
 
@@ -50,7 +53,7 @@ export default function GagCell({ gag }) {
   return (
     <button 
       title={'View details about "'+(gag.organic==='Organic' ? gag.organic+' ' : '')+gag.name+'"'}
-      className={'gag-cell' + (gag.organic==='Organic' ? ' org' : '')}
+      className={'gag-cell custom-scrollbar' + (gag.organic==='Organic' ? ' org' : '')}
       style={{background: (trackColors[gag.track] || "")}}
       onClick={() => {
         dispatch(setGagModal(

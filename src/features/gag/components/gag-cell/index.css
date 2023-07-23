@@ -9,6 +9,7 @@ button.gag-cell {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  gap: 8px;
   text-align: center;
 
   width: min(100%, 72px);
@@ -39,6 +40,8 @@ button.gag-cell {
   aspect-ratio: 1 / 1;
   z-index: 1;
 }
+
+.gag-icon-name-wrap { gap: 8px; }
 .gag-cell .gag-icon {
   filter: drop-shadow(0 0 5px var(--grey-700));
   width: 40px;
@@ -47,14 +50,19 @@ button.gag-cell {
   flex: 1 1 0px;
 }
 .gag-cell .gag-name { 
-  min-height: 2.5em; 
-  line-height: 1.25em;
+  line-height: 1.1em;
 }
 
-.gag-cell .gag-stats { margin-top: 12px; }
+.gag-stats {
+  align-items: stretch;
+  text-align: left;
+}
+.gag-stats .stat-title {
+  text-decoration: underline;
+}
 
+.gag-cell .gag-stats b,
 .gag-cell span {
-  align-self: stretch;
   text-align: left;
 }
 
@@ -71,23 +79,21 @@ button.gag-cell {
     width: 100%;
     flex-direction: row;
     justify-content: space-between;
-    gap: 16px;
     text-align: left;
+    overflow: auto;
   }
 
   .gag-cell > div {
     text-align: center;
     font-size: 16px;
+    flex-shrink: 0;
   }
-  .expanded .gag-cell > div { width: 100px; }
-  .gag-cell .gag-name { min-height: 0; }
-  .gag-cell .gag-stats { margin-top: 0; }
-}
 
-/* tiny phones */
-@media (max-width: 375px) {
-  .expanded .gag-cell { flex-direction: column; }
-  .expanded .gag-cell > div { width: auto; }
+  .expanded .gag-cell > div:first-of-type {
+    width: 100px;
+    border-right: 1px solid #000000;
+    padding-right: 8px;
+  }
 }
 
 
