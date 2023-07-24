@@ -16,7 +16,7 @@ export default function DamageCount() {
   
   return (
     <div className="damage-count">
-      <h3>Total Damage = {combo.totalDamage}</h3>
+      <h3>Total Damage = {combo.damage['Total']}</h3>
     </div>
   );
 }

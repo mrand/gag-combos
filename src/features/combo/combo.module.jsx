@@ -10,7 +10,12 @@ export default class Combo {
     this.gags = gags;
     this.isLured = isLured;
     this.counts = this._countGagsByTrack();
-    this.totalDamage = 0;
+    this.damage = {
+      'Base': 0,
+      'Lured Multiplier': 0,
+      'Combo Multiplier': 0,
+      'Total': 0
+    };
     this.defeatsCog = false;
     this.accuracy = 1.0;
     this.info = {
@@ -86,16 +91,18 @@ export default class Combo {
       [
         gagDudMultiplier, gagLureMultiplier, gagComboMultiplier
       ] = gag.getDamageWithMultiplier(this.counts, this.isLured);
-      mainDamage  += (gag.damage['Attack'] * gagDudMultiplier);
-      luredDamage += (gag.damage['Attack'] * gagLureMultiplier);
-      comboDamage += (gag.damage['Attack'] * gagComboMultiplier);
+      this.damage['Base']  += (gag.damage['Attack'] * gagDudMultiplier);
+      this.damage['Lured Multiplier'] += (gag.damage['Attack'] * gagLureMultiplier);
+      this.damage['Combo Multiplier'] += (gag.damage['Attack'] * gagComboMultiplier);
     });
 
     // Check Total Damage
-    this.totalDamage = mainDamage + Math.ceil(luredDamage) + Math.ceil(comboDamage);
+    this.damage['Lured Multiplier'] = Math.ceil(this.damage['Lured Multiplier']);
+    this.damage['Combo Multiplier'] = Math.ceil(this.damage['Combo Multiplier']);
+    this.damage['Total'] = this.damage['Base'] + this.damage['Lured Multiplier'] + this.damage['Combo Multiplier'];
 
     // defeats cog
-    if (this.totalDamage >= this.cog.hp) this.defeatsCog = true;
+    if (this.damage['Total'] >= this.cog.hp) this.defeatsCog = true;
   }
 
   tryCombo() {
@@ -111,7 +118,7 @@ export default class Combo {
     return (
       `Combo: \nCog HP: ${this.cog.hp} \nGags: [\n${
         this.gags.map(gag => `${gag}`).join(',\n')
-      }\n]\nDamage: ${this.totalDamage}\nDefeats Cog: ${this.defeatsCog}`
+      }\n]\nDamage: ${this.damage['Total']}\nDefeats Cog: ${this.defeatsCog}`
     );
   }
 }

@@ -52,7 +52,7 @@ export default function CogsList() {
                 key={i}
                 level={combo.cog.level}
                 isV2={isV2}
-                remainingHP={Math.max(combo.cog.hp - combo.totalDamage, 0)}
+                remainingHP={Math.max(combo.cog.hp - combo.damage['Total'], 0)}
               />
             );
           })

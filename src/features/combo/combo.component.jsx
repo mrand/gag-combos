@@ -33,15 +33,35 @@ function ComboGags({ combo }) {
 }
 
 
+function ComboMultipliers({ combo }) {
+  return (
+    (combo.damage['Lured Multiplier'] !== 0 || combo.damage['Combo Multiplier'] !== 0) && (
+      <div className='combo-multipliers'>
+        {
+          (combo.damage['Lured Multiplier'] !== 0) && (
+            <span><b>Lured Multiplier</b>: +{combo.damage['Lured Multiplier']}</span>
+          )
+        }
+        {
+          (combo.damage['Combo Multiplier'] !== 0) && (
+            <span><b>Combo Multiplier</b>: +{combo.damage['Combo Multiplier']}</span>
+          )
+        } 
+      </div>
+    )
+  );
+}
+
+
 function ComboStats({ combo }) {
   return (
     <div className='combo-stats'>
       <h4 
-        style={combo.totalDamage === combo.cog.hp ? {color: 'var(--green-500)'} : {}}
+        style={combo.damage['Total'] === combo.cog.hp ? {color: 'var(--green-500)'} : {}}
         title='Combo Damage'
       >
         <span>Damage:</span>
-        <span>{combo.totalDamage} / {combo.cog.hp}</span>
+        <span>{combo.damage['Total']} / {combo.cog.hp}</span>
       </h4>
       <h4 
         title='Combo Accuracy: Read more about this statistic on the FAQ page.'
@@ -60,7 +80,7 @@ export default function ComboCell({ combo, cellNum, cellStates, setCellStates })
   let thisExpanded = cellStates[cellNum];
   let solutionTracks = Object.keys(combo.counts);
   let infoIndicator = combo.info.indicator;
-  const isPerfect = (combo.totalDamage === combo.cog.hp) && (combo.accuracy === 100);
+  const isPerfect = (combo.damage['Total'] === combo.cog.hp) && (combo.accuracy === 100);
 
   return (
     <div 
@@ -74,6 +94,9 @@ export default function ComboCell({ combo, cellNum, cellStates, setCellStates })
 
       {/* gags */}
       <ComboGags combo={combo} />
+
+      {/* multipliers */}
+      { thisExpanded && <ComboMultipliers combo={combo} /> }
 
       {/* info */}
       {

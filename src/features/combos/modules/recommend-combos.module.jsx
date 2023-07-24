@@ -105,7 +105,7 @@ import combos from '~/features/combos/combos.data.json';
           // remove combos marked as bad
           combo.info.indicator !== 'bad'
           // remove combos with total damage below hp+threshold
-          && combo.totalDamage <= combo.cog.hp + Math.ceil(Math.sqrt(combo.cog.hp) / 2)
+          && combo.damage['Total'] <= combo.cog.hp + Math.ceil(Math.sqrt(combo.cog.hp) / 2)
           // remove combos with accuracy below 90%
           && combo.accuracy >= 90
         ); 
@@ -135,8 +135,8 @@ import combos from '~/features/combos/combos.data.json';
     // ...by Damage
     if (this.comboSort === 'Damage') {
       recSolns.sort(function(combo1, combo2) {
-        if (combo1.totalDamage === combo2.totalDamage) return 0;
-        return (combo1.totalDamage < combo2.totalDamage) ? -1 : 1
+        if (combo1.damage['Total'] === combo2.damage['Total']) return 0;
+        return (combo1.damage['Total'] < combo2.damage['Total']) ? -1 : 1
       });
     }
 
@@ -152,12 +152,12 @@ import combos from '~/features/combos/combos.data.json';
     if (this.comboSort === 'Damage+Accuracy') {
       recSolns.sort(function(combo1, combo2) {
         // prefer higher accuracy for same damage combos 
-        if (combo1.totalDamage === combo2.totalDamage) {
+        if (combo1.damage['Total'] === combo2.damage['Total']) {
           if (combo1.accuracy === combo2.accuracy) return 0;
           return (combo1.accuracy > combo2.accuracy) ? -1 : 1;
         }
         // sort by damage
-        return (combo1.totalDamage < combo2.totalDamage) ? -1 : 1
+        return (combo1.damage['Total'] < combo2.damage['Total']) ? -1 : 1
       });
     }
 
@@ -166,8 +166,8 @@ import combos from '~/features/combos/combos.data.json';
       recSolns.sort(function(combo1, combo2) {
         // prefer lower damage for same accuracy combos 
         if (combo1.accuracy === combo2.accuracy) {
-          if (combo1.totalDamage === combo2.totalDamage) return 0;
-          return (combo1.totalDamage > combo2.totalDamage) ? 1 : -1;
+          if (combo1.damage['Total'] === combo2.damage['Total']) return 0;
+          return (combo1.damage['Total'] > combo2.damage['Total']) ? 1 : -1;
         }
         // sort by accuracy
         return (combo1.accuracy < combo2.accuracy) ? 1 : -1
