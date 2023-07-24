@@ -43,6 +43,13 @@
   .combo-cell .combo-gags { flex-direction: column; }
 }
 
+
+.combo-multipliers {
+  display: grid;
+  text-align: center;
+}
+
+
 .combo-info {
   --accent: var(--grey-600);
   border-color: var(--accent);
