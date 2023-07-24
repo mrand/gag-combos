@@ -35,12 +35,12 @@ function GagStats({ gag }) {
       <div className='gag-stats'>
         <b className='stat-title'>Base</b>
         <span><b>Dmg:</b> {gag.damage['Base']}</span>
-        <span><b>Acc:</b> {gag.accuracy['Base']*100}%</span>
+        <span><b>Acc:</b> {Math.round(gag.accuracy['Base']*100)}%</span>
       </div>
       <div className='gag-stats'>
         <b className='stat-title'>Attack</b>
         <span><b>Dmg:</b> {gag.damage['Attack']}</span>
-        <span><b>Acc:</b> {gag.accuracy['Attack']*100}%</span>
+        <span><b>Acc:</b> {Math.round(gag.accuracy['Attack']*100)}%</span>
       </div>
     </>
   );
