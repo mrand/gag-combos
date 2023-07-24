@@ -5,7 +5,7 @@ button.gag-cell {
   font-size: 12px;
   font-weight: inherit;
 
-  display: grid;
+  display: flex;
   align-items: stretch;
 
   width: min(100%, 72px);
@@ -22,6 +22,7 @@ button.gag-cell {
   justify-content: space-between;
   align-items: center;
   gap: 8px;
+  width: 100%;
 }
 
 .gag-cell.org {
@@ -35,7 +36,7 @@ button.gag-cell {
 .gag-cell-content > * {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
 }
 
 .gag-cell .organic-icon {
@@ -46,16 +47,22 @@ button.gag-cell {
   z-index: 1;
 }
 
-.gag-icon-name-wrap { gap: 8px; }
+.gag-icon-name-wrap {
+  gap: 8px;
+  align-self: stretch;
+}
 .gag-cell .gag-icon {
   filter: drop-shadow(0 0 5px var(--grey-700));
   width: 40px;
   max-width: 100%;
   height: auto;
   flex: 1 1 0px;
+  margin: auto;
 }
 .gag-cell .gag-name { 
   line-height: 1.1em;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .gag-stats {
@@ -108,7 +115,5 @@ button.gag-cell {
 .gag-stats { 
   display: none; 
 }
-.expanded .gag-name,
-.expanded .gag-stats {
-  display: inherit;
-}
+.expanded .gag-name { display: block; }
+.expanded .gag-stats { display: inherit; }
