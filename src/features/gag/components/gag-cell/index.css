@@ -55,6 +55,7 @@ button.gag-cell {
 
 .gag-stats {
   align-items: stretch;
+  align-self: stretch;
   text-align: left;
 }
 .gag-stats .stat-title {
@@ -94,6 +95,8 @@ button.gag-cell {
     border-right: 1px solid #000000;
     padding-right: 8px;
   }
+
+  .expanded .gag-stats { align-self: center; }
 }
 
 
