@@ -5,12 +5,8 @@ button.gag-cell {
   font-size: 12px;
   font-weight: inherit;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
-  text-align: center;
+  display: grid;
+  align-items: stretch;
 
   width: min(100%, 72px);
   padding: 8px;
@@ -19,6 +15,15 @@ button.gag-cell {
   color: #000000;
   background: var(--grey-300);
 }
+
+.gag-cell-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
 .gag-cell.org {
   box-shadow: 0 0 0 5px var(--green-500) inset;
 }
@@ -27,7 +32,7 @@ button.gag-cell {
   background: var(--grey-300);
 }
 
-.gag-cell > * {
+.gag-cell-content > * {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,26 +81,24 @@ button.gag-cell {
     height: min(40px, 10vw);
   }
 
-  .expanded .gag-cell { 
+  .expanded .gag-cell-content { 
     width: 100%;
     flex-direction: row;
     justify-content: space-between;
     text-align: left;
-    overflow: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
   }
-
-  .gag-cell > div {
+  .gag-cell-content > div {
     text-align: center;
     font-size: 16px;
     flex-shrink: 0;
   }
-
-  .expanded .gag-cell > div:first-of-type {
+  .expanded .gag-cell-content > div:first-of-type {
     width: 100px;
     border-right: 1px solid #000000;
     padding-right: 8px;
   }
-
   .expanded .gag-stats { align-self: center; }
 }
 

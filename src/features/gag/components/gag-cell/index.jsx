@@ -53,7 +53,7 @@ export default function GagCell({ gag }) {
   return (
     <button 
       title={'View details about "'+(gag.organic==='Organic' ? gag.organic+' ' : '')+gag.name+'"'}
-      className={'gag-cell custom-scrollbar' + (gag.organic==='Organic' ? ' org' : '')}
+      className={'gag-cell' + (gag.organic==='Organic' ? ' org' : '')}
       style={{background: (trackColors[gag.track] || "")}}
       onClick={() => {
         dispatch(setGagModal(
@@ -70,8 +70,10 @@ export default function GagCell({ gag }) {
       }}
     >
       {(gag.organic==="Organic") ? <OrganicIcon /> : null}
-      <GagImageAndName gag={gag} />
-      <GagStats gag={gag} />
+      <div className='gag-cell-content custom-scrollbar'>
+        <GagImageAndName gag={gag} />
+        <GagStats gag={gag} />
+      </div>
     </button>
   );
 }
