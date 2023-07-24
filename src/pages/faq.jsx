@@ -197,8 +197,7 @@ export default function FAQ() {
                     <p>
                       Lure gags have an accuracy that varies from 50% to 95%, 
                       so this choice does affect combo accuracy, but is more reasonable to gameplay, 
-                      as it doesn't recommend a gag that won't give a toon any XP, 
-                      and doesn't over-recommend high-level Lure gags.
+                      as it doesn't over-recommend high-level Lure gags.
                     </p>
                   </li>
                   <li>
