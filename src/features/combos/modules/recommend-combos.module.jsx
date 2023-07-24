@@ -180,11 +180,14 @@ import combos from '~/features/combos/combos.data.json';
   _sortSolnGags(recSolns) {
     recSolns.forEach((combo) => {
       combo.gags.sort(function(a,b) {
+
         // Put 'Pass' at End
         if (a.name === 'Pass') return 1;
         if (b.name === 'Pass') return -1;
-        // Sort same track gags by attack damage
-        if (a.track === b.track) return (a.damage['Attack'] > b.damage['Attack']) ? -1 : 1;
+        
+        // Sort same track gags by highest attack damage first
+        // if (a.track === b.track) return (a.damage['Attack'] > b.damage['Attack']) ? -1 : 1;
+        
         // Otherwise Preserve Order
         return 0;
       });
