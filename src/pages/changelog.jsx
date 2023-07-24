@@ -14,7 +14,7 @@ export default function Changelog() {
           <div className='formatted-article'>
 
             <section>
-              <h3>2023-07-17</h3>
+              <h3>2023-07-24</h3>
               <h4>Added Accuracies to Combo Recommendations!</h4>
               <ul>
                 <li>
@@ -30,6 +30,13 @@ export default function Changelog() {
                   and now no longer sorts its output by default. 
                   Thus, now you can filter combos by "All", "Basic", or "Best" (as before),
                   and decide exactly how you'd like the output of any of these filters to be sorted.
+                </li>
+                <li>
+                  Combo Recommendation Combos now show more detailed information when clicking on their "More Info" button!
+                  That is, now you can find the Combo's overall Lured and Combo Multiplier values,
+                  and each Gag's Base Accuracy/Damage and Attack Accuracy/Damage. 
+                  Also, the gag modal displayed when clicking on one of the recommended combos' gags now
+                  displays the gag's Base and Attack Accuracy/Damage and its Lured/Combo Multiplier values!
                 </li>
               </ul>
             </section>
