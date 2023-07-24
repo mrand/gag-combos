@@ -176,8 +176,10 @@ export default class FindCombo {
 
       // find minimum level gag (filter out Lure and Toon-Up, which have 0 damage)
       let filteredGags = comboGags.filter(function(gag) { return gag.damage['Base'] !== 0; });
+      let minNonzeroLevelGag = filteredGags.hasNonZeroMin('level');
       let minNonzeroLevel = filteredGags.hasNonZeroMin('level').level;
-      let minNonzeroIndex = comboGags.findIndex(gag => (gag.level === minNonzeroLevel && gag.damage['Base'] !== 0));
+      let minNonzeroIndex = comboGags.findIndex(gag => (gag === minNonzeroLevelGag));
+
 
       // find minimum level gag (no filter here - lure and toon-up levels would align with other gags)
       // let minNonzeroLevel = Math.min(...gagLvls.filter(Boolean));
