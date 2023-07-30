@@ -12,50 +12,70 @@ const lvlNums = [];
 for (let i=1; i<=20; i++) lvlNums.push(i);
 
 
-function CogStats({ cog }) {
+function CogStats({ active, cog }) {
   return (
-    <div className='cog-stats'>
-      <img
-        src={cog.image}
-        alt={`${cog.cog} Cog`}
-      />
-      <b>{cog.cog}</b>
-      <b>{cog.suit}</b>
-      <span className='cog-level'>
-        Level {cog.level}
-        <br />
-        ({cog.hp} HP)
-      </span>
-    </div>
+    (!active && cog) && (
+      <div className='cog-stats'>
+        <img
+          src={cog.image}
+          alt={`${cog.cog} Cog`}
+        />
+        <b>{cog.cog}</b>
+        <b>{cog.suit}</b>
+        <span className='cog-level'>
+          Level {cog.level}
+          <br />
+          ({cog.hp} HP)
+        </span>
+      </div>
+    )
   );
 }
 
 
-function CogLevelPicker({ setActive }) {
+function CogLevelPicker({ cog, active, setActive }) {
   const cogLevel = useSelector((state) => state.recommendations.cog.level);
   const dispatch = useDispatch();
 
   return (
     <div className='lvl-picker'>
-      <b>Choose Cog Level</b>
-      <div className='lvl-btns'>
-        {lvlNums.map((lvl, i) => (
+      {
+        (active || !cog) ? (
+
+          <>
+            <b>Choose Cog Level</b>
+            <div className='lvl-btns'>
+              {lvlNums.map((lvl, i) => (
+                <button
+                  className={
+                    (cogLevel-1 === i) ? 'active' : ''
+                  }
+                  key={i}
+                  value={lvl}
+                  onClick={() => {
+                    let cog = new Cog(lvl);
+                    dispatch(setCog({ level: cog.level, suit: cog.suit, name: cog.cog }));
+                    setActive(false);
+                  }}
+                  title={"Level "+lvl+" Cog"}
+                  aria-label={"Level "+lvl+" Cog"}
+                >{lvl}</button>
+              ))}
+            </div>
+          </>
+
+        ) : (
+
           <button
-            className={
-              (cogLevel-1 === i) ? 'active' : ''
-            }
-            key={i}
-            value={lvl}
-            onClick={() => {
-              let cog = new Cog(lvl);
-              dispatch(setCog({ level: cog.level, suit: cog.suit, name: cog.cog }));
-              setActive(false);
-            }}
-            title={"Level "+lvl+" Cog"}
-            aria-label={"Level "+lvl+" Cog"}
-          >{lvl}</button>
-        ))}
-      </div>
+            onClick={() => setActive(true)}
+            title={"Choose New Cog Level"}
+            aria-label={"Choose New Cog Level"}
+          >
+            Choose Cog Level
+          </button>
+
+        )
+      }
     </div>
   );
 }
@@ -89,27 +109,12 @@ export default function CogComponent() {
         <span className='bolt'></span>
         <span className='bolt'></span>
         <span className='bolt'></span>
-        {
-          (active || !cog) ? (
-            <CogLevelPicker
-              setActive={setActive}
-            />
-
-          ) : (
-            <>
-              <CogStats cog={cog} />
-              <div className='lvl-picker'>
-                <button
-                  onClick={() => setActive(true)}
-                  title={"Choose New Cog Level"}
-                  aria-label={"Choose New Cog Level"}
-                >
-                  Choose Cog Level
-                </button>
-              </div>
-            </>
-          )
-        }
+        { (!active && cog) && <CogStats cog={cog} /> }
+        <CogLevelPicker 
+          cog={cog}
+          active={active}
+          setActive={setActive}
+        />
       </div>
       <ToggleLured />
       <ToggleV2 

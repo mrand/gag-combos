@@ -102,25 +102,21 @@
 
 /* Level Buttons */
 .lvl-picker {
-  flex: 1;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 .lvl-btns {
   width: 130px;
   margin-top: 8px;
   display: grid;
-  grid-template-columns: repeat(4, 25%);
-}
-.lvl-btns button {
-  border-radius: 50%;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
 }
 
 .cog-card button {
-  border-radius: 50px;
-  margin: 1px;
+  border-radius: var(--radius-xl);
   font-size: 12px;
   box-shadow: 0 0 4px var(--grey-600) inset;
 }
