@@ -58,55 +58,70 @@ export default function FAQ() {
                   </b>
                 </p>
                 <p>
-                  For fan-made resources similar to Gag Combos Info, try the following websites:
+                  For organizing in-game groups, tracking cog invasions, and more:
                 </p>
                 <ul>
                   <li>
-                    <a
-                      target='_blank'
-                      rel='noopener noreferrer'
+                    <a 
                       className='no-style'
-                      href="https://zzzachzzz.github.io/toontown-combos/"
-                    >
-                      zzzachzzz<wbr />.github<wbr />.io/<wbr />toontown-combos
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      target='_blank'
+                      href="https://toonhq.org/"
                       rel='noopener noreferrer'
-                      className='no-style'
-                      href="https://big.brain.town/"
+                      target='_blank'
                     >
-                      big<wbr />.brain<wbr />.town
+                      toonhq<wbr/>.org
                     </a>
                   </li>
                 </ul>
                 <p>
-                  For an overview of Toontown's battle mechanics, start here:
+                  Other fan-made resources similar to Gag Combos Info:
                 </p>
                 <ul>
                   <li>
                     <a
-                      target='_blank'
+                      className='no-style'
+                      href="https://big.brain.town/"
                       rel='noopener noreferrer'
+                      target='_blank'
+                    >
+                      big<wbr />.brain<wbr />.town
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className='no-style'
+                      href="https://zzzachzzz.github.io/toontown-combos/"
+                      rel='noopener noreferrer'
+                      target='_blank'
+                    >
+                      zzzachzzz<wbr />.github<wbr />.io/<wbr />toontown-combos
+                    </a>
+                  </li>
+                </ul>
+                <p>
+                  For an overview of Toontown's battle mechanics:
+                </p>
+                <ul>
+                  <li>
+                    <a
                       className='no-style'
                       href="https://toontownrewritten.fandom.com/wiki/Gags"
+                      rel='noopener noreferrer'
+                      target='_blank'
                     >
                       toontownrewritten<wbr />.fandom.com/<wbr />wiki/<wbr />Gags
                     </a>
                   </li>
                 </ul>
                 <p>
-                  For an in-depth look into Toontown's battle mechanics, start here:
+                  For an in-depth look into Toontown's battle mechanics:
                 </p>
                 <ul>
                   <li>
                     <a
-                      target='_blank'
-                      rel='noopener noreferrer'
                       className='no-style'
                       href="https://github.com/QED1224/Toontown-Resources/blob/master/README.md"
+                      rel='noopener noreferrer'
+                      target='_blank'
                     >
                       github.com/<wbr />QED1224/<wbr />Toontown-Resources/<wbr />blob/<wbr />master/<wbr />README.md
                     </a>
