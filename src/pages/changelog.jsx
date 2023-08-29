@@ -32,8 +32,8 @@ export default function Changelog() {
                   and decide exactly how you'd like the output of any of these filters to be sorted.
                 </li>
                 <li>
-                  Combo Recommendation Combos now show more detailed information when clicking on their "More Info" button!
-                  That is, now you can find the Combo's overall Lured and Combo Multiplier values,
+                  Combo Recommendations now show more detailed information when clicking on their "More Info" button!
+                  You can now find the Combo's overall Lured/Combo Multiplier Damage values,
                   and each Gag's Base Accuracy/Damage and Attack Accuracy/Damage. 
                   Also, the gag modal displayed when clicking on one of the recommended combos' gags now
                   displays the gag's Base and Attack Accuracy/Damage and its Lured/Combo Multiplier values!
