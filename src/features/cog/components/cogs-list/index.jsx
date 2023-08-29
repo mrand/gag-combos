@@ -5,15 +5,20 @@ import { Cog } from '~/features/cog';
 import { Gag } from '~/features/gag';
 import { Combo } from '~/features/combo';
 import { ToggleV2 } from '~/features/cog/components';
-import './index.css';
+import styles from './index.module.css';
 
 
-function CogsListEntry({ level, isV2, remainingHP }) {
+function CogsListEntry({ level, isV2, baseHP, remainingHP }) {
+  const hue = Math.round(remainingHP / baseHP * 100);
   return (
-    <li className={'cogs-list-entry' + (remainingHP===0 ? ' defeated' : '') + (isV2 ? ' v2' : '')}>
-      <b>{level}</b>
-      <span>{remainingHP}</span>
-    </li>
+      remainingHP > 0 &&
+      <li
+        style={{background: `hsl(${hue},100%,45%)`}} 
+        className={styles.cogsListEntry + (isV2 ? ' '+styles.v2 : '')}
+      >
+        <b>Level {level}</b>
+        <span>{remainingHP} / {baseHP} HP</span>
+      </li>
   );
 }
 
@@ -32,32 +37,67 @@ export default function CogsList() {
     return new Combo(new Cog(lvl, isV2), gagObjs);
   });
 
+  const maxSuccessfulCombo = [...combos].reverse().find(combo => combo.defeatsCog);
+  const minDefeatedCog = maxSuccessfulCombo ? maxSuccessfulCombo.cog.level : false;
+  const minDefeatedCogOverkill = maxSuccessfulCombo && maxSuccessfulCombo.damage['Total'] - maxSuccessfulCombo.cog.hp;
+
   return (
-    <div className="cogs-list-container">
-      <div className='heading-btn-wrap'>
-        <h3>
-          <b>Cog Level</b>
-          <span>Remaining HP</span>
-        </h3>
-        <ToggleV2 
-          active={isV2}
-          clickHandler={() => dispatch(toggleV2())}
-        />
-      </div>
-      <ul className="cogs-list custom-scrollbar">
+    <div className={styles.cogsListContainer}>
+      <span className={styles.bolt}></span>
+      <span className={styles.bolt}></span>
+      <span className={styles.bolt}></span>
+      <span className={styles.bolt}></span>
+
+      <div className={styles.wrapper}>
+        
+        <div className={styles.headingsArea}>
+          <ToggleV2 
+            active={isV2}
+            clickHandler={() => dispatch(toggleV2())}
+            hasText={false}
+          />
+          <hr />
+          <h3 className={styles.defeatedIndicator}>
+            {
+              minDefeatedCog ? (
+                <>
+                  <span style={{color:"var(--green-500)"}}>Level {minDefeatedCog} Defeated</span>
+                  {
+                    minDefeatedCogOverkill ? (
+                      <span>Overkill: +{minDefeatedCogOverkill} HP</span>
+                    ) : null
+                  }
+                </>
+              ) : (
+                <span>No Cog Defeated</span>
+              )
+            }
+          </h3>
+        </div>
+
         {
-          combos.map((combo, i) => {
-            return (
-              <CogsListEntry 
-                key={i}
-                level={combo.cog.level}
-                isV2={isV2}
-                remainingHP={Math.max(combo.cog.hp - combo.damage['Total'], 0)}
-              />
-            );
-          })
+          minDefeatedCog < 20 &&
+          <>
+            <hr />
+            <ul className={styles.cogsList+" custom-scrollbar"}>
+              {
+                combos.map((combo, i) => {
+                  return (
+                    <CogsListEntry 
+                      key={i}
+                      level={combo.cog.level}
+                      isV2={isV2}
+                      baseHP={combo.cog.hp}
+                      remainingHP={Math.max(combo.cog.hp - combo.damage['Total'], 0)}
+                    />
+                  );
+                })
+              }
+            </ul>
+          </>
         }
-      </ul>
+        
+      </div>
     </div>
   );
 }

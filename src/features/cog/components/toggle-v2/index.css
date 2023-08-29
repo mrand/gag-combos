@@ -1,3 +1,4 @@
+.toggle-v2 { text-align: center; }
 .toggle-v2 .toggle { 
   --accent: var(--red-600); 
   padding: 6px 8px;
