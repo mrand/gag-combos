@@ -46,8 +46,73 @@ export default function FAQ() {
                 <p>
                   At this time, Gag Combos Info only provides information about Toontown Rewritten, 
                   and does NOT provide info about Corporate Clash or any other Toontown servers.
-                  However, this website is still in development, and we do have plans to support CC in the future!
+                  However, this website is still in development, and we hope to support CC in the future!
                 </p>
+              </Accordion>
+              <Accordion
+                title='What other resources besides Gag Combos Info can I use?'
+              >
+                <p>
+                  <b>
+                    There are plenty of great resources in this community that can help you learn the ropes!
+                  </b>
+                </p>
+                <p>
+                  For fan-made resources similar to Gag Combos Info, try the following websites:
+                </p>
+                <ul>
+                  <li>
+                    <a
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='no-style'
+                      href="https://zzzachzzz.github.io/toontown-combos/"
+                    >
+                      zzzachzzz<wbr />.github<wbr />.io/<wbr />toontown-combos
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='no-style'
+                      href="https://big.brain.town/"
+                    >
+                      big<wbr />.brain<wbr />.town
+                    </a>
+                  </li>
+                </ul>
+                <p>
+                  For an overview of Toontown's battle mechanics, start here:
+                </p>
+                <ul>
+                  <li>
+                    <a
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='no-style'
+                      href="https://toontownrewritten.fandom.com/wiki/Gags"
+                    >
+                      toontownrewritten<wbr />.fandom.com/<wbr />wiki/<wbr />Gags
+                    </a>
+                  </li>
+                </ul>
+                <p>
+                  For an in-depth look into Toontown's battle mechanics, start here:
+                </p>
+                <ul>
+                  <li>
+                    <a
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='no-style'
+                      href="https://github.com/QED1224/Toontown-Resources/blob/master/README.md"
+                    >
+                      github.com/<wbr />QED1224/<wbr />Toontown-Resources/<wbr />blob/<wbr />master/<wbr />README.md
+                    </a>
+                  </li>
+                </ul>
+
               </Accordion>
             </section>
 
