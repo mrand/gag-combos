@@ -116,7 +116,7 @@
 }
 
 .cog-card button {
-  border-radius: var(--radius-xl);
+  border-radius: 50px;
   font-size: 12px;
   box-shadow: 0 0 4px var(--grey-600) inset;
 }
