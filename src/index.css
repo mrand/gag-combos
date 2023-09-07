@@ -39,6 +39,7 @@ html { box-sizing: border-box; }
 
 html {
   /* Root Variables */
+  /* colors */
   --grey-200: #f3f3f3;
   --grey-300: #e7e7e7;
   --grey-400: #d2d2d2;
@@ -56,6 +57,12 @@ html {
   --yellow-500: #fad922;
   --green-400: #07a129;
   --green-500: #07781f;
+  /* units */
+  --radius-xs:  4px;
+  --radius-sm:  calc(var(--radius-xs) * 2);
+  --radius-med: calc(var(--radius-xs) * 3);
+  --radius-lg:  calc(var(--radius-xs) * 4);
+  --radius-xl:  calc(var(--radius-xs) * 5);
 }
 
 body {
@@ -138,14 +145,15 @@ code {
 .folded-corner {
   --fold-size: 32px;
   --fold-color: var(--grey-400);
-  --container-border-radius: 12px;
-  position: relative;
+  --container-border-radius: var(--radius-med);
+  border-radius: var(--container-border-radius);
   clip-path: polygon(
     0 0, 
     100% 0,
     100% calc(100% - var(--fold-size)), calc(100% - var(--fold-size)) 100%,
     0 100%
   );
+  position: relative;
 }
 .folded-corner::after {
   content: '';
@@ -164,7 +172,7 @@ code {
 .formatted-article {
   background: var(--blue-600);
   border: 8px solid var(--blue-600);
-  border-radius: 20px;
+  border-radius: var(--radius-xl);
   max-width: 50em;
   margin: 0 auto;
   margin-bottom: 32px;
@@ -173,7 +181,7 @@ code {
 .formatted-article section {
   background: #ffffff;
   border: 8px solid var(--blue-600);
-  border-radius: 20px;
+  border-radius: var(--radius-xl);
   padding: 16px;
   width: 100%;
   display: flex;
