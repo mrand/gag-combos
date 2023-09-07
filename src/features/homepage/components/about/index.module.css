@@ -1,0 +1,17 @@
+.about { background: var(--grey-400); }
+
+.customTwoColumn {
+  --_base-column-width: 50ch;
+  --_direction: row-reverse;
+}
+
+.left {
+  margin: auto;
+  max-width: 60ch;
+}
+.left img {
+  border-radius: var(--radius-xl);
+  box-shadow: 3px 3px 0 3px var(--grey-500);
+  height: auto;
+  width: 100%;
+}

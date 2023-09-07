@@ -1,11 +1,11 @@
-import './index.css';
+import styles from "./index.module.css";
 
 
 export default function About() {
   return (
-    <section id='about'>
-      <div className='wrapper flex'>
-        <div className='left'>
+    <section className={styles.about}>
+      <div className={`wrapper layout--responsive-two-column ${styles.customTwoColumn}`}>
+        <div className="content-container">
           <h2>Who am I?</h2>
           <p>
             I go by McNugget in Toontown.
@@ -21,8 +21,8 @@ export default function About() {
             or seasoned toons to find new combos! 
           </p>
         </div>
-        <div className='right'>
-          <img src='./img/home/mcnugget.webp' width='1000' height='600' alt='McNugget Portrait' />
+        <div className={styles.left}>
+          <img src="./img/home/mcnugget.webp" width="1000" height="600" alt="McNugget Portrait" />
         </div>
       </div>
     </section>
