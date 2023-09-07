@@ -117,7 +117,8 @@
 
 .cog-card button {
   border-radius: 50px;
-  font-size: 12px;
+  font-size: 0.75rem;
+  padding: 0.5rem;
   box-shadow: 0 0 4px var(--grey-600) inset;
 }
 .cog-card button:not(.active) {
