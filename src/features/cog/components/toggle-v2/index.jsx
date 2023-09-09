@@ -1,6 +1,5 @@
 import React from 'react';
 import Toggle from '~/features/ui/toggle';
-import './index.css';
 
 
 export default function ToggleV2({ active=false, clickHandler=null, hasText=true }) {
@@ -16,7 +15,7 @@ export default function ToggleV2({ active=false, clickHandler=null, hasText=true
         )
       }
       <Toggle 
-        icon={<h3>v2.0</h3>}
+        icon={<h3 className='font--cog'>v2.0</h3>}
         active={active}
         clickHandler={clickHandler}
         infoText="Toggle v2.0 Cog"

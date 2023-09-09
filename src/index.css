@@ -149,6 +149,13 @@ code {
 }
 
 
+/* General Font Classes */
+.font--cog {
+  font-family: SpecialElite;
+  font-weight: bold;
+}
+
+
 /* general default style for page elements */
 .formatted-article {
   background: var(--blue-600);
