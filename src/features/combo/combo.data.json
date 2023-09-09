@@ -3,8 +3,10 @@
     "drop": "All Drop",
     "lure-sound": "Lure-Sound Only",
     "lure-sound-throw": "Lure-Sound and Throw-Squirt",
+    "lure-sound-throw-squirt": "Lure-Sound and Throw-Squirt",
+    "lure-sound-throw-drop": "Lure-Sound and Throw-Squirt",
     "lure-sound-squirt": "Lure-Sound and Throw-Squirt",
-    "lure-sound-throw-squirt": "Lure-Sound and Throw-Squirt"
+    "lure-sound-squirt-drop": "Lure-Sound and Throw-Squirt"
   },
   "data": {
     "All Drop": {
