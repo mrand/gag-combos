@@ -1,32 +1,30 @@
 .slider {
-  position: relative;
-  display: inline-block;
-  width: 3.75rem;
-  height: 2.125rem;
   background: var(--grey-600);
   border-radius: 2.125rem;
+  display: inline-block;
+  height: 2.125rem;
+  position: relative;
+  width: 3.75rem;
   -webkit-touch-callout: none; /* Safari Touch */
   -webkit-user-select: none;   /* Webkit */
   -moz-user-select: none;      /* Firefox */
   -ms-user-select: none;       /* Edge*/
-   user-select: none;          /* Future-proof*/
+  user-select: none;          /* Future-proof*/
 }
 .slider:before {
-  position: absolute;
-  content: "";
-  height: 1.625rem;
-  width: 1.625rem;
-  left: 0.25rem;
-  bottom: 0.25rem;
   background: white;
   border-radius: 50%;
+  bottom: 0.25rem;
+  content: "";
+  height: 1.625rem;
+  left: 0.25rem;
+  position: absolute;
+  width: 1.625rem;
 }
 
 
 /* Slider Active State */
-.active:not(:hover) {
-  background: var(--blue-600);
-}
+.active:not(:hover) { background: var(--blue-600); }
 .active:before {
   -webkit-transform: translateX(1.625rem);
   -ms-transform: translateX(1.625rem);
