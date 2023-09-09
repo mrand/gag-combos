@@ -20,6 +20,7 @@ export default function ToggleV2({ active=false, clickHandler=null, hasText=true
         active={active}
         clickHandler={clickHandler}
         infoText="Toggle v2.0 Cog"
+        accentColor="var(--red-600)"
       />
     </div>
   )

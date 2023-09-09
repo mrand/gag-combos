@@ -22,6 +22,7 @@ export default function ToggleLured() {
         active={isLured}
         clickHandler={() => dispatch(toggleCogLured())}
         infoText="Toggle Cog Lured"
+        accentColor="var(--green-500)"
       />
     </div>
   );

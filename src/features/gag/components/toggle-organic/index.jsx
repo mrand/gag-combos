@@ -16,6 +16,7 @@ export default function ToggleOrganic() {
         active={org}
         clickHandler={() => dispatch(toggleOrg())}
         infoText="Toggle Organic Gags"
+        accentColor="var(--green-400)"
       />
     </div>
   );

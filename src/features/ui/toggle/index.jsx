@@ -7,10 +7,14 @@ export default function Toggle({
   icon=null, 
   active=false, 
   clickHandler=null, 
-  infoText="Toggle" 
+  infoText="Toggle", 
+  accentColor=null
 }) {
   return (
-    <div className={styles.toggle}>
+    <div
+      className={styles.toggle}
+      style={accentColor ? {"--accent-color": accentColor} : {}}
+    >
       <span className={styles.icon}>{icon}</span>
       <SliderButton
         active={active}
