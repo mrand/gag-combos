@@ -1,0 +1,99 @@
+/* Mobile Layout */
+.mobileRecommendations {
+  margin: 0 auto;
+  max-width: 55rem;
+  padding-bottom: 4.5rem;
+  width: 100%;
+}
+
+/* Mobile Tabs Navigation */
+.recommendationsNav {
+  background: #ffffff;
+  bottom: 0;
+  box-shadow: 0 0 0.25rem var(--grey-700);
+  position: fixed;
+  width: 100%;
+  z-index: 50;
+}
+.recommendationsNavWrapper {
+  background: var(--grey-400);
+  display: flex;
+  gap: 1px;
+  justify-content: space-evenly;
+  padding: 0;
+}
+.recommendationsNav button { flex: 1; }
+
+
+/* Desktop Layout */
+.desktopRecommendations {
+  border-radius: var(--radius-xl);
+  display: grid;
+  grid-template-columns: 15.625rem 1fr auto;
+  width: 100%;
+}
+
+
+/* Desktop Sidebar Areas */
+.toonsWrap,
+.cogWrap {
+  --desktop-header-area: 3.25rem;
+  align-self: flex-start;
+  border-radius: var(--radius-xl);
+  height: calc(100vh - var(--desktop-header-area) - 2rem);
+  overflow-y: auto;
+  position: sticky;
+  scrollbar-gutter: stable both-edges;
+  top: calc(var(--desktop-header-area) + 1rem);
+}
+
+.toonsWrap { 
+  background: var(--blue-400);
+  padding: 1rem 0;
+}
+.toonsWrap::-webkit-scrollbar {
+  background: transparent;
+  width: 0.75rem;
+}
+.toonsWrap::-webkit-scrollbar-track {
+  background: var(--blue-400);
+  margin: 1.5rem;
+}
+.toonsWrap::-webkit-scrollbar-thumb {
+  background: var(--blue-600);
+  border-radius: var(--radius-xl);
+}
+.toonsWrap::-webkit-scrollbar-thumb:hover {
+  background: var(--blue-500);
+}
+
+.cogWrap { 
+  align-items: stretch;
+  background: var(--grey-400);
+  display: flex;
+  padding: 1rem;
+  padding-bottom: 2rem;
+}
+.cogWrap::-webkit-scrollbar {
+  background: transparent;
+  width: 0.75rem;
+}
+.cogWrap::-webkit-scrollbar-track {
+  background: var(--grey-400);
+  margin: 1.5rem;
+}
+.cogWrap::-webkit-scrollbar-thumb {
+  background: var(--grey-600);
+  border-radius: var(--radius-xl);
+}
+.cogWrap::-webkit-scrollbar-thumb:hover {
+  background: var(--grey-500);
+}
+
+
+/* Desktop Main Content Area */
+.combosWrap { 
+  margin: 0 auto; 
+  padding: 1rem 1.5rem;
+  width: min(100%, 56.25rem);
+}

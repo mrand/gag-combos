@@ -12,9 +12,9 @@ export default function ToggleLured() {
     <div className="toggle-lured">
       {
         (isLured) ? (
-          <h3 style={{color: "var(--green-500)"}}>Cog is Lured</h3>
+          <h3 className="toggle-title" style={{color: "var(--green-500)"}}>Cog is Lured</h3>
         ) : (
-          <h3>Is Cog Lured?</h3>
+          <h3 className="toggle-title">Is Cog Lured?</h3>
         )
       }
       <Toggle 

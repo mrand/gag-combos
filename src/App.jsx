@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, createContext } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from '~/pages/home';
-import Dashboard from '~/pages/recommendations';
+import Recommendations from '~/pages/recommendations';
 import Calculator from '~/pages/calculator';
 import Changelog from '~/pages/changelog';
 import PrivacyPolicy from '~/pages/privacy';
@@ -57,7 +57,7 @@ export default function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/recommendations" element={<Dashboard />} />
+            <Route path="/recommendations" element={<Recommendations />} />
             <Route path="/calculator" element={<Calculator />} />
             <Route path="/changelog" element={<Changelog />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />

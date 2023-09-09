@@ -8,9 +8,9 @@ export default function ToggleV2({ active=false, clickHandler=null, hasText=true
       {
         hasText && (
           active ? (
-            <h3 style={{color: "var(--red-600)"}}>Cog is v2.0</h3>
+            <h3 className="toggle-title" style={{color: "var(--red-600)"}}>Cog is v2.0</h3>
            ) : (
-            <h3>Is Cog v2.0?</h3>
+            <h3 className="toggle-title">Is Cog v2.0?</h3>
            )
         )
       }

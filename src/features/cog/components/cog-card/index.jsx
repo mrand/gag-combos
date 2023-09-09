@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { resetCog, setCog, toggleCogV2 } from '~/features/recommendations';
-import './cog.component.css';
-import Cog from './cog.module';
-import ResetButton from '~/features/ui/reset-button';
-import { ToggleLured, ToggleV2 } from './components';
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { resetCog, setCog, toggleCogV2 } from "~/features/recommendations";
+import styles from "./index.module.css";
+import { Cog } from "~/features/cog";
+import ResetButton from "~/features/ui/reset-button";
+import { ToggleLured, ToggleV2 } from "~/features/cog";
 
 
 // list of possible cog levels (1 through 20)
@@ -15,14 +15,14 @@ for (let i=1; i<=20; i++) lvlNums.push(i);
 function CogStats({ active, cog }) {
   return (
     (!active && cog) && (
-      <div className='cog-stats'>
+      <div className={styles.cogStats}>
         <img
           src={cog.image}
           alt={`${cog.cog} Cog`}
         />
         <b>{cog.cog}</b>
         <b>{cog.suit}</b>
-        <span className='cog-level'>
+        <span className={styles.cogLevel}>
           Level {cog.level}
           <br />
           ({cog.hp} HP)
@@ -38,17 +38,17 @@ function CogLevelPicker({ cog, active, setActive }) {
   const dispatch = useDispatch();
 
   return (
-    <div className='lvl-picker'>
+    <div className={styles.lvlPicker}>
       {
         (active || !cog) ? (
 
           <>
             <b>Choose Cog Level</b>
-            <div className='lvl-btns'>
+            <div className={styles.lvlBtns}>
               {lvlNums.map((lvl, i) => (
                 <button
                   className={
-                    (cogLevel-1 === i) ? 'active' : ''
+                    (cogLevel-1 === i) ? styles.active : ""
                   }
                   key={i}
                   value={lvl}
@@ -81,7 +81,7 @@ function CogLevelPicker({ cog, active, setActive }) {
 }
 
 
-export default function CogComponent() {
+export default function CogCard() {
   const [active, setActive] = useState(false);
 
   const cogLevel = useSelector((state) => state.recommendations.cog.level);
@@ -95,8 +95,8 @@ export default function CogComponent() {
   const cog = cogLevel ? new Cog(cogLevel, cogV2, cogSuit, cogName) : null;
 
   return (
-    <div id='cog'>
-      <div className='heading-btn-wrap'>
+    <div className={styles.cog}>
+      <div className="heading-btn-wrap">
         <h2>Cog</h2>
         <ResetButton
           active={resetBtnActive}
@@ -104,11 +104,11 @@ export default function CogComponent() {
           infoText="Reset Cog"
         />
       </div>
-      <div className='cog-card'>
-        <span className='bolt'></span>
-        <span className='bolt'></span>
-        <span className='bolt'></span>
-        <span className='bolt'></span>
+      <div className={styles.cogCard}>
+        <span className={styles.bolt}></span>
+        <span className={styles.bolt}></span>
+        <span className={styles.bolt}></span>
+        <span className={styles.bolt}></span>
         { (!active && cog) && <CogStats cog={cog} /> }
         <CogLevelPicker 
           cog={cog}
