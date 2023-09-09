@@ -1,6 +1,6 @@
-import React from 'react';
-import SliderButton from '../slider-button';
-import styles from './index.module.css';
+import React from "react";
+import SliderButton from "../slider-button";
+import styles from "./index.module.css";
 
 
 export default function Toggle({ 
