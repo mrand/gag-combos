@@ -1,15 +1,15 @@
-import { useDispatch } from 'react-redux';
-import { setGagModal } from '~/features/recommendations';
-import './index.css';
-import { trackColors } from '../../gag.data';
+import { useDispatch } from "react-redux";
+import { setGagModal } from "~/features/recommendations";
+import styles from "./index.module.css";
+import { trackColors } from "../../gag.data";
 
 
 export function OrganicIcon() {
   return (
     <img 
-      className='organic-icon'
+      className={styles.organicIcon}
       src="/img/gags/icon-organic-mini.png"
-      alt={'Organic Icon'} 
+      alt={"Organic Icon"} 
     />
   );
 }
@@ -17,13 +17,13 @@ export function OrganicIcon() {
 
 function GagImageAndName({ gag }) {
   return (
-    <div className='gag-icon-name-wrap'>
+    <div className={styles.gagIconNameWrap}>
       <img 
-        className='gag-icon'
+        className={styles.gagIcon}
         src={gag.image} 
         alt={gag.name} 
       />
-      <b className='gag-name'>{gag.name}</b>
+      <b className={styles.gagName}>{gag.name}</b>
     </div>
   );
 }
@@ -32,28 +32,28 @@ function GagImageAndName({ gag }) {
 function GagStats({ gag }) {
   return (
     <>
-      <div className='gag-stats'>
-        <b className='stat-title'>Base</b>
-        <span><b>Dmg:</b> {gag.damage['Base']}</span>
-        <span><b>Acc:</b> {Math.round(gag.accuracy['Base']*100)}%</span>
+      <div className={styles.gagStats}>
+        <b className={styles.statTitle}>Base</b>
+        <span><b>Dmg:</b> {gag.damage["Base"]}</span>
+        <span><b>Acc:</b> {Math.round(gag.accuracy["Base"]*100)}%</span>
       </div>
-      <div className='gag-stats'>
-        <b className='stat-title'>Attack</b>
-        <span><b>Dmg:</b> {gag.damage['Attack']}</span>
-        <span><b>Acc:</b> {Math.round(gag.accuracy['Attack']*100)}%</span>
+      <div className={styles.gagStats}>
+        <b className={styles.statTitle}>Attack</b>
+        <span><b>Dmg:</b> {gag.damage["Attack"]}</span>
+        <span><b>Acc:</b> {Math.round(gag.accuracy["Attack"]*100)}%</span>
       </div>
     </>
   );
 }
 
 
-export default function GagCell({ gag }) {
+export default function GagCell({ gag, expanded=false }) {
   const dispatch = useDispatch();
 
   return (
     <button 
       title={'View details about "'+(gag.organic==='Organic' ? gag.organic+' ' : '')+gag.name+'"'}
-      className={'gag-cell' + (gag.organic==='Organic' ? ' org' : '')}
+      className={`${styles.gagCell} ${expanded ? styles.expanded : ""} ${gag.organic==='Organic' ? styles.org : ''}`}
       style={{background: (trackColors[gag.track] || "")}}
       onClick={() => {
         dispatch(setGagModal(
@@ -70,7 +70,7 @@ export default function GagCell({ gag }) {
       }}
     >
       {(gag.organic==="Organic") ? <OrganicIcon /> : null}
-      <div className='gag-cell-content custom-scrollbar'>
+      <div className={`custom-scrollbar ${styles.gagCellContent}`}>
         <GagImageAndName gag={gag} />
         <GagStats gag={gag} />
       </div>

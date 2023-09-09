@@ -19,13 +19,14 @@ function ComboHeading({ solutionTracks }) {
 }
 
 
-function ComboGags({ combo }) {
+function ComboGags({ combo, expanded=false }) {
   return (
     <div className='combo-gags'>
       {combo.gags.map((gag, j) => (
         <GagCell 
           key={j} 
           gag={gag} 
+          expanded={expanded}
         />
       ))}
     </div>
@@ -93,7 +94,7 @@ export default function ComboCell({ combo, cellNum, cellStates, setCellStates })
       <hr />
 
       {/* gags */}
-      <ComboGags combo={combo} />
+      <ComboGags combo={combo} expanded={thisExpanded} />
 
       {/* multipliers */}
       { thisExpanded && <ComboMultipliers combo={combo} /> }
