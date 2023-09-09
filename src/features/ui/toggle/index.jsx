@@ -1,6 +1,6 @@
 import React from 'react';
 import SliderButton from '../slider-button';
-import './index.css';
+import styles from './index.module.css';
 
 
 export default function Toggle({ 
@@ -10,8 +10,8 @@ export default function Toggle({
   infoText="Toggle" 
 }) {
   return (
-    <div className="toggle">
-      {icon}
+    <div className={styles.toggle}>
+      <span className={styles.icon}>{icon}</span>
       <SliderButton
         active={active}
         clickHandler={clickHandler}

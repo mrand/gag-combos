@@ -1,0 +1,21 @@
+.toggle {
+  --accent: var(--blue-600);
+  align-items: center;
+  background: #ffffff;
+  border: 0.5rem solid var(--accent);
+  border-radius: 1000px;  /* arbitrarily large but not circular */
+  box-shadow: 0 0 0.25rem var(--grey-700);
+  display: inline-flex;
+  gap: 1rem;
+  justify-content: center;
+  padding: 0 0.5rem;
+}
+
+.icon {
+  --icon-size: 3.125rem;
+  display: grid;
+  height: var(--icon-size);
+  place-items: center;
+}
+
+.icon img { height: var(--icon-size); }
