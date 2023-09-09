@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import styles from './index.module.css';
 
 
 export default function SliderButton({ 
@@ -9,7 +9,7 @@ export default function SliderButton({
 }) {
   return (
     <button 
-      className={'slider' + (active ? ' on' : '')}
+      className={`${styles.slider} ${active ? styles.active : ""}`}
       onClick={clickHandler}
       title={infoText}
       aria-label={infoText}
