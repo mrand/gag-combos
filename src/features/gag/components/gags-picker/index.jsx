@@ -2,20 +2,26 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { resetGags, addGag } from '~/features/calculator';
 import { trackColors, Gag } from '~/features/gag';
-import { HoverBox } from '~/features/gag/components';
-import { ToggleOrganic } from '~/features/gag/components';
-import { GagButton } from '~/features/gag/components';
-import { GagsList } from '~/features/gag/components';
-import { DamageCount } from '~/features/combo/components';
-import './index.css';
+import { ToggleOrganic } from '~/features/gag';
+import { GagButton } from '~/features/gag';
+import { GagsList } from '~/features/gag';
+import { HoverBox } from '~/features/gag';
+import { DamageCount } from '~/features/combo';
+import styles from './index.module.css';
 
 
+/**
+ * 
+ * @param {String} track Which gag track to use.
+ * @param {String} org Whether or not the gag track is organic.
+ * @returns A row of buttons corresponding to the specified in-game gag track.
+ */
 function GagTrackButtons({ track, org }) {
   const dispatch = useDispatch();
 
   return (
     <div 
-      className="gag-track"
+      className={styles.gagTrack}
       style={{backgroundColor: trackColors[track]}}
     >
       <h4>{track}</h4>
@@ -40,15 +46,38 @@ function GagTrackButtons({ track, org }) {
 }
 
 
-export default function GagsPicker() {
+/**
+ * @param {String} org Whether or not the gag track is organic.
+ * @returns Gag track buttons corresponding to all in-game gags.
+ */
+function GagButtons({ org }) {
+  return (
+    <div className={`custom-scrollbar ${styles.pickerWrap}`}>
+      {
+        Object.keys(trackColors).map((track, i) => {
+          return (
+            <GagTrackButtons 
+              key={i} 
+              track={track} 
+              org={org}
+            />
+          )
+        })
+      }
+    </div>
+  );
+}
+
+
+export default function GagsPicker({ pageSize="mobile" }) {
   const gagsList = useSelector((state) => state.calculator.gag.gagsList);
   const org = useSelector((state) => state.calculator.gag.organic);
   const dispatch = useDispatch();
 
   return (
-    <div id="gags-picker">
-      <div className="wrapper">
-        <div className="heading-btn-wrap">
+    <div className={`${styles.gagsPicker} ${pageSize==="desktop" ? styles.desktop : styles.mobile}`}>
+      <div className={`wrapper ${styles.gagsPickerWrap}`}>
+        <div className={styles.headingBtnWrap}>
           <h3>
             {
               (gagsList.length > 0) ? (
@@ -64,22 +93,10 @@ export default function GagsPicker() {
               )
             }
           </h3>
-          <HoverBox />
+          { pageSize==="desktop" && <HoverBox /> }
           <ToggleOrganic />
         </div>
-        <div className="picker-wrap custom-scrollbar">
-          {
-            Object.keys(trackColors).map((track, i) => {
-              return (
-                <GagTrackButtons 
-                  key={i} 
-                  track={track} 
-                  org={org}
-                />
-              )
-            })
-          }
-        </div>
+        <GagButtons org={org} />
         <GagsList />
         <DamageCount />
       </div>

@@ -1,0 +1,17 @@
+.hoverBox {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  height: 100%;
+  padding: 1rem;
+}
+.hoverBoxOverview {
+  text-align: center;
+}
+.hoverBoxStats > * { 
+  border-top: 0.125rem solid var(--grey-400);
+  display: block; 
+  padding: 0.25rem 0;
+}
+.hoverBoxStats > *:last-of-type {
+  border-bottom: 0.125rem solid var(--grey-400);
+}
