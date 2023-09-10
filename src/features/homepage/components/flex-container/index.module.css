@@ -1,0 +1,12 @@
+.flex { display: flex; }
+
+.flex.mobile {
+  flex-direction: column;
+  gap: 24px;
+}
+
+.flex.desktop {
+  flex-direction: row;
+  gap: 48px;
+  justify-content: space-between;
+}

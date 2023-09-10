@@ -1,3 +1,3 @@
-import { About, Help, Intro, SplashScreen } from './components';
+import { About, FlexContainer, Help, Intro, SplashScreen } from './components';
 
-export { About, Help, Intro, SplashScreen };
+export { About, FlexContainer, Help, Intro, SplashScreen };
