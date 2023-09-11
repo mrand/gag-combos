@@ -1,9 +1,9 @@
-#combos-grid { 
+.combosGrid { 
   display: grid;
   grid-template-columns: repeat( auto-fill, minmax( min(24rem, 100%), 1fr) );
   align-items: start;
   background: var(--blue-600);
-  border-radius: 20px;
-  border: 8px solid var(--blue-600);
-  box-shadow: 0 5px 10px var(--grey-700);
+  border-radius: var(--radius-lg);
+  border: 0.5rem solid var(--blue-600);
+  box-shadow: 0 0.25rem 0.5rem var(--grey-700);
 }

@@ -76,7 +76,7 @@ function ComboStats({ combo }) {
 }
 
 
-export default function ComboCell({ combo, cellNum, cellStates, setCellStates }) {
+export function ComboCell({ combo, cellNum, cellStates, setCellStates }) {
   const expanded = useSelector((state) => state.recommendations.combos.expanded);
   let thisExpanded = cellStates[cellNum];
   let solutionTracks = Object.keys(combo.counts);
@@ -148,3 +148,15 @@ export default function ComboCell({ combo, cellNum, cellStates, setCellStates })
     </div>
   );
 }
+
+
+export function ErrorCell({ message }) {
+  return (
+    <div className="combo-cell span-2-cols error-msg">
+      <h3>
+        {message}
+      </h3>
+    </div>
+  );
+}
+
