@@ -1,19 +1,19 @@
 .titleContainer {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding-bottom: 16px;
+  gap: 0.25rem;
+  padding-bottom: 1rem;
 }
 .titleContainer > div {
   align-items: center;
   display: flex;
-  gap: 16px;
+  gap: 1rem;
   justify-content: space-between;
 }
 @media (max-width: 40rem) {
   .titleContainer > div {
     flex-direction: column;
-    gap: 4px;
+    gap: 0.25rem;
   }
 }
 
@@ -21,8 +21,8 @@
 .mainFilters {
   display: flex;
   flex-wrap: wrap;
+  gap: 0.5rem;
   justify-content: center;
-  gap: 8px;
 }
 @media (max-width: 40rem) {
   .mainFilters {
@@ -34,30 +34,30 @@
 .mainFilters div {
   align-items: center;
   background: var(--blue-600);
-  border: 4px solid var(--blue-600);
-  border-radius: 100px;
+  border: 0.25rem solid var(--blue-600);
+  border-radius: 1000px;  /* arbitrarily large, but not circular */
   color: #ffffff;
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
+  gap: 0.25rem;
   justify-content: center;
 }
 .mainFilters span {
   flex-shrink: 0;
-  padding-inline: 8px;
+  padding-inline: 0.5rem;
 }
 
 .mainFilters select {
   background: #ffffff;
   border: 0;
-  border-radius: 30px;
+  border-radius: 1000px;  /* arbitrarily large, but not circular */
   color: var(--blue-600);
   font-weight: bold;
-  padding: 8px;
+  padding: 0.5rem;
 }
 .mainFilters select:hover {
   background: var(--blue-400);
-  box-shadow: 0 0 5px var(--blue-600) inset;
+  box-shadow: 0 0 0.25rem var(--blue-600) inset;
   color: #ffffff;
 }
 .mainFilters option {
@@ -73,12 +73,12 @@
 }
 .gagToggles button {
   background: 0;
-  border: 4px solid var(--grey-700);
-  border-radius: 15px;
-  line-height: 1em;
+  border: 0.25rem solid var(--grey-700);
+  border-radius: var(--radius-lg);
+  line-height: 1rem;
   opacity: 0.5;
   overflow: hidden;
-  padding: 4px;
+  padding: 0.25rem;
   position: relative;
   transform: scale(0.9);
   transition: 0.1s linear transform;
@@ -94,17 +94,17 @@
 .gagToggles button::after {
   color: var(--grey-700);
   content: '+';
-  font-size: 38px;
+  font-size: 2.25rem;
   left: 50%; 
-  line-height: 38px;
+  line-height: 2.25rem;
   position: absolute;
-  transform: translate(-50%, -50%);
   top: 50%;
+  transform: translate(-50%, -50%);
 }
 .gagToggles button.active::after { opacity: 0; }
 .gagToggles button img {
-  height: 30px;
+  height: 2rem;
   opacity: 0.75;
-  width: 30px;
+  width: 2rem;
 }
 .gagToggles button.active img { opacity: 1; }
