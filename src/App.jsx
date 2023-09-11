@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useRef, createContext } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './App.css';
-import Home from '~/pages/home';
-import Recommendations from '~/pages/recommendations';
-import Calculator from '~/pages/calculator';
-import Changelog from '~/pages/changelog';
-import PrivacyPolicy from '~/pages/privacy';
-import FAQ from '~/pages/faq';
-import PageNotFound from '~/pages/page-not-found';
+import React, { useState, useEffect, useRef, createContext } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import styles from "./App.module.css";
+import Home from "~/pages/home";
+import Recommendations from "~/pages/recommendations";
+import Calculator from "~/pages/calculator";
+import Changelog from "~/pages/changelog";
+import PrivacyPolicy from "~/pages/privacy";
+import FAQ from "~/pages/faq";
+import PageNotFound from "~/pages/page-not-found";
 
 
 const throttle = (func, delay) => {
@@ -49,10 +49,10 @@ export default function App() {
     };
   }, [throttledChangeHandler]);
 
-  const mobileOrDesktop = isMobile ? 'mobile' : 'desktop';
+  const mobileOrDesktop = isMobile ? "mobile" : "desktop";
   return (
     <PageSizeContext.Provider value={mobileOrDesktop}>
-      <div id='page-wrap' className={mobileOrDesktop}>
+      <div className={`${styles.pageWrap} ${mobileOrDesktop}`}>
 
         <BrowserRouter>
           <Routes>
