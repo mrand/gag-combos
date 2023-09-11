@@ -9,14 +9,12 @@ export default function ToggleOrganic() {
   const dispatch = useDispatch();
 
   return (
-    <div className="toggle-organic">
-      <Toggle 
-        icon={<img src="/img/gags/icon-organic-mini.png" alt="Organic Symbol" />}
-        active={org}
-        clickHandler={() => dispatch(toggleOrg())}
-        infoText="Toggle Organic Gags"
-        accentColor="var(--green-400)"
-      />
-    </div>
+    <Toggle 
+      icon={<img src="/img/gags/icon-organic-mini.png" alt="Organic Symbol" />}
+      active={org}
+      clickHandler={() => dispatch(toggleOrg())}
+      infoText="Toggle Organic Gags"
+      accentColor="var(--green-400)"
+    />
   );
 }

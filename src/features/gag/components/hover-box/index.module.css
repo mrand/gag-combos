@@ -3,6 +3,7 @@
   border-radius: var(--radius-lg);
   height: 100%;
   padding: 1rem;
+  width: 100%;
 }
 .hoverBoxOverview {
   text-align: center;
