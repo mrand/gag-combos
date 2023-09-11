@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import './index.css';
+import React, { useState } from "react";
+import styles from "./index.module.css";
 
 
 export default function Accordion({ 
@@ -9,7 +9,7 @@ export default function Accordion({
   const [active, setActive] = useState(false);
 
   return (
-    <div className='accordion'>
+    <div className={styles.accordion}>
 
       <button 
         onClick={() => setActive(!active)}
@@ -33,7 +33,7 @@ export default function Accordion({
 
       {
         active && (
-          <div className='accordion-contents'>
+          <div className="content-container">
             {props.children}
           </div>
         )
