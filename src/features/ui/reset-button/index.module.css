@@ -1,0 +1,13 @@
+.resetBtn {
+  background: var(--blue-600);
+  border-radius: 50%;
+  height: 2rem;
+  padding: 0.5rem;
+  width: 2rem;
+}
+
+.resetBtn svg { 
+  fill: #ffffff;
+  transition: 0.5s ease transform;
+}
+.resetBtn:hover svg { transform: rotate(360deg); }
