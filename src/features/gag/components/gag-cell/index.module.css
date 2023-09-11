@@ -15,6 +15,7 @@
   color: #000000;
   background: var(--grey-300);
 }
+.gagCell:hover { color: #000000; }
 
 .gagCellContent {
   display: flex;
