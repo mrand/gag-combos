@@ -1,11 +1,11 @@
-import { Link } from 'react-router-dom';
-import './index.css';
+import { Link } from "react-router-dom";
+import styles from "./index.module.css";
 
 
 export default function Footer() {
   return (
-    <footer>
-      <div className='wrapper'>
+    <footer className={styles.footer}>
+      <div className={`wrapper ${styles.footerWrap}`}>
         <h2>Gag Combos Info</h2>
         <nav>
           <Link to="/">Home</Link>
