@@ -1,7 +1,6 @@
-import React from 'react';
-import './index.css';
-import { trackColors, gagsData, Gag } from '~/features/gag';
-// import Header from 'components/header';
+import React from "react";
+import { trackColors, gagsData, Gag } from "~/features/gag";
+import styles from "./index.module.css";
 
 
 function parseJSON() {
@@ -55,23 +54,20 @@ function configureImages() {
 export default function Background() {
   const shuffledImages = configureImages();
   return (
-    <>
-      {/* <Header /> */}
-      <div id='image-grid'>
-        {
-          shuffledImages.map((image, i) => {
-            return (
-              <div 
-                key={i} 
-                className='img-wrap' 
-                style={{background:image.bg}}
-              >
-                <img src={image.src} alt={image.name} />
-              </div>
-            )
-          })
-        }
-      </div>
-    </>
+    <div className={styles.imageGrid}>
+      {
+        shuffledImages.map((image, i) => {
+          return (
+            <div 
+              key={i} 
+              className={styles.imgWrap} 
+              style={{background:image.bg}}
+            >
+              <img src={image.src} alt={image.name} />
+            </div>
+          )
+        })
+      }
+    </div>
   );
 }

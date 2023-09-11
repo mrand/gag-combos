@@ -1,17 +1,17 @@
-#image-grid {
+.imageGrid {
   --size: 70px;
   background: var(--blue-600);
   display: grid;
   grid-template-columns: repeat(49, var(--size));
 }
 
-.img-wrap {
+.imgWrap {
   padding: 8px;
   width: var(--size);
   height: var(--size);
 }
 
-.img-wrap img {
+.imgWrap img {
   width: 100%;
   height: auto;
 }
