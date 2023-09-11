@@ -1,14 +1,14 @@
 .combosVisual {
   align-items: flex-start;
   background: var(--blue-600);
-  border: 8px solid var(--blue-600);
+  border: 0.5rem solid var(--blue-600);
   border-radius: var(--radius-xl);
-  box-shadow: 3px 3px 0 3px var(--blue-700);
+  box-shadow: 0.1875rem 0.1875rem 0 0.1875rem var(--blue-700);
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.5rem;
   max-width: 100%;
-  padding: 8px;
+  padding: 0.5rem;
   position: relative;
 }
 
@@ -18,14 +18,14 @@
   color: #000000;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.25em;
+  gap: 0.25rem;
   justify-content: space-between;
 }
 .textWrap b {
   background: var(--grey-400);
   border-radius: var(--radius-sm);
   font-family: SpecialElite, cursive;
-  padding: 6px 8px;
+  padding: 0.375rem 0.5rem;
 }
 .textWrap b span { display: inline-block; }
 .textWrap i { color: #ffffff; }
@@ -33,7 +33,7 @@
 .videoWrap {
   --container-border-radius: var(--radius-med);
   --fold-color: var(--grey-400);
-  --fold-size: 2em;
+  --fold-size: 2rem;
   background: #ffffff;
   border-radius: var(--container-border-radius);
   clip-path: polygon(

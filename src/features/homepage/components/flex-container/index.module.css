@@ -2,12 +2,12 @@
 
 .flex.mobile {
   flex-direction: column;
-  gap: 24px;
+  gap: 1.5rem;
 }
 
 .flex.desktop {
   flex-direction: row;
-  gap: 48px;
+  gap: 3rem;
   justify-content: space-between;
 }
 .flex.reverse.desktop { flex-direction: row-reverse; }

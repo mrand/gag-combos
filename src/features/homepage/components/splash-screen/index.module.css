@@ -1,7 +1,7 @@
 .splashScreen {
   position: relative;
   background: var(--grey-400);
-  min-height: max(490px, 20em);
+  min-height: 30.625rem;
   overflow: hidden;
 }
 
