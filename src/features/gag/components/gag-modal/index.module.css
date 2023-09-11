@@ -1,0 +1,140 @@
+.gagModal {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  padding: 1rem;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+}
+/* modal background */
+.gagModal::before {
+  background: #000000;
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0.75;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.modalWrapper {
+  background: var(--blue-600);
+  border: 0.5rem solid var(--blue-600);
+  border-radius: var(--radius-xl);
+  padding: 0 !important;
+  max-width: 100%;
+  width: 25rem;
+}
+.modalContent {
+  --bar-width: 0.25rem;
+  --thumb-color: var(--blue-400);
+  border-bottom: 0.1875rem solid var(--blue-700);
+  max-height: 50vh;
+  overflow-y: auto;
+}
+.desktop .modalContent { max-height: 65vh; }
+
+
+.gagModal section {
+  background: #ffffff;
+  border: 0.5rem solid var(--blue-600);
+  border-radius: var(--radius-xl);
+  padding: 1rem;
+}
+
+/* Gag Image and Name Area */
+.mainDetails {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+.mobile .mainDetails { flex-direction: column; }
+
+.overview > * { display: block; }
+
+.imgWrap {
+  align-items: center;
+  aspect-ratio: 1 / 1;
+  background: var(--grey-300);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  padding: 1.75rem;
+  position: relative;
+}
+.imgWrap.org { box-shadow: 0 0 0 0.5rem var(--green-500) inset; }
+
+.gagIcon {
+  filter: drop-shadow(0 0 0.25rem var(--grey-700));
+  max-width: 4rem;
+  width: 100%;
+}
+.organicIcon {
+  aspect-ratio: 1 / 1;
+  position: absolute;
+  right: -0.25rem;
+  top: -0.25rem;
+  width: min(40px, 10vw);
+  z-index: 1;
+}
+
+.mainDetails h3 { line-height: 100%; }
+
+
+/* Gag Panel */
+.gagsPanel {
+  display: grid;
+  gap: 0.25rem;
+}
+.gagsPanel .gridWrap {
+  --border-radius: var(--radius-sm);
+  --border-width: 0.1875rem;
+  --child-border-radius: calc(var(--border-radius) - var(--border-width));
+  background: #000000;
+  border: var(--border-width) solid #000000;
+  border-radius: var(--border-radius);
+  display: grid;
+  font-size: min(0.75rem, 3vw);
+  gap: 0.125rem;
+  grid-template-columns: repeat(10, 1fr);
+  margin: auto;
+  width: fit-content;
+}
+.gridWrap > * { 
+  background: #ffffff;
+  padding: 0.125rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.gridWrap b { 
+  grid-column: 1 / 4; 
+  padding: 0.125rem 0.5rem;
+}
+
+.gridWrap b:first-of-type { border-top-left-radius: var(--child-border-radius); }
+.gridWrap b:last-of-type { border-bottom-left-radius: var(--child-border-radius); }
+.gridWrap span:nth-of-type(7) { border-top-right-radius: var(--child-border-radius); }
+.gridWrap span:last-of-type { border-bottom-right-radius: var(--child-border-radius); }
+
+
+/* Gag Stats */
+.stat { text-align: left; }
+.stat ul { gap: 0; }
+
+
+/* Close Modal Button */
+.modalBtnWrap { border: 0.5rem solid var(--blue-600); }
+.modalBtn {
+  background: var(--red-500);
+  border-radius: 1000px;  /* arbitrarily large, but not circular */
+  width: 100%;
+}
+.modalBtn:hover { background: var(--red-600); }

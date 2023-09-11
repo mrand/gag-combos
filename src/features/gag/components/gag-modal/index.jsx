@@ -1,12 +1,14 @@
-import React from "react";
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useContext } from "react";
+import { PageSizeContext } from "~/App";
+import { useSelector, useDispatch } from "react-redux";
 import { resetGagModal } from "~/features/recommendations";
-import './index.css';
-import { OrganicIcon } from "../gag-cell";
+import styles from "./index.module.css";
 import { trackColors, Gag } from "~/features/gag";
 
 
 export default function GagModal() {
+  const pageSize = useContext(PageSizeContext);
+
   const gagData = useSelector((state) => state.recommendations.gag.modal.data);
   const dispatch = useDispatch();
   let gag = new Gag(
@@ -16,24 +18,30 @@ export default function GagModal() {
   );
 
   return (
-    <div id="gag-modal">
-      <div className="wrapper">
-        <div className="modal-wrap custom-scrollbar">
+    <div className={`${styles.gagModal} ${pageSize==="desktop" ? styles.desktop : styles.mobile}`}>
+      <div className={`wrapper ${styles.modalWrapper}`}>
+        <div className={`custom-scrollbar ${styles.modalContent}`}>
 
           {/* Gag Heading */}
-          <section className="main-details">
+          <section className={styles.mainDetails}>
             <div 
-              className={"img-wrap" + (gag.organic==="Organic" ? " org" : "")}
+              className={`${styles.imgWrap} ${gag.organic==="Organic" ? styles.org : ''}`}
               style={{background: (trackColors[gag.track] || "")}}
             >
               <img 
-                className="gag-icon"
+                className={styles.gagIcon}
                 src={gag.image} 
                 alt={gag.name + " gag"} 
               />
-              {(gag.organic === "Organic") ? <OrganicIcon /> : null}
+              {(gag.organic === "Organic") ? (
+                <img 
+                  className={styles.organicIcon}
+                  src="/img/gags/icon-organic-mini.png"
+                  alt={"Organic Icon"} 
+                />
+            ) : null}
             </div>
-            <div className="overview">
+            <div className={styles.overview}>
               <h3>
                 {gag.name}
                 {
@@ -50,11 +58,11 @@ export default function GagModal() {
           </section>
 
           {/* Gag Overview */}
-          <section className="gags-panel">
+          <section className={styles.gagsPanel}>
             <h4>Overview</h4>
             {/* gags grid */}
             <div 
-              className="grid-wrap"
+              className={styles.gridWrap}
               style={gag.level===0 ? {filter: "grayscale(1)", opacity: "0.25"} : {}}
             >
               {Object.keys(trackColors).map((track, i) => {
@@ -89,13 +97,13 @@ export default function GagModal() {
           {/* Gag Stats */}
           {
             Object.entries(gagData.comboStats).map(([stat, val], i) => (
-              <section className='stat' key={i}>
+              <section className={styles.stat} key={i}>
                 <h4>{stat}</h4>
                 <ul>
                   {
                     Object.entries(val).map(([subStat, subVal], j) => (
                       <li key={j}>
-                        <b>{subStat}: </b>{stat==='accuracy' ? Math.round(subVal*100)+"%" : subVal}
+                        <b>{subStat}: </b>{stat==="accuracy" ? Math.round(subVal*100)+"%" : subVal}
                       </li>
                     ))
                   }
@@ -106,8 +114,9 @@ export default function GagModal() {
           
         </div>
 
-        <div className="modal-btn">
+        <div className={styles.modalBtnWrap}>
           <button
+            className={styles.modalBtn}
             onClick={() => dispatch(resetGagModal())}
             title="Close Gag Details"
           >
