@@ -1,7 +1,7 @@
-import React, { useState, useContext } from 'react';
-import { PageSizeContext } from '~/App'
-import { useLocation, Link } from 'react-router-dom';
-import './index.css';
+import React, { useState, useContext } from "react";
+import { PageSizeContext } from "~/App"
+import { useLocation, Link } from "react-router-dom";
+import styles from "./index.module.css";
 
 
 function HeaderNav({ location }) {
@@ -9,25 +9,25 @@ function HeaderNav({ location }) {
     <nav>
       <Link 
         to="/" 
-        className={location === "/" ? "active" : ""}
+        className={location === "/" ? styles.active : ""}
       >
         Home
       </Link>
       <Link 
         to="/calculator"
-        className={location === "/calculator" ? "active" : ""}
+        className={location === "/calculator" ? styles.active : ""}
       >
         Calculator
       </Link>
       <Link 
         to="/recommendations"
-        className={location === "/recommendations" ? "active" : ""}
+        className={location === "/recommendations" ? styles.active : ""}
       >
         Recommendations
       </Link>
       <Link 
         to="/faq" 
-        className={location === "/faq" ? "active" : ""}
+        className={location === "/faq" ? styles.active : ""}
       >
         FAQ
       </Link>
@@ -39,11 +39,10 @@ function HeaderNav({ location }) {
 function HamburgerButton({ mobileNavActive, setMobileNavActive }) {
   return (
     <button 
-      id="header-nav-menu-btn" 
+      className={`${styles.headerNavMenuBtn} ${mobileNavActive ? styles.active : ""}`}
       aria-label="Toggle Main Navigation Menu"
       title="Toggle Main Navigation Menu"
       onClick={() => setMobileNavActive(!mobileNavActive)}
-      className={mobileNavActive ? "active" : ""}
     >
       {
         mobileNavActive ? (
@@ -72,7 +71,7 @@ function HamburgerButton({ mobileNavActive, setMobileNavActive }) {
 function MobileNavBg({ setMobileNavActive }) {
   return (
     <button
-      id='mobile-nav-bg'
+      className={styles.mobileNavBg}
       onClick={() => setMobileNavActive(false)}
       aria-label="Close Main Navigation Menu"
       title="Close Main Navigation Menu"
@@ -88,27 +87,27 @@ export default function Header() {
 
   return (
     <>
-      <header>
-        <div className='wrapper'>
+      <header className={`${styles.header} ${pageSize==="desktop" ? styles.desktop : ""}`}>
+        <div className={`wrapper ${styles.headerWrap}`}>
           {/* Logo */}
           <h1>
             <Link 
               to="/" 
               title="Navigate to Homepage"
-              className={location === "/" ? "active" : ""}
+              className={(location === "/") ? styles.active : ""}
             >
-              {pageSize==='mobile' ? "GC" : "Gag Combos Info"}
+              {pageSize==="mobile" ? "GC" : "Gag Combos Info"}
             </Link>
           </h1>
           {/* Desktop Nav */}
           {
-            pageSize==='desktop' ? (
+            pageSize==="desktop" ? (
               <HeaderNav location={location} />
             ) : null
           }
           {/* Hamburger Button */}
           {
-            pageSize==='mobile' ? (
+            pageSize==="mobile" ? (
               <HamburgerButton 
                 mobileNavActive={mobileNavActive} 
                 setMobileNavActive={setMobileNavActive}
@@ -118,8 +117,8 @@ export default function Header() {
         </div>
         {/* Mobile Nav */}
         {
-          pageSize==='mobile' && mobileNavActive ? (
-            <div id='mobile-header-nav' className='wrapper'>
+          pageSize==="mobile" && mobileNavActive ? (
+            <div className={`wrapper ${styles.mobileHeaderNav}`}>
               <HeaderNav location={location} />          
             </div>
           ) : null
@@ -127,7 +126,7 @@ export default function Header() {
       </header>
       {/* Mobile Nav Background */}
       {
-        pageSize==='mobile' && mobileNavActive ? (
+        pageSize==="mobile" && mobileNavActive ? (
           <MobileNavBg setMobileNavActive={setMobileNavActive} />
         ) : null
       }

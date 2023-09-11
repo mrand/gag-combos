@@ -1,0 +1,112 @@
+
+.header {
+  background: #ffffff;
+  box-shadow: 0 0 0.25rem var(--grey-700);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.headerWrap {
+  align-items: flex-end;
+  display: flex;
+  justify-content: space-between;
+  padding-block: 0 !important;  /* override desktop wrapper rule */
+}
+@media (min-width: 1151px) {
+  .headerWrap { justify-content: space-between; }
+}
+
+.header h1 { color: var(--blue-600); }
+
+
+.header a {
+  background: 0;
+  color: var(--blue-600);
+  display: inline-block;
+  font-family: BowlbyOneSC,Arial,Roboto,Helvetica,sans-serif;
+  font-weight: normal;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+.header a:hover {
+  background: 0;
+  box-shadow: none;
+  color: var(--blue-600);
+}
+
+.header.desktop a { border-bottom: 0.1875rem solid var(--grey-400); }
+.header.desktop a.active {
+  background: 0;
+  border-bottom-color: var(--blue-600);
+  box-shadow: none;
+  color: var(--blue-600);
+}
+
+.header h1 a { padding: 0; }
+
+
+.mobile .header h1 a { border: 0; }
+
+.headerNavMenuBtn {
+  align-items: center;
+  align-self: center;
+  background: 0;
+  border-radius: 1000px;  /* arbitrarily large, but not circular */
+  box-shadow: none;
+  color: var(--blue-600);
+  display: flex;
+  font-size: 1rem;
+  gap: 0.75rem;
+  padding: 0.25rem 0.75rem;
+}
+.headerNavMenuBtn:hover {
+  background: 0;
+  box-shadow: none;
+  color: var(--blue-600);
+}
+.headerNavMenuBtn svg {
+  fill: var(--blue-600);
+  height: 1.875rem;
+  width: 1.875rem;
+}
+
+.headerNavMenuBtn.active { 
+  background: var(--red-500); 
+  color: #ffffff;
+}
+.headerNavMenuBtn.active svg { fill: #ffffff; }
+
+
+.mobileHeaderNav {
+  display: block;
+  padding-block: 0;
+}
+.mobileHeaderNav nav {
+  border-top: 2px solid var(--grey-400);
+  display: flex;
+  flex-direction: column;
+  padding: 16px 0;
+  text-align: right;
+}
+.mobileHeaderNav a { 
+  border: 0;
+  border-radius: 0;
+  padding: 8px;
+}
+.mobileHeaderNav a.active {
+  text-decoration: underline;
+}
+
+
+.mobileNavBg {
+  background: #000000;
+  box-shadow: none;
+  height: 100%;
+  left: 0;
+  opacity: 0.75;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+}
+.mobileNavBg:hover { background: #000000; }
