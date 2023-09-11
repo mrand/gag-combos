@@ -1,9 +1,10 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { deleteGag, setHoveredGag } from '~/features/calculator';
-import './index.css';
-import { Gag } from '~/features/gag';
-import { GagButton } from '~/features/gag/components';
+import React, { useContext } from "react";
+import { PageSizeContext } from "~/App";
+import { useSelector, useDispatch } from "react-redux";
+import { deleteGag, setHoveredGag } from "~/features/calculator";
+import styles from "./index.module.css";
+import { Gag } from "~/features/gag";
+import { GagButton } from "~/features/gag/components";
 
 
 function GagsListContainer({ gagsList }) {
@@ -34,11 +35,12 @@ function GagsListContainer({ gagsList }) {
 
 
 export default function GagsList() {
+  const pageSize = useContext(PageSizeContext);
   const gagsList = useSelector((state) => state.calculator.gag.gagsList);
 
   return (
-    <div className="gags-list">
-      <div className="gags-list-container custom-scrollbar">
+    <div className={`${styles.gagsList} ${pageSize==="desktop" ? "" : styles.mobile}`}>
+      <div className={`custom-scrollbar ${styles.gagsListContainer}`}>
         {
           gagsList.length > 0 ? (
             <GagsListContainer gagsList={gagsList} />
