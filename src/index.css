@@ -289,10 +289,7 @@ ul {
 
 /* general content wrapper */
 .wrapper {
-  padding: 2rem 1rem;
+  padding: 1rem;
   max-width: 1350px;
   margin: 0 auto;
-}
-.desktop #page .wrapper {
-  padding: 1rem;
 }

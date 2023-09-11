@@ -39,10 +39,10 @@ export default function NotFound() {
   return (
     <article className={`with-grid-bg ${styles.notFound}`}>
       <div className="wrapper">
-        <h2 className="standard-heading">(404) Page Not Found!</h2>
+        <h1 className="standard-heading">(404) Page Not Found!</h1>
         <div className={`formatted-article ${styles.notFoundArticle}`}>
           <section>
-            <h3>Looks like the cogs have taken over this page!</h3>
+            <h2>Looks like the cogs have taken over this page!</h2>
             <p>
               While we investigate, you should head back to 
               the <Link to="/" className="no-style">Homepage</Link>.
@@ -50,7 +50,7 @@ export default function NotFound() {
           </section>
           <CogGrid />
           <section>
-            <h3>Note:</h3>
+            <h2>Note:</h2>
             <p>
               If you are trying to reach a certain link, the footer below lists all pages on Gag Combos Info!
             </p>

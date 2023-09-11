@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from "react";
+import { PageSizeContext } from "~/App";
 import { useSelector, useDispatch } from 'react-redux';
 import { resetGags, addGag } from '~/features/calculator';
 import { trackColors, Gag } from '~/features/gag';
@@ -69,7 +70,9 @@ function GagButtons({ org }) {
 }
 
 
-export default function GagsPicker({ pageSize="mobile" }) {
+export default function GagsPicker() {
+  const pageSize = useContext(PageSizeContext);
+
   const gagsList = useSelector((state) => state.calculator.gag.gagsList);
   const org = useSelector((state) => state.calculator.gag.organic);
   const dispatch = useDispatch();

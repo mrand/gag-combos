@@ -4,9 +4,8 @@
   background: var(--grey-600);
   border-color: var(--grey-600);
 }
-.notFoundArticle section {
-  border-color: var(--grey-600);
-}
+.notFoundArticle section { border-color: var(--grey-600); }
+.notFoundArticle h2 { font-size: 1.25rem; }
 
 .cogGrid {
   background: var(--grey-800);

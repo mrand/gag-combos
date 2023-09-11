@@ -3,11 +3,14 @@ import { PageSizeContext } from "~/App";
 import styles from "./index.module.css";
 
 
-export default function Page({ content=null }) {
+export default function Page({ content=null, style=null }) {
   const pageSize = useContext(PageSizeContext);
 
   return (
-    <div className={`custom-scrollbar with-grid-bg ${styles.page} ${pageSize==="desktop" ? "" : styles.mobile}`}>
+    <div
+      className={`custom-scrollbar with-grid-bg ${styles.page} ${pageSize==="desktop" ? "" : styles.mobile}`}
+      style={style}
+    >
       {content}
     </div>
   );

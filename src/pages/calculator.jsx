@@ -1,21 +1,19 @@
-import React, { useContext } from "react";
-import { PageSizeContext } from "~/App";
+import React from "react";
 import Page from "../features/ui/page";
-import Header from '~/features/ui/header';
+import Header from "~/features/ui/header";
 import { CogsList } from '~/features/cog/components';
 import { GagsPicker } from '~/features/gag';
-import Footer from '~/features/ui/footer';
+import Footer from "~/features/ui/footer";
 
 
 export default function Calculator() {
-  const pageSize = useContext(PageSizeContext);
 
   return (
     <Page
       content={
         <>
           <Header />
-          <GagsPicker pageSize={pageSize} />
+          <GagsPicker />
           <CogsList />
           <Footer />
         </>
