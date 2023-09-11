@@ -74,6 +74,7 @@
   min-height: 2.25rem;
   text-align: center;
 }
+.gagsPicker.desktop h3 { width: 100%; }
 /* "Choose Gags" Text */
 .gagsPicker h3 span { 
   display: block;
