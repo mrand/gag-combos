@@ -7,7 +7,7 @@ import Calculator from '~/pages/calculator';
 import Changelog from '~/pages/changelog';
 import PrivacyPolicy from '~/pages/privacy';
 import FAQ from '~/pages/faq';
-import NotFound from '~/pages/not-found';
+import PageNotFound from '~/pages/page-not-found';
 
 
 const throttle = (func, delay) => {
@@ -63,7 +63,7 @@ export default function App() {
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/faq" element={<FAQ />} />
             {/* 404 */}
-            <Route path="*" element={<NotFound />} />
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>
 
