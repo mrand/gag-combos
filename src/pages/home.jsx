@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import Page from "../features/ui/page";
 import { PageSizeContext } from "~/App";
+import Page from "../features/ui/page";
 import Header from "~/features/ui/header";
 import { About, Help, Intro, SplashScreen } from "~/features/homepage";
 import Footer from "~/features/ui/footer";
