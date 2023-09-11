@@ -9,6 +9,9 @@
 }
 
 .gagsListContainer {
+  --bar-width: 0.5rem;
+  --thumb-color: var(--blue-500);
+  --thumb-hover-color: var(--blue-400);
   align-items: center;
   background: var(--grey-300);
   border-radius: var(--radius-lg);
