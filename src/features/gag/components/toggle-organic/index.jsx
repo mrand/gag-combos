@@ -2,7 +2,6 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleOrg } from '~/features/calculator';
 import Toggle from '~/features/ui/toggle';
-import './index.css';
 
 
 export default function ToggleOrganic() {
