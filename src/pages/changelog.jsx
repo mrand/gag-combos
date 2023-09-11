@@ -88,7 +88,7 @@ export default function Changelog() {
               <h3>2022-11-07</h3>
               <h4>v2.0 Cog Support</h4>
               <p>
-                You can now toggle whether your cog is a v2.0 to account for reinforced plating in the combo calculations!
+                You can now toggle whether your cog is a v2.0 to account for reinforced plating in combo calculations!
               </p>
             </section>
 
@@ -103,11 +103,11 @@ export default function Changelog() {
             <section>
               <h3>2022-11-02</h3>
               <h4>Instant Updates</h4>
-              <ul>
-                <li>Under-the-hood changes that allow instant updates instead of requiring one website visit to detect updates and another website visit to implement them.</li>
-                <li>Added a popup notification message that displays any time there is an update to Gag Combos Info.</li>
-                <li>(Button that closes the popup notification reloads the page to implement the updates.)</li>
-              </ul>
+              <p>
+                Under-the-hood changes that allow instant updates
+                instead of requiring one website visit to detect updates
+                and another website visit to implement them.
+              </p>
             </section>
 
             <section>
