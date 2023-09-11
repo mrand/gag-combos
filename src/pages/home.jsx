@@ -13,8 +13,8 @@ export default function Homepage() {
     <div id="page" className="home custom-scrollbar">
       <Header />
       <SplashScreen /> 
-      <Intro />
-      <About />
+      <Intro pageSize={pageSize} />
+      <About pageSize={pageSize} />
       <Help pageSize={pageSize} />
       <Footer />
     </div>

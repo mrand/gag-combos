@@ -1,17 +1,15 @@
 .about { background: var(--grey-400); }
 
-.customTwoColumn {
-  --_base-column-width: 50ch;
-  --_direction: row-reverse;
+.mobile .left,
+.mobile .right {
+  margin: auto;
 }
 
-.left {
-  margin: auto;
-  max-width: 60ch;
-}
+.left { align-self: center; }
 .left img {
   border-radius: var(--radius-xl);
   box-shadow: 3px 3px 0 3px var(--grey-500);
   height: auto;
+  max-width: 75ch;
   width: 100%;
 }

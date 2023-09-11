@@ -1,0 +1,22 @@
+.mobile .left,
+.mobile .right {
+  margin: auto;
+}
+
+.left p:last-of-type { margin-bottom: 16px; }
+
+.introLink {
+  display: block;
+  text-align: center;
+  width: fit-content;
+  text-decoration: none;
+  padding: 12px 16px;
+  border-radius: 30px;
+}
+
+.mobile .introLink {
+  width: 100%;
+  margin: auto;
+  max-width: 50ch;
+}
+.mobile .left .introLink:last-of-type { margin-bottom: 16px; }

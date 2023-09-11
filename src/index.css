@@ -121,6 +121,7 @@ code {
 .content-container {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 1em;
 }
 
@@ -209,6 +210,9 @@ h1, h2, h3, h4, h5, h6 {
 
 
 li { margin-left: 1em; }
+
+
+p { max-width: 75ch; }
 
 
 table { border-collapse: collapse; }

@@ -10,3 +10,4 @@
   gap: 48px;
   justify-content: space-between;
 }
+.flex.reverse.desktop { flex-direction: row-reverse; }

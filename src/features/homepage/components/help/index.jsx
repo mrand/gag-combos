@@ -23,6 +23,7 @@ export default function Help({ pageSize="mobile" }) {
           </>
         }
         pageSize={pageSize}
+        reverse={false}
       />
     </section>
   );
