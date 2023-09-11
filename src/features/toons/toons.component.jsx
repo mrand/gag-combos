@@ -1,9 +1,10 @@
-import React, { useState, useReducer } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { resetToons, toggleToonActive, updateToonOrganic } from '~/features/recommendations';
-import './toons.component.css';
-import ResetButton from '~/features/ui/reset-button';
-import SliderButton from '~/features/ui/slider-button';
+import React, { useContext, useState, useReducer } from "react";
+import { PageSizeContext } from "~/App";
+import { useSelector, useDispatch } from "react-redux";
+import { resetToons, toggleToonActive, updateToonOrganic } from "~/features/recommendations";
+import ResetButton from "~/features/ui/reset-button";
+import SliderButton from "~/features/ui/slider-button";
+import styles from "./toons.component.module.css";
 
 
 function ToonToggle({ i }) {
@@ -11,9 +12,9 @@ function ToonToggle({ i }) {
   const dispatch = useDispatch();
 
   return (
-    <div className='toon-toggle'>
+    <div className={styles.toonToggle}>
       <h3>Toon {i+1}</h3>
-      <div className='controls'>
+      <div className={styles.controls}>
         <SliderButton 
           active={active}
           clickHandler={() => dispatch(toggleToonActive(i))}
@@ -26,22 +27,22 @@ function ToonToggle({ i }) {
 
 function OrgGagContainer({ toon }) {
   return (
-    <p className='org-gag-container'>
+    <p className={styles.orgGagContainer}>
       <span>Organic</span>
-      <img src={gagTracks[toon.organic]} alt={toon.organic + ' Gag'} />
+      <img src={gagTracks[toon.organic]} alt={toon.organic + " Gag"} />
     </p>
   );
 }
 
 let gagTracks = {
-  'None': './img/gags/pass.png',
-  'Toon-Up': './img/gags/toonup-feather.png',
-  'Trap': './img/gags/trap-bananapeel.png',
-  'Lure': './img/gags/lure-1bill.png',
-  'Sound': './img/gags/sound-bikehorn.png',
-  'Throw': './img/gags/throw-cupcake.png',
-  'Squirt': './img/gags/squirt-squirtingflower.png',
-  'Drop': './img/gags/drop-flowerpot.png'
+  "None": "./img/gags/pass.png",
+  "Toon-Up": "./img/gags/toonup-feather.png",
+  "Trap": "./img/gags/trap-bananapeel.png",
+  "Lure": "./img/gags/lure-1bill.png",
+  "Sound": "./img/gags/sound-bikehorn.png",
+  "Throw": "./img/gags/throw-cupcake.png",
+  "Squirt": "./img/gags/squirt-squirtingflower.png",
+  "Drop": "./img/gags/drop-flowerpot.png"
 };
 function OrganicPicker({ i, dispatch, pickerActive, setPickerActive, toonOrg }) {
   const [activeBtn, setActiveBtn] = useState(
@@ -49,16 +50,14 @@ function OrganicPicker({ i, dispatch, pickerActive, setPickerActive, toonOrg }) 
   );
 
   return (
-    <div className='organic-picker'>
+    <div className={styles.organicPicker}>
       {(pickerActive) ? (
         <>
           <h4>Set Organic Gag</h4>
           {Object.keys(gagTracks).map((track, j) => (
             <React.Fragment key={j}>
               <button
-                className={
-                  'gag-btn' + ((activeBtn === j) ? ' active' : '')
-                }
+                className={`${styles.gagBtn} ${activeBtn===j ? styles.active : ""}`}
                 onClick={() => {
                   dispatch(updateToonOrganic({ i: i, track: track }));
                   setActiveBtn(j);
@@ -67,7 +66,7 @@ function OrganicPicker({ i, dispatch, pickerActive, setPickerActive, toonOrg }) 
                 title={"Set "+track+" Organic"}
                 aria-label={"Set "+track+" Organic"}
               >
-                <img src={gagTracks[track]} alt={track + ' Gag'} />
+                <img src={gagTracks[track]} alt={track + " Gag"} />
                 {track}
               </button>
             </React.Fragment>
@@ -92,7 +91,7 @@ function ToonPanel({ i, toon, pickerActive, setPickerActive, dispatch }) {
   const active = useSelector((state) => state.recommendations.toons.toonList[i].active);
 
   return (
-    <div className='toon-panel'>
+    <div className={styles.toonPanel}>
       {/* Toon Toggle Container */}
       {
         (!pickerActive) ? (
@@ -127,6 +126,8 @@ function ToonPanel({ i, toon, pickerActive, setPickerActive, dispatch }) {
 
 
 export default function ToonsComponent() {
+  const pageSize = useContext(PageSizeContext);
+
   const toons = useSelector((state) => state.recommendations.toons.toonList);
   const resetBtnActive = useSelector((state) => state.recommendations.toons.hasUpdates);
   const dispatch = useDispatch();
@@ -147,8 +148,8 @@ export default function ToonsComponent() {
   const [orgPickersActive, setOrgPickersActive] = useReducer(orgPickersReducer, initialOrgPickers);
 
   return (
-    <div id="toons" className="custom-scrollbar">
-      <div className='heading-btn-wrap'>
+    <div className="custom-scrollbar">
+      <div className="heading-btn-wrap">
         <h2>Toons</h2>
         <ResetButton 
           active={resetBtnActive}
@@ -159,7 +160,7 @@ export default function ToonsComponent() {
           infoText="Reset All Toons"
         />
       </div>
-      <div className='toons-card'>
+      <div className={`${styles.toonsCard} ${pageSize==="desktop" ? "" : styles.mobile}`}>
         {toons.map((toon, i) => (
           <ToonPanel 
             key={i}
