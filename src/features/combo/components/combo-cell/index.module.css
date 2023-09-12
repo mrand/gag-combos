@@ -1,0 +1,105 @@
+.comboCell {
+  background: #ffffff;
+  border: 0.5rem solid var(--blue-600);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  text-align: left;
+}
+
+
+.comboCell.errorCell {
+  grid-column-end: 3;
+  grid-column-start: 1;
+}
+.comboCell.errorCell h3 {
+  color: var(--red-500);
+  text-align: center;
+}
+
+
+.comboCellHeading {
+  line-height: 1em;
+  text-align: center;
+}
+
+
+.comboCell hr { border: 1px solid var(--grey-400); }
+
+
+.comboGags {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  width: 100%;
+}
+
+
+/* phones */
+@media (max-width: 32rem) {
+  .comboCellHeading { font-size: 1rem; }
+  .comboCell.expanded .comboGags { flex-direction: column; }
+}
+/* tiny phones */
+@media (max-width: 22rem) {
+  .comboCell .comboGags { flex-direction: column; }
+}
+
+
+.comboMultipliers {
+  display: grid;
+  text-align: center;
+}
+
+
+.comboInfo {
+  --accent: var(--grey-600);
+  border-color: var(--accent);
+  border-style: solid;
+  border-width: 0 0 0 0.25rem;
+  color: var(--accent);
+  font-size: 0.9rem;
+  line-height: 1.2rem;
+  padding: 0.5rem;
+}
+.comboInfo.bad { --accent: var(--red-500); }
+.comboInfo.good { --accent: var(--green-500); }
+
+
+.comboFooter {
+  align-items: end;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.comboStats {
+  display: grid;
+  flex-grow: 1;
+  gap: 0.5rem;
+}
+.comboStats h4 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5ch;
+  line-height: 1em;
+}
+
+.expandBtn {
+  border-radius: 50%;
+  flex-shrink: 0;
+  height: 1.5rem;
+  padding: 0;
+  position: relative;
+  width: 1.5rem;
+}
+.expandBtn svg {
+  fill: #ffffff;
+  left: 50%;
+  max-height: 0.875rem;
+  max-width: 0.875rem;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

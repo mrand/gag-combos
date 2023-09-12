@@ -1,5 +1,4 @@
 import Combo from "./combo.module";
-import { DamageCount } from "./components"
-import { ComboCell, ErrorCell } from "./combo.component";
+import { ComboCell, ErrorCell, DamageCount } from "./components"
 
-export { Combo, DamageCount, ComboCell, ErrorCell };
+export { Combo, ComboCell, ErrorCell, DamageCount };

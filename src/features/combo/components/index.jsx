@@ -1,3 +1,4 @@
+import { ComboCell, ErrorCell } from "./combo-cell";
 import DamageCount from "./damage-count";
 
-export { DamageCount };
+export { ComboCell, ErrorCell, DamageCount };
