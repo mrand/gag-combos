@@ -43,7 +43,11 @@
   background: var(--grey-400);
   opacity: 0.6;
 }
-.gagImages img { animation: 70s slide linear infinite alternate; }
+.gagImages img {
+  animation: 70s slide linear infinite alternate;
+  height: 100%;
+  width: auto;
+}
 
 @keyframes slide {
   to { transform: translateX(calc(-1 * 3430px + 100vw)); }
