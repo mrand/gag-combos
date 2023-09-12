@@ -10,14 +10,8 @@ import styles from "./index.module.css";
  */
 export default function HomepageWrapper({ content=null, pageSize="mobile" }) {
   return (
-    pageSize==="desktop" ? (
-      <div className={styles.desktopWrapper}>
-        {content}
-      </div>
-    ) : (
-      <>
-        {content}
-      </>
-    )
+    <div className={pageSize==="desktop" ? styles.desktopWrapper : styles.mobileWrapper}>
+      {content}
+    </div>
   );
 }
