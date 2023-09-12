@@ -94,7 +94,7 @@
   flex-direction: column;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0 0.75rem;
+  padding: 0.75rem;
 }
 .lvlBtns {
   width: 8.125rem;
