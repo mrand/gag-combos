@@ -15,9 +15,13 @@
   color: #000000;
   background: var(--grey-300);
 }
-.gagCell:hover { color: #000000; }
+.gagCell:hover {
+  background: var(--grey-300);
+  color: #000000;
+}
 
 .gagCellContent {
+  --bar-width: 0.25rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -81,7 +85,7 @@
 }
 
 /* phones */
-@media (max-width: 500px) {
+@media (max-width: 32rem) {
   .gagCell { width: 100%; }
   .gagCell:not(.expanded) .organicIcon { width: min(1.875rem, 7vw); }
   .gagCell:not(.expanded) .gag-icon {
