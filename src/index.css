@@ -233,20 +233,21 @@ th, td {
 .svg-btn {
   --main-color: var(--blue-600);
   --sub-color: #ffffff;
+  align-items: center;
   background: var(--sub-color);
   color: var(--main-color);
   display: inline-flex;
   flex-direction: column;
-  align-items: center;
+  gap: 0.5ch;
   justify-content: center;
-  text-overflow: ellipsis;
   overflow: hidden;
   text-align: center;
+  text-overflow: ellipsis;
 }
 .svg-btn:hover {
   background: var(--sub-color);
-  color: var(--main-color);
   box-shadow: none;
+  color: var(--main-color);
 }
 .svg-btn.active {
   background: var(--main-color);
@@ -254,9 +255,9 @@ th, td {
 }
 
 .svg-btn svg { 
-  width: 2em;
-  height: 2em;
   fill: var(--main-color);
+  height: 2.25em;
+  width: 2.25em;
 }
 .svg-btn.active svg {
   fill: var(--sub-color);
