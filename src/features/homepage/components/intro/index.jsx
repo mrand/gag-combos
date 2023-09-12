@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import { CombosVisual, FlexContainer, HomepageWrapper } from "~/features/homepage";
 import styles from "./index.module.css";
