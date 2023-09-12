@@ -4,9 +4,9 @@ import { CombosVisual, FlexContainer, HomepageWrapper } from "~/features/homepag
 import styles from "./index.module.css";
 
 
-export default function Intro({ pageSize="mobile" }) {
+export default function Intro({ device="mobile" }) {
   return (
-    <section className={`with-grid-bg ${styles.intro} ${pageSize==="desktop" ? styles.desktop : styles.mobile}`}>
+    <section className={`with-grid-bg ${styles.intro} ${device==="desktop" ? styles.desktop : styles.mobile}`}>
       <HomepageWrapper
         content={
           <FlexContainer
@@ -30,10 +30,10 @@ export default function Intro({ pageSize="mobile" }) {
                 </div>
               </>
             }
-            pageSize={pageSize}
+            device={device}
           />
         }
-        pageSize={pageSize}
+        device={device}
       />
     </section>
   );

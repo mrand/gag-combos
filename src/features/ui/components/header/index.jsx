@@ -81,13 +81,13 @@ function MobileNavBg({ setMobileNavActive }) {
 
 
 export default function Header() {
-  const pageSize = useContext(DeviceContext);
+  const device = useContext(DeviceContext);
   const location = useLocation().pathname;
   const [mobileNavActive, setMobileNavActive] = useState(false);
 
   return (
     <>
-      <header className={`${styles.header} ${pageSize==="desktop" ? styles.desktop : ""}`}>
+      <header className={`${styles.header} ${device==="desktop" ? styles.desktop : ""}`}>
         <div className={`wrapper ${styles.headerWrap}`}>
           {/* Logo */}
           <h1>
@@ -96,18 +96,18 @@ export default function Header() {
               title="Navigate to Homepage"
               className={(location === "/") ? styles.active : ""}
             >
-              {pageSize==="mobile" ? "GC" : "Gag Combos Info"}
+              {device==="mobile" ? "GC" : "Gag Combos Info"}
             </Link>
           </h1>
           {/* Desktop Nav */}
           {
-            pageSize==="desktop" ? (
+            device==="desktop" ? (
               <HeaderNav location={location} />
             ) : null
           }
           {/* Hamburger Button */}
           {
-            pageSize==="mobile" ? (
+            device==="mobile" ? (
               <HamburgerButton 
                 mobileNavActive={mobileNavActive} 
                 setMobileNavActive={setMobileNavActive}
@@ -117,7 +117,7 @@ export default function Header() {
         </div>
         {/* Mobile Nav */}
         {
-          pageSize==="mobile" && mobileNavActive ? (
+          device==="mobile" && mobileNavActive ? (
             <div className={`wrapper ${styles.mobileHeaderNav}`}>
               <HeaderNav location={location} />          
             </div>
@@ -126,7 +126,7 @@ export default function Header() {
       </header>
       {/* Mobile Nav Background */}
       {
-        pageSize==="mobile" && mobileNavActive ? (
+        device==="mobile" && mobileNavActive ? (
           <MobileNavBg setMobileNavActive={setMobileNavActive} />
         ) : null
       }

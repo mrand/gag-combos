@@ -71,14 +71,14 @@ function GagButtons({ org }) {
 
 
 export default function GagsPicker() {
-  const pageSize = useContext(DeviceContext);
+  const device = useContext(DeviceContext);
 
   const gagsList = useSelector((state) => state.calculator.gag.gagsList);
   const org = useSelector((state) => state.calculator.gag.organic);
   const dispatch = useDispatch();
 
   return (
-    <div className={`${styles.gagsPicker} ${pageSize==="desktop" ? styles.desktop : styles.mobile}`}>
+    <div className={`${styles.gagsPicker} ${device==="desktop" ? styles.desktop : styles.mobile}`}>
       <div className={`wrapper ${styles.gagsPickerWrap}`}>
         <div className={styles.headingBtnWrap}>
           <h3>
@@ -96,7 +96,7 @@ export default function GagsPicker() {
               )
             }
           </h3>
-          { pageSize==="desktop" && <HoverBox /> }
+          { device==="desktop" && <HoverBox /> }
           <ToggleOrganic />
         </div>
         <GagButtons org={org} />

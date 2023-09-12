@@ -7,15 +7,15 @@ import { Footer } from "~/features/ui";
 
 
 export default function Recommendations() {
-  const pageSize = useContext(DeviceContext);
+  const device = useContext(DeviceContext);
 
   return (
     <Page
       content={
         <>
           <Header />
-          <Dashboard pageSize={pageSize} />
-          {pageSize==="mobile" ? null : <Footer />}
+          <Dashboard device={device} />
+          {device==="mobile" ? null : <Footer />}
         </>
       } 
     />

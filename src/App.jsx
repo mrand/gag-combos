@@ -25,7 +25,7 @@ const throttle = (func, delay) => {
 };
 
 
-export const PageSizeContext = createContext();
+export const DeviceContext = createContext();
 
 
 export default function App() {
@@ -51,7 +51,7 @@ export default function App() {
 
   const mobileOrDesktop = isMobile ? "mobile" : "desktop";
   return (
-    <PageSizeContext.Provider value={mobileOrDesktop}>
+    <DeviceContext.Provider value={mobileOrDesktop}>
       <div className={`${styles.pageWrap} ${mobileOrDesktop}`}>
 
         <BrowserRouter>
@@ -68,6 +68,6 @@ export default function App() {
         </BrowserRouter>
 
       </div>
-    </PageSizeContext.Provider>
+    </DeviceContext.Provider>
   );
 }

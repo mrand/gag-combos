@@ -7,7 +7,7 @@ import { trackColors, Gag } from "~/features/gag";
 
 
 export default function GagModal() {
-  const pageSize = useContext(DeviceContext);
+  const device = useContext(DeviceContext);
 
   const gagData = useSelector((state) => state.recommendations.gag.modal.data);
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ export default function GagModal() {
   );
 
   return (
-    <div className={`${styles.gagModal} ${pageSize==="desktop" ? styles.desktop : styles.mobile}`}>
+    <div className={`${styles.gagModal} ${device==="desktop" ? styles.desktop : styles.mobile}`}>
       <div className={`wrapper ${styles.modalWrapper}`}>
         <div className={`custom-scrollbar ${styles.modalContent}`}>
 

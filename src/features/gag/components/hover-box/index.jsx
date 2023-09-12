@@ -5,7 +5,7 @@ import styles from "./index.module.css";
 
 
 /**
- * @param {String} pageSize Whether the screen size is categorized as desktop or mobile.
+ * @param {String} device Whether the screen size is categorized as desktop or mobile.
  * @returns HoverBox component for displaying info about the hovered gag. 
  */
 export default function HoverBox() {

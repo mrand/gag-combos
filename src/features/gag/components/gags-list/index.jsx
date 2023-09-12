@@ -35,11 +35,11 @@ function GagsListContainer({ gagsList }) {
 
 
 export default function GagsList() {
-  const pageSize = useContext(DeviceContext);
+  const device = useContext(DeviceContext);
   const gagsList = useSelector((state) => state.calculator.gag.gagsList);
 
   return (
-    <div className={`${styles.gagsList} ${pageSize==="desktop" ? "" : styles.mobile}`}>
+    <div className={`${styles.gagsList} ${device==="desktop" ? "" : styles.mobile}`}>
       <div className={`custom-scrollbar ${styles.gagsListContainer}`}>
         {
           gagsList.length > 0 ? (

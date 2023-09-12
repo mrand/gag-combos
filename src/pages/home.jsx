@@ -6,7 +6,7 @@ import { About, Help, Intro, SplashScreen } from "~/features/homepage";
 import { Footer } from "~/features/ui";
 
 export default function Homepage() {
-  const pageSize = useContext(DeviceContext);
+  const device = useContext(DeviceContext);
 
   return (
     <Page
@@ -14,9 +14,9 @@ export default function Homepage() {
         <>
           <Header />
           <SplashScreen /> 
-          <Intro pageSize={pageSize} />
-          <About pageSize={pageSize} />
-          <Help pageSize={pageSize} />
+          <Intro device={device} />
+          <About device={device} />
+          <Help device={device} />
           <Footer />
         </>
       } 

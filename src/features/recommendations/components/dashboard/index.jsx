@@ -101,11 +101,11 @@ function RecommendationsDesktop() {
 }
 
 
-export default function Dashboard({ pageSize="mobile" }) {
+export default function Dashboard({ device="mobile" }) {
   const [tab, setTab] = useState("combos");
 
   return (
-    pageSize==="mobile" ? (
+    device==="mobile" ? (
       <>
         <RecommendationsMobile tab={tab} />
         <RecommendationsMobileNav tab={tab} setTab={setTab} />

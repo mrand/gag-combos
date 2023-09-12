@@ -3,9 +3,9 @@ import { FlexContainer, HomepageWrapper } from "~/features/homepage";
 import styles from "./index.module.css";
 
 
-export default function About({ pageSize="mobile" }) {
+export default function About({ device="mobile" }) {
   return (
-    <section className={`${styles.about} ${pageSize==="desktop" ? styles.desktop : styles.mobile}`}>
+    <section className={`${styles.about} ${device==="desktop" ? styles.desktop : styles.mobile}`}>
       <HomepageWrapper
         content={
           <FlexContainer
@@ -32,11 +32,11 @@ export default function About({ pageSize="mobile" }) {
                 </div>
               </>
             }
-            pageSize={pageSize}
+            device={device}
             reverse={true}
           />
         }
-        pageSize={pageSize}
+        device={device}
       />
     </section>
   );

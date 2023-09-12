@@ -126,7 +126,7 @@ function ToonPanel({ i, toon, pickerActive, setPickerActive, dispatch }) {
 
 
 export default function ToonsComponent() {
-  const pageSize = useContext(DeviceContext);
+  const device = useContext(DeviceContext);
 
   const toons = useSelector((state) => state.recommendations.toons.toonList);
   const resetBtnActive = useSelector((state) => state.recommendations.toons.hasUpdates);
@@ -160,7 +160,7 @@ export default function ToonsComponent() {
           infoText="Reset All Toons"
         />
       </div>
-      <div className={`${styles.toonsCard} ${pageSize==="desktop" ? "" : styles.mobile}`}>
+      <div className={`${styles.toonsCard} ${device==="desktop" ? "" : styles.mobile}`}>
         {toons.map((toon, i) => (
           <ToonPanel 
             key={i}
