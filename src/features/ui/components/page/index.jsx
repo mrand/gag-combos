@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import { PageSizeContext } from "~/App";
+import { DeviceContext } from "~/App";
 import styles from "./index.module.css";
 
 
 export default function Page({ content=null, style=null }) {
-  const pageSize = useContext(PageSizeContext);
+  const pageSize = useContext(DeviceContext);
 
   return (
     <div

@@ -1,5 +1,5 @@
 import React from "react";
-import Toggle from "~/features/ui/toggle";
+import { Toggle } from "~/features/ui";
 
 
 export default function ToggleV2({ active=false, clickHandler=null, hasText=true }) {

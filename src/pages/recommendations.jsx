@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
-import { PageSizeContext } from "~/App";
-import Page from "../features/ui/page";
-import Header from "~/features/ui/header";
+import { DeviceContext } from "~/App";
+import { Page } from "~/features/ui";
+import { Header } from "~/features/ui";
 import { Dashboard } from "~/features/recommendations";
-import Footer from "~/features/ui/footer";
+import { Footer } from "~/features/ui";
 
 
 export default function Recommendations() {
-  const pageSize = useContext(PageSizeContext);
+  const pageSize = useContext(DeviceContext);
 
   return (
     <Page

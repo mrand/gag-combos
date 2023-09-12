@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { PageSizeContext } from "~/App";
+import { DeviceContext } from "~/App";
 import { useSelector, useDispatch } from "react-redux";
 import { resetGagModal } from "~/features/recommendations";
 import styles from "./index.module.css";
@@ -7,7 +7,7 @@ import { trackColors, Gag } from "~/features/gag";
 
 
 export default function GagModal() {
-  const pageSize = useContext(PageSizeContext);
+  const pageSize = useContext(DeviceContext);
 
   const gagData = useSelector((state) => state.recommendations.gag.modal.data);
   const dispatch = useDispatch();

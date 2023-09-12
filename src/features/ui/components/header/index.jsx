@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { PageSizeContext } from "~/App"
+import { DeviceContext } from "~/App"
 import { useLocation, Link } from "react-router-dom";
 import styles from "./index.module.css";
 
@@ -81,7 +81,7 @@ function MobileNavBg({ setMobileNavActive }) {
 
 
 export default function Header() {
-  const pageSize = useContext(PageSizeContext);
+  const pageSize = useContext(DeviceContext);
   const location = useLocation().pathname;
   const [mobileNavActive, setMobileNavActive] = useState(false);
 

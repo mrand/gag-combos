@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { PageSizeContext } from "~/App";
+import { DeviceContext } from "~/App";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteGag, setHoveredGag } from "~/features/calculator";
 import styles from "./index.module.css";
@@ -35,7 +35,7 @@ function GagsListContainer({ gagsList }) {
 
 
 export default function GagsList() {
-  const pageSize = useContext(PageSizeContext);
+  const pageSize = useContext(DeviceContext);
   const gagsList = useSelector((state) => state.calculator.gag.gagsList);
 
   return (

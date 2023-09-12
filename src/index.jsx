@@ -1,11 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import '~/index.css';
-import App from '~/App';
-import store from '~/store';
-import { Provider } from 'react-redux';
-import { registerSW } from 'virtual:pwa-register'
-import UpdateToast from '~/features/ui/update-toast';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "~/index.css";  /* Global Styles */
+import App from "~/App";
+import store from "~/store";
+import { Provider } from "react-redux";
+import { registerSW } from "virtual:pwa-register"
+import { UpdateToast } from "~/features/ui";
 
 
 // App Container

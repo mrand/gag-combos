@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
-import { PageSizeContext } from "~/App";
-import Page from "../features/ui/page";
-import Header from "~/features/ui/header";
+import { DeviceContext } from "~/App";
+import { Page } from "~/features/ui";
+import { Header } from "~/features/ui";
 import { About, Help, Intro, SplashScreen } from "~/features/homepage";
-import Footer from "~/features/ui/footer";
+import { Footer } from "~/features/ui";
 
 export default function Homepage() {
-  const pageSize = useContext(PageSizeContext);
+  const pageSize = useContext(DeviceContext);
 
   return (
     <Page

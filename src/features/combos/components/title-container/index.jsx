@@ -2,8 +2,8 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { resetCombos, setComboType, setComboSort, toggleGagTrack, toggleCombosExpanded } from "~/features/recommendations";
 import styles from "./index.module.css";
-import ResetButton from "~/features/ui/reset-button";
-import SliderButton from "~/features/ui/slider-button";
+import { ResetButton } from "~/features/ui";
+import { SliderButton } from "~/features/ui";
 
 
 function MainFilters({ cellStates, setCellStates }) {

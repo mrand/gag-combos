@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { resetCog, setCog, toggleCogV2 } from "~/features/recommendations";
 import styles from "./index.module.css";
 import { Cog } from "~/features/cog";
-import ResetButton from "~/features/ui/reset-button";
+import { ResetButton } from "~/features/ui";
 import { ToggleLured, ToggleV2 } from "~/features/cog";
 
 

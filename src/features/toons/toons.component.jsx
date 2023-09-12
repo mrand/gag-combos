@@ -1,9 +1,9 @@
 import React, { useContext, useState, useReducer } from "react";
-import { PageSizeContext } from "~/App";
+import { DeviceContext } from "~/App";
 import { useSelector, useDispatch } from "react-redux";
 import { resetToons, toggleToonActive, updateToonOrganic } from "~/features/recommendations";
-import ResetButton from "~/features/ui/reset-button";
-import SliderButton from "~/features/ui/slider-button";
+import { ResetButton } from "~/features/ui";
+import { SliderButton } from "~/features/ui";
 import styles from "./toons.component.module.css";
 
 
@@ -126,7 +126,7 @@ function ToonPanel({ i, toon, pickerActive, setPickerActive, dispatch }) {
 
 
 export default function ToonsComponent() {
-  const pageSize = useContext(PageSizeContext);
+  const pageSize = useContext(DeviceContext);
 
   const toons = useSelector((state) => state.recommendations.toons.toonList);
   const resetBtnActive = useSelector((state) => state.recommendations.toons.hasUpdates);
