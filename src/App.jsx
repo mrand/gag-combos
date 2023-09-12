@@ -28,31 +28,79 @@ const throttle = (func, delay) => {
 export const DeviceContext = createContext();
 
 
+function getDefaultFontSize() {
+  const element = document.createElement("div");
+  element.style.width = "1rem";
+  element.style.display = "none";
+  document.body.append(element);
+  const widthMatch = window
+      .getComputedStyle(element)
+      .getPropertyValue("width")
+      .match(/\d+/);
+  element.remove();
+  if (!widthMatch || widthMatch.length < 1) {
+      return null;
+  }
+  const result = Number(widthMatch[0]);
+  return !isNaN(result) ? result : null;
+}
+
+
+
+
+
 export default function App() {
-  let windowWidth = useRef(window.innerWidth);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 1150);
 
-  const throttledChangeHandler = throttle(() => {
-    if (
-      (windowWidth.current <= 1150 && window.innerWidth > 1150) ||
-      (windowWidth.current > 1150 && window.innerWidth <= 1150)
-    ) {
-      windowWidth.current = window.innerWidth;
-      setIsMobile(windowWidth.current <= 1150);
+  let initialDevice = useRef(getDevice());
+  const [device, setDevice] = useState(initialDevice.current);
+
+
+  /**
+   * Categorize screens as "mobile" or "desktop"
+   * based on their width in "rem" units.
+   */ 
+  // get current device width
+  function getDevice() {
+    const breakpoint = 72;  // rem
+    // get window width in rem units
+    const width = window.innerWidth / getDefaultFontSize();
+    // categorize as desktop or mobile
+    const device = width > breakpoint ? "desktop" : "mobile";
+    return device;
+  }
+  // check current device width against stored device width
+  function checkDevice() {
+    const currDevice = getDevice();
+    if (initialDevice.current !== currDevice) {
+      initialDevice.current = currDevice;
+      setDevice(currDevice);
     }
+  }
+
+
+  // Resize Handler - throttled event listener
+  const throttledResizeHandler = throttle(() => {
+    checkDevice();
   }, 200);
-
   useEffect(() => {
-    window.addEventListener("resize", throttledChangeHandler);
+    window.addEventListener("resize", throttledResizeHandler);
     return () => {
-      window.removeEventListener("resize", throttledChangeHandler)
+      window.removeEventListener("resize", throttledResizeHandler)
     };
-  }, [throttledChangeHandler]);
+  }, [throttledResizeHandler]);
 
-  const mobileOrDesktop = isMobile ? "mobile" : "desktop";
+  // Font Size Change Handler - check every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      checkDevice();
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [])
+
+  
   return (
-    <DeviceContext.Provider value={mobileOrDesktop}>
-      <div className={`${styles.pageWrap} ${mobileOrDesktop}`}>
+    <DeviceContext.Provider value={device}>
+      <div className={`${styles.pageWrap} ${device}`}>
 
         <BrowserRouter>
           <Routes>
