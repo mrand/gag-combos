@@ -5,11 +5,8 @@
   display: flex;
   flex-direction: column;
   font-family: BowlbyOneSC,Arial,Roboto,Helvetica,sans-serif;
-  margin-top: 0.5rem;
 }
-@media (min-width: 72rem) {
-  .toonsCard { margin-top: 0; }
-}
+.toonsCard.mobile { margin-top: 0.5rem; }
 
 .toonPanel { 
   align-items: stretch;
