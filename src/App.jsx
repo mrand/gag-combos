@@ -46,9 +46,6 @@ function getDefaultFontSize() {
 }
 
 
-
-
-
 export default function App() {
 
   let initialDevice = useRef(getDevice());

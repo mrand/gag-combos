@@ -1,5 +1,4 @@
-import React, { useContext, useState, useReducer } from "react";
-import { DeviceContext } from "~/App";
+import React, { useState, useReducer } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { resetToons, toggleToonActive, updateToonOrganic } from "~/features/recommendations";
 import { ResetButton } from "~/features/ui";
@@ -126,8 +125,6 @@ function ToonPanel({ i, toon, pickerActive, setPickerActive, dispatch }) {
 
 
 export default function ToonsComponent() {
-  const device = useContext(DeviceContext);
-
   const toons = useSelector((state) => state.recommendations.toons.toonList);
   const resetBtnActive = useSelector((state) => state.recommendations.toons.hasUpdates);
   const dispatch = useDispatch();
@@ -160,7 +157,7 @@ export default function ToonsComponent() {
           infoText="Reset All Toons"
         />
       </div>
-      <div className={`${styles.toonsCard} ${device==="desktop" ? "" : styles.mobile}`}>
+      <div className={styles.toonsCard}>
         {toons.map((toon, i) => (
           <ToonPanel 
             key={i}
