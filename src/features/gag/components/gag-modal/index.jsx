@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { DeviceContext } from "~/App";
 import { useSelector, useDispatch } from "react-redux";
 import { resetGagModal } from "~/features/recommendations";
 import styles from "./index.module.css";
@@ -6,6 +7,7 @@ import { trackColors, Gag } from "~/features/gag";
 
 
 export default function GagModal() {
+  const device = useContext(DeviceContext);
 
   const gagData = useSelector((state) => state.recommendations.gag.modal.data);
   const dispatch = useDispatch();
@@ -16,7 +18,7 @@ export default function GagModal() {
   );
 
   return (
-    <div className={styles.gagModal}>
+    <div className={`${styles.gagModal} ${device==="desktop" ? styles.desktop : styles.mobile}`}>
       <div className={`wrapper ${styles.modalWrapper}`}>
         <div className={`custom-scrollbar ${styles.modalContent}`}>
 

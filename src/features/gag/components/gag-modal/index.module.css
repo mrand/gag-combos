@@ -39,9 +39,7 @@
   max-height: 50vh;
   overflow-y: auto;
 }
-@media (min-width: 72rem) {
-  .modalContent { max-height: 65vh; }
-}
+.desktop .modalContent { max-height: 65vh; }
 
 
 .gagModal section {
@@ -55,13 +53,10 @@
 .mainDetails {
   align-items: center;
   display: flex;
-  flex-direction: column;
   gap: 1rem;
   justify-content: center;
 }
-@media (min-width: 72rem) {
-  .mainDetails { flex-direction: row; }
-}
+.mobile .mainDetails { flex-direction: column; }
 
 .overview > * { display: block; }
 
