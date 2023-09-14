@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { resetToons, toggleToonActive, updateToonOrganic } from "~/features/recommendations";
 import { ResetButton } from "~/features/ui";
 import { SliderButton } from "~/features/ui";
-import styles from "./toons.component.module.css";
+import styles from "./index.module.css";
 
 
 function ToonToggle({ i }) {
@@ -124,7 +124,7 @@ function ToonPanel({ i, toon, pickerActive, setPickerActive, dispatch }) {
 }
 
 
-export default function ToonsComponent() {
+export default function ToonsCard() {
   const toons = useSelector((state) => state.recommendations.toons.toonList);
   const resetBtnActive = useSelector((state) => state.recommendations.toons.hasUpdates);
   const dispatch = useDispatch();

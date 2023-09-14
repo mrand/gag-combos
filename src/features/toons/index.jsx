@@ -1,3 +1,3 @@
-import ToonsComponent from './toons.component';
+import { ToonsCard } from "./components";
 
-export { ToonsComponent };
+export { ToonsCard };

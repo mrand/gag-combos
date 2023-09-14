@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { CogCard } from "~/features/cog";
-import { ToonsComponent } from "~/features/toons";
+import { ToonsCard } from "~/features/toons";
 import { CombosComponent } from "~/features/combos";
 import styles from "./index.module.css";
 
@@ -67,7 +67,7 @@ function RecommendationsMobile({ tab }) {
 
   let displayedComponent;
   if (tab === "toons") {
-    displayedComponent = <ToonsComponent />;
+    displayedComponent = <ToonsCard />;
   } else if (tab === "cog") {
     displayedComponent = <CogCard />;
   } else if (tab === "combos") {
@@ -88,7 +88,7 @@ function RecommendationsDesktop() {
   return (
     <div className={`wrapper ${styles.desktopRecommendations}`}>
       <div className={styles.toonsWrap}>
-        <ToonsComponent />
+        <ToonsCard />
       </div>
       <div className={styles.combosWrap}>
         <CombosComponent />
