@@ -1,0 +1,21 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0;
+  width: 100%;
+}
+.dashboard.desktop  { padding: 1.5rem; }
+@media (min-width: 84rem) {
+  .dashboard { flex-direction: row-reverse; }
+  .gagsPickerWrap {
+    flex-grow: 1;
+    flex-shrink: 0;
+  }
+  .cogsListWrap {
+    flex-basis: 30ch;
+    flex-grow: 1;
+    flex-shrink: 0;
+  }
+}
+

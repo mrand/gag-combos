@@ -3,11 +3,11 @@ import { DeviceContext } from "~/App";
 import { useSelector, useDispatch } from 'react-redux';
 import { resetGags, addGag } from '~/features/calculator';
 import { trackColors, Gag } from '~/features/gag';
-import { ToggleOrganic } from '~/features/gag';
-import { GagButton } from '~/features/gag';
-import { GagsList } from '~/features/gag';
-import { HoverBox } from '~/features/gag';
-import { DamageCount } from '~/features/combo';
+import { ToggleOrganic } from '~/features/calculator';
+import { GagButton } from '~/features/calculator';
+import { GagsList } from '~/features/calculator';
+import { HoverBox } from '~/features/calculator';
+import { DamageCount } from '~/features/calculator';
 import styles from './index.module.css';
 
 

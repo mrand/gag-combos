@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { deleteGag, setHoveredGag } from "~/features/calculator";
 import styles from "./index.module.css";
 import { Gag } from "~/features/gag";
-import { GagButton } from "~/features/gag/components";
+import { GagButton } from "~/features/calculator";
 
 
 function GagsListContainer({ gagsList }) {

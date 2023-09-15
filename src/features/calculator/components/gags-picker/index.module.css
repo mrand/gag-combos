@@ -1,17 +1,13 @@
-.gagsPicker ::-webkit-scrollbar {
-  background: 0;
-}
+.gagsPicker ::-webkit-scrollbar { background: 0; }
 .gagsPicker ::-webkit-scrollbar-track {
   border-radius: 1.875rem;
   margin: 1.5rem;
 }
-.gagsPicker ::-webkit-scrollbar-thumb {
-  border-radius: 1.875rem;
-}
+.gagsPicker ::-webkit-scrollbar-thumb { border-radius: 1.875rem; }
 
 
 .desktop.gagsPicker {
-  margin: 1.5rem auto; 
+  margin: auto; 
   max-width: 57.875rem;
 }
 
@@ -19,7 +15,7 @@
 .gagsPickerWrap {
   background: var(--blue-600);
   border-radius: 1.5rem;
-  box-shadow: 3px 3px 0 3px var(--blue-700);
+  box-shadow: 0.1875rem 0.1875rem 0 0.1875rem var(--blue-700);
   display: grid;
   gap: 0.5rem;
   grid-template-columns: repeat(4, 1fr);
@@ -37,7 +33,6 @@
   padding-right: 0;
   width: 100%;
 }
-.desktop .gagsPickerWrap { padding: 1rem; }
 
 
 .headingBtnWrap {
@@ -120,7 +115,7 @@
 
 .gagTrack h4 {
   grid-column: 1 / 2;
-  min-width: 100px;
+  min-width: 8ch;
   overflow: hidden;
   padding: 0.5rem;
   white-space: nowrap;
