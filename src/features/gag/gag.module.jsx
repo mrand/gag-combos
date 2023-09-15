@@ -1,4 +1,4 @@
-import { gagsData } from './gag.data';
+import { gagsData } from '~/features/gag';
 
 
 export default class Gag {

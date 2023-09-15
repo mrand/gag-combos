@@ -1,4 +1,5 @@
+import cogsData from "./cog.data.json";
 import Cog from "./cog.module";
-import { CogCard, ToggleLured, ToggleV2 } from "./components";
+import { ToggleV2 } from "./components";
 
-export { Cog, CogCard, ToggleLured, ToggleV2 };
+export { cogsData, Cog, ToggleV2 };

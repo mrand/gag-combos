@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Cog } from '~/features/cog';
-import { RecommendCombos } from './modules';
-import { CombosGrid } from './components';
-import { TitleContainer } from './components';
+import { RecommendCombos } from '~/features/combos';
+import { CombosGrid } from '~/features/recommendations';
+import { TitleContainer } from '~/features/recommendations';
 
 
 export default function CombosComponent() {
@@ -34,7 +34,7 @@ export default function CombosComponent() {
   }, [numCells, expanded]);
 
   return (
-    <div id='combos'>
+    <div>
       <TitleContainer
         cellStates={cellStates}
         setCellStates={setCellStates}

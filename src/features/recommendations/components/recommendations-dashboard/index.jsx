@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
-import { CogCard } from "~/features/cog";
-import { ToonsCard } from "~/features/toons";
-import { CombosComponent } from "~/features/combos";
+import { CogCard } from "~/features/recommendations";
+import { ToonsCard } from "~/features/recommendations";
+import { CombosComponent } from "~/features/recommendations";
 import styles from "./index.module.css";
 
 
@@ -63,7 +63,7 @@ function RecommendationsMobileNav({ tab, setTab }) {
 }
 
 
-function RecommendationsMobile({ tab }) {
+function RecommendationsDashboardMobile({ tab }) {
 
   let displayedComponent;
   if (tab === "toons") {
@@ -84,7 +84,7 @@ function RecommendationsMobile({ tab }) {
 }
 
 
-function RecommendationsDesktop() {
+function RecommendationsDashboardDesktop() {
   return (
     <div className={`wrapper ${styles.desktopRecommendations}`}>
       <div className={styles.toonsWrap}>
@@ -101,17 +101,17 @@ function RecommendationsDesktop() {
 }
 
 
-export default function Dashboard({ device="mobile" }) {
+export default function RecommendationsDashboard({ device="mobile" }) {
   const [tab, setTab] = useState("combos");
 
   return (
     device==="mobile" ? (
       <>
-        <RecommendationsMobile tab={tab} />
+        <RecommendationsDashboardMobile tab={tab} />
         <RecommendationsMobileNav tab={tab} setTab={setTab} />
       </>
     ) : (
-      <RecommendationsDesktop />
+      <RecommendationsDashboardDesktop />
     )
   );
 }

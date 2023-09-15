@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { setGagModal } from "~/features/recommendations";
 import styles from "./index.module.css";
-import { trackColors } from "../../gag.data";
+import { trackColors } from "~/features/gag";
 
 
 export function OrganicIcon() {

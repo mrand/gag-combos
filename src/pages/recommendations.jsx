@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { DeviceContext } from "~/App";
 import { Page } from "~/features/ui";
 import { Header } from "~/features/ui";
-import { Dashboard } from "~/features/recommendations";
+import { RecommendationsDashboard } from "~/features/recommendations";
 import { Footer } from "~/features/ui";
 
 
@@ -14,7 +14,7 @@ export default function Recommendations() {
       content={
         <>
           <Header />
-          <Dashboard device={device} />
+          <RecommendationsDashboard device={device} />
           {device==="mobile" ? null : <Footer />}
         </>
       } 

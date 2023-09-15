@@ -1,4 +1,4 @@
-import comboInfo from '~/features/combo/combo.data.json';
+import { comboData } from '~/features/combo';
 
 export default class Combo {
   /**
@@ -68,14 +68,14 @@ export default class Combo {
       .toLowerCase();
 
     if (this.isLured) thisInfoKey = 'lure-'+thisInfoKey;
-    if (!comboInfo["mapsToData"][thisInfoKey]) return false;
+    if (!comboData["mapsToData"][thisInfoKey]) return false;
 
     // use the key to get the map to any descriptions/warnings
-    const infoMap = comboInfo["mapsToData"][thisInfoKey];
-    if (!comboInfo["data"][infoMap]) return false;
+    const infoMap = comboData["mapsToData"][thisInfoKey];
+    if (!comboData["data"][infoMap]) return false;
     
     // set descriptions/warnings for this combo
-    this.info = comboInfo["data"][infoMap];
+    this.info = comboData["data"][infoMap];
   }
 
   _getDamage() {

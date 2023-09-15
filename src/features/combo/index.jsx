@@ -1,4 +1,4 @@
+import comboData from "./combo.data.json";
 import Combo from "./combo.module";
-import { ComboCell, ErrorCell } from "./components"
 
-export { Combo, ComboCell, ErrorCell };
+export { comboData, Combo };

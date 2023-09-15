@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { GagCell } from "~/features/gag";
+import { GagCell } from "~/features/recommendations";
 import styles from "./index.module.css";
 
 

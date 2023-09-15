@@ -1,3 +1,7 @@
-import CombosComponent from './combos.component';
+import combosData from "./combos.data.json";
+import { FindCombo, RecommendCombos } from "./modules";
 
-export { CombosComponent };
+export {
+  combosData,
+  FindCombo, RecommendCombos
+};

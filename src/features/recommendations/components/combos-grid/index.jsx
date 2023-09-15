@@ -1,8 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import styles from "./index.module.css";
-import { ComboCell, ErrorCell } from "~/features/combo";
-import { GagModal } from "~/features/gag";
+import { GagModal, ComboCell, ErrorCell } from "~/features/recommendations";
 
 
 export default function CombosGrid({ recommendCombos, cellStates, setCellStates }) {

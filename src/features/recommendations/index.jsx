@@ -5,7 +5,12 @@ import recommendationsReducer, {
   resetToons, toggleToonActive, updateToonOrganic
 } from './recommendations.slice';
 
-import Dashboard from './components/dashboard';
+import {
+  RecommendationsDashboard,
+  ToonsCard,
+  CogCard, ToggleLured,
+  CombosComponent, TitleContainer, CombosGrid, GagModal, ComboCell, ErrorCell, GagCell
+} from "./components";
 
 export { 
   recommendationsReducer,
@@ -13,5 +18,8 @@ export {
   resetCombos, setComboType, setComboSort, toggleGagTrack, toggleCombosExpanded,
   resetGagModal, setGagModal,
   resetToons, toggleToonActive, updateToonOrganic,
-  Dashboard
+  RecommendationsDashboard,
+  ToonsCard,
+  CogCard, ToggleLured,
+  CombosComponent, TitleContainer, CombosGrid, GagModal, ComboCell, ErrorCell, GagCell
 };

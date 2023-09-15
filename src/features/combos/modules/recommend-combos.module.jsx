@@ -1,5 +1,5 @@
 import FindCombo from "./find-combo.module";
-import combos from '~/features/combos/combos.data.json';
+import { combosData } from '~/features/combos';
 
 
 /**
@@ -34,12 +34,12 @@ import combos from '~/features/combos/combos.data.json';
     // Init
     let gagComboTracks = [];
     if (this.comboType === 'Basic') {
-      gagComboTracks = gagComboTracks.concat(combos[String(this.numToons)]["basic"]);
+      gagComboTracks = gagComboTracks.concat(combosData[String(this.numToons)]["basic"]);
     } else {
       if (!this.isLured) {
-        gagComboTracks = gagComboTracks.concat(combos[String(this.numToons)]["notLured"]);
+        gagComboTracks = gagComboTracks.concat(combosData[String(this.numToons)]["notLured"]);
       }
-      gagComboTracks = gagComboTracks.concat(combos[String(this.numToons)]["default"]);
+      gagComboTracks = gagComboTracks.concat(combosData[String(this.numToons)]["default"]);
     }
     
     return gagComboTracks;

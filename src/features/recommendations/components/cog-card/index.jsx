@@ -4,7 +4,8 @@ import { resetCog, setCog, toggleCogV2 } from "~/features/recommendations";
 import styles from "./index.module.css";
 import { Cog } from "~/features/cog";
 import { ResetButton } from "~/features/ui";
-import { ToggleLured, ToggleV2 } from "~/features/cog";
+import { ToggleV2 } from "~/features/cog";
+import { ToggleLured } from "~/features/recommendations";
 
 
 // list of possible cog levels (1 through 20)

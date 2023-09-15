@@ -1,4 +1,4 @@
-import cogs from './cog.data.json';
+import { cogsData } from '~/features/cog';
 
 
 export default class Cog {
@@ -62,12 +62,12 @@ export default class Cog {
     // level > 12 - FO cogs only
     if (this.level > 12) return "Sellbot";
     // level <= 12, could be any suit
-    const suits = Object.keys(cogs);
+    const suits = Object.keys(cogsData);
     return suits[Math.floor(Math.random() * suits.length)]
   }
 
   _getRandomCog() {
-    const cogsOfSuit = cogs[this.suit];
+    const cogsOfSuit = cogsData[this.suit];
 
     // level <= 12, choose a cog that could legitimately have that level
     if (this.level <= 12) {
