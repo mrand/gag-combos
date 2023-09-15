@@ -9,7 +9,7 @@ export default function GagButton({ gag, clickHandler=null, hasX=false }) {
 
   return (
     <button 
-      className={styles.gagButton}
+      className={`btn ${styles.gagButton}`}
       onMouseEnter={() => dispatch(setHoveredGag({ 
         track: gag.track, 
         level: gag.level, 

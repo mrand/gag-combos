@@ -85,9 +85,10 @@ export default function GagsPicker() {
             {
               (gagsList.length > 0) ? (
                 <button
+                  aria-label="Reset Calculator"
+                  className="btn"
                   onClick={() => dispatch(resetGags())}
                   title="Reset Calculator"
-                  aria-label="Reset Calculator"
                 >
                   Reset Gags
                 </button>

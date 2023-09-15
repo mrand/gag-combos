@@ -21,15 +21,13 @@
 }
 
 .footer a {
+  color: #ffffff;
+  font-weight: bold;
   margin: 0 0.5rem;
-  background: 0;
-  box-shadow: none;
   text-decoration: none;
-  border-radius: 1000px;  /* arbitrarily large, but not circular */
-  padding: 0;
 }
 .footer a:hover { 
-  background: 0;
-  text-decoration: underline; 
   box-shadow: none;
+  filter: none;
+  text-decoration: underline; 
 }

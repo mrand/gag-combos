@@ -84,7 +84,7 @@ function GagToggles() {
       {Object.keys(trackImgs).map((track, i) => (
         <button 
           key={i}
-          className={gagFilters[track] ? styles.active : ""}
+          className={`btn ${gagFilters[track] ? styles.active : ""}`}
           onClick={() => {
             dispatch(toggleGagTrack(track));
           }}

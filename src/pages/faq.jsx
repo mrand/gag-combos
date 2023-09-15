@@ -66,8 +66,7 @@ export default function FAQ() {
                       </p>
                       <ul>
                         <li>
-                          <a 
-                            className='no-style'
+                          <a
                             href="https://toonhq.org/"
                             rel='noopener noreferrer'
                             target='_blank'
@@ -82,7 +81,6 @@ export default function FAQ() {
                       <ul>
                         <li>
                           <a
-                            className='no-style'
                             href="https://big.brain.town/"
                             rel='noopener noreferrer'
                             target='_blank'
@@ -92,7 +90,6 @@ export default function FAQ() {
                         </li>
                         <li>
                           <a
-                            className='no-style'
                             href="https://zzzachzzz.github.io/toontown-combos/"
                             rel='noopener noreferrer'
                             target='_blank'
@@ -107,7 +104,6 @@ export default function FAQ() {
                       <ul>
                         <li>
                           <a
-                            className='no-style'
                             href="https://toontownrewritten.fandom.com/wiki/Gags"
                             rel='noopener noreferrer'
                             target='_blank'
@@ -122,7 +118,6 @@ export default function FAQ() {
                       <ul>
                         <li>
                           <a
-                            className='no-style'
                             href="https://github.com/QED1224/Toontown-Resources/blob/master/README.md"
                             rel='noopener noreferrer'
                             target='_blank'
@@ -212,8 +207,7 @@ export default function FAQ() {
                         and is defined by the equation <code>
                           atkAcc = propAcc + trackExp + tgtDef + bonus
                         </code>.
-                        You can <a 
-                          className='no-style' 
+                        You can <a
                           href="https://github.com/QED1224/Toontown-Resources/blob/master/README.md#toon-atk-acc"
                           target="_blank" rel="noopener noreferrer"
                         >

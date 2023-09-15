@@ -22,7 +22,10 @@
   justify-content: space-evenly;
   padding: 0;
 }
-.recommendationsNav button { flex: 1; }
+.recommendationsNav button {
+  border-radius: 0;
+  flex: 1;
+}
 
 
 /* Desktop Layout */

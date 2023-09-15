@@ -9,7 +9,7 @@ export default function SliderButton({
 }) {
   return (
     <button 
-      className={`${styles.slider} ${active ? styles.active : ""}`}
+      className={`btn ${styles.slider} ${active ? styles.active : ""}`}
       onClick={clickHandler}
       title={infoText}
       aria-label={infoText}

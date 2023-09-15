@@ -48,9 +48,7 @@ function CogLevelPicker({ cog, active, setActive }) {
             <div className={styles.lvlBtns}>
               {lvlNums.map((lvl, i) => (
                 <button
-                  className={
-                    (cogLevel-1 === i) ? styles.active : ""
-                  }
+                  className={`btn ${(cogLevel-1 === i) ? styles.active : ""}`}
                   key={i}
                   value={lvl}
                   onClick={() => {
@@ -68,9 +66,10 @@ function CogLevelPicker({ cog, active, setActive }) {
         ) : (
 
           <button
+            aria-label={"Choose New Cog Level"}
+            className="btn"
             onClick={() => setActive(true)}
             title={"Choose New Cog Level"}
-            aria-label={"Choose New Cog Level"}
           >
             Choose Cog Level
           </button>

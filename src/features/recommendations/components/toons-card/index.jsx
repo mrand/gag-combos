@@ -57,7 +57,7 @@ function OrganicPicker({ i, dispatch, pickerActive, setPickerActive, toonOrg }) 
           {Object.keys(gagTracks).map((track, j) => (
             <React.Fragment key={j}>
               <button
-                className={`${styles.gagBtn} ${activeBtn===j ? styles.active : ""}`}
+                className={`btn ${styles.gagBtn} ${activeBtn===j ? "active" : ""}`}
                 onClick={() => {
                   dispatch(updateToonOrganic({ i: i, track: track }));
                   setActiveBtn(j);
@@ -75,9 +75,10 @@ function OrganicPicker({ i, dispatch, pickerActive, setPickerActive, toonOrg }) 
         
       ) : (
         <button 
+          aria-label={"Set Toon "+(i+1)+" Organic Gag"}
+          className="btn"
           onClick={() => setPickerActive()}
           title={"Set Toon "+(i+1)+" Organic Gag"}
-          aria-label={"Set Toon "+(i+1)+" Organic Gag"}
         >
           Set Organic
         </button>

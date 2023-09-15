@@ -22,8 +22,8 @@ export default function Intro({ device="mobile" }) {
                     Get recommended combos for any situation on the "Recommendations" page or 
                     build your own combos on the "Calculator" page!
                   </p>
-                  <Link className={styles.introLink} to="/recommendations">Combos Recommendations</Link>
-                  <Link className={styles.introLink} to="/calculator">Gag Calculator</Link>
+                  <Link className={`btn ${styles.introLink}`} to="/recommendations">Combos Recommendations</Link>
+                  <Link className={`btn ${styles.introLink}`} to="/calculator">Gag Calculator</Link>
                 </div>
                 <div className={styles.right}>
                   <CombosVisual />

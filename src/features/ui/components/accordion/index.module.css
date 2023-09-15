@@ -5,7 +5,7 @@
   padding-top: 0.5rem;
 }
 
-.accordion button {
+.accordionBtn {
   align-items: center;
   background: 0;
   border-radius: var(--radius-sm);
@@ -13,10 +13,18 @@
   color: var(--blue-600);
   display: flex;
   font-size: 1rem;
+  font-weight: bold;
   gap: 0.5rem;
   justify-content: space-between;
+  outline: 0;
   text-align: left;
 }
+.accordionBtn:hover {
+  background: 0;
+  box-shadow: none;
+  color: var(--blue-600);
+}
+
 .accordion svg {
   fill: var(--blue-600);
   flex-shrink: 0;

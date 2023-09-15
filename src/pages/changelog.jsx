@@ -24,7 +24,7 @@ export default function Changelog() {
                       <li>
                         Added accuracies to each recommended gag combo on the recommendations page!
                         Read more about the way this is calculated on 
-                        the <Link to="/faq" className="no-style">FAQ page</Link>.
+                        the <Link to="/faq">FAQ page</Link>.
                       </li>
                       <li>
                         Added options to sort combo recommendations by 

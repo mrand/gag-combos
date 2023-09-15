@@ -39,7 +39,7 @@ function HeaderNav({ location }) {
 function HamburgerButton({ mobileNavActive, setMobileNavActive }) {
   return (
     <button 
-      className={`${styles.headerNavMenuBtn} ${mobileNavActive ? styles.active : ""}`}
+      className={`btn ${styles.headerNavMenuBtn} ${mobileNavActive ? styles.active : ""}`}
       aria-label="Toggle Main Navigation Menu"
       title="Toggle Main Navigation Menu"
       onClick={() => setMobileNavActive(!mobileNavActive)}
@@ -71,7 +71,7 @@ function HamburgerButton({ mobileNavActive, setMobileNavActive }) {
 function MobileNavBg({ setMobileNavActive }) {
   return (
     <button
-      className={styles.mobileNavBg}
+      className={`btn ${styles.mobileNavBg}`}
       onClick={() => setMobileNavActive(false)}
       aria-label="Close Main Navigation Menu"
       title="Close Main Navigation Menu"

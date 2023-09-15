@@ -32,6 +32,7 @@
   background: 0;
   box-shadow: none;
   color: var(--blue-600);
+  filter: none;
 }
 
 .header.desktop a { border-bottom: 0.1875rem solid var(--grey-400); }

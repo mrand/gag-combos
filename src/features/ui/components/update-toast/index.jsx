@@ -13,7 +13,10 @@ export default function UpdateToast() {
           </svg>
           <h2>Gag Combos Info has an Update!</h2>
           <p>View the Changelog page for more information.</p>
-          <button onClick={() => window.location.reload()}>Close</button>
+          <button 
+            className={`btn ${styles.toastBtn}`}
+            onClick={() => window.location.reload()}
+          >Close</button>
         </div>
       </div>
     </div>

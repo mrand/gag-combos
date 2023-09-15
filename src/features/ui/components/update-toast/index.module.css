@@ -40,9 +40,8 @@
 
 .toastContent h2 { line-height: 125%; }
 
-.toastContent button {
+.toastBtn {
   background: var(--red-500);
-  border-radius: 1000px;  /* arbitrarily large, but not circular */
   display: block;
   width: 100%;
 }

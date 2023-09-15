@@ -79,7 +79,7 @@ function ComboStats({ combo }) {
 function ExpandBtn({ infoIndicator, cellStates, cellNum, setCellStates, thisExpanded }) {
   return (
     <button
-      className={`${styles.expandBtn} ${infoIndicator ? infoIndicator : ""}`}
+      className={`btn ${styles.expandBtn} ${infoIndicator ? infoIndicator : ""}`}
       onClick={() => {
         let newCellStates = [...cellStates];
         newCellStates[cellNum] = !newCellStates[cellNum];

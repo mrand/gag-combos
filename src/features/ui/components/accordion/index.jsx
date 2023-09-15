@@ -12,6 +12,7 @@ export default function Accordion({
     <div className={styles.accordion}>
 
       <button 
+        className={`btn ${styles.accordionBtn}`}
         onClick={() => setActive(!active)}
         style={active ? {background: "var(--grey-300)"} : {}}
       >

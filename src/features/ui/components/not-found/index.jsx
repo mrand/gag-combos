@@ -45,7 +45,7 @@ export default function NotFound() {
             <h2>Looks like the cogs have taken over this page!</h2>
             <p>
               While we investigate, you should head back to 
-              the <Link to="/" className="no-style">Homepage</Link>.
+              the <Link to="/">Homepage</Link>.
             </p>
           </section>
           <CogGrid />

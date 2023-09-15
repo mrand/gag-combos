@@ -10,7 +10,7 @@ export default function ResetButton({
   return (
     active ? (
       <button
-        className={styles.resetBtn}
+        className={`btn ${styles.resetBtn}`}
         onClick={clickHandler}
         title={infoText}
         aria-label={infoText}

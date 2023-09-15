@@ -46,7 +46,7 @@ function RecommendationsMobileNav({ tab, setTab }) {
             return (
               <button 
                 key={i}
-                className={configMobileLink(tab, linkText)}
+                className={`btn ${configMobileLink(tab, linkText)}`}
                 onClick={() => setTab(linkText)}
               >
                 {getSVG(linkText)}
