@@ -14,7 +14,9 @@ export default function Recommendations() {
       content={
         <>
           <Header />
-          <RecommendationsDashboard device={device} />
+          <main>
+            <RecommendationsDashboard device={device} />
+          </main>
           {device==="mobile" ? null : <Footer />}
         </>
       } 

@@ -12,7 +12,9 @@ export default function Calculator() {
       content={
         <>
           <Header />
-          <CalculatorDashboard />
+          <main>
+            <CalculatorDashboard />
+          </main>
           <Footer />
         </>
       } 

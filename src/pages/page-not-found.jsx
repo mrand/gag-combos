@@ -10,7 +10,9 @@ export default function PageNotFound() {
       content={
         <>
           <Header />
-          <NotFound />
+          <main>
+            <NotFound />
+          </main>
           <Footer />
         </>
       }

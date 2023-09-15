@@ -13,10 +13,12 @@ export default function Homepage() {
       content={
         <>
           <Header />
-          <SplashScreen /> 
-          <Intro device={device} />
-          <About device={device} />
-          <Help device={device} />
+          <main>
+            <SplashScreen /> 
+            <Intro device={device} />
+            <About device={device} />
+            <Help device={device} />
+          </main>
           <Footer />
         </>
       } 
