@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Cog } from '~/features/cog';
-import { RecommendCombos } from '~/features/combos';
+import { RecommendCombos } from '~/features/recommendations';
 import { CombosGrid } from '~/features/recommendations';
 import { TitleContainer } from '~/features/recommendations';
 

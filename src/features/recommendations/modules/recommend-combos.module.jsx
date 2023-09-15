@@ -1,5 +1,5 @@
 import FindCombo from "./find-combo.module";
-import { combosData } from '~/features/combos';
+import { combosData } from '~/features/recommendations';
 
 
 /**

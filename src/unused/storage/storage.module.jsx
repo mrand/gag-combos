@@ -1,6 +1,6 @@
 import { initialCalculatorState } from "~/features/calculator/calculator.slice";
 import { initialCogState } from "~/features/cog/cog.slice";
-import { initialCombosState } from "~/features/combos/combos.slice";
+import { initialRecommendationsState } from "~/features/recommendations/recommendations.slice";
 import { initialGagState } from "~/features/gag/gag.slice";
 import { initialToonState } from "~/features/toons/toons.slice";
 
@@ -15,7 +15,7 @@ export default class Storage {
     this.schema = {
       calculator: initialCalculatorState,
       cog: initialCogState,
-      combos: initialCombosState,
+      combos: initialRecommendationsState,
       gag: initialGagState,
       toons: initialToonState
     }

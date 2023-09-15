@@ -5,7 +5,10 @@
   padding: 0;
   width: 100%;
 }
-.dashboard.desktop  { padding: 1.5rem; }
+.dashboard.desktop  {
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
 @media (min-width: 84rem) {
   .dashboard { flex-direction: row-reverse; }
   .gagsPickerWrap {
