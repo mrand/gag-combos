@@ -10,15 +10,10 @@
   padding: 1.5rem;
 }
 @media (min-width: 84rem) {
-  .dashboard { flex-direction: row-reverse; }
-  .gagsPickerWrap {
-    flex-grow: 1;
-    flex-shrink: 0;
+  .dashboard {
+    flex-direction: row-reverse;
+    justify-content: center;
   }
-  .cogsListWrap {
-    flex-basis: 30ch;
-    flex-grow: 1;
-    flex-shrink: 0;
-  }
+  .cogsListWrap { flex-basis: 30ch; }
 }
 

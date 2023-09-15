@@ -10,7 +10,7 @@ export default function CalculatorDashboard() {
 
   return (
     <div className={`wrapper ${styles.dashboard} ${device==="desktop" ? styles.desktop : styles.mobile}`}>
-      <div className={styles.gagsPickerWrap}>
+      <div>
         <GagsPicker />
       </div>
       <div className={styles.cogsListWrap}>

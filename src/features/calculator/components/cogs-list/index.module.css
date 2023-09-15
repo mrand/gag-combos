@@ -8,6 +8,12 @@
   position: relative;
 }
 .cogsListContainer.desktop { max-width: 56.25rem; }
+@media (min-width: 84rem) {
+  .cogsListContainer.desktop {
+    max-width: none;
+    width: 100%;
+  }
+}
 
 
 .bolt {
