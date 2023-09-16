@@ -30,28 +30,12 @@
   padding-bottom: 0.5rem;
 }
 
-.toonName {
-  --toon-color: #90d23a;  /* lime default */
-  color: var(--toon-color);
-  filter: brightness(0.5);
-  font-size: 0.875rem;
-  height: 3.5rem;
-  margin-top: 0.25rem;
-  max-width: 8rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 .orgGagContainer img { width: 2.25rem; }
 
 .organicPicker { 
   flex-direction: column;
   gap: 0.5rem;
   height: 100%; 
-}
-.organicPicker b { 
-  display: block;
-  margin-bottom: auto; 
 }
 .organicPicker button {
   padding: 0.5em;
