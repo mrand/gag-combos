@@ -21,14 +21,12 @@ export default class FindCombo {
   constructor(
     cog=null,
     tracks=null,
-    toonOrgs=null,
-    isLured=false
+    toonOrgs=null
   ) {
     this.numToons = tracks.length;
     this.tracks = this._sortTracks(tracks);
     this.toonOrgs = this._configToonOrgs(toonOrgs);
     this.gags = this._getGags();
-    this.isLured=isLured;
     this.solution = this.find(cog);
   }
 
@@ -168,8 +166,7 @@ export default class FindCombo {
     // Find Minimum Successful Combo
     let combo = new Combo(
       cog, 
-      comboGags, 
-      this.isLured
+      comboGags
     );
     let iterCount = 0;
     while (!combo.defeatsCog) {
@@ -195,8 +192,7 @@ export default class FindCombo {
       // Get Current Combo
       combo = new Combo(
         cog, 
-        comboGags, 
-        this.isLured
+        comboGags
       );
 
       // Throw error after 29 iterations
@@ -217,8 +213,7 @@ export default class FindCombo {
       // store initial state of combo before for loop
       let lastSuccessfulCombo = new Combo(
         cog, 
-        this._getCurrComboGags(gagTracks, gagLvls), 
-        this.isLured
+        this._getCurrComboGags(gagTracks, gagLvls)
       );
       
       // try to lower each gag
@@ -228,8 +223,7 @@ export default class FindCombo {
         let currComboGags = this._getCurrComboGags(gagTracks, gagLvls);
         let currCombo = new Combo(
           cog, 
-          currComboGags,
-          this.isLured
+          currComboGags
         );
 
         // ignore Passes, Toon-Up, Lure, Duds
@@ -244,8 +238,7 @@ export default class FindCombo {
           // Get Current Combo
           currCombo = new Combo(
             cog, 
-            currComboGags, 
-            this.isLured
+            currComboGags
           );
 
           // update returnable combo if currCombo is successful
@@ -254,8 +247,7 @@ export default class FindCombo {
             comboGags = this._getCurrComboGags(gagTracks, gagLvls);
             combo = new Combo(
               cog, 
-              this._getCurrComboGags(gagTracks, gagLvls), 
-              this.isLured
+              this._getCurrComboGags(gagTracks, gagLvls)
             );
           }
 
@@ -292,6 +284,5 @@ export default class FindCombo {
 //   new Cog(4),
 //   ['Throw', 'Throw', 'Throw', 'Throw'],  // gag combo tracks
 //   ['None', 'None', 'None', 'None'],      // toon organic gags
-//   false                                  // is Lured
 // );
 // console.log(`${testCombo.solution}`);

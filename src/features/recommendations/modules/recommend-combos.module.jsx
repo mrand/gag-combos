@@ -8,7 +8,6 @@ import { combosData } from '~/features/recommendations';
  export default class RecommendCombos {
   constructor(
     cog=null,
-    isLured=false,
     numToons=0,
     toonOrgs=[],
     comboType='All',
@@ -16,7 +15,6 @@ import { combosData } from '~/features/recommendations';
     gagFilters=null
   ) {
     this.cog = cog;
-    this.isLured = isLured;
     this.numToons = numToons;
     this.toonOrgs = [...toonOrgs];
     this.comboType = comboType;
@@ -36,7 +34,7 @@ import { combosData } from '~/features/recommendations';
     if (this.comboType === 'Basic') {
       gagComboTracks = gagComboTracks.concat(combosData[String(this.numToons)]["basic"]);
     } else {
-      if (!this.isLured) {
+      if (!this.cog.lured) {
         gagComboTracks = gagComboTracks.concat(combosData[String(this.numToons)]["notLured"]);
       }
       gagComboTracks = gagComboTracks.concat(combosData[String(this.numToons)]["default"]);
@@ -59,8 +57,7 @@ import { combosData } from '~/features/recommendations';
       foundCombo = new FindCombo(
         this.cog,
         comboTracks,
-        this.toonOrgs,
-        this.isLured
+        this.toonOrgs
       );
       
       if (foundCombo.solution) {

@@ -86,13 +86,14 @@ export default function CogCard() {
 
   const cogLevel = useSelector((state) => state.recommendations.cog.level);
   const cogV2 = useSelector((state) => state.recommendations.cog.isV2);
+  const cogLured = useSelector((state) => state.recommendations.cog.lured);
   const cogSuit = useSelector((state) => state.recommendations.cog.suit);
   const cogName = useSelector((state) => state.recommendations.cog.name);
   const resetBtnActive = useSelector((state) => state.recommendations.cog.hasUpdates);
   const dispatch = useDispatch();
 
   // build cog object
-  const cog = cogLevel ? new Cog(cogLevel, cogV2, cogSuit, cogName) : null;
+  const cog = cogLevel ? new Cog(cogLevel, cogV2, cogLured, cogSuit, cogName) : null;
 
   return (
     <div className={styles.cog}>

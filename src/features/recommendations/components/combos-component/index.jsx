@@ -11,8 +11,8 @@ export default function CombosComponent() {
   // build new recommend combos object
   const cogLevel = useSelector((state) => state.recommendations.cog.level);
   const cogV2 = useSelector((state) => state.recommendations.cog.isV2);
-  const cog = cogLevel ? new Cog(cogLevel, cogV2) : null;
-  const isLured = useSelector((state) => state.recommendations.cog.lured);
+  const cogLured = useSelector((state) => state.recommendations.cog.lured);
+  const cog = cogLevel ? new Cog(cogLevel, cogV2, cogLured) : null;
   const numToons = useSelector((state) => state.recommendations.toons.toonList.filter(toon => toon.active).length);
   const toonOrgs = useSelector((state) => state.recommendations.toons.toonList.map((toon) => toon.active ? toon.organic : ''));
   const comboType = useSelector((state) => state.recommendations.combos.type);
@@ -20,7 +20,7 @@ export default function CombosComponent() {
   const gagFilters = useSelector((state) => state.recommendations.combos.filters);
 
   const recommendations = new RecommendCombos(
-    cog, isLured,                     // cog params
+    cog,                              // cog params
     numToons, toonOrgs,               // toons params
     comboType, comboSort, gagFilters  // combo params
   );

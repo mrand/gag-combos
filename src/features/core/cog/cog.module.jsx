@@ -11,6 +11,7 @@ export default class Cog {
   constructor(
     level,
     isV2=false,
+    isLured=false,
     suit=null,
     name=null
   ) {
@@ -19,6 +20,7 @@ export default class Cog {
     this.v2Resistance = isV2 ? Math.floor(this.level * 1.5) : 0;
     this.tgtDef = this._getTargetDefense();
     this.hp = this._calculateHP();
+    this.lured = isLured;
     this.suit = suit ? suit : this._getRandomSuit();
     this.cog = name ? name : this._getRandomCog();
     this.image = this._getImageName();

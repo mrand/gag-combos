@@ -92,10 +92,9 @@ export default class Gag {
   /**
    * 
    * @param {dict} counts A dictionary containing how many gags of each track are used in a particular combo.
-   * @param {boolean} isLured Whether or not the cog is lured.
    * @param {int} cogLevel The cog's level.
    */
-  getAccuracyWithCombo(counts, isLured, cog) {
+  getAccuracyWithCombo(counts, cog) {
 
     /*
     100% Accuracy Cases:
@@ -116,7 +115,7 @@ export default class Gag {
           this.track === 'Sound'
         ) || (
           !Object.keys(counts).includes('Trap') && 
-          isLured &&
+          cog.lured &&
           this.track === 'Sound'
         )
       ) ||
@@ -131,7 +130,7 @@ export default class Gag {
         ) || (
           !Object.keys(counts).includes('Trap') && 
           !Object.keys(counts).includes('Sound') && 
-          isLured &&
+          cog.lured &&
           this.track === 'Throw'
         )
       ) ||
@@ -148,7 +147,7 @@ export default class Gag {
           !Object.keys(counts).includes('Trap') && 
           !Object.keys(counts).includes('Sound') && 
           !Object.keys(counts).includes('Throw') && 
-          isLured &&
+          cog.lured &&
           this.track === 'Squirt'
         )
       )
@@ -198,7 +197,7 @@ export default class Gag {
           (this.track === 'Sound') ||
           (this.level === 7 && this.track in ['Throw', 'Squirt'])
         ) && (
-          isLured || 'Lure' in counts
+          cog.lured || 'Lure' in counts
         )
       ) {
         luredRatio = 100;
