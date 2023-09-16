@@ -101,6 +101,7 @@
 
 .mobileNavBg {
   background: #000000;
+  border-radius: 0;
   box-shadow: none;
   height: 100%;
   left: 0;
