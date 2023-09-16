@@ -69,8 +69,9 @@ html {
 
 
 a { color: var(--blue-600); }
-a:hover { filter: brightness(0.25); }
-
+@media (hover: hover) {
+  a:hover { filter: brightness(0.25); }
+}
 
 body {
   background-color: var(--grey-200);
@@ -83,17 +84,19 @@ body {
   border: 0;
   border-radius: 3em;
   color: #ffffff;
-  cursor: pointer;
   font-weight: bold;
   outline: none;
   padding: 0.5em;
 }
-.btn:hover {
-  background: var(--blue-400);
-  box-shadow: 0 0 0.25em var(--blue-600) inset;
-  color: #ffffff;
-  filter: none;
+@media (hover: hover) {
+  .btn:hover {
+    background: var(--blue-400);
+    box-shadow: 0 0 0.25em var(--blue-600) inset;
+    color: #ffffff;
+    filter: none;
+  }
 }
+
 .btn.active {
   box-shadow: 0 0 0.25em var(--grey-600) inset;
   background: var(--yellow-500);
@@ -101,9 +104,12 @@ body {
 }
 
 .btn.bad { background: var(--red-500); }
-.btn.bad:hover { box-shadow: 0 0 0.25em var(--red-600) inset; }
 .btn.good { background: var(--green-400); }
-.btn.good:hover { box-shadow: 0 0 0.25em var(--green-500) inset; }
+@media (hover: hover) {
+  .btn.bad:hover { box-shadow: 0 0 0.25em var(--red-600) inset; }
+  .btn.good:hover { box-shadow: 0 0 0.25em var(--green-500) inset; }
+}
+
 
 code {
   background: var(--grey-200);
@@ -141,8 +147,10 @@ code {
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background: var(--thumb-color);
 }
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: var(--thumb-hover-color);
+@media (hover: hover) {
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--thumb-hover-color);
+  }
 }
 
 
@@ -236,10 +244,12 @@ th, td {
   text-align: center;
   text-overflow: ellipsis;
 }
-.svg-btn:hover {
-  background: var(--sub-color);
-  box-shadow: none;
-  color: var(--main-color);
+@media (hover: hover) {
+  .svg-btn:hover {
+    background: var(--sub-color);
+    box-shadow: none;
+    color: var(--main-color);
+  }
 }
 .svg-btn.active {
   background: var(--main-color);

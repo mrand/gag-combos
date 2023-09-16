@@ -15,9 +15,11 @@
   color: #000000;
   background: var(--grey-300);
 }
-.gagCell:hover {
-  background: var(--grey-300);
-  color: #000000;
+@media (hover: hover) {
+  .gagCell:hover {
+    background: var(--grey-300);
+    color: #000000;
+  }
 }
 
 .gagCellContent {
@@ -33,7 +35,9 @@
 .gagCell.org {
   box-shadow: 0 0 0 0.25rem var(--green-500) inset;
 }
-.gagCell:hover { filter: brightness(0.5); }
+@media (hover: hover) {
+  .gagCell:hover { filter: brightness(0.5); }
+}
 .expanded .gagCell {
   background: var(--grey-300);
 }

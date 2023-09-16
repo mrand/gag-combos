@@ -28,11 +28,13 @@
   padding: 0.5rem 1rem;
   text-decoration: none;
 }
-.header a:hover {
-  background: 0;
-  box-shadow: none;
-  color: var(--blue-600);
-  filter: none;
+@media (hover: hover) {
+  .header a:hover {
+    background: 0;
+    box-shadow: none;
+    color: var(--blue-600);
+    filter: none;
+  }
 }
 
 .header.desktop a { border-bottom: 0.1875rem solid var(--grey-400); }
@@ -60,10 +62,12 @@
   gap: 0.75rem;
   padding: 0.25rem 0.75rem;
 }
-.headerNavMenuBtn:hover {
-  background: 0;
-  box-shadow: none;
-  color: var(--blue-600);
+@media (hover: hover) {
+  .headerNavMenuBtn:hover {
+    background: 0;
+    box-shadow: none;
+    color: var(--blue-600);
+  }
 }
 .headerNavMenuBtn svg {
   fill: var(--blue-600);
@@ -101,8 +105,6 @@
 
 .mobileNavBg {
   background: #000000;
-  border-radius: 0;
-  box-shadow: none;
   height: 100%;
   left: 0;
   opacity: 0.75;
@@ -111,4 +113,3 @@
   width: 100%;
   z-index: 99;
 }
-.mobileNavBg:hover { background: #000000; }

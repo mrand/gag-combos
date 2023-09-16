@@ -71,7 +71,7 @@ function HamburgerButton({ mobileNavActive, setMobileNavActive }) {
 function MobileNavBg({ setMobileNavActive }) {
   return (
     <button
-      className={`btn ${styles.mobileNavBg}`}
+      className={styles.mobileNavBg}
       onClick={() => setMobileNavActive(false)}
       aria-label="Close Main Navigation Menu"
       title="Close Main Navigation Menu"

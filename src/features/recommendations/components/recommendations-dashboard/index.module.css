@@ -66,8 +66,10 @@
   background: var(--blue-600);
   border-radius: var(--radius-xl);
 }
-.toonsWrap::-webkit-scrollbar-thumb:hover {
-  background: var(--blue-500);
+@media (hover: hover) {
+  .toonsWrap::-webkit-scrollbar-thumb:hover {
+    background: var(--blue-500);
+  }
 }
 
 .cogWrap { 
@@ -89,8 +91,10 @@
   background: var(--grey-600);
   border-radius: var(--radius-xl);
 }
-.cogWrap::-webkit-scrollbar-thumb:hover {
-  background: var(--grey-500);
+@media (hover: hover) {
+  .cogWrap::-webkit-scrollbar-thumb:hover {
+    background: var(--grey-500);
+  }
 }
 
 

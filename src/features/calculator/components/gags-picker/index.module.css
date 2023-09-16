@@ -81,9 +81,11 @@
   font-weight: normal;
   width: 100%;
 }
-.gagsPicker h3 button:hover {
-  background: var(--red-500);
-  color: #000000;
+@media (hover: hover) {
+  .gagsPicker h3 button:hover {
+    background: var(--red-500);
+    color: #000000;
+  }
 }
 
 

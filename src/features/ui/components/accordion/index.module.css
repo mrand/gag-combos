@@ -19,11 +19,15 @@
   outline: 0;
   text-align: left;
 }
-.accordionBtn:hover {
-  background: 0;
-  box-shadow: none;
-  color: var(--blue-600);
+@media (hover: hover) {
+  .accordionBtn:hover {
+    background: var(--grey-300);
+    box-shadow: none;
+    color: var(--blue-600);
+  }
 }
+.accordionBtn.active { background: var(--grey-300); }
+
 
 .accordion svg {
   fill: var(--blue-600);

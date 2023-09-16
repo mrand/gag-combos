@@ -137,4 +137,6 @@
   border-radius: 1000px;  /* arbitrarily large, but not circular */
   width: 100%;
 }
-.modalBtn:hover { background: var(--red-600); }
+@media (hover: hover) {
+  .modalBtn:hover { background: var(--red-600); }
+}

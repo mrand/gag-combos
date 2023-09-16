@@ -82,8 +82,10 @@
   font-size: 0.75rem;
   padding: 0.5rem;
 }
-.cogCard button:hover {
-  background: var(--blue-400);
+@media (hover: hover) {
+  .cogCard button:hover {
+    background: var(--blue-400);
+  }
 }
 
 

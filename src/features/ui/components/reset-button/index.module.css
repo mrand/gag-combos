@@ -10,4 +10,6 @@
   fill: #ffffff;
   transition: 0.5s ease transform;
 }
-.resetBtn:hover svg { transform: rotate(360deg); }
+@media (hover: hover) {
+  .resetBtn:hover svg { transform: rotate(360deg); }
+}
