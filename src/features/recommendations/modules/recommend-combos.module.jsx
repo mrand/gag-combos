@@ -34,7 +34,7 @@ import { combosData } from '~/features/recommendations';
     if (this.comboType === 'Basic') {
       gagComboTracks = gagComboTracks.concat(combosData[String(this.numToons)]["basic"]);
     } else {
-      if (!this.cog.lured) {
+      if (!this.cog || !this.cog.lured) {
         gagComboTracks = gagComboTracks.concat(combosData[String(this.numToons)]["notLured"]);
       }
       gagComboTracks = gagComboTracks.concat(combosData[String(this.numToons)]["default"]);
