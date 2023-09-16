@@ -58,7 +58,7 @@ html {
   --green-400: #07a129;
   --green-500: #07781f;
   /* units */
-  --radius-xs:  4px;
+  --radius-xs:  0.25rem;
   --radius-sm:  calc(var(--radius-xs) * 2);
   --radius-med: calc(var(--radius-xs) * 3);
   --radius-lg:  calc(var(--radius-xs) * 4);
