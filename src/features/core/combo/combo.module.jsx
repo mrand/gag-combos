@@ -80,9 +80,6 @@ export default class Combo {
 
   _getDamage() {
     // Get Dud, Lured, and Combo Multiplier Damages
-    let mainDamage = 0;   // main multiplier damage
-    let luredDamage = 0;  // lured multiplier damage
-    let comboDamage = 0;  // combo multiplier damage
     let gagDudMultiplier;    // (=0 if dud)
     let gagLureMultiplier;   // (=0.5 if lured)
     let gagComboMultiplier;  // (=0.2 if combo)
