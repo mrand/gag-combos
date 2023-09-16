@@ -2,10 +2,8 @@ import React, { useContext } from "react";
 import { DeviceContext } from "~/App";
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleV2 } from '~/features/calculator';
-import { Cog } from '~/features/cog';
-import { Gag } from '~/features/gag';
-import { Combo } from '~/features/combo';
-import { ToggleV2 } from '~/features/cog/components';
+import { Cog, Combo, Gag } from '~/features/core';
+import { ToggleV2 } from '~/features/ui';
 import styles from './index.module.css';
 
 

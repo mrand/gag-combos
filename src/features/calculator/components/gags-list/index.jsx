@@ -3,7 +3,7 @@ import { DeviceContext } from "~/App";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteGag, setHoveredGag } from "~/features/calculator";
 import styles from "./index.module.css";
-import { Gag } from "~/features/gag";
+import { Gag } from "~/features/core";
 import { GagButton } from "~/features/calculator";
 
 

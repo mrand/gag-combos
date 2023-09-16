@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Cog } from "~/features/cog";
+import { Cog } from "~/features/core";
 import styles from "./index.module.css";
 
 

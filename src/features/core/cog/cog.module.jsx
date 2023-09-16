@@ -1,4 +1,4 @@
-import { cogsData } from '~/features/cog';
+import { cogsData } from '~/features/core';
 
 
 export default class Cog {

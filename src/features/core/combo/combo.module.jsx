@@ -1,4 +1,4 @@
-import { comboData } from '~/features/combo';
+import { comboData } from '~/features/core';
 
 export default class Combo {
   /**

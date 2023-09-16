@@ -3,7 +3,7 @@ import { DeviceContext } from "~/App";
 import { useSelector, useDispatch } from "react-redux";
 import { resetGagModal } from "~/features/recommendations";
 import styles from "./index.module.css";
-import { trackColors, Gag } from "~/features/gag";
+import { trackColors, Gag } from "~/features/core";
 
 
 export default function GagModal() {

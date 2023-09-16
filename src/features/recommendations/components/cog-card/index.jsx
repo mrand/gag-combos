@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { resetCog, setCog, toggleCogV2 } from "~/features/recommendations";
 import styles from "./index.module.css";
-import { Cog } from "~/features/cog";
+import { Cog } from "~/features/core";
 import { ResetButton } from "~/features/ui";
-import { ToggleV2 } from "~/features/cog";
+import { ToggleV2 } from "~/features/ui";
 import { ToggleLured } from "~/features/recommendations";
 
 

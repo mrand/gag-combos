@@ -6,13 +6,14 @@ import Page from "./page";
 import ResetButton from "./reset-button";
 import SliderButton from "./slider-button";
 import Toggle from "./toggle";
+import ToggleV2 from "./toggle-v2";
 import UpdateToast from "./update-toast";
 
 export {
   UpdateToast,
   NotFound,
   Page, Header, Footer,
-  Toggle, SliderButton, 
+  Toggle, ToggleV2, SliderButton, 
   ResetButton,
   Accordion
 };

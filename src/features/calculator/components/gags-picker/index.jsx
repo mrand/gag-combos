@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { DeviceContext } from "~/App";
 import { useSelector, useDispatch } from 'react-redux';
 import { resetGags, addGag } from '~/features/calculator';
-import { trackColors, Gag } from '~/features/gag';
+import { trackColors, Gag } from '~/features/core';
 import { ToggleOrganic } from '~/features/calculator';
 import { GagButton } from '~/features/calculator';
 import { GagsList } from '~/features/calculator';
