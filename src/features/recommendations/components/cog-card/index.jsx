@@ -16,8 +16,10 @@ for (let i=1; i<=20; i++) lvlNums.push(i);
 function CogStats({ active, cog }) {
   return (
     (!active && cog) && (
-      <div className={styles.cogStats}>
+      <div className={`cog-clip cog-clip--content ${styles.cogStats}`}>
         <img
+          className="cog-clip"
+          style={{ "--_clip-size":"0.375em" }}
           src={cog.image}
           alt={`${cog.cog} Cog`}
         />
@@ -39,7 +41,7 @@ function CogLevelPicker({ cog, active, setActive }) {
   const dispatch = useDispatch();
 
   return (
-    <div className={styles.lvlPicker}>
+    <div className={`cog-clip cog-clip--content ${styles.lvlPicker}`}>
       {
         (active || !cog) ? (
 

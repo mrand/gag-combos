@@ -131,6 +131,32 @@ body {
 }
 
 
+/* Cog Components' Clip Path */
+.cog-clip {
+  --_clip-size: 0.75em;
+  clip-path: polygon(
+    var(--_clip-size) 0%, 
+    calc(100% - var(--_clip-size)) 0%, 
+    100% var(--_clip-size), 
+    100% calc(100% - var(--_clip-size)), 
+    calc(100% - var(--_clip-size)) 100%, 
+    var(--_clip-size) 100%, 
+    0% calc(100% - var(--_clip-size)), 
+    0% var(--_clip-size)
+  );
+}
+/* for content areas utilizing the cog-clip class */
+.cog-clip--content {
+  background: var(--grey-400);
+  box-shadow: 
+    0 0 
+    calc(var(--_clip-size) / 3) 
+    calc(var(--_clip-size) * 0.1) 
+    var(--grey-700) 
+    inset;
+}
+
+
 code {
   background: var(--grey-200);
   border-radius: var(--radius-xs);

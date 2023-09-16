@@ -58,9 +58,6 @@
 
 
 .wrapper {
-  background: var(--grey-400);
-  box-shadow: 0 0 0.25rem 0.0625rem var(--grey-700) inset;
-  clip-path: polygon( 0.75rem 0%, calc(100% - 0.75rem) 0%, 100% 0.75rem, 100% calc(100% - 0.75rem), calc(100% - 0.75rem) 100%, 0.75rem 100%, 0% calc(100% - 0.75rem), 0% 0.75rem );
   display: flex;
   flex-direction: column;
   gap: 1rem;

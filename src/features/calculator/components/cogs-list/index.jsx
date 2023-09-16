@@ -49,7 +49,7 @@ export default function CogsList() {
       <span className={styles.bolt}></span>
       <span className={styles.bolt}></span>
 
-      <div className={styles.wrapper}>
+      <div className={`cog-clip cog-clip--content ${styles.wrapper}`}>
         
         <div className={styles.headingsArea}>
           <ToggleV2 
