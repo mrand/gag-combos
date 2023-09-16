@@ -38,14 +38,38 @@ export default function HoverBox() {
     }
   }
 
+  const isOrganic = gag && gag.organic==="Organic";
+
   return (
-    <div className={styles.hoverBox}>
+    <div className={`${styles.hoverBox} ${isOrganic ? styles.organic : ""}`}>
       {
         gag ? (
           <>
             <div className={styles.hoverBoxOverview}>
-              <h4>{gag.name}</h4>
-              <img src={gag.image} alt={gag.name} />
+              <h4 className={styles.name}>
+                {gag.name}
+                {
+                  isOrganic && (
+                    <><br />(Organic)</>
+                  )
+                }
+              </h4>
+              <div className={styles.imageWrap}>
+                <img 
+                  className={styles.gagImage}
+                  src={gag.image}
+                  alt={gag.name}
+                />
+                {
+                  isOrganic && (
+                    <img 
+                      className={styles.organicIcon}
+                      src="/img/gags/icon-organic-mini.png"
+                      alt="Organic Icon"
+                    />
+                  )
+                }
+              </div>
             </div>
             <div className={styles.hoverBoxStats}>
               <span><b>Accuracy:</b> {(gag.accuracy['Base']*100)+"%"}</span>

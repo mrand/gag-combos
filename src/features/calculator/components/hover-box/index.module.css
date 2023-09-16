@@ -5,9 +5,43 @@
   padding: 1rem;
   width: 100%;
 }
+
+
 .hoverBoxOverview {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
   text-align: center;
 }
+
+
+.name { line-height: 1.25em; }
+
+
+.imageWrap {
+  padding: 0.5rem;
+  position: relative;
+}
+.organic .imageWrap {
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.45rem var(--green-500) inset;
+  padding: 1.25rem;
+}
+.organicIcon {
+  position: absolute;
+  right: -0.25rem;
+  top: -0.25rem;
+}
+.gagImage {
+  height: 5rem;
+  width: auto;
+}
+.organic .gagImage { height: 3.5rem; }
+
+
 .hoverBoxStats > * { 
   border-top: 0.125rem solid var(--grey-400);
   display: block; 
