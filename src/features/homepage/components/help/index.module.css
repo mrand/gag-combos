@@ -9,14 +9,6 @@
 .desktop .right { align-items: flex-end; }
 .desktop .left { align-items: flex-start; }
 
-.help a {
-  border-radius: 1000px;  /* arbitrarily large, but not circular */
-  display: block;
-  padding: 0.75rem 1rem;
-  text-decoration: none;
-  width: fit-content;
-}
-
 .help.mobile a {
   max-width: 50ch;
   width: 100%;

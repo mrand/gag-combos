@@ -75,17 +75,9 @@
 
 
 /* General Cog Button */
-.cogCard button {
+.chooseBtn {
   background: var(--grey-600);
-  color: #ffffff;
-  border-radius: var(--radius-xl);
   font-size: 0.75rem;
-  padding: 0.5rem;
-}
-@media (hover: hover) {
-  .cogCard button:hover {
-    background: var(--blue-400);
-  }
 }
 
 
@@ -104,15 +96,10 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 0.125rem;
 }
-.lvlBtns button {
-  font-size: 0.75rem;
-  padding: 0.5rem;
-  box-shadow: 0 0 0.25rem var(--grey-600) inset;
-}
-.lvlBtns button.active {
-  box-shadow: 0 0 0.25rem var(--grey-600) inset;
-  background: var(--yellow-500);
-  color: #000000
+.lvlBtn {
+  background: var(--grey-600);
+  border-radius: var(--radius-xs);
+  padding: 0.5em;
 }
 
 

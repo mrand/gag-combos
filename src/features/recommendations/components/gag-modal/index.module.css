@@ -132,11 +132,4 @@
 
 /* Close Modal Button */
 .modalBtnWrap { border: 0.5rem solid var(--blue-600); }
-.modalBtn {
-  background: var(--red-500);
-  border-radius: 1000px;  /* arbitrarily large, but not circular */
-  width: 100%;
-}
-@media (hover: hover) {
-  .modalBtn:hover { background: var(--red-600); }
-}
+.modalBtn { width: 100%; }

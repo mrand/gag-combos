@@ -3,7 +3,7 @@
   align-items: center;
   background: #ffffff;
   border: 0.5rem solid var(--accent-color);
-  border-radius: 1000px;  /* arbitrarily large but not circular */
+  border-radius: 3rem;
   box-shadow: 0 0 0.25rem var(--grey-700);
   display: inline-flex;
   gap: 1rem;

@@ -116,7 +116,7 @@ export default function GagModal() {
 
         <div className={styles.modalBtnWrap}>
           <button
-            className={`btn ${styles.modalBtn}`}
+            className={`btn danger ${styles.modalBtn}`}
             onClick={() => dispatch(resetGagModal())}
             title="Close Gag Details"
           >

@@ -84,9 +84,10 @@ body {
   border: 0;
   border-radius: 3em;
   color: #ffffff;
-  font-weight: bold;
+  font-family: Karla, sans-serif;
   outline: none;
-  padding: 0.5em;
+  padding: 0.5em 1em;
+  text-decoration: none;
 }
 @media (hover: hover) {
   .btn:hover {
@@ -98,16 +99,35 @@ body {
 }
 
 .btn.active {
-  box-shadow: 0 0 0.25em var(--grey-600) inset;
+  box-shadow: 0 0 0.35em var(--grey-600) inset;
   background: var(--yellow-500);
-  color: #000000
+  color: #000000;
+}
+
+.btn.danger {
+  background: var(--red-500);
+  color: #000000;
+  font-family: BowlbyOneSC,Arial,Roboto,Helvetica,sans-serif;
+}
+@media (hover: hover) {
+  .btn.danger:hover {
+    background: var(--red-400);
+    box-shadow: 0 0 0.25em var(--red-600) inset;
+    color: #000000;
+  }
 }
 
 .btn.bad { background: var(--red-500); }
-.btn.good { background: var(--green-400); }
+.btn.good { background: var(--green-500); }
 @media (hover: hover) {
-  .btn.bad:hover { box-shadow: 0 0 0.25em var(--red-600) inset; }
-  .btn.good:hover { box-shadow: 0 0 0.25em var(--green-500) inset; }
+  .btn.bad:hover {
+    background: var(--red-400);
+    box-shadow: 0 0 0.25em var(--red-600) inset;
+  }
+  .btn.good:hover {
+    background: var(--green-400);
+    box-shadow: 0 0 0.25em var(--green-500) inset;
+  }
 }
 
 

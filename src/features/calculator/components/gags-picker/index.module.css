@@ -73,20 +73,7 @@
   width: 100%;
 }
 /* "Reset Gags" Button */
-.gagsPicker h3 button {
-  background: var(--red-500);
-  border-radius: 1000px;  /* arbitrarily large but not circular */
-  color: #000000;
-  font-family: BowlbyOneSC,Arial,Roboto,Helvetica,sans-serif;
-  font-weight: normal;
-  width: 100%;
-}
-@media (hover: hover) {
-  .gagsPicker h3 button:hover {
-    background: var(--red-500);
-    color: #000000;
-  }
-}
+.gagsPicker h3 button { width: 100%; }
 
 
 .pickerWrap {

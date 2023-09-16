@@ -5,18 +5,10 @@
 
 .left p:last-of-type { margin-bottom: 1rem; }
 
-.introLink {
-  display: block;
-  text-align: center;
-  width: fit-content;
-  text-decoration: none;
-  padding: 0.75rem 1rem;
-  border-radius: 1000px;  /* arbitrarily large, but not circular */
-}
-
+.introLink { text-align: center; }
 .mobile .introLink {
-  width: 100%;
   margin: auto;
   max-width: 50ch;
+  width: 100%;
 }
 .mobile .left .introLink:last-of-type { margin-bottom: 1rem; }

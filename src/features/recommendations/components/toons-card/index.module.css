@@ -53,10 +53,7 @@
   display: block;
   margin-bottom: auto; 
 }
-.organicPicker button {
-  border-radius: 1000px;  /* arbitrarily large, but not circular */
-  width: 100%;
-}
+.organicPicker button { width: 100%; }
 
 .gagBtn {
   align-items: center;
