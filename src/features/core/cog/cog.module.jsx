@@ -1,9 +1,12 @@
-import { cogsData } from '~/features/core';
+import { cogsData } from "~/features/core";
 
 
 export default class Cog {
   /**
-   * @param {number} level
+   * @param {Number} level The cog's level.
+   * @param {Boolean} isV2 Whether or not the cog is v2.0.
+   * @param {String} suit The cog's suit.
+   * @param {String} name The cog's name.
   */
   constructor(
     level,
@@ -53,8 +56,8 @@ export default class Cog {
   }
 
   _calculateHP() {
-  return (this.level+1)*(this.level+2) + (
-    (this.level > 11) ? 14 : 0
+    return (this.level+1)*(this.level+2) + (
+      (this.level > 11) ? 14 : 0
     );
   }
 
@@ -90,7 +93,9 @@ export default class Cog {
 
   _getImageName() {
     let suitConf = this.suit.toLowerCase();
-    let cogConf = this.cog.replace(/[-&. ]/g,'').toLowerCase();
+    // remove cog name special chars and make lowercase
+    let cogConf = this.cog.replace(/[-&. ]/g,"").toLowerCase();
+    // format filename
     return `/img/cogs/${suitConf}-${cogConf}.webp`;
   }
 
