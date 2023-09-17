@@ -62,7 +62,7 @@ export default function App() {
     // get window width in rem units
     const width = window.innerWidth / getDefaultFontSize();
     // categorize as desktop or mobile
-    const device = width > breakpoint ? "desktop" : "mobile";
+    const device = width >= breakpoint ? "desktop" : "mobile";
     return device;
   }
   // check current device width against stored device width
