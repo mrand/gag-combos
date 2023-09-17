@@ -4,9 +4,9 @@ import { FlexContainer, HomepageWrapper } from "~/features/homepage";
 import styles from "./index.module.css";
 
 
-export default function Help({ device="mobile" }) {
+export default function Help() {
   return (
-    <section className={`with-grid-bg ${styles.help} ${device==="desktop" ? styles.desktop : styles.mobile}`}>
+    <section className={`with-grid-bg ${styles.help}`}>
       <HomepageWrapper
         content={
           <FlexContainer
@@ -25,11 +25,9 @@ export default function Help({ device="mobile" }) {
                 </div>
               </>
             }
-            device={device}
             reverse={false}
           />
         } 
-        device={device}
       />
     </section>
   );

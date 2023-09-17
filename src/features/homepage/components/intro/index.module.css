@@ -1,14 +1,22 @@
-.mobile .left,
-.mobile .right {
-  margin: auto;
-}
+.left, .right { margin: auto; }
 
 .left p:last-of-type { margin-bottom: 1rem; }
 
+
 .introLink { text-align: center; }
-.mobile .introLink {
+.introLink {
   margin: auto;
   max-width: 50ch;
   width: 100%;
 }
-.mobile .left .introLink:last-of-type { margin-bottom: 1rem; }
+.introLink:last-of-type { margin-bottom: 1rem; }
+
+@media (min-width: 72rem) {
+  .left, .right { margin: 0; }
+  .introLink {
+    margin: 0;
+    max-width: none;
+    width: auto;
+  }
+  .introLink:last-of-type { margin-bottom: 0; }
+}

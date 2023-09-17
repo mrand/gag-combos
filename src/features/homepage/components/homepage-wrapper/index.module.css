@@ -1,2 +1,4 @@
-.desktopWrapper { padding-block: 3.75rem; }
-.mobileWrapper { padding-block: 1rem; }
+.homepageWrapper { padding-block: 1rem; }
+@media (min-width: 72rem) {
+  .homepageWrapper { padding-block: 3.75rem; }
+}

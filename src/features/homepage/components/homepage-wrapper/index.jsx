@@ -5,13 +5,11 @@ import styles from "./index.module.css";
 /**
  * 
  * @param {Object} content JSX content to be wrapped.
- * @param {String} device Whether the current page size is categorized as desktop or mobile. 
- * @returns Wrapper component that adds extra padding to top and bottom of content on desktop,
- *          or else just the content on mobile.
+ * @returns Wrapper component that adds extra padding to top and bottom of content on large screens.
  */
-export default function HomepageWrapper({ content=null, device="mobile" }) {
+export default function HomepageWrapper({ content=null }) {
   return (
-    <div className={device==="desktop" ? styles.desktopWrapper : styles.mobileWrapper}>
+    <div className={styles.homepageWrapper}>
       {content}
     </div>
   );

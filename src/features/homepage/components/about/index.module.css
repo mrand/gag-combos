@@ -1,9 +1,6 @@
 .about { background: var(--grey-400); }
 
-.mobile .left,
-.mobile .right {
-  margin: auto;
-}
+.left, .right { margin: auto; }
 
 .left { align-self: center; }
 .left img {
@@ -12,4 +9,8 @@
   height: auto;
   max-width: 75ch;
   width: 100%;
+}
+
+@media (min-width: 72rem) {
+  .left, .right { margin: 0; }
 }
