@@ -64,8 +64,6 @@ html {
   --radius-lg:  calc(var(--radius-xs) * 4);
   --radius-xl:  calc(var(--radius-xs) * 5);
 }
-.mobile {  --spacing-layout: 2rem; }
-.desktop { --spacing-layout: 3rem; }
 
 
 a { color: var(--blue-600); }
@@ -234,21 +232,6 @@ h1, h2, h3, h4, h5, h6 {
   gap: 0.5em;
   align-items: center;
   justify-content: center;
-}
-
-
-.layout--responsive-two-column {
-  --_base-column-width: 40ch;
-  --_direction: row;
-  display: flex;
-  flex-direction: var(--_direction);
-  flex-wrap: wrap;
-  gap: var(--spacing-layout);
-}
-.layout--responsive-two-column > * {
-  flex-basis: var(--_base-column-width);
-  flex-grow: 1;
-  flex-shrink: 1;
 }
 
 
