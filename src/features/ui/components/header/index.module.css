@@ -72,6 +72,10 @@
 
 /* Logo Link */
 .logoTextLg { display: none; }  /* hide large text */
+@media (min-width: 55rem) {
+  .logoTextSm { display: none; }  /* swap small text... */
+  .logoTextLg { display: inherit; }  /* with large text... */
+}
 
 /* Navigation Links */
 .navLink.active { text-decoration: underline; }
@@ -92,7 +96,7 @@
 
 
 /* ---------- Desktop Layout ---------- */
-@media (min-width: 72rem) {
+@media (min-width: 40rem) {
 
   /* Content Layout */
   .headerWrap {
@@ -127,10 +131,6 @@
     border-bottom-color: var(--blue-600);
     color: var(--blue-600);
   }
-
-  /* Logo Link */
-  .logoTextSm { display: none; }  /* swap small text... */
-  .logoTextLg { display: inherit; }  /* with large text... */
 
   /* Navigation Links */
   .navLink.active { text-decoration: none; }  /* remove mobile styling */
