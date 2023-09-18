@@ -55,7 +55,7 @@
 }
 .gagIcon {
   filter: drop-shadow(0 0 0.25rem var(--grey-700));
-  flex: 1 1 0px;
+  flex: 1 1 0;
   height: auto;
   margin: auto;
   max-width: 100%;
@@ -98,9 +98,9 @@
     font-size: 1rem;
   }
   .expanded .gagCellContent > div:first-of-type {
-    border-right: 1px solid #000000;
+    border-right: 0.0625rem solid #000000;
     padding-right: 0.5rem;
-    width: 100px;
+    width: 6.25rem;
   }
   .gagName { text-align: center; }
   .expanded .gagStats { align-self: center; }
