@@ -6,7 +6,7 @@
   padding: 1rem;
   width: 100%;
 }
-@media (min-width: 72rem) {
+@media (min-width: 62rem) {
   .hoverBox { display: initial; }
 }
 

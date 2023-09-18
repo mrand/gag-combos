@@ -4,7 +4,7 @@
   max-width: 40.625rem;
   padding: 0 1rem;
 }
-@media (min-width: 72rem) {
+@media (min-width: 62rem) {
   .gagsList {
     max-width: none;
     padding: 0;
@@ -29,7 +29,7 @@
   overflow-x: auto;
   padding: 0.5rem;
 }
-@media (min-width: 72rem) {
+@media (min-width: 62rem) {
   .gagsListContainer {
     background: var(--grey-300);
     box-shadow: none;

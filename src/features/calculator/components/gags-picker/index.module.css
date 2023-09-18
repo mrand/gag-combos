@@ -6,7 +6,7 @@
 .gagsPicker ::-webkit-scrollbar-thumb { border-radius: 1.875rem; }
 
 
-@media (min-width: 72rem) {
+@media (min-width: 62rem) {
   .gagsPicker {
     margin: auto; 
     max-width: 57.875rem;
@@ -23,7 +23,7 @@
   padding-inline: 0;
   width: 100%;
 }
-@media (min-width: 72rem) {
+@media (min-width: 62rem) {
   .gagsPickerWrap {
     align-items: initial;
     background: var(--blue-600);
@@ -59,7 +59,7 @@
     justify-content: space-between;
   }
 }
-@media (min-width: 72rem) {
+@media (min-width: 62rem) {
   .headingBtnWrap {
     background: 0;
     border-radius: 0;
@@ -79,7 +79,7 @@
   min-height: 2.25rem;
   text-align: center;
 }
-@media (min-width: 72rem) {
+@media (min-width: 62rem) {
   .gagsPicker h3 { width: 100%; }
 }
 /* "Choose Gags" Text */
@@ -105,7 +105,7 @@
   padding-top: 0;
   width: fit-content;
 }
-@media (min-width: 72rem) {
+@media (min-width: 62rem) {
   .pickerWrap {
     grid-column: 1 / 4;
     grid-row: 1 / 2;
@@ -124,7 +124,7 @@
   padding: 0.375rem;
   width: fit-content;
 }
-@media (min-width: 72rem) {
+@media (min-width: 62rem) {
   .gagTrack {
     box-shadow: 0 0.25rem 0.25rem var(--blue-700);
     margin: 0;

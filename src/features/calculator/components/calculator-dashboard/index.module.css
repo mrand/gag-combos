@@ -6,7 +6,7 @@
   width: 100%;
 }
 
-@media (min-width: 72rem) {
+@media (min-width: 62rem) {
   .dashboard {
     gap: 1.5rem;
     padding: 1.5rem;
