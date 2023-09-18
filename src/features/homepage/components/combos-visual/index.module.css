@@ -60,5 +60,6 @@
 }
 .videoWrap video { 
   height: auto;
+  max-width: 25rem;
   width: 100%; 
 }
