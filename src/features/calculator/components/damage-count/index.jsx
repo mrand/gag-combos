@@ -4,7 +4,7 @@ import { Cog, Combo, Gag } from "~/features/core";
 import styles from "./index.module.css";
 
 
-export default function DamageCount({ device="mobile" }) {
+export default function DamageCount() {
   const gagsList = useSelector((state) => state.calculator.gag.gagsList);
 
   let gagObjs = gagsList.map((gag) => {
@@ -13,7 +13,7 @@ export default function DamageCount({ device="mobile" }) {
   let combo = new Combo(new Cog(1), gagObjs, false);
   
   return (
-    <div className={`${styles.damageCount} ${device==="mobile" ? styles.mobile : ""}`}>
+    <div className={styles.damageCount}>
       <h3>Total Damage = {combo.damage["Total"]}</h3>
     </div>
   );

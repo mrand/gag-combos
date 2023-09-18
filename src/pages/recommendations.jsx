@@ -1,23 +1,23 @@
-import React, { useContext } from "react";
-import { DeviceContext } from "~/App";
+import React from "react";
 import { Page } from "~/features/ui";
 import { Header } from "~/features/ui";
 import { RecommendationsDashboard } from "~/features/recommendations";
-import { Footer } from "~/features/ui";
 
 
 export default function Recommendations() {
-  const device = useContext(DeviceContext);
 
   return (
     <Page
       content={
         <>
           <Header />
-          <main>
-            <RecommendationsDashboard device={device} />
-          </main>
-          {device==="mobile" ? null : <Footer />}
+          {/* 
+          Unlike other pages, <main> and <footer> are declared 
+          in this page's content component <RecommendationsDashboard>.
+          This is because the recommendations page hides the footer
+          for mobile devices to give it an "app-like" feel.
+          */}
+          <RecommendationsDashboard />
         </>
       } 
     />

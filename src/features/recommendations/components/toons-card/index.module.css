@@ -1,12 +1,16 @@
 .toonsCard {
+  align-items: start;
   background: var(--blue-400);
   border: 0.5rem solid var(--blue-400);
   border-radius: var(--radius-xl);
-  display: flex;
-  flex-direction: column;
+  display: grid;
   font-family: BowlbyOneSC,Arial,Roboto,Helvetica,sans-serif;
+  grid-template-columns: repeat( auto-fill, minmax( min(24rem, 100%), 1fr) );
+  margin-top: 0.5rem;
 }
-.toonsCard.mobile { margin-top: 0.5rem; }
+@media (min-width: 72rem) {
+  .toonsCard { margin-top: 0; }
+}
 
 .toonPanel { 
   align-items: stretch;
