@@ -6,16 +6,16 @@
   border-radius: 3rem;
   box-shadow: 0 0 0.25rem var(--grey-700);
   display: inline-flex;
-  gap: 1rem;
+  gap: 0.5rem;
   justify-content: center;
-  padding: 0 0.5rem;
+  padding: 0.5rem;
 }
 
 .icon {
-  --icon-size: 3.125rem;
+  --icon-size: 2.125rem;  /* same as "slider-button" component */
   display: grid;
   height: var(--icon-size);
   place-items: center;
 }
 
-.icon img { max-height: var(--icon-size); }
+.icon img { height: var(--icon-size); }
