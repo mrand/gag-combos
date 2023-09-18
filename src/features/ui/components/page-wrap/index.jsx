@@ -2,10 +2,10 @@ import React from "react";
 import styles from "./index.module.css";
 
 
-export default function Page({ content=null, style=null }) {
+export default function PageWrap({ content=null, style=null }) {
   return (
     <div
-      className={`custom-scrollbar with-grid-bg ${styles.page}`}
+      className={`custom-scrollbar with-grid-bg ${styles.pageWrap}`}
       style={style}
     >
       {content}

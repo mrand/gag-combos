@@ -1,5 +1,5 @@
 import React from "react";
-import { Page } from "~/features/ui";
+import { PageWrap } from "~/features/ui";
 import { Header } from "~/features/ui";
 import { RecommendationsDashboard } from "~/features/recommendations";
 
@@ -7,7 +7,7 @@ import { RecommendationsDashboard } from "~/features/recommendations";
 export default function Recommendations() {
 
   return (
-    <Page
+    <PageWrap
       content={
         <>
           <Header />
