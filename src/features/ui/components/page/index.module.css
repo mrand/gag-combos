@@ -1,12 +1,11 @@
 .page {
-  height: 100%;
+  --bar-width: 0.25rem;
   display: flex;
   flex-direction: column;
+  height: 100%;
   overflow-y: scroll;
 }
 
-.page.mobile {
-  /* tweak page's custom scrollbar */
-  --bar-width: 4px;
-  --bar-color: var(--grey-400);
+@media (min-width: 72rem) {
+  .page { --bar-width: 1rem; }
 }

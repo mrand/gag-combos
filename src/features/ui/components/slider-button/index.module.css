@@ -25,11 +25,11 @@
 
 /* Slider Active State */
 @media (hover: none) {
-  /* doesn't support hover (mobile devices) - always blue */
+  /* alyways blue if doesn't support hover */
   .active { background: var(--blue-600); }
 }
 @media (hover: hover) {
-  /* supports hover - blue with separate hover color */
+  /* blue with separate hover color if supports hover */
   .active:not(:hover) { background: var(--blue-600); }
 }
 .active:before {

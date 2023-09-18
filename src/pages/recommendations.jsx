@@ -13,9 +13,9 @@ export default function Recommendations() {
           <Header />
           {/* 
           Unlike other pages, <main> and <footer> are declared 
-          in this page's content component <RecommendationsDashboard>.
+          in this page's content component (<RecommendationsDashboard>).
           This is because the recommendations page hides the footer
-          for mobile devices to give it an "app-like" feel.
+          on mobile to give it an "app-like" feel.
           */}
           <RecommendationsDashboard />
         </>
