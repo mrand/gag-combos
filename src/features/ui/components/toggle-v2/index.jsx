@@ -5,7 +5,7 @@ import styles from "./index.module.css";
 
 export default function ToggleV2({ active=false, clickHandler=null, hasText=true }) {
   return (
-    <div className="toggle-v2">
+    <div>
       {
         hasText && (
           active ? (

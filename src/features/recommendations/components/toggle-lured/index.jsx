@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleCogLured } from "~/features/recommendations";
 import { Toggle } from "~/features/ui";
+import styles from "./index.module.css";
 
 
 export default function ToggleLured() {
@@ -9,7 +10,7 @@ export default function ToggleLured() {
   const dispatch = useDispatch();
 
   return (
-    <div className="toggle-lured">
+    <div className={styles.toggleLured}>
       {
         (cogLured) ? (
           <h3 className="toggle-title" style={{color: "var(--green-500)"}}>Cog is Lured</h3>
