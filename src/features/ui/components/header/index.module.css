@@ -10,8 +10,11 @@
 }
 
 .headerWrap {
+  --bar-width: 0.25rem;
   display: grid;
   grid-template-columns: 1fr auto;
+  max-height: 100vh;
+  overflow-y: auto;
   padding-block: 0;
 }
 

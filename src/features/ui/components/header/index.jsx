@@ -86,7 +86,7 @@ export default function Header() {
   return (
     <>
       <header className={styles.header}>
-        <div className={`wrapper ${styles.headerWrap}`}>
+        <div className={`custom-scrollbar wrapper ${styles.headerWrap}`}>
 
           {/* Logo */}
           <h1>
