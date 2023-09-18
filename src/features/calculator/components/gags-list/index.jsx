@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { DeviceContext } from "~/App";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteGag, setHoveredGag } from "~/features/calculator";
 import styles from "./index.module.css";
@@ -35,11 +34,10 @@ function GagsListContainer({ gagsList }) {
 
 
 export default function GagsList() {
-  const device = useContext(DeviceContext);
   const gagsList = useSelector((state) => state.calculator.gag.gagsList);
 
   return (
-    <div className={`${styles.gagsList} ${device==="desktop" ? "" : styles.mobile}`}>
+    <div className={styles.gagsList}>
       <div className={`custom-scrollbar ${styles.gagsListContainer}`}>
         {
           gagsList.length > 0 ? (

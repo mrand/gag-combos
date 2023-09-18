@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { DeviceContext } from "~/App";
+import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { resetGags, addGag } from '~/features/calculator';
 import { trackColors, Gag } from '~/features/core';
@@ -71,14 +70,13 @@ function GagButtons({ org }) {
 
 
 export default function GagsPicker() {
-  const device = useContext(DeviceContext);
 
   const gagsList = useSelector((state) => state.calculator.gag.gagsList);
   const org = useSelector((state) => state.calculator.gag.organic);
   const dispatch = useDispatch();
 
   return (
-    <div className={`${styles.gagsPicker} ${device==="desktop" ? styles.desktop : styles.mobile}`}>
+    <div className={styles.gagsPicker}>
       <div className={`wrapper ${styles.gagsPickerWrap}`}>
         <div className={styles.headingBtnWrap}>
           <h3>
@@ -97,7 +95,7 @@ export default function GagsPicker() {
               )
             }
           </h3>
-          { device==="desktop" && <HoverBox /> }
+          <HoverBox />
           <ToggleOrganic />
         </div>
         <GagButtons org={org} />

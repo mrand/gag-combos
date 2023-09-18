@@ -6,47 +6,48 @@
 .gagsPicker ::-webkit-scrollbar-thumb { border-radius: 1.875rem; }
 
 
-.desktop.gagsPicker {
-  margin: auto; 
-  max-width: 57.875rem;
+@media (min-width: 72rem) {
+  .gagsPicker {
+    margin: auto; 
+    max-width: 57.875rem;
+  }
 }
 
 
 .gagsPickerWrap {
-  background: var(--blue-600);
-  border-radius: 1.5rem;
-  box-shadow: 0.1875rem 0.1875rem 0 0.1875rem var(--blue-700);
-  display: grid;
-  gap: 0.5rem;
-  grid-template-columns: repeat(4, 1fr);
-  max-width: 100%;
-  width: fit-content;
-}
-.mobile .gagsPickerWrap { 
   align-items: center;
-  background: 0;
-  border-radius: 0; 
-  box-shadow: none;
   display: flex;
   flex-direction: column;
-  padding-left: 0;
-  padding-right: 0;
+  gap: 0.5rem;
+  grid-template-columns: repeat(4, 1fr);
+  padding-inline: 0;
   width: 100%;
+}
+@media (min-width: 72rem) {
+  .gagsPickerWrap {
+    align-items: initial;
+    background: var(--blue-600);
+    border-radius: 1.5rem;
+    box-shadow: 0.1875rem 0.1875rem 0 0.1875rem var(--blue-700);
+    display: grid;
+    flex-direction: initial;
+    max-width: 100%;
+    padding-inline: 1rem;
+    width: fit-content;
+  }
 }
 
 
 .headingBtnWrap {
   align-items: center;
+  background: var(--grey-400);
+  border-radius: 1.25rem;
+  box-shadow: 0 0.25rem 0.25rem var(--grey-700);
   display: flex;
   flex-direction: column;
   gap: 1rem;
   grid-column: 4 / 5;
   grid-row: 1 / 2;
-}
-.mobile .headingBtnWrap {
-  background: var(--grey-400);
-  border-radius: 1.25rem;
-  box-shadow: 0 0.25rem 0.25rem var(--grey-700);
   margin-bottom: 0.5rem;
   max-width: 40.625rem;
   padding: 1rem;
@@ -58,6 +59,18 @@
     justify-content: space-between;
   }
 }
+@media (min-width: 72rem) {
+  .headingBtnWrap {
+    background: 0;
+    border-radius: 0;
+    box-shadow: none;
+    margin-bottom: 0;
+    max-width: none;
+    padding: 0;
+    width: auto;
+  }
+}
+
 
 .gagsPicker h3 {
   align-items: center;
@@ -65,7 +78,9 @@
   min-height: 2.25rem;
   text-align: center;
 }
-.gagsPicker.desktop h3 { width: 100%; }
+@media (min-width: 72rem) {
+  .gagsPicker h3 { width: 100%; }
+}
 /* "Choose Gags" Text */
 .gagsPicker h3 span { 
   display: block;
@@ -80,20 +95,23 @@
   --bar-width: 0.5rem;
   --thumb-color: var(--blue-500);
   --thumb-hover-color: var(--blue-400);
-  grid-column: 1 / 4;
-  grid-row: 1 / 2;
+  grid-column: 1 / 5;
+  grid-row: 2 / 3;
   margin: 0 auto;
   max-width: 100%;
   overflow-x: auto;
-  padding: 0.5rem;
-  width: fit-content;
-}
-.mobile .pickerWrap {
-  grid-column: 1 / 5;
-  grid-row: 2 / 3;
   padding: 1rem;
   padding-top: 0;
+  width: fit-content;
 }
+@media (min-width: 72rem) {
+  .pickerWrap {
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+    padding: 0.5rem;
+  }
+}
+
 
 .gagTrack { 
   align-items: center;
@@ -101,11 +119,17 @@
   box-shadow: 0 0.25rem 0.25rem var(--grey-700);
   display: flex; 
   gap: 0.375rem;
+  margin: auto;
   padding: 0.375rem;
   width: fit-content;
 }
-.mobile .gagTrack { margin: auto; }
-.desktop .gagTrack { box-shadow: 0 0.25rem 0.25rem var(--blue-700); }
+@media (min-width: 72rem) {
+  .gagTrack {
+    box-shadow: 0 0.25rem 0.25rem var(--blue-700);
+    margin: 0;
+  }
+
+}
 
 .gagTrack h4 {
   grid-column: 1 / 2;

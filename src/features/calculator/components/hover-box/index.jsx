@@ -4,10 +4,6 @@ import { Gag } from "~/features/core";
 import styles from "./index.module.css";
 
 
-/**
- * @param {String} device Whether the screen size is categorized as desktop or mobile.
- * @returns HoverBox component for displaying info about the hovered gag. 
- */
 export default function HoverBox() {
   const hoveredGag = useSelector((state) => state.calculator.gag.hoveredGag);
 

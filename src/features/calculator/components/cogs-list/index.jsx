@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { DeviceContext } from "~/App";
+import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleV2 } from '~/features/calculator';
 import { Cog, Combo, Gag } from '~/features/core';
@@ -23,7 +22,6 @@ function CogsListEntry({ level, isV2, baseHP, remainingHP }) {
 
 
 export default function CogsList() {
-  const device = useContext(DeviceContext);
 
   const gagsList = useSelector((state) => state.calculator.gag.gagsList);
   const isV2 = useSelector((state) => state.calculator.cog.isV2);
@@ -43,7 +41,7 @@ export default function CogsList() {
   const minDefeatedCogOverkill = maxSuccessfulCombo && maxSuccessfulCombo.damage['Total'] - maxSuccessfulCombo.cog.hp;
 
   return (
-    <div className={`${styles.cogsListContainer} ${device==="desktop" ? styles.desktop : styles.mobile}`}>
+    <div className={styles.cogsListContainer}>
       <span className={styles.bolt}></span>
       <span className={styles.bolt}></span>
       <span className={styles.bolt}></span>

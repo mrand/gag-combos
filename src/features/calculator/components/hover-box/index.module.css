@@ -1,9 +1,13 @@
 .hoverBox {
   background: #ffffff;
   border-radius: var(--radius-lg);
+  display: none;  /* not displayed on small screens */
   height: 100%;
   padding: 1rem;
   width: 100%;
+}
+@media (min-width: 72rem) {
+  .hoverBox { display: initial; }
 }
 
 

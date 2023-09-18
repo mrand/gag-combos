@@ -1,33 +1,40 @@
 .gagsList {
   grid-column: 1 / 5;
   width: 100%;
-}
-.gagsList.mobile {
-  width: 100%;
   max-width: 40.625rem;
   padding: 0 1rem;
 }
+@media (min-width: 72rem) {
+  .gagsList {
+    max-width: none;
+    padding: 0;
+  }
+}
+
 
 .gagsListContainer {
   --bar-width: 0.5rem;
   --thumb-color: var(--blue-500);
   --thumb-hover-color: var(--blue-400);
   align-items: center;
-  background: var(--grey-300);
+  background: var(--grey-400);
   border-radius: var(--radius-lg);
+  box-shadow: 0 0.25rem 0.25rem var(--grey-700);
   display: flex;
   gap: 0.5rem;
   margin: auto;
-  margin-top: 0.5rem;
+  margin-top: 0;
   max-width: 100%;
   min-height: 4rem;  /* prevent height change between h3 and gags */
   overflow-x: auto;
   padding: 0.5rem;
 }
-.mobile .gagsListContainer {
-  background: var(--grey-400);
-  box-shadow: 0 0.25rem 0.25rem var(--grey-700);
-  margin-top: 0;
+@media (min-width: 72rem) {
+  .gagsListContainer {
+    background: var(--grey-300);
+    box-shadow: none;
+    margin-top: 0.5rem;
+  }
 }
 
 .gagsListContainer h4 {

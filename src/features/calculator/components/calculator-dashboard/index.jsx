@@ -1,15 +1,12 @@
-import React, { useContext } from "react";
-import { DeviceContext } from "~/App";
+import React from "react";
 import { CogsList } from '~/features/calculator';
 import { GagsPicker } from '~/features/calculator';
 import styles from "./index.module.css";
 
 
 export default function CalculatorDashboard() {
-  const device = useContext(DeviceContext);
-
   return (
-    <div className={`wrapper ${styles.dashboard} ${device==="desktop" ? styles.desktop : styles.mobile}`}>
+    <div className={`wrapper ${styles.dashboard}`}>
       <div>
         <GagsPicker />
       </div>

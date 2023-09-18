@@ -7,9 +7,11 @@
   width: calc(100% - 2rem);
   position: relative;
 }
-.cogsListContainer.desktop { max-width: 56.25rem; }
+@media (min-width: 72rem) {
+  .cogsListContainer { max-width: 56.25rem; }
+}
 @media (min-width: 84rem) {
-  .cogsListContainer.desktop {
+  .cogsListContainer {
     max-width: none;
     width: 100%;
   }

@@ -5,10 +5,14 @@
   padding: 0;
   width: 100%;
 }
-.dashboard.desktop  {
-  gap: 1.5rem;
-  padding: 1.5rem;
+
+@media (min-width: 72rem) {
+  .dashboard {
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
 }
+
 @media (min-width: 84rem) {
   .dashboard {
     flex-direction: row-reverse;
@@ -16,4 +20,3 @@
   }
   .cogsListWrap { flex-basis: 30ch; }
 }
-
