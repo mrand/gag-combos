@@ -18,6 +18,26 @@ export default function Changelog() {
                 <div className='formatted-article'>
 
                   <section>
+                    <h3>2023-09-18</h3>
+                    <h4>Site Refactoring</h4>
+                    <ul>
+                      <li>
+                        Squashed a bug causing past users to be served an old version of Gag Combos Info indefinitely.
+                      </li>
+                      <li>
+                        Under-the-hood changes and refactoring to increase performance 
+                        and make the codebase easier to maintain and expand.
+                      </li>
+                      <li>
+                        Change the way Gag Combos Info scales to fit on your screen. 
+                        Previously, a single breakpoint between mobile and desktop was defined and used by all components.
+                        Now, each component adjusts based on the size of its content,
+                        and can accommodate more extreme font sizes.
+                      </li>
+                    </ul>
+                  </section>
+
+                  <section>
                     <h3>2023-07-24</h3>
                     <h4>Added Accuracies to Combo Recommendations!</h4>
                     <ul>
