@@ -1,33 +1,32 @@
-import React, { useState, useContext } from "react";
-import { DeviceContext } from "~/App"
+import React, { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import styles from "./index.module.css";
 
 
-function HeaderNav({ location }) {
+function HeaderNav({ location, mobileNavActive }) {
   return (
-    <nav>
+    <nav className={`${styles.headerNav} ${mobileNavActive ? styles.displayed : ""}`}>
       <Link 
         to="/" 
-        className={location === "/" ? styles.active : ""}
+        className={`${styles.headerLink} ${styles.navLink} ${location === "/" ? styles.active : ""}`}
       >
         Home
       </Link>
       <Link 
         to="/calculator"
-        className={location === "/calculator" ? styles.active : ""}
+        className={`${styles.headerLink} ${styles.navLink} ${location === "/calculator" ? styles.active : ""}`}
       >
         Calculator
       </Link>
       <Link 
         to="/recommendations"
-        className={location === "/recommendations" ? styles.active : ""}
+        className={`${styles.headerLink} ${styles.navLink} ${location === "/recommendations" ? styles.active : ""}`}
       >
         Recommendations
       </Link>
       <Link 
         to="/faq" 
-        className={location === "/faq" ? styles.active : ""}
+        className={`${styles.headerLink} ${styles.navLink} ${location === "/faq" ? styles.active : ""}`}
       >
         FAQ
       </Link>
@@ -81,55 +80,45 @@ function MobileNavBg({ setMobileNavActive }) {
 
 
 export default function Header() {
-  const device = useContext(DeviceContext);
   const location = useLocation().pathname;
   const [mobileNavActive, setMobileNavActive] = useState(false);
 
   return (
     <>
-      <header className={`${styles.header} ${device==="desktop" ? styles.desktop : ""}`}>
+      <header className={styles.header}>
         <div className={`wrapper ${styles.headerWrap}`}>
+
           {/* Logo */}
           <h1>
             <Link 
               to="/" 
               title="Navigate to Homepage"
-              className={(location === "/") ? styles.active : ""}
+              className={`${styles.headerLink} ${styles.logoLink} ${(location === "/") ? styles.active : ""}`}
             >
-              {device==="mobile" ? "GC" : "Gag Combos Info"}
+              <span className={styles.logoTextSm}>GC</span>
+              <span className={styles.logoTextLg}>Gag Combos Info</span>
             </Link>
           </h1>
-          {/* Desktop Nav */}
-          {
-            device==="desktop" ? (
-              <HeaderNav location={location} />
-            ) : null
-          }
+
           {/* Hamburger Button */}
-          {
-            device==="mobile" ? (
-              <HamburgerButton 
-                mobileNavActive={mobileNavActive} 
-                setMobileNavActive={setMobileNavActive}
-              />
-            ) : null
-          }
+          <HamburgerButton 
+            mobileNavActive={mobileNavActive} 
+            setMobileNavActive={setMobileNavActive}
+          />
+
+          {/* Navigation */}
+          <HeaderNav location={location} mobileNavActive={mobileNavActive} />
+        
         </div>
-        {/* Mobile Nav */}
-        {
-          device==="mobile" && mobileNavActive ? (
-            <div className={`wrapper ${styles.mobileHeaderNav}`}>
-              <HeaderNav location={location} />          
-            </div>
-          ) : null
-        }
       </header>
+
       {/* Mobile Nav Background */}
       {
-        device==="mobile" && mobileNavActive ? (
+        mobileNavActive && (
           <MobileNavBg setMobileNavActive={setMobileNavActive} />
-        ) : null
+        )
       }
+
     </>
   );
 }
