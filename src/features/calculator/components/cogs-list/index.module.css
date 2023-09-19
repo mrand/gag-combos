@@ -8,7 +8,7 @@
   position: relative;
 }
 @media (min-width: 62rem) {
-  .cogsListContainer { max-width: 56.25rem; }
+  .cogsListContainer { max-width: 54rem; }
 }
 @media (min-width: 84rem) {
   .cogsListContainer {
@@ -110,6 +110,7 @@
 @media (min-width: 62rem) {
   .cogsList {
     display: flex;
+    max-height: none;
     padding-bottom: 1rem;
     padding-inline-end: 0;
   }
@@ -117,7 +118,6 @@
 @media (min-width: 84rem) {
   .cogsList {
     flex-direction: column;
-    max-height: 32ch;
     padding-bottom: 0;
     padding-inline-end: 0.5rem;
   }

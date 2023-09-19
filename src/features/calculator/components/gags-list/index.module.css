@@ -1,12 +1,12 @@
 .gagsList {
-  grid-column: 1 / 5;
-  width: 100%;
+  grid-column: span 4;
   max-width: 40.625rem;
-  padding: 0 1rem;
+  padding-inline: 1rem;
+  width: 100%;
 }
 @media (min-width: 62rem) {
   .gagsList {
-    max-width: none;
+    max-width: 52rem;
     padding: 0;
   }
 }
@@ -23,7 +23,6 @@
   display: flex;
   gap: 0.5rem;
   margin: auto;
-  margin-top: 0;
   max-width: 100%;
   min-height: 4rem;  /* prevent height change between h3 and gags */
   overflow-x: auto;
@@ -33,7 +32,6 @@
   .gagsListContainer {
     background: var(--grey-300);
     box-shadow: none;
-    margin-top: 0.5rem;
   }
 }
 
