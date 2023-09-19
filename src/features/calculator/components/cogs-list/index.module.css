@@ -103,17 +103,21 @@
   gap: 0.5rem;
   grid-template-columns: repeat( auto-fill, minmax( min(10rem, 100%), 1fr) );
   overflow: auto;
+  max-height: 35ch;
+  padding-inline-end: 0.5rem;
 }
 
 @media (min-width: 62rem) {
   .cogsList {
     display: flex;
-    padding-bottom: 0.5rem;
+    padding-bottom: 1rem;
+    padding-inline-end: 0;
   }
 }
 @media (min-width: 84rem) {
   .cogsList {
     flex-direction: column;
+    max-height: 32ch;
     padding-bottom: 0;
     padding-inline-end: 0.5rem;
   }

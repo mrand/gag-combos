@@ -38,11 +38,8 @@
 }
 
 
-.headingBtnWrap {
+.headingArea {
   align-items: center;
-  background: var(--grey-400);
-  border-radius: 1.25rem;
-  box-shadow: 0 0.25rem 0.25rem var(--grey-700);
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -50,17 +47,16 @@
   grid-row: 1 / 2;
   margin-bottom: 0.5rem;
   max-width: 40.625rem;
-  padding: 1rem;
   width: calc(100% - 2rem);
 }
-@media (min-width: 25rem) {
-  .headingBtnWrap {
+@media (min-width: 20rem) {
+  .headingArea {
     flex-direction: row;
     justify-content: space-between;
   }
 }
 @media (min-width: 62rem) {
-  .headingBtnWrap {
+  .headingArea {
     background: 0;
     border-radius: 0;
     box-shadow: none;
@@ -72,24 +68,15 @@
   }
 }
 
+.headingBtnWrap {
+  display: flex;
+  gap: 0.5rem;
+}
 
 .gagsPicker h3 {
-  align-items: center;
-  display: flex;
-  min-height: 2.25rem;
   text-align: center;
+  min-height: 2rem;
 }
-@media (min-width: 62rem) {
-  .gagsPicker h3 { width: 100%; }
-}
-/* "Choose Gags" Text */
-.gagsPicker h3 span { 
-  display: block;
-  padding: 0.25rem;
-  width: 100%;
-}
-/* "Reset Gags" Button */
-.gagsPicker h3 button { width: 100%; }
 
 
 .pickerWrap {

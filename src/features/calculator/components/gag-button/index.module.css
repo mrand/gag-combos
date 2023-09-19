@@ -14,7 +14,7 @@
   .gagButton:hover { box-shadow: 0 0.125rem 0.25rem var(--grey-700) inset; }
 }
 
-.gagIcon { width: 2.125rem; }
+.gagIcon { width: 2rem; }
 
 
 .organicIcon {

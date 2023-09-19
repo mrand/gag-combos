@@ -66,7 +66,7 @@ export default function CalculatorDashboard() {
           <div className={`${styles.tab} ${tab==="gags" ? styles.displayed : ""} ${styles.gagsTab}`}>
             <GagsPicker />
           </div>
-          <div className={`${styles.tab} ${tab==="cogs" ? styles.displayed : ""} ${styles.cogsListWrap}`}>
+          <div className={`${styles.tab} ${tab==="cogs" ? styles.displayed : ""} ${styles.cogsListTab}`}>
             <CogsList />
           </div>
         </div>

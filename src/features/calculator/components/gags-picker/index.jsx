@@ -1,12 +1,11 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { resetGags, addGag } from "~/features/calculator";
 import { trackColors, Gag } from "~/features/core";
-import { ToggleOrganic } from "~/features/calculator";
-import { GagButton } from "~/features/calculator";
-import { GagsList } from "~/features/calculator";
-import { HoverBox } from "~/features/calculator";
-import { DamageCount } from "~/features/calculator";
+import {
+  resetGags, addGag,
+  ToggleOrganic, GagButton, GagsList, HoverBox, DamageCount
+} from "~/features/calculator";
+import { ResetButton } from "~/features/ui";
 import styles from "./index.module.css";
 
 
@@ -78,23 +77,16 @@ export default function GagsPicker() {
   return (
     <div className={styles.gagsPicker}>
       <div className={`wrapper ${styles.gagsPickerWrap}`}>
-        <div className={styles.headingBtnWrap}>
-          <h3>
-            {
-              (gagsList.length > 0) ? (
-                <button
-                  aria-label="Reset Calculator"
-                  className="btn danger"
-                  onClick={() => dispatch(resetGags())}
-                  title="Reset Calculator"
-                >
-                  Reset Gags
-                </button>
-              ) : (
-                <span>Choose Gags</span>
-              )
-            }
-          </h3>
+        <div className={styles.headingArea}>
+          <div className={styles.headingBtnWrap}>
+            <h2>Gags</h2>
+            <ResetButton 
+              active={gagsList.length > 0}
+              clickHandler={() => dispatch(resetGags())}
+              infoText="Reset Calculator Gags"
+              customStyles={{ "--_bg":"var(--red-500)" }}
+            />
+          </div>
           <HoverBox />
           <ToggleOrganic />
         </div>
