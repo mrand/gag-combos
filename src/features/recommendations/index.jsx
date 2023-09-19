@@ -3,7 +3,7 @@ import recommendationsReducer, {
   resetCombos, setComboType, setComboSort, toggleGagTrack, toggleCombosExpanded,
   resetGagModal, setGagModal,
   resetToons, toggleToonActive, updateToonOrganic
-} from './recommendations.slice';
+} from "./recommendations.slice";
 
 import combosData from "./data/combos.data.json";
 

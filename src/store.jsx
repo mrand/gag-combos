@@ -1,19 +1,19 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { calculatorReducer } from '~/features/calculator';
-import { recommendationsReducer } from '~/features/recommendations';
+import { configureStore } from "@reduxjs/toolkit";
+import { calculatorReducer } from "~/features/calculator";
+import { recommendationsReducer } from "~/features/recommendations";
 
 
 // Handle any Major Redux Store Changes During Development
 const lastRefactoredStore = "202307171029";
-const localRefactorDate = localStorage.getItem('lrs');
+const localRefactorDate = localStorage.getItem("lrs");
 // if local refactored date doesn't match last refactored date, clear local storage
 if (lastRefactoredStore !== localRefactorDate) {
   localStorage.clear();
-  localStorage.setItem('lrs', lastRefactoredStore);
+  localStorage.setItem("lrs", lastRefactoredStore);
 }
 
 
-const persistentState = localStorage.getItem('state') ? JSON.parse(localStorage.getItem('state')) : {};
+const persistentState = localStorage.getItem("state") ? JSON.parse(localStorage.getItem("state")) : {};
 
 const store = configureStore({
   reducer: {
@@ -26,7 +26,7 @@ const store = configureStore({
 store.subscribe(() => {
   const state = store.getState();
   const serializedState = JSON.stringify(state);
-  localStorage.setItem('state', serializedState);
+  localStorage.setItem("state", serializedState);
 });
 
 export default store;

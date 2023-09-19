@@ -1,11 +1,11 @@
-import { gagsData } from '~/features/core';
-import { Gag } from '~/features/core';
-import { Combo } from '~/features/core';
+import { gagsData } from "~/features/core";
+import { Gag } from "~/features/core";
+import { Combo } from "~/features/core";
 
 
 // eslint-disable-next-line no-extend-native
 Array.prototype.hasNonZeroMin = function(attrib) {
-  const checker = (o, i) => typeof(o) === 'object' && o[i]
+  const checker = (o, i) => typeof(o) === "object" && o[i]
   return (this.length && this.reduce(function(prev, curr){
       const prevOk = checker(prev, attrib);
       const currOk = checker(curr, attrib);
@@ -33,13 +33,13 @@ export default class FindCombo {
   _sortTracks(tracks) {
     // Pre-defined Order
     let ordering = {
-      'Toon-Up': 1,
-      'Trap':    2,
-      'Lure':    3,
-      'Sound':   4,
-      'Throw':   5,
-      'Squirt':  6,
-      'Drop':    7
+      "Toon-Up": 1,
+      "Trap":    2,
+      "Lure":    3,
+      "Sound":   4,
+      "Throw":   5,
+      "Squirt":  6,
+      "Drop":    7
     }
 
     return tracks.sort(function(a,b) {
@@ -57,7 +57,7 @@ export default class FindCombo {
         thisToonOrgs.push(track);          // add to thisToonOrgs
         toonOrgsCopy.splice(trackIdx, 1);  // remove from toonOrgsCopy
       } else {
-        thisToonOrgs.push('');
+        thisToonOrgs.push("");
       }
     });
     return thisToonOrgs;
@@ -172,9 +172,9 @@ export default class FindCombo {
     while (!combo.defeatsCog) {
 
       // find minimum level gag (filter out Lure and Toon-Up, which have 0 damage)
-      let filteredGags = comboGags.filter(function(gag) { return gag.damage['Base'] !== 0; });
-      let minNonzeroLevelGag = filteredGags.hasNonZeroMin('level');
-      let minNonzeroLevel = filteredGags.hasNonZeroMin('level').level;
+      let filteredGags = comboGags.filter(function(gag) { return gag.damage["Base"] !== 0; });
+      let minNonzeroLevelGag = filteredGags.hasNonZeroMin("level");
+      let minNonzeroLevel = filteredGags.hasNonZeroMin("level").level;
       let minNonzeroIndex = comboGags.findIndex(gag => (gag === minNonzeroLevelGag));
 
 
@@ -199,7 +199,7 @@ export default class FindCombo {
       // (a 4 gag combo will have a maximum of 28 iterations)
       iterCount++;
       if (iterCount>28) {
-        throw new Error('Welp, the while loop was stuck iterating upwards.'); 
+        throw new Error("Welp, the while loop was stuck iterating upwards."); 
       }
 
     };
@@ -227,7 +227,7 @@ export default class FindCombo {
         );
 
         // ignore Passes, Toon-Up, Lure, Duds
-        if (currCombo.gags[i].damage['Base'] > 0) {
+        if (currCombo.gags[i].damage["Base"] > 0) {
 
           let currGagLvls = JSON.parse(JSON.stringify(gagLvls));
 
@@ -266,7 +266,7 @@ export default class FindCombo {
       // and this can surely be more restrictive - but it should never be triggered anyway.)
       iterCount++;
       if (iterCount>21) {
-        throw new Error('Welp, the while loop was stuck iterating downwards.'); 
+        throw new Error("Welp, the while loop was stuck iterating downwards."); 
       }
     }
     
@@ -282,7 +282,7 @@ export default class FindCombo {
 
 // let testCombo = new FindCombo(
 //   new Cog(4),
-//   ['Throw', 'Throw', 'Throw', 'Throw'],  // gag combo tracks
-//   ['None', 'None', 'None', 'None'],      // toon organic gags
+//   ["Throw", "Throw", "Throw", "Throw"],  // gag combo tracks
+//   ["None", "None", "None", "None"],      // toon organic gags
 // );
 // console.log(`${testCombo.solution}`);

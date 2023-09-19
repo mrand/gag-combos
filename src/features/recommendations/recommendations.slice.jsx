@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 
 export const initialRecommendationsState = {
@@ -12,16 +12,16 @@ export const initialRecommendationsState = {
   },
   combos: {
     hasUpdates: false,
-    type: 'All',
-    sort: 'Default',
+    type: "All",
+    sort: "Default",
     filters: {
-      'Toon-Up': true,
-      'Trap':    true,
-      'Lure':    true,
-      'Sound':   true,
-      'Throw':   true,
-      'Squirt':  true,
-      'Drop':    true
+      "Toon-Up": true,
+      "Trap":    true,
+      "Lure":    true,
+      "Sound":   true,
+      "Throw":   true,
+      "Squirt":  true,
+      "Drop":    true
     },
     expanded: false,
   },
@@ -31,17 +31,17 @@ export const initialRecommendationsState = {
   toons: {
     hasUpdates: false,
     toonList: [
-      { active: false, organic: 'None' },  // Toon 1
-      { active: false, organic: 'None' },  // Toon 2
-      { active: false, organic: 'None' },  // Toon 3
-      { active: false, organic: 'None' },  // Toon 4
+      { active: false, organic: "None" },  // Toon 1
+      { active: false, organic: "None" },  // Toon 2
+      { active: false, organic: "None" },  // Toon 3
+      { active: false, organic: "None" },  // Toon 4
     ]
   }
 }
 
 
 export const recommendationsSlice = createSlice({
-  name: 'recommendations',
+  name: "recommendations",
   initialState: initialRecommendationsState,
   reducers: {
     // Cog

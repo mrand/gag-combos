@@ -13,9 +13,9 @@ export default function Changelog() {
           <Header />
           <main>
             <article>
-              <div className='wrapper'>
-                <h2 className='standard-heading'>Changelog</h2>
-                <div className='formatted-article'>
+              <div className="wrapper">
+                <h2 className="standard-heading">Changelog</h2>
+                <div className="formatted-article">
 
                   <section>
                     <h3>2023-09-18</h3>
@@ -137,13 +137,13 @@ export default function Changelog() {
                   <section>
                     <h3>2022-11-01</h3>
                     <h4>Website Redesign!</h4>
-                    <div className='block'>
+                    <div className="block">
                       <b>New Homepage</b>
                       <p>
                         Introduced a new, flashier homepage!
                       </p>
                     </div>
-                    <div className='block'>
+                    <div className="block">
                       <b>Revamped Dashboard Page</b>
                       <ul>
                         <li>Combo gags are now colored to match their gag track.</li>
@@ -151,7 +151,7 @@ export default function Changelog() {
                         <li>Fixed a bug with resetting toons which caused toons to disappear!</li>
                       </ul>
                     </div>
-                    <div className='block'>
+                    <div className="block">
                       <b>Other New Pages</b>
                       <ul>
                         <li>FAQ Page</li>
@@ -159,14 +159,14 @@ export default function Changelog() {
                         <li>Privacy Policy Page</li>
                       </ul>
                     </div>
-                    <div className='block'>
+                    <div className="block">
                       <b>A Better Header (and Footer)</b>
                       <ul>
                         <li>Header and its links have been restyled.</li>
                         <li>Footer includes links to ALL website pages.</li>
                       </ul>
                     </div>
-                    <div className='block'>
+                    <div className="block">
                       <b>Site Structure</b>
                       <p>
                         Various under-the-hood changes to support multiple website pages and upcoming features!

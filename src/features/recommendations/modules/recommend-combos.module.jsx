@@ -1,5 +1,5 @@
 import FindCombo from "./find-combo.module";
-import { combosData } from '~/features/recommendations';
+import { combosData } from "~/features/recommendations";
 
 
 /**
@@ -10,8 +10,8 @@ import { combosData } from '~/features/recommendations';
     cog=null,
     numToons=0,
     toonOrgs=[],
-    comboType='All',
-    comboSort='None',
+    comboType="All",
+    comboSort="None",
     gagFilters=null
   ) {
     this.cog = cog;
@@ -31,7 +31,7 @@ import { combosData } from '~/features/recommendations';
 
     // Init
     let gagComboTracks = [];
-    if (this.comboType === 'Basic') {
+    if (this.comboType === "Basic") {
       gagComboTracks = gagComboTracks.concat(combosData[String(this.numToons)]["basic"]);
     } else {
       if (!this.cog || !this.cog.lured) {
@@ -96,13 +96,13 @@ import { combosData } from '~/features/recommendations';
     }
 
     // ...Best Combos Only
-    if (this.comboType === 'Best') {
+    if (this.comboType === "Best") {
       recSolns = recSolns.filter(function(combo) {
         return (
           // remove combos marked as bad
-          combo.info.indicator !== 'bad'
+          combo.info.indicator !== "bad"
           // remove combos with total damage below hp+threshold
-          && combo.damage['Total'] <= combo.cog.hp + Math.ceil(Math.sqrt(combo.cog.hp) / 2)
+          && combo.damage["Total"] <= combo.cog.hp + Math.ceil(Math.sqrt(combo.cog.hp) / 2)
           // remove combos with accuracy below 90%
           && combo.accuracy >= 90
         ); 
@@ -114,7 +114,7 @@ import { combosData } from '~/features/recommendations';
     
     // ...Remove Non-Unique Combos
     recSolns = recSolns.reduce(function (p, c) {
-      // if the next object's 'counts' is not found in the output array
+      // if the next object's "counts" is not found in the output array
       // push the object into the output array
       if (!p.some(function (el) { return JSON.stringify(el.counts) === JSON.stringify(c.counts); })) p.push(c);
       return p;
@@ -130,15 +130,15 @@ import { combosData } from '~/features/recommendations';
     // Custom Sort...
 
     // ...by Damage
-    if (this.comboSort === 'Damage') {
+    if (this.comboSort === "Damage") {
       recSolns.sort(function(combo1, combo2) {
-        if (combo1.damage['Total'] === combo2.damage['Total']) return 0;
-        return (combo1.damage['Total'] < combo2.damage['Total']) ? -1 : 1
+        if (combo1.damage["Total"] === combo2.damage["Total"]) return 0;
+        return (combo1.damage["Total"] < combo2.damage["Total"]) ? -1 : 1
       });
     }
 
     // ...by Accuracy
-    if (this.comboSort === 'Accuracy') {
+    if (this.comboSort === "Accuracy") {
       recSolns.sort(function(combo1, combo2) {
         if (combo1.accuracy === combo2.accuracy) return 0;
         return (combo1.accuracy < combo2.accuracy) ? 1 : -1
@@ -146,25 +146,25 @@ import { combosData } from '~/features/recommendations';
     }
 
     // ...by Damage+Accuracy
-    if (this.comboSort === 'Damage+Accuracy') {
+    if (this.comboSort === "Damage+Accuracy") {
       recSolns.sort(function(combo1, combo2) {
         // prefer higher accuracy for same damage combos 
-        if (combo1.damage['Total'] === combo2.damage['Total']) {
+        if (combo1.damage["Total"] === combo2.damage["Total"]) {
           if (combo1.accuracy === combo2.accuracy) return 0;
           return (combo1.accuracy > combo2.accuracy) ? -1 : 1;
         }
         // sort by damage
-        return (combo1.damage['Total'] < combo2.damage['Total']) ? -1 : 1
+        return (combo1.damage["Total"] < combo2.damage["Total"]) ? -1 : 1
       });
     }
 
     // ...by Accuracy+Damage
-    if (this.comboSort === 'Accuracy+Damage') {
+    if (this.comboSort === "Accuracy+Damage") {
       recSolns.sort(function(combo1, combo2) {
         // prefer lower damage for same accuracy combos 
         if (combo1.accuracy === combo2.accuracy) {
-          if (combo1.damage['Total'] === combo2.damage['Total']) return 0;
-          return (combo1.damage['Total'] > combo2.damage['Total']) ? 1 : -1;
+          if (combo1.damage["Total"] === combo2.damage["Total"]) return 0;
+          return (combo1.damage["Total"] > combo2.damage["Total"]) ? 1 : -1;
         }
         // sort by accuracy
         return (combo1.accuracy < combo2.accuracy) ? 1 : -1
@@ -178,12 +178,12 @@ import { combosData } from '~/features/recommendations';
     recSolns.forEach((combo) => {
       combo.gags.sort(function(a,b) {
 
-        // Put 'Pass' at End
-        if (a.name === 'Pass') return 1;
-        if (b.name === 'Pass') return -1;
+        // Put "Pass" at End
+        if (a.name === "Pass") return 1;
+        if (b.name === "Pass") return -1;
         
         // Sort same track gags by highest attack damage first
-        // if (a.track === b.track) return (a.damage['Attack'] > b.damage['Attack']) ? -1 : 1;
+        // if (a.track === b.track) return (a.damage["Attack"] > b.damage["Attack"]) ? -1 : 1;
         
         // Otherwise Preserve Order
         return 0;
@@ -195,26 +195,26 @@ import { combosData } from '~/features/recommendations';
 
   _checkForError() {
     if (this.numToons === 0) {
-      return 'You need at least 1 toon to defeat the cogs! Use the \'Toons\' section to configure your toons.';
+      return "You need at least 1 toon to defeat the cogs! Use the \"Toons\" section to configure your toons.";
     } else if (!this.cog) {
-      return 'There is no cog to defeat! Use the \'Cog\' section to choose a level.';
+      return "There is no cog to defeat! Use the \"Cog\" section to choose a level.";
     } else if (this.recCombos.length === 0) {
-      if (this.comboType === 'Best') {
-        return 'No recommended "best" combos! Try another filter instead.';
+      if (this.comboType === "Best") {
+        return "No recommended \"best\" combos! Try another filter instead.";
       } else if (
         JSON.stringify(this.gagFilters) !== JSON.stringify({
-          'Toon-Up': true,
-          'Trap': true,
-          'Lure': true,
-          'Sound': true,
-          'Throw': true,
-          'Squirt': true,
-          'Drop': true
+          "Toon-Up": true,
+          "Trap": true,
+          "Lure": true,
+          "Sound": true,
+          "Throw": true,
+          "Squirt": true,
+          "Drop": true
         })
       ) {
-        return 'You may need more gag tracks to defeat this cog!'
+        return "You may need more gag tracks to defeat this cog!"
       } else {
-        return 'You need more toons to defeat this cog!';
+        return "You need more toons to defeat this cog!";
       }
     }
     return null;

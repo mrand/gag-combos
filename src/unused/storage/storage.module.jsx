@@ -29,7 +29,7 @@ export default class Storage {
    * TODO: check types too!
   */
   _validateLocalState() {
-    const local = localStorage.getItem('state') ? JSON.parse(localStorage.getItem('state')) : {};
+    const local = localStorage.getItem("state") ? JSON.parse(localStorage.getItem("state")) : {};
     let state = JSON.parse(JSON.stringify(local));
     state = this._mirrorKeys(this.schema, state);
     return state;
@@ -57,7 +57,7 @@ export default class Storage {
     
     // if Dictionary
     else if (
-      typeof obj1 === 'object' &&
+      typeof obj1 === "object" &&
       !Array.isArray(obj1) &&
       obj1 !== null
     ) {

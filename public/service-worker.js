@@ -24,11 +24,11 @@
  * and so we must keep the file indefinitely to ensure no user gets stuck with the old service worker on an outdated version of the website.
 */
 
-self.addEventListener('install', function(e) {
+self.addEventListener("install", function(e) {
   self.skipWaiting();
 });
 
-self.addEventListener('activate', function(e) {
+self.addEventListener("activate", function(e) {
   self.registration.unregister()
     .then(function() {
       return self.clients.matchAll();

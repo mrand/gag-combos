@@ -1,6 +1,6 @@
 import React from "react";
-import { CogsList } from '~/features/calculator';
-import { GagsPicker } from '~/features/calculator';
+import { CogsList } from "~/features/calculator";
+import { GagsPicker } from "~/features/calculator";
 import styles from "./index.module.css";
 
 

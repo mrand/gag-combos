@@ -1,13 +1,13 @@
 // THIS FILE CURRENTLY UNUSED
 
-// import toons from './toons.json';
+// import toons from "./toons.json";
 
 export default class Toon {
-  constructor(active=true, organic='None') {
+  constructor(active=true, organic="None") {
     this.active = active;
     this.organic = organic;
     // this.species = this.randomSpecies();
-    // this.gender = (this.fiftyFiftyChance()) ? 'Boy' : 'Girl';
+    // this.gender = (this.fiftyFiftyChance()) ? "Boy" : "Girl";
     // this.color = this.randomColor();
     // this.name = this.randomName();
   }
@@ -16,7 +16,7 @@ export default class Toon {
     this.active = !this.active; 
   }
 
-  updateOrganic(organic='None') {
+  updateOrganic(organic="None") {
     this.organic = organic;
   }
 
@@ -25,32 +25,32 @@ export default class Toon {
   // }
 
   // randomSpecies() {
-  //   let species = toons['species'];
+  //   let species = toons["species"];
   //   return species[Math.floor(Math.random()*species.length)];
   // }
 
   // randomColor() {
-  //   let colorsObj = toons['colors'];
+  //   let colorsObj = toons["colors"];
 
   //   let colorNames;
   //   // special case cat can be black
-  //   if (this.species === 'Cat') {
-  //     colorNames = colorsObj['names'].concat(colorsObj['Cat']);
+  //   if (this.species === "Cat") {
+  //     colorNames = colorsObj["names"].concat(colorsObj["Cat"]);
   //   // special case bear can be white
-  //   } else if (this.species === 'Bear') {
-  //     colorNames = colorsObj['names'].concat(colorsObj['Bear']);
+  //   } else if (this.species === "Bear") {
+  //     colorNames = colorsObj["names"].concat(colorsObj["Bear"]);
   //   } else {
-  //     colorNames = colorsObj['names'];
+  //     colorNames = colorsObj["names"];
   //   }
 
   //   let randColor = colorNames[Math.floor(Math.random()*colorNames.length)];
-  //   let colorVal = colorsObj['values'][randColor];
+  //   let colorVal = colorsObj["values"][randColor];
 
   //   return [randColor, colorVal];
   // }
 
   // randomName() {
-  //   let names = toons['names'];
+  //   let names = toons["names"];
 
   //   let hasTitle = this.fiftyFiftyChance();
   //   let hasFirstName = this.fiftyFiftyChance();
@@ -58,27 +58,27 @@ export default class Toon {
 
   //   let nameParts = [];
   //   if (hasTitle) {
-  //     nameParts.push(names['title'][Math.floor(Math.random()*names['title'].length)]);
+  //     nameParts.push(names["title"][Math.floor(Math.random()*names["title"].length)]);
   //   }
   //   if (hasFirstName) {
-  //     let first = names['first'][Math.floor(Math.random()*names['first'].length)];
+  //     let first = names["first"][Math.floor(Math.random()*names["first"].length)];
   //     // special case - von
-  //     if (first === 'von' && !hasTitle) {
+  //     if (first === "von" && !hasTitle) {
   //       first = first.charAt(0).toUpperCase() + first.slice(1)
   //     }
   //     nameParts.push(first);
   //   }
   //   if (hasLastName) {
-  //     let last0 = names['last'][0][Math.floor(Math.random()*names['last'][0].length)];
-  //     let last1 = names['last'][1][Math.floor(Math.random()*names['last'][1].length)];
+  //     let last0 = names["last"][0][Math.floor(Math.random()*names["last"][0].length)];
+  //     let last1 = names["last"][1][Math.floor(Math.random()*names["last"][1].length)];
   //     // special case - Mc and Mac
-  //     if (last0 === 'Mc' || last0 === 'Mac') {
+  //     if (last0 === "Mc" || last0 === "Mac") {
   //       last1 = last1.charAt(0).toUpperCase() + last1.slice(1)
   //     }
   //     nameParts.push(last0+last1);
   //   }
     
-  //   return nameParts.join(' ');
+  //   return nameParts.join(" ");
   // }
 
   toString() {
@@ -89,5 +89,5 @@ export default class Toon {
   }
 }
 
-// let testToon = new Toon('Throw');
+// let testToon = new Toon("Throw");
 // console.log(`${testToon}`);

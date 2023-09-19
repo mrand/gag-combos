@@ -42,7 +42,7 @@
   background-image: url("/img/home/splash-7.webp");
   background-size: auto 100%;
   bottom: 0;
-  content: '';
+  content: "";
   left: 0;
   position: absolute;
   top: 0;
@@ -53,7 +53,7 @@
 }
 .gagImages::after {
   background: var(--grey-400);
-  content: '';
+  content: "";
   inset: 0;
   opacity: 0.6;
   position: absolute;

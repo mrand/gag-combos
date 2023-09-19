@@ -14,7 +14,7 @@
 /* modal background */
 .gagModal::before {
   background: #000000;
-  content: '';
+  content: "";
   height: 100%;
   left: 0;
   opacity: 0.75;

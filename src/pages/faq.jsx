@@ -13,14 +13,14 @@ export default function FAQ() {
           <Header />
           <main>
             <article>
-              <div className='wrapper'>
-                <h2 className='standard-heading'>FAQ</h2>
-                <div className='formatted-article'>
+              <div className="wrapper">
+                <h2 className="standard-heading">FAQ</h2>
+                <div className="formatted-article">
 
                   <section>
                     <h3>About Toontown</h3>
                     <Accordion
-                      title='What is Toontown?'
+                      title="What is Toontown?"
                     >
                       <p>
                         Toontown Online was an MMORPG, initially developed by Disney and Schell Games in 2003.
@@ -31,7 +31,7 @@ export default function FAQ() {
                       </p>
                     </Accordion>
                     <Accordion
-                      title='What does this website do for Toontown?'
+                      title="What does this website do for Toontown?"
                     >
                       <p>
                         Toontown players play as "Toons", and engage in turn-based battles with enemies known as "Cogs".
@@ -45,7 +45,7 @@ export default function FAQ() {
                       </p>
                     </Accordion>
                     <Accordion
-                      title='Does this website work for Toontown: Corporate Clash?'
+                      title="Does this website work for Toontown: Corporate Clash?"
                     >
                       <p>
                         At this time, Gag Combos Info only provides information about Toontown Rewritten, 
@@ -54,7 +54,7 @@ export default function FAQ() {
                       </p>
                     </Accordion>
                     <Accordion
-                      title='What other resources besides Gag Combos Info can I use?'
+                      title="What other resources besides Gag Combos Info can I use?"
                     >
                       <p>
                         <b>
@@ -68,8 +68,8 @@ export default function FAQ() {
                         <li>
                           <a
                             href="https://toonhq.org/"
-                            rel='noopener noreferrer'
-                            target='_blank'
+                            rel="noopener noreferrer"
+                            target="_blank"
                           >
                             toonhq<wbr/>.org
                           </a>
@@ -82,8 +82,8 @@ export default function FAQ() {
                         <li>
                           <a
                             href="https://big.brain.town/"
-                            rel='noopener noreferrer'
-                            target='_blank'
+                            rel="noopener noreferrer"
+                            target="_blank"
                           >
                             big<wbr />.brain<wbr />.town
                           </a>
@@ -91,8 +91,8 @@ export default function FAQ() {
                         <li>
                           <a
                             href="https://zzzachzzz.github.io/toontown-combos/"
-                            rel='noopener noreferrer'
-                            target='_blank'
+                            rel="noopener noreferrer"
+                            target="_blank"
                           >
                             zzzachzzz<wbr />.github<wbr />.io/<wbr />toontown-combos
                           </a>
@@ -105,8 +105,8 @@ export default function FAQ() {
                         <li>
                           <a
                             href="https://toontownrewritten.fandom.com/wiki/Gags"
-                            rel='noopener noreferrer'
-                            target='_blank'
+                            rel="noopener noreferrer"
+                            target="_blank"
                           >
                             toontownrewritten<wbr />.fandom.com/<wbr />wiki/<wbr />Gags
                           </a>
@@ -119,8 +119,8 @@ export default function FAQ() {
                         <li>
                           <a
                             href="https://github.com/QED1224/Toontown-Resources/blob/master/README.md"
-                            rel='noopener noreferrer'
-                            target='_blank'
+                            rel="noopener noreferrer"
+                            target="_blank"
                           >
                             github.com/<wbr />QED1224/<wbr />Toontown-Resources/<wbr />blob/<wbr />master/<wbr />README.md
                           </a>
@@ -133,7 +133,7 @@ export default function FAQ() {
                   <section>
                     <h3>Calculator Page</h3>
                     <Accordion
-                      title='How do I use this website&apos;s Calculator Page?'
+                      title="How do I use this website&apos;s Calculator Page?"
                     >
                       <ul>
                         <li>Select gags for your combo from the Gags Picker.</li>
@@ -148,7 +148,7 @@ export default function FAQ() {
                   <section>
                     <h3>Recommendations Page</h3>
                     <Accordion
-                      title='How do I use this website&apos;s Recommendations Page?'
+                      title="How do I use this website&apos;s Recommendations Page?"
                     >
                       <ul>
                         <li>
@@ -168,14 +168,14 @@ export default function FAQ() {
                       </ul>
                     </Accordion>
                     <Accordion
-                      title='How are &quot;Basic&quot; Combos Chosen on the Recommendations Page?'
+                      title="How are &quot;Basic&quot; Combos Chosen on the Recommendations Page?"
                     >
                       <p>
                         "Basic" Gag Combos are combos where all toons use the same gag track.
                       </p>
                     </Accordion>
                     <Accordion
-                      title='How are &quot;Best&quot; Combos Chosen on the Recommendations Page?'
+                      title="How are &quot;Best&quot; Combos Chosen on the Recommendations Page?"
                     >
                       <p>
                         "Best" Gag Combos are arbitrarily defined as combos meeting the following criteria: 
@@ -199,7 +199,7 @@ export default function FAQ() {
                       </ul>
                     </Accordion>
                     <Accordion
-                      title='How is each Combo&apos;s accuracy calculated on the Recommendations Page?'
+                      title="How is each Combo&apos;s accuracy calculated on the Recommendations Page?"
                     >
                       <p>
                         In Toontown Rewritten, the probability that a gag hits a

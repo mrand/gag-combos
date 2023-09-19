@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 
 export const initialCalculatorState = {
@@ -12,7 +12,7 @@ export const initialCalculatorState = {
 
 
 export const calculatorSlice = createSlice({
-  name: 'calculator',
+  name: "calculator",
   initialState: initialCalculatorState,
   reducers: {
     resetGags: (state) => {
@@ -27,13 +27,13 @@ export const calculatorSlice = createSlice({
     addGag: (state, action) => {
       // Pre-defined Order
       let ordering = {
-        'Toon-Up': 1,
-        'Trap':    2,
-        'Lure':    3,
-        'Sound':   4,
-        'Throw':   5,
-        'Squirt':  6,
-        'Drop':    7
+        "Toon-Up": 1,
+        "Trap":    2,
+        "Lure":    3,
+        "Sound":   4,
+        "Throw":   5,
+        "Squirt":  6,
+        "Drop":    7
       }
       return (state.gag.gagsList.length < 16) ? (
         {

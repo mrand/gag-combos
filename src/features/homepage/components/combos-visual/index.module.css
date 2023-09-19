@@ -51,7 +51,7 @@
   background: var(--fold-color);
   border-top-left-radius: var(--container-border-radius);
   bottom: 0; 
-  content: '';
+  content: "";
   height: var(--fold-size);
   right: 0;
   position: absolute;

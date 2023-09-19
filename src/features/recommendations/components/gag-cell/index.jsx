@@ -52,8 +52,8 @@ export default function GagCell({ gag, expanded=false }) {
 
   return (
     <button 
-      title={'View details about "'+(gag.organic==='Organic' ? gag.organic+' ' : '')+gag.name+'"'}
-      className={`btn ${styles.gagCell} ${expanded ? styles.expanded : ""} ${gag.organic==='Organic' ? styles.org : ''}`}
+      title={`View details about "${gag.organic==="Organic" ? gag.organic+" " : ""}${gag.name}"`}
+      className={`btn ${styles.gagCell} ${expanded ? styles.expanded : ""} ${gag.organic==="Organic" ? styles.org : ""}`}
       style={{background: (trackColors[gag.track] || "")}}
       onClick={() => {
         dispatch(setGagModal(

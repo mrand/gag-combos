@@ -11,7 +11,7 @@ function ComboHeading({ solutionTracks }) {
         if (solutionTracks.length === 1) {
           return track;
         } else {
-          return (j===solutionTracks.length-1) ? track : track + ' / ';
+          return (j===solutionTracks.length-1) ? track : track + " / ";
         }
       })}
     </h3>
@@ -111,11 +111,11 @@ export function ComboCell({ combo, cellNum, cellStates, setCellStates }) {
   let thisExpanded = cellStates[cellNum];
   let solutionTracks = Object.keys(combo.counts);
   let infoIndicator = combo.info.indicator;
-  const isPerfect = (combo.damage['Total'] === combo.cog.hp) && (combo.accuracy === 100);
+  const isPerfect = (combo.damage["Total"] === combo.cog.hp) && (combo.accuracy === 100);
 
   return (
     <div
-      className={`${styles.comboCell} ${thisExpanded ? styles.expanded : ''}`}
+      className={`${styles.comboCell} ${thisExpanded ? styles.expanded : ""}`}
       style={isPerfect ? {borderColor: "var(--green-400)"} : {}}
     >
 
@@ -144,7 +144,7 @@ export function ComboCell({ combo, cellNum, cellStates, setCellStates }) {
       {/* footer */}
       <div
         className={styles.comboFooter}
-        style={expanded ? {justifyContent: 'center'} : {}}
+        style={expanded ? {justifyContent: "center"} : {}}
       >
         {/* stats */}
         <ComboStats combo={combo} />

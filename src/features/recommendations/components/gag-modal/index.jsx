@@ -23,7 +23,7 @@ export default function GagModal() {
           {/* Gag Heading */}
           <section className={styles.mainDetails}>
             <div 
-              className={`${styles.imgWrap} ${gag.organic==="Organic" ? styles.org : ''}`}
+              className={`${styles.imgWrap} ${gag.organic==="Organic" ? styles.org : ""}`}
               style={{background: (trackColors[gag.track] || "")}}
             >
               <img 

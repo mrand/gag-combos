@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { PageWrap } from "~/features/ui";
 import { Header } from "~/features/ui";
 import { Footer } from "~/features/ui";
@@ -12,15 +12,15 @@ export default function PrivacyPolicy() {
           <Header />
           <main>
             <article>
-              <div className='wrapper'>
+              <div className="wrapper">
 
-                <div className='standard-heading'>
+                <div className="standard-heading">
                   <h2>Privacy Policy</h2>
                   <i>Last Updated: 2022-11-09</i>
                 </div>
                 
 
-                <div className='formatted-article'>
+                <div className="formatted-article">
                   <section>
                     <h3>Gag Combos Info does NOT and WILL NEVER sell your data.</h3>
                     <p>
