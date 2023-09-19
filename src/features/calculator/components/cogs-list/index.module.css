@@ -2,7 +2,7 @@
   background: var(--grey-500);
   box-shadow: 0 0 0.25rem #000;
   margin: auto;
-  max-width: 40.625rem;
+  max-width: 40rem;
   padding: 0.75rem;
   width: calc(100% - 2rem);
   position: relative;
@@ -71,34 +71,50 @@
 
 
 .headingsArea {
-  align-items: flex-start;
+  align-items: stretch;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
   gap: 1rem;
   justify-content: space-between;
+  text-align: center;
 }
-.headingsArea hr { display: none; }
-@media (max-width: 35rem), (min-width: 84rem) {
+@media (min-width: 40rem) {
+  .headingsArea {
+    align-items: flex-start;
+    flex-direction: row-reverse;
+    text-align: initial;
+  }
+  .headingsAreaHr { display: none; }
+}
+@media (min-width: 84rem) {
   .headingsArea {
     align-items: stretch;
     flex-direction: column;
     text-align: center;
   }
-  .headingsArea hr { display: block; }
+  .headingsAreaHr { display: block; }
 }
 
 .defeatedIndicator { display: grid; }
 
 
 .cogsList {
-  display: flex;
+  display: grid;
   gap: 0.5rem;
-  overflow-x: auto;
-  padding-bottom: 1rem;
+  grid-template-columns: repeat( auto-fill, minmax( min(10rem, 100%), 1fr) );
+  overflow: auto;
+}
+
+@media (min-width: 62rem) {
+  .cogsList {
+    display: flex;
+    padding-bottom: 0.5rem;
+  }
 }
 @media (min-width: 84rem) {
   .cogsList {
     flex-direction: column;
+    padding-bottom: 0;
     padding-inline-end: 0.5rem;
   }
 }

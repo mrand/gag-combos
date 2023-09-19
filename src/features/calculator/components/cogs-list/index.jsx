@@ -55,7 +55,7 @@ export default function CogsList() {
             clickHandler={() => dispatch(toggleV2())}
             hasText={false}
           />
-          <hr />
+          <hr className={styles.headingsAreaHr} />
           <h3 className={styles.defeatedIndicator}>
             {
               minDefeatedCog ? (
@@ -78,7 +78,7 @@ export default function CogsList() {
           minDefeatedCog < 20 &&
           <>
             <hr />
-            <ul className={styles.cogsList+" custom-scrollbar"}>
+            <ul className={`custom-scrollbar ${styles.cogsList}`}>
               {
                 combos.map((combo, i) => {
                   return (
