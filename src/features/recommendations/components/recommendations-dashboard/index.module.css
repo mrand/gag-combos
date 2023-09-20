@@ -26,6 +26,10 @@
     grid-template-columns: 15.625rem 1fr auto;
     width: 100%;
   }
+
+
+  /* Mobile Tab Navigation */
+  .mobileTabNavWrap { display: none; }  /* hide it */
   
 
   /* Tabs */

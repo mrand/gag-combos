@@ -10,6 +10,15 @@ export default function CalculatorDashboard() {
   const [currentTab, setCurrentTab] = useState("gags");
   return (
     <>
+
+      <div className={styles.mobileTabNavWrap}>
+        <MobileTabNavigation 
+          tabs={tabs}
+          currentTab={currentTab} 
+          setCurrentTab={setCurrentTab} 
+        />
+      </div>
+
       <main>
         <div className={`wrapper ${styles.dashboard}`}>
           <div className={`${styles.tab} ${currentTab==="gags" ? styles.displayed : ""} ${styles.gagsTab}`}>
@@ -19,15 +28,12 @@ export default function CalculatorDashboard() {
             <CogsList />
           </div>
         </div>
-        <MobileTabNavigation 
-          tabs={tabs}
-          currentTab={currentTab} 
-          setCurrentTab={setCurrentTab} 
-        />
       </main>
+
       <div className={styles.footerWrap}>
         <Footer />
       </div>
+      
     </>
   );
 }

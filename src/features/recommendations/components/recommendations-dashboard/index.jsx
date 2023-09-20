@@ -12,6 +12,15 @@ export default function RecommendationsDashboard() {
 
   return (
     <>
+
+      <div className={styles.mobileTabNavWrap}>
+        <MobileTabNavigation 
+          tabs={tabs}
+          currentTab={currentTab} 
+          setCurrentTab={setCurrentTab} 
+        />
+      </div>
+
       <main>
         <div className={`wrapper ${styles.recommendationsWrap}`}>
           <div className={`${styles.tab} ${currentTab==="toons" ? styles.displayed : ""} ${styles.toonsTab}`}>
@@ -24,15 +33,12 @@ export default function RecommendationsDashboard() {
             <CogCard />
           </div>
         </div>
-        <MobileTabNavigation 
-          tabs={tabs}
-          currentTab={currentTab} 
-          setCurrentTab={setCurrentTab} 
-        />
       </main>
+
       <div className={styles.footerWrap}>
         <Footer />
       </div>
+      
     </>
   );
 }

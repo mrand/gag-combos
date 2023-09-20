@@ -35,6 +35,10 @@
   }
 
 
+  /* Mobile Tab Navigation */
+  .mobileTabNavWrap { display: none; }  /* hide it */
+
+
   /* Tabs */
   .tab {
     display: block;
@@ -59,6 +63,7 @@
     flex-direction: row-reverse;
     justify-content: center;
   }
+  
   
   /* Tabs */
   .cogsListTab { flex-basis: 30ch; }

@@ -1,5 +1,3 @@
-/* ---------- Mobile Layout ---------- */
-
 /* Tabs Navigation */
 .tabNav {
   background: #ffffff;
@@ -61,10 +59,3 @@
 
 .svgBtn svg { fill: var(--main-color); }
 .svgBtn.active svg { fill: var(--sub-color); }
-
-
-
-/* ---------- Desktop Layout ---------- */
-@media (min-width: 72rem) {
-  .tabNav { display: none; }  /* hide it */
-}
