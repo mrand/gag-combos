@@ -1,7 +1,7 @@
 import {
   UpdateToast,
   NotFound,
-  PageWrap, Header, Footer,
+  PageWrap, Header, Footer, MobileTabNavigation,
   Toggle, ToggleV2, SliderButton, 
   ResetButton,
   Accordion
@@ -11,7 +11,7 @@ import {
 export {
   UpdateToast,
   NotFound,
-  PageWrap, Header, Footer,
+  PageWrap, Header, Footer, MobileTabNavigation,
   Toggle, ToggleV2, SliderButton, 
   ResetButton,
   Accordion

@@ -17,28 +17,6 @@
 .cogsListTab { padding-top: 1rem; }
 
 
-/* Tabs Navigation */
-.calculatorNav {
-  background: #ffffff;
-  bottom: 0;
-  box-shadow: 0 0 0.25rem var(--grey-700);
-  position: fixed;
-  width: 100%;
-  z-index: 50;
-}
-.calculatorNavWrapper {
-  background: var(--grey-400);
-  display: flex;
-  gap: 1px;
-  justify-content: space-evenly;
-  padding: 0;
-}
-.calculatorNav button {
-  border-radius: 0;
-  flex: 1;
-}
-
-
 /* Footer */
 .footerWrap { display: none; }  /* hide it */
 
@@ -64,10 +42,6 @@
     margin: 0;
     max-width: none;
   }
-
-
-  /* Tabs Navigation */
-  .calculatorNav { display: none; }  /* hide it */
 
 
   /* Footer */
