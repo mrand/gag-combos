@@ -10,9 +10,8 @@
   z-index: 50;
 }
 .tabNavWrapper {
-  background: var(--grey-400);
   display: flex;
-  gap: 1px;
+  justify-content: space-evenly;
   padding: 0;
 }
 
@@ -25,9 +24,10 @@
   border-radius: 0;
   color: var(--main-color);
   display: inline-flex;
-  flex: 1;
+  filter: grayscale(0.75);
   flex-direction: column;
-  gap: 0.5ch;
+  font-family: BowlbyOneSC,Arial,Roboto,Helvetica,sans-serif;
+  font-size: 0.85rem;
   justify-content: center;
   overflow: hidden;
   text-align: center;
@@ -38,19 +38,33 @@
     background: var(--sub-color);
     box-shadow: none;
     color: var(--main-color);
+    filter: grayscale(0.75);
   }
 }
-.svgBtn.active {
+.svgBtn.active { filter: none; }
+
+.svgWrap {
+  isolation: isolate;
+  line-height: 0;
+  padding: 0.3em 1.3em;
+  position: relative;
+}
+.svgWrap::before {
+  content: "";
+  inset: 0;
+  position: absolute;
+  transform: scaleX(0);
+  transition: transform 0.15s ease-out;
+  z-index: -1;
+}
+.svgBtn.active .svgWrap::before {
   background: var(--main-color);
-  color: var(--sub-color);
+  border-radius: var(--radius-xl);
+  transform: scaleX(1);
 }
 
-.svgBtn svg { 
-  fill: var(--main-color);
-}
-.svgBtn.active svg {
-  fill: var(--sub-color);
-}
+.svgBtn svg { fill: var(--main-color); }
+.svgBtn.active svg { fill: var(--sub-color); }
 
 
 
