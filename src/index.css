@@ -72,8 +72,9 @@ a { color: var(--blue-600); }
 }
 
 body {
-  background-color: var(--grey-200);
+  background: var(--grey-200);
   font-family: Karla, sans-serif;
+  overflow-y: scroll;
 }
 /* 
 Since ".custom-scrollbar" is defined below the body selector,
