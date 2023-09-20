@@ -19,16 +19,13 @@
 .svgBtn {
   --main-color: var(--blue-600);
   --sub-color: #ffffff;
-  align-items: center;
   background: var(--sub-color);
   border-radius: 0;
   color: var(--main-color);
-  display: inline-flex;
+  display: grid;
   filter: grayscale(0.75);
-  flex-direction: column;
   font-family: BowlbyOneSC,Arial,Roboto,Helvetica,sans-serif;
   font-size: 0.85rem;
-  justify-content: center;
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
@@ -46,7 +43,7 @@
 .svgWrap {
   isolation: isolate;
   line-height: 0;
-  padding: 0.3em 1.3em;
+  padding: 0.4em 1.6em;
   position: relative;
 }
 .svgWrap::before {
