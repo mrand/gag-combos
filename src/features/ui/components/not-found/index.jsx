@@ -37,7 +37,7 @@ function CogGrid() {
 
 export default function NotFound() {
   return (
-    <article className={`with-grid-bg ${styles.notFound}`}>
+    <article className={styles.notFound}>
       <div className="wrapper">
         <h1 className="standard-heading">(404) Page Not Found!</h1>
         <div className={`formatted-article ${styles.notFoundArticle}`}>
