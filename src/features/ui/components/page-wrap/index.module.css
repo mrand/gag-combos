@@ -1,11 +1,5 @@
 .pageWrap {
-  --bar-width: 0.25rem;
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  overflow-y: scroll;
-}
-
-@media (min-width: 72rem) {
-  .pageWrap { --bar-width: 1rem; }
+  min-height: 100vh;
 }

@@ -75,6 +75,15 @@ body {
   background-color: var(--grey-200);
   font-family: Karla, sans-serif;
 }
+/* 
+Since ".custom-scrollbar" is defined below the body selector,
+the body selector must be "body.custom-scrollbar"
+to have higher specificity and keep the custom scrollbar width.
+*/
+body.custom-scrollbar { --bar-width: 0.25rem; }
+@media (min-width: 72rem) {
+  body.custom-scrollbar { --bar-width: 1rem; }
+}
 
 
 .btn {
