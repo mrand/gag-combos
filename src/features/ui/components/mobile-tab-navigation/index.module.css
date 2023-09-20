@@ -35,7 +35,6 @@
     background: var(--sub-color);
     box-shadow: none;
     color: var(--main-color);
-    filter: grayscale(0.75);
   }
 }
 .svgBtn.active { filter: none; }
