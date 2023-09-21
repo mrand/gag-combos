@@ -53,7 +53,8 @@ export default function PrivacyPolicy() {
                       Neither us nor any 3rd parties see this saved information. It only serves as a convenience for you. 
                     </p>
                     <p>
-                      Furthermore, you can always clear this information after each use with the "Reset Gags" button on the Calculator page and the reset buttons above the Toons, Combos, and Cog Sections on the Recommendations Page!
+                      Furthermore, you can always clear this information after each use with the reset button on the Calculator page's gag picker
+                      and the reset buttons above the Toons, Combos, and Cog Sections on the Recommendations Page!
                     </p>
                   </section>
                   <section>
