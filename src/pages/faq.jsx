@@ -3,6 +3,7 @@ import { PageWrap } from "~/features/ui";
 import { Header } from "~/features/ui";
 import { Accordion } from "~/features/ui";
 import { Footer } from "~/features/ui";
+import { ScrollTopButton } from "~/features/ui/components";
 
 
 export default function FAQ() {
@@ -326,6 +327,7 @@ export default function FAQ() {
             </article>
           </main>
           <Footer />
+          <ScrollTopButton />
         </>
       } 
     />

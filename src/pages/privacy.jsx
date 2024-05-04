@@ -2,6 +2,7 @@ import React from "react";
 import { PageWrap } from "~/features/ui";
 import { Header } from "~/features/ui";
 import { Footer } from "~/features/ui";
+import { ScrollTopButton } from "~/features/ui/components";
 
 
 export default function PrivacyPolicy() {
@@ -71,6 +72,7 @@ export default function PrivacyPolicy() {
             </article>
           </main>
           <Footer />
+          <ScrollTopButton />
         </>
       } 
     />

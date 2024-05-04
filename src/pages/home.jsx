@@ -3,6 +3,7 @@ import { PageWrap } from "~/features/ui";
 import { Header } from "~/features/ui";
 import { About, Help, Intro, SplashScreen } from "~/features/homepage";
 import { Footer } from "~/features/ui";
+import { ScrollTopButton } from "~/features/ui/components";
 
 export default function Homepage() {
 
@@ -18,6 +19,7 @@ export default function Homepage() {
             <Help />
           </main>
           <Footer />
+          <ScrollTopButton />
         </>
       } 
     />
