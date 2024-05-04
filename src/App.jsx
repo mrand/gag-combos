@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useLocation, BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "~/pages/home";
 import Recommendations from "~/pages/recommendations";
 import Calculator from "~/pages/calculator";
@@ -9,9 +9,21 @@ import FAQ from "~/pages/faq";
 import PageNotFound from "~/pages/page-not-found";
 
 
+function ScrollTopOnPageChange() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
+
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollTopOnPageChange />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/recommendations" element={<Recommendations />} />
