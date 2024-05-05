@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from "./index.module.css";
+import { ScrollTopButton } from "./components";
 
 
 export default function Footer() {
@@ -15,6 +16,7 @@ export default function Footer() {
           <Link to="/changelog">Changelog</Link>
           <Link to="/privacy">Privacy Policy</Link>
         </nav>
+        <ScrollTopButton />
       </div>
     </footer>
   );

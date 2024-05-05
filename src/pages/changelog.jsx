@@ -3,7 +3,6 @@ import { PageWrap } from "~/features/ui";
 import { Header } from "~/features/ui";
 import { Link } from "react-router-dom";
 import { Footer } from "~/features/ui";
-import { ScrollTopButton } from "~/features/ui/components";
 
 
 export default function Changelog() {
@@ -188,7 +187,6 @@ export default function Changelog() {
             </article>
           </main>
           <Footer />
-          <ScrollTopButton />
         </>
       } 
     />

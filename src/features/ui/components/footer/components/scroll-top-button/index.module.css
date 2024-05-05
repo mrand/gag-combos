@@ -1,0 +1,6 @@
+.scrollTopButton {
+  align-items: center;
+  display: flex;
+  gap: 1ch;
+}
+.scrollTopButton svg { fill: currentColor; }
