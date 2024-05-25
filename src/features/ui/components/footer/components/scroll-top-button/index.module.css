@@ -3,4 +3,9 @@
   display: flex;
   gap: 1ch;
 }
+@media (hover: hover) {
+  .scrollTopButton:hover {
+    background: var(--blue-500);
+  }
+}
 .scrollTopButton svg { fill: currentColor; }
