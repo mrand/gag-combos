@@ -1,23 +1,28 @@
 .footer {
+  --_spacing: 1.5rem;
   background: var(--blue-400);
-  margin-top: 1rem;
   font-size: 1.25rem;
-  padding-block: 3rem;
+  margin-top: 1rem;
+  padding-block: calc(var(--_spacing) * 2);
 }
 
 .footerWrap {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
+  gap: var(--_spacing);
   text-align: center;
 }
 
+.footer h2 { font-size: clamp(1.5rem, 8vw, 2rem); }
+
 .footer nav {
+  border-block: 0.0625rem solid var(--blue-300);
   display: flex;
-  gap: 1.5rem;
   flex-wrap: wrap;
+  gap: var(--_spacing);
   justify-content: center;
+  padding-block: var(--_spacing);
 }
 
 .footer a {
