@@ -1,0 +1,22 @@
+.updateWarningBanner {
+  background: var(--red-600);
+  color: #ffffff;
+  position: relative;
+  z-index: 101;
+}
+.updateWarningBannerWrapper {
+  font-size: 0.85rem;
+  padding: 0.5em 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.updateWarningBannerButton {
+  color: #ffffff !important;
+  line-height: 0;
+  padding: 0.375em;
+  display: flex;
+}
+.updateWarningBannerButton svg { fill: currentColor; }

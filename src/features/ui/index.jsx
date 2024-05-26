@@ -1,5 +1,5 @@
 import {
-  UpdateToast,
+  UpdateToast, V4UpdateWarningBanner,
   NotFound,
   PageWrap, Header, Footer, MobileTabNavigation,
   Toggle, ToggleV2, SliderButton, 
@@ -9,7 +9,7 @@ import {
 
 
 export {
-  UpdateToast,
+  UpdateToast, V4UpdateWarningBanner,
   NotFound,
   PageWrap, Header, Footer, MobileTabNavigation,
   Toggle, ToggleV2, SliderButton, 
