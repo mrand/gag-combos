@@ -114,7 +114,7 @@ export const gagsData = {
     },
     {
       "name": "Quicksand",
-      "skill_points": 800,
+      "skill_points": 500,
       "targets_multi": false,
       "accuracy": 1.0,
       "damage": {
