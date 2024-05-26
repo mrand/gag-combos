@@ -101,6 +101,14 @@ export default class Gag {
     */
    if (this.track === "Lure") {
 
+    /*
+    TODO - Lure Stuns ---------------------------------------------------------------
+    1. Must add multi-lure combos to combos.data.json
+    2. Need all lure gag levels/accuracies from the combo to determine base accuracies
+      (may be better to do this calculation in combo.module.jsx)
+    ---------------------------------------------------------------------------------
+    */
+
     // Accuracy Bonus with Trap
     this.accuracy["Attack"] = ("Trap" in counts)  // || cog.status.trapped  // TODO - cog status effects
       ? this.accuracy["Base"] + 0.1 
