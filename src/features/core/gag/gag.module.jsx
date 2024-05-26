@@ -181,19 +181,8 @@ export default class Gag {
     */
     let prevHits = 0;  
     for (const [track, count] of Object.entries(counts)) {
-
-      if (track === this.track) break;  // do not count current track or any tracks after it
-
-      // Trap Activation has 30% bonus
-      if (counts["Trap"] === 1 && "Lure" in counts) {
-        prevHits += 30
-      }
-
-      // Damage Gags have 25% bonus
-      else if (["Sound", "Throw", "Squirt", "Drop"].includes(track)) {
-        prevHits += (25 * count);
-      }
-
+      if (track === this.track) break;  // do not count current track
+      prevHits += (20 * count);
     }
 
 
