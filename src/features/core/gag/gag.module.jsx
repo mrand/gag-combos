@@ -119,11 +119,11 @@ export default class Gag {
       // Sound on Lured Cogs
       (
         (
-          !Object.keys(counts).includes("Trap") && 
-          Object.keys(counts).includes("Lure") &&
+          !("Trap" in counts) && 
+          "Lure" in counts &&
           this.track === "Sound"
         ) || (
-          !Object.keys(counts).includes("Trap") && 
+          !("Trap" in counts) && 
           cog.lured &&
           this.track === "Sound"
         )
@@ -132,13 +132,13 @@ export default class Gag {
       // Throw on Lured Cogs
       (
         (
-          !Object.keys(counts).includes("Trap") && 
-          !Object.keys(counts).includes("Sound") && 
-          Object.keys(counts).includes("Lure") &&
+          !("Trap" in counts) && 
+          !("Sound" in counts) && 
+          "Lure" in counts &&
           this.track === "Throw"
         ) || (
-          !Object.keys(counts).includes("Trap") && 
-          !Object.keys(counts).includes("Sound") && 
+          !("Trap" in counts) && 
+          !("Sound" in counts) && 
           cog.lured &&
           this.track === "Throw"
         )
@@ -147,15 +147,15 @@ export default class Gag {
       // Squirt on Lured Cogs
       (
         (
-          !Object.keys(counts).includes("Trap") && 
-          !Object.keys(counts).includes("Sound") && 
-          !Object.keys(counts).includes("Throw") && 
-          Object.keys(counts).includes("Lure") &&
+          !("Trap" in counts) && 
+          !("Sound" in counts) && 
+          !("Throw" in counts) && 
+          "Lure" in counts &&
           this.track === "Squirt"
         ) || (
-          !Object.keys(counts).includes("Trap") && 
-          !Object.keys(counts).includes("Sound") && 
-          !Object.keys(counts).includes("Throw") && 
+          !("Trap" in counts) && 
+          !("Sound" in counts) && 
+          !("Throw" in counts) && 
           cog.lured &&
           this.track === "Squirt"
         )
