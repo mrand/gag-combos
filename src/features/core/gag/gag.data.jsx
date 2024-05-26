@@ -450,7 +450,7 @@ export const gagsData = {
       "accuracy": 0.5,
       "damage": {
         "non-organic": [10, 10],
-        "organic": [11, 11]
+        "organic": [12, 12]
       }
     },
     {
@@ -460,7 +460,7 @@ export const gagsData = {
       "accuracy": 0.5,
       "damage": {
         "non-organic": [18, 18],
-        "organic": [20, 20]
+        "organic": [21, 21]
       }
     },
     {
@@ -470,7 +470,7 @@ export const gagsData = {
       "accuracy": 0.5,
       "damage": {
         "non-organic": [30, 30],
-        "organic": [33, 33]
+        "organic": [35, 35]
       }
     },
     {
@@ -480,7 +480,7 @@ export const gagsData = {
       "accuracy": 0.5,
       "damage": {
         "non-organic": [45, 45],
-        "organic": [50, 50]
+        "organic": [52, 52]
       }
     },
     {
@@ -490,7 +490,7 @@ export const gagsData = {
       "accuracy": 0.5,
       "damage": {
         "non-organic": [60, 70],
-        "organic": [66, 77]
+        "organic": [69, 81]
       }
     },
     {
@@ -500,7 +500,7 @@ export const gagsData = {
       "accuracy": 0.5,
       "damage": {
         "non-organic": [85, 170],
-        "organic": [94, 187]
+        "organic": [98, 196]
       }
     },
     {
@@ -510,7 +510,7 @@ export const gagsData = {
       "accuracy": 0.5,
       "damage": {
         "non-organic": [180, 180],
-        "organic": [198, 198]
+        "organic": [207, 207]
       }
     }
   ]
