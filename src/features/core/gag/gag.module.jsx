@@ -199,22 +199,22 @@ export default class Gag {
 
     /*
     Lured Ratio := (number of lured cogs) / (total cogs in battle) * 100
-    luredRatio is applied to all Sound gags and Level 7 Throw/Squirt gags.
-    Note: Total cogs in battle assumed to be 1 for recommendations,
-    so this value will either be 0 or 100 for each gag.
+    Total cogs in battle assumed to be 1 for recommendations. 
     */
     let luredRatio = 0;
-    if (
-      (
-        (this.track === "Sound") ||                                     // sound gags
-        (this.level === 7 && ["Throw", "Squirt"].includes(this.track))  // level 7 throw/squirt gags
-      ) && (
-        cog.lured ||      // cog is lured
-        "Lure" in counts  // combo includes lure (which we assume is successful)
-      )
-    ) {
-      luredRatio = 100;
+    if (!(["Toon-Up", "Trap", "Drop"].includes(this.track))) {
+      if (
+        (
+          (this.track === "Sound") ||
+          (this.level === 7 && ["Throw", "Squirt"].includes(this.track))
+        ) && (
+          cog.lured || "Lure" in counts
+        )
+      ) {
+        luredRatio = 100;
+      }
     }
+    console.log(luredRatio)
 
     const bonus = prevHits + luredRatio; 
 
