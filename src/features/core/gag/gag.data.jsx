@@ -238,7 +238,7 @@ export const gagsData = {
     },
     {
       "name": "Whistle",
-      "skill_points": 40,
+      "skill_points": 20,
       "targets_multi": true,
       "accuracy": 0.95,
       "damage": {
@@ -258,7 +258,7 @@ export const gagsData = {
     },
     {
       "name": "Aoogah",
-      "skill_points": 1000,
+      "skill_points": 800,
       "targets_multi": true,
       "accuracy": 0.95,
       "damage": {
@@ -268,7 +268,7 @@ export const gagsData = {
     },
     {
       "name": "Elephant Trunk",
-      "skill_points": 2500,
+      "skill_points": 2000,
       "targets_multi": true,
       "accuracy": 0.95,
       "damage": {
@@ -278,7 +278,7 @@ export const gagsData = {
     },
     {
       "name": "Foghorn",
-      "skill_points": 7500,
+      "skill_points": 6000,
       "targets_multi": true,
       "accuracy": 0.95,
       "damage": {
