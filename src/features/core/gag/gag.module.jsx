@@ -97,6 +97,15 @@ export default class Gag {
   getAccuracyWithCombo(counts, cog) {
 
     /*
+    [2024-05-26] Special Case: Lure
+    */
+    // if (this.track === "Lure") {
+    //   this.accuracy["Attack"] = this.accuracy["Base"];
+    //   return;
+    // }
+
+
+    /*
     100% Accuracy Cases:
     */
     if (
