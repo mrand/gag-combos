@@ -160,8 +160,8 @@ export const gagsData = {
       "targets_multi": false,
       "stun": 2,
       "accuracy": {
-        "non-organic": 0.5,
-        "organic": 0.6
+        "non-organic": 0.6,
+        "organic": 0.7
       }
     },
     {
@@ -170,8 +170,8 @@ export const gagsData = {
       "targets_multi": true,
       "stun": 2,
       "accuracy": {
-        "non-organic": 0.5,
-        "organic": 0.6
+        "non-organic": 0.55,
+        "organic": 0.65
       }
     },
     {
@@ -180,8 +180,8 @@ export const gagsData = {
       "targets_multi": false,
       "stun": 3,
       "accuracy": {
-        "non-organic": 0.6,
-        "organic": 0.7
+        "non-organic": 0.7,
+        "organic": 0.8
       }
     },
     {
@@ -190,8 +190,8 @@ export const gagsData = {
       "targets_multi": true,
       "stun": 3,
       "accuracy": {
-        "non-organic": 0.6,
-        "organic": 0.7
+        "non-organic": 0.65,
+        "organic": 0.75
       }
     },
     {
@@ -200,8 +200,8 @@ export const gagsData = {
       "targets_multi": false,
       "stun": 4,
       "accuracy": {
-        "non-organic": 0.7,
-        "organic": 0.8
+        "non-organic": 0.8,
+        "organic": 0.9
       }
     },
     {
@@ -210,8 +210,8 @@ export const gagsData = {
       "targets_multi": true,
       "stun": 4,
       "accuracy": {
-        "non-organic": 0.7,
-        "organic": 0.8
+        "non-organic": 0.75,
+        "organic": 0.85
       }
     },
     {
@@ -220,7 +220,7 @@ export const gagsData = {
       "targets_multi": true,
       "stun": 8,
       "accuracy": {
-        "non-organic": 0.95,
+        "non-organic": 0.9,
         "organic": 0.95
       }
     }
