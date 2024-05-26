@@ -202,11 +202,11 @@ export default class Gag {
     Total cogs in battle assumed to be 1 for recommendations. 
     */
     let luredRatio = 0;
-    if (!(this.track in ["Toon-Up", "Trap", "Drop"])) {
+    if (!(["Toon-Up", "Trap", "Drop"].includes(this.track))) {
       if (
         (
           (this.track === "Sound") ||
-          (this.level === 7 && this.track in ["Throw", "Squirt"])
+          (this.level === 7 && ["Throw", "Squirt"].includes(this.track))
         ) && (
           cog.lured || "Lure" in counts
         )
@@ -214,6 +214,7 @@ export default class Gag {
         luredRatio = 100;
       }
     }
+    console.log(luredRatio)
 
     const bonus = prevHits + luredRatio; 
 
