@@ -68,7 +68,7 @@ export default function HoverBox() {
               </div>
             </div>
             <div className={styles.hoverBoxStats}>
-              <span><b>Accuracy:</b> {(gag.accuracy["Base"]*100)+"%"}</span>
+              <span><b>Accuracy:</b> {Math.trunc(gag.accuracy["Base"]*100)+"%"}</span>
               <span><b>{statTitle}:</b> {statVal}</span>
               <span><b>Affects:</b> {affectsText}</span>
             </div>
