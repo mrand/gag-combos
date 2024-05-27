@@ -13,6 +13,9 @@
   gap: 1rem;
 }
 
+.updateWarningBannerMessage { max-width: none; }
+.highlightSuccess { background: var(--green-500); }
+
 .updateWarningBannerButton {
   color: #ffffff !important;
   line-height: 0;

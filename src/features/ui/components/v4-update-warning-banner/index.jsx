@@ -8,8 +8,9 @@ export default function V4UpdateWarningBanner() {
     displayed ? (
       <div className={styles.updateWarningBanner}>
         <div className={`wrapper ${styles.updateWarningBannerWrapper}`}>
-          <p>
-            Note: v4.0.0 update changes in progress. Current values not aligned with current gameplay!
+          <p className={styles.updateWarningBannerMessage}>
+            Note: v4.0.0 Update in progress! <span className={styles.highlightSuccess}>Gag Damages have been updated</span>,
+            but Gag Accuracies and v2.0 Cog changes in progress.
           </p>
           <button
             aria-label="Hide this Banner"
