@@ -17,7 +17,7 @@ export default class Cog {
   ) {
     this.level = level;
     this.rank = null;
-    this.v2Resistance = isV2 ? Math.floor(this.level * 1.5) : 0;
+    this.isV2 = isV2;
     this.tgtDef = this._getTargetDefense();
     this.hp = this._calculateHP();
     this.lured = isLured;
