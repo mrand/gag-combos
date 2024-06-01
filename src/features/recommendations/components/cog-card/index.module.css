@@ -105,11 +105,14 @@
 }
 .cogStats b {
   width: 8.125rem;
-  color: var(--grey-700);
+  color: var(--grey-600);
   font-family: SpecialElite, cursive;
 }
 .cogLevel {
-  margin-top: 0.5rem;
+  align-self: stretch;
+  padding-top: 0.75rem;
+  border-top: 0.0625rem solid var(--grey-500);
+  font-family: SpecialElite, cursive;
+  font-weight: bold;
   line-height: 110%;
-  font-family: BowlbyOneSC,Arial,Roboto,Helvetica,sans-serif;
 }
