@@ -31,7 +31,6 @@ export default function Changelog() {
                     <p>
                       With Lure accuracy changes still in progress,
                       the output of the recommendations page has correct damages but incorrect accuracies.
-                      The new multi-lure game mechanic is not yet accounted for.
                     </p>
                     <hr />
                     <h5>Detailed Changes</h5>
@@ -40,18 +39,46 @@ export default function Changelog() {
                         <b style={{color: "var(--green-500)"}}>&#10003; Gag damage values</b> have been updated.
                       </li>
                       <li>
-                        <b style={{color: "var(--green-500)"}}>&#10003; v2.0 Cogs</b>' defense attribute has been removed.
-                        Also, since v2.0 cogs now attack if you only defeat their outer shell,
-                        Gag Combos Info now checks if a combo defeats both their outer and inner shells
-                        when considering if a combo has defeated a v2.0 cog.
-                        These new calculations still take into account the fact that carryover damage is not a game mechanic
-                        (i.e. extra damage on the outer shell is negated rather than applied to the inner shell).
+                        <div className="content-container" style={{ gap:"0.5rem" }}>
+                          <p>
+                            <b style={{color: "var(--green-500)"}}>&#10003; v2.0 Cogs</b> have been updated.
+                          </p>
+                          <ul>
+                            <li>
+                              The removal of the v2.0 cog defense attribute has been accounted for
+                              (i.e. v2.0 cogs' outer shells no longer negate part of each gag's damage).
+                            </li>
+                            <li>
+                              Since v2.0 cogs now attack if you only defeat their outer shell,
+                              Gag Combos Info now checks if a combo defeats both their outer and inner shells
+                              when considering if a combo has defeated a v2.0 cog.
+                              These new calculations still take into account the fact that carryover damage is not a game mechanic
+                              (i.e. extra damage on the outer shell is negated rather than applied to the inner shell).
+                            </li>
+                          </ul>
+                        </div>
                       </li>
                       <li>
-                        <b style={{color: "var(--red-500)"}}>&#9888; Lure Accuracy</b> has not yet been updated,
-                        so the recommendations page's accuracy values are not in-line with current gameplay.
-                        This will involve a potentially major rework of the way Gag Combos Info chooses combo tracks on the recommendations page,
-                        since multi-lure combos are now a viable option.
+                        <div className="content-container" style={{ gap:"0.5rem" }}>
+                          <p>
+                            <b style={{color: "var(--red-500)"}}>&#9888; Lure Accuracy</b> has not yet been updated,
+                            so the recommendations page's accuracy values are not in-line with current gameplay.
+                          </p>
+                          <ul>
+                            <li>
+                              Under-the-hood calculations must first be updated with the new multi-lure mechanic.
+                            </li>
+                            <li>
+                              Gag Combos Info must rework the way it chooses combo tracks on the recommendations page,
+                              since multi-lure combos are now a viable option.
+                            </li>
+                            <li>
+                              It is also planned to add a "Trapped" status effect toggle (since this affects Lure accuracy).
+                              This requires some extra UI magic so the specific trap gag that is placed can be accounted for
+                              in order to have the correct damage calculations in the recommendations output.
+                            </li>
+                          </ul>
+                        </div>
                       </li>
                       <li>
                         <b style={{color: "var(--red-500)"}}>&#9888; UI Tweaks</b> surrounding these under-the-hood changes are at various stages of development.
