@@ -31,6 +31,7 @@ export default function Changelog() {
                     <p>
                       With Lure accuracy changes still in progress,
                       the output of the recommendations page has correct damages but incorrect accuracies.
+                      The new multi-lure game mechanic is not yet accounted for.
                     </p>
                     <hr />
                     <h5>Detailed Changes</h5>
@@ -49,9 +50,12 @@ export default function Changelog() {
                       <li>
                         <b style={{color: "var(--red-500)"}}>&#9888; Lure Accuracy</b> has not yet been updated,
                         so the recommendations page's accuracy values are not in-line with current gameplay.
+                        This will involve a potentially major rework of the way Gag Combos Info chooses combo tracks on the recommendations page,
+                        since multi-lure combos are now a viable option.
                       </li>
                       <li>
                         <b style={{color: "var(--red-500)"}}>&#9888; UI Tweaks</b> surrounding these under-the-hood changes are at various stages of development.
+                        We plan to rework some components so that they better communicate the underlying game mechanics.
                       </li>
                     </ul>
                   </section>
