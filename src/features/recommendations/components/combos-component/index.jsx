@@ -12,7 +12,8 @@ export default function CombosComponent() {
   const cogLevel = useSelector((state) => state.recommendations.cog.level);
   const cogV2 = useSelector((state) => state.recommendations.cog.isV2);
   const cogLured = useSelector((state) => state.recommendations.cog.lured);
-  const cog = cogLevel ? new Cog(cogLevel, cogV2, cogLured) : null;
+  const cogTrapped = useSelector((state) => state.recommendations.cog.trapped);
+  const cog = cogLevel && new Cog(cogLevel, cogV2, cogLured, cogTrapped);
   const numToons = useSelector((state) => state.recommendations.toons.toonList.filter(toon => toon.active).length);
   const toonOrgs = useSelector((state) => state.recommendations.toons.toonList.map((toon) => toon.active ? toon.organic : ""));
   const comboType = useSelector((state) => state.recommendations.combos.type);

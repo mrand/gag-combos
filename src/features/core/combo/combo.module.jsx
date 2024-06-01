@@ -8,31 +8,38 @@ export default class Combo {
   constructor(cog, gags) {
     this.cog = cog;
     this.gags = gags;
-    this.counts = this._countGagsByTrack();
+    [this.counts, this.gagsByTrack] = this._parseGagsByTrack(gags);
     this.damage = {
       "Base": 0,
       "Lured Multiplier": 0,
       "Combo Multiplier": 0,
       "Total": 0
     };
-    this.defeatsCog = false;
     this.accuracy = 1.0;
     this.info = {
       indicator: null,
       text: []
     };
+    this.defeatsCog = false;
     this.tryCombo();
   }
 
-  _countGagsByTrack() {
-    // count how many of each gag track are used
-    let counts = {};
+  _parseGagsByTrack() {
+    let counts = {};  // count how many of each gag track are used
+    let gagsByTrack = {};  // sort gags array into groups by gag track
+
     this.gags.forEach((gag) => {
-      if (gag.track) {
+      // update counts
+      if (gag.track) {  // ignore passes
         (gag.track in counts) ? counts[gag.track]++ : counts[gag.track] = 1;
       }
+      // sort gag by track
+      if (!(gag.track in gagsByTrack)) gagsByTrack[gag.track] = [];
+      gagsByTrack[gag.track].push(gag);
     });
-    return counts;
+
+    return[ counts, gagsByTrack ];
+
   }
 
   _getAccuracy() {
@@ -66,7 +73,7 @@ export default class Combo {
       .join("-")
       .toLowerCase();
 
-    if (this.cog.lured) thisInfoKey = "lure-"+thisInfoKey;
+    if (this.cog.statusEffects.lured) thisInfoKey = "lure-"+thisInfoKey;
     if (!comboData["mapsToData"][thisInfoKey]) return false;
 
     // use the key to get the map to any descriptions/warnings
@@ -82,23 +89,41 @@ export default class Combo {
     let gagDudMultiplier;    // (=0 if dud)
     let gagLureMultiplier;   // (=0.5 if lured)
     let gagComboMultiplier;  // (=0.2 if combo)
-    this.gags.forEach((gag) => {
-      gag.damage["Attack"] = gag.damage["Base"];
-      [
-        gagDudMultiplier, gagLureMultiplier, gagComboMultiplier
-      ] = gag.getDamageWithMultiplier(this.counts, this.cog.lured);
-      this.damage["Base"]  += (gag.damage["Attack"] * gagDudMultiplier);
-      this.damage["Lured Multiplier"] += (gag.damage["Attack"] * gagLureMultiplier);
-      this.damage["Combo Multiplier"] += (gag.damage["Attack"] * gagComboMultiplier);
-    });
 
-    // Check Total Damage
-    this.damage["Lured Multiplier"] = Math.ceil(this.damage["Lured Multiplier"]);
-    this.damage["Combo Multiplier"] = Math.ceil(this.damage["Combo Multiplier"]);
-    this.damage["Total"] = this.damage["Base"] + this.damage["Lured Multiplier"] + this.damage["Combo Multiplier"];
+    // reset cog mutatables
+    this.cog.resetLivesAndHP();
 
-    // defeats cog
-    if (this.damage["Total"] >= this.cog.hp) this.defeatsCog = true;
+     for (const [track, gags] of Object.entries(this.gagsByTrack)) {
+      
+      let currTrackDamage = 0;
+      gags.forEach((gag) => {
+        gag.damage["Attack"] = gag.damage["Base"];
+        [
+          gagDudMultiplier, gagLureMultiplier, gagComboMultiplier
+        ] = gag.getDamageWithMultiplier(this.counts, this.cog.statusEffects.lured);
+        
+        const gagBaseDamage = gag.damage["Attack"] * gagDudMultiplier;
+        const gagLuredDamage = Math.ceil(gag.damage["Attack"] * gagLureMultiplier);
+        const gagComboDamage = Math.ceil(gag.damage["Attack"] * gagComboMultiplier);
+
+        this.damage["Base"] += gagBaseDamage;
+        this.damage["Lured Multiplier"] += gagLuredDamage;
+        this.damage["Combo Multiplier"] += gagComboDamage;
+
+        currTrackDamage += gagBaseDamage + gagLuredDamage + gagComboDamage;
+      });
+
+      // Update Cog
+      this.cog.dealDamage(currTrackDamage);
+      if (this.cog.livesRemaining <= 0) this.defeatsCog = true;
+
+
+      // Check Total Damage
+      this.damage["Lured Multiplier"] = Math.ceil(this.damage["Lured Multiplier"]);
+      this.damage["Combo Multiplier"] = Math.ceil(this.damage["Combo Multiplier"]);
+      this.damage["Total"] = this.damage["Base"] + this.damage["Lured Multiplier"] + this.damage["Combo Multiplier"];
+
+    }
   }
 
   tryCombo() {

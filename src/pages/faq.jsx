@@ -178,15 +178,14 @@ export default function FAQ() {
                       title="How are &quot;Best&quot; Combos Chosen on the Recommendations Page?"
                     >
                       <p>
-                        "Best" Gag Combos are arbitrarily defined as combos meeting the following criteria: 
+                        "Best" Gag Combos are arbitrarily defined as combos that meet the following criteria: 
                       </p>
-                      <ul>
+                      <ol>
                         <li>
-                          Combo Accuracy is greater than or equal to 90%.
+                          The combo's accuracy is in the top 10% of all generated combos.*
                         </li>
                         <li>
-                          Total Combo Damage satisfies the following inequality:
-                          <code>[Cog HP] &lt;= [Combo Damage] &lt;= [Cog HP] + ceil(sqrt([Cog HP]) / 2)</code>
+                          The combo's damage is in the bottom 25% of all generated combos.*
                         </li>
                         <li>
                           The combo is not flagged as "bad" based on the utilized tracks,
@@ -196,7 +195,13 @@ export default function FAQ() {
                           Note that Sound-Only-on-Lured-Cogs is not flagged 
                           since a successful Lure gives the Sound 100% accuracy.
                         </li>
-                      </ul>
+                      </ol>
+                      <p>
+                        * In cases where the number of combos meeting this criterion is less than 3,
+                        this value will be shifted such that at least 3 combos will meet it (assuming there are at least 3 total combos).
+                        Since both Accuracy and Damage are required to meet their respective percentiles,
+                        the output generated may still be less than 3.
+                      </p>
                     </Accordion>
                     <Accordion
                       title="How is each Combo&apos;s accuracy calculated on the Recommendations Page?"

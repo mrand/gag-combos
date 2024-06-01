@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { resetCog, setCog, toggleCogV2 } from "~/features/recommendations";
+import { resetCog, setCog } from "~/features/recommendations";
 import styles from "./index.module.css";
 import { Cog } from "~/features/core";
 import { ResetButton } from "~/features/ui";
-import { ToggleV2 } from "~/features/ui";
-import { ToggleLured } from "~/features/recommendations";
+import { ToggleStatusEffects } from "~/features/recommendations";
 
 
 // list of possible cog levels (1 through 20)
@@ -89,13 +88,19 @@ export default function CogCard() {
   const cogLevel = useSelector((state) => state.recommendations.cog.level);
   const cogV2 = useSelector((state) => state.recommendations.cog.isV2);
   const cogLured = useSelector((state) => state.recommendations.cog.lured);
+  const cogTrapped = useSelector((state) => state.recommendations.cog.trapped);
   const cogSuit = useSelector((state) => state.recommendations.cog.suit);
   const cogName = useSelector((state) => state.recommendations.cog.name);
   const resetBtnActive = useSelector((state) => state.recommendations.cog.hasUpdates);
   const dispatch = useDispatch();
 
   // build cog object
-  const cog = cogLevel ? new Cog(cogLevel, cogV2, cogLured, cogSuit, cogName) : null;
+  const cog = cogLevel && 
+    new Cog(
+      cogLevel,
+      cogV2, cogLured, cogTrapped,
+      cogSuit, cogName
+    );
 
   return (
     <div className={styles.cog}>
@@ -119,11 +124,7 @@ export default function CogCard() {
           setActive={setActive}
         />
       </div>
-      <ToggleLured />
-      <ToggleV2 
-        active={cogV2}
-        clickHandler={() => dispatch(toggleCogV2())} 
-      />
+      <ToggleStatusEffects />
     </div>
   );
 }

@@ -6,12 +6,12 @@ import GagCell from "./gag-cell";
 import GagModal from "./gag-modal";
 import RecommendationsDashboard from "./recommendations-dashboard";
 import TitleContainer from "./title-container";
-import ToggleLured from "./toggle-lured";
+import ToggleStatusEffects from "./toggle-status-effects";
 import ToonsCard from "./toons-card";
 
 export {
   RecommendationsDashboard,
   ToonsCard,
-  CogCard, ToggleLured,
+  CogCard, ToggleStatusEffects,
   CombosComponent, TitleContainer, CombosGrid, GagModal, ComboCell, ErrorCell, GagCell
 };

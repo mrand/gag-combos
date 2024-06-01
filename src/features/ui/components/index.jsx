@@ -7,7 +7,6 @@ import PageWrap from "./page-wrap";
 import ResetButton from "./reset-button";
 import SliderButton from "./slider-button";
 import Toggle from "./toggle";
-import ToggleV2 from "./toggle-v2";
 import UpdateToast from "./update-toast";
 import V4UpdateWarningBanner from "./v4-update-warning-banner";
 
@@ -15,7 +14,7 @@ export {
   UpdateToast, V4UpdateWarningBanner,
   NotFound,
   PageWrap, Header, Footer, MobileTabNavigation,
-  Toggle, ToggleV2, SliderButton, 
+  Toggle, SliderButton, 
   ResetButton,
   Accordion
 };

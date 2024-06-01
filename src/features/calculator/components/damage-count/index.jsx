@@ -10,7 +10,7 @@ export default function DamageCount() {
   let gagObjs = gagsList.map((gag) => {
     return new Gag(gag.track, gag.level, gag.org);
   });
-  let combo = new Combo(new Cog(1), gagObjs, false);
+  let combo = new Combo(new Cog(1), gagObjs);
   
   return (
     <div className={styles.damageCount}>

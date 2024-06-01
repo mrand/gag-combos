@@ -18,6 +18,45 @@ export default function Changelog() {
                 <div className="formatted-article">
 
                   <section>
+                    <h3>&#9888; In-Progress</h3>
+                    <h4>Under New Management Update</h4>
+                    <hr />
+                    <h5 style={{color: "var(--green-500)"}}>Calculator Page is Fully Updated</h5>
+                    <p style={{color: "var(--green-500)"}}>
+                      UI tweaks are planned for the calculator page,
+                      but since it currently only utilizes gag damage values and cog health values,
+                      it is in-line with the UNM update.
+                    </p>
+                    <h5>Recommendations Page is Partly Updated</h5>
+                    <p>
+                      With Lure accuracy changes still in progress,
+                      the output of the recommendations page has correct damages but incorrect accuracies.
+                    </p>
+                    <hr />
+                    <h5>Detailed Changes</h5>
+                    <ul>
+                      <li>
+                        <b style={{color: "var(--green-500)"}}>&#10003; Gag damage values</b> have been updated.
+                      </li>
+                      <li>
+                        <b style={{color: "var(--green-500)"}}>&#10003; v2.0 Cogs</b>' defense attribute has been removed.
+                        Also, since v2.0 cogs now attack if you only defeat their outer shell,
+                        Gag Combos Info now checks if a combo defeats both their outer and inner shells
+                        when considering if a combo has defeated a v2.0 cog.
+                        These new calculations still take into account the fact that carryover damage is not a game mechanic
+                        (i.e. extra damage on the outer shell is negated rather than applied to the inner shell).
+                      </li>
+                      <li>
+                        <b style={{color: "var(--red-500)"}}>&#9888; Lure Accuracy</b> has not yet been updated,
+                        so the recommendations page's accuracy values are not in-line with current gameplay.
+                      </li>
+                      <li>
+                        <b style={{color: "var(--red-500)"}}>&#9888; UI Tweaks</b> surrounding these under-the-hood changes are at various stages of development.
+                      </li>
+                    </ul>
+                  </section>
+
+                  <section>
                     <h3>2023-09-18</h3>
                     <h4>Site Refactoring</h4>
                     <ul>

@@ -9,8 +9,11 @@ export default function V4UpdateWarningBanner() {
       <div className={styles.updateWarningBanner}>
         <div className={`wrapper ${styles.updateWarningBannerWrapper}`}>
           <p className={styles.updateWarningBannerMessage}>
-            Note: v4.0.0 Update in progress! <span className={styles.highlightSuccess}>Gag Damages have been updated</span>,
-            but Gag Accuracies and v2.0 Cog changes in progress.
+            Note: v4.0.0 Update in progress
+            ! <span className={styles.highlightSuccess}>Gag Damages</span>
+            <span> and </span>
+            <span className={styles.highlightSuccess}>v2.0 Cog Calculations</span> have been updated,
+            but Lure Accuracy in progress.
           </p>
           <button
             aria-label="Hide this Banner"

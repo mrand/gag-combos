@@ -5,9 +5,11 @@ export const initialRecommendationsState = {
   cog: {
     hasUpdates: false,
     level: null,
-    isV2: false,
     suit: null,
     name: null,
+
+    isV2: false,
+    trapped: false,
     lured: false,
   },
   combos: {
@@ -60,6 +62,10 @@ export const recommendationsSlice = createSlice({
     toggleCogV2: (state) => {
       state.cog.hasUpdates = true;
       state.cog.isV2 = !state.cog.isV2;
+    },
+    toggleCogTrapped: (state) => {
+      state.cog.hasUpdates = true;
+      state.cog.trapped = !state.cog.trapped;
     },
     toggleCogLured: (state) => {
       state.cog.hasUpdates = true;
@@ -127,7 +133,7 @@ export const recommendationsSlice = createSlice({
 
 
 export const {
-  resetCog, setCog, toggleCogV2, toggleCogLured,
+  resetCog, setCog, toggleCogV2, toggleCogTrapped, toggleCogLured,
   resetCombos, setComboType, setComboSort, toggleGagTrack, toggleCombosExpanded,
   resetGagModal, setGagModal,
   resetToons, toggleToonActive, updateToonOrganic

@@ -96,11 +96,10 @@ export default class Gag {
    */
   getAccuracyWithCombo(counts, cog) {
 
-    /*
-    Special Case: Lure
-    */
-   if (this.track === "Lure") {
-
+  /*
+  Special Case: Lure
+  */
+  if (this.track === "Lure") {
     /*
     TODO - Lure Stuns ---------------------------------------------------------------
     1. Must add multi-lure combos to combos.data.json
@@ -110,12 +109,13 @@ export default class Gag {
     */
 
     // Accuracy Bonus with Trap
-    this.accuracy["Attack"] = ("Trap" in counts)  // || cog.status.trapped  // TODO - cog status effects
+    this.accuracy["Attack"] = ("Trap" in counts) || cog.statusEffects.trapped
       ? this.accuracy["Base"] + 0.1 
       : this.accuracy["Base"];
-    return;
 
-   }
+    // Lure ignores all other accuracy calculations
+    return;
+  }
 
 
     /*

@@ -1,8 +1,7 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { toggleV2 } from "~/features/calculator";
+import { useSelector } from "react-redux";
+import { ToggleV2 } from "~/features/calculator";
 import { Cog, Combo, Gag } from "~/features/core";
-import { ToggleV2 } from "~/features/ui";
 import styles from "./index.module.css";
 
 
@@ -14,8 +13,18 @@ function CogsListEntry({ level, isV2, baseHP, remainingHP }) {
         style={{background: `hsl(${hue},100%,45%)`}} 
         className={styles.cogsListEntry + (isV2 ? " "+styles.v2 : "")}
       >
-        <b>Level {level}</b>
-        <span>{remainingHP} / {baseHP} HP</span>
+        <p>
+          <b>Level {level}{isV2 && " v2.0"}</b>
+          <span>{Math.trunc(remainingHP)} / {baseHP} HP</span>
+        </p>
+        {
+          isV2 &&
+          <img
+            src="/img/statuseffects/reinforcedplating.webp"
+            alt="Reinforced Plating"
+            title="Reinforced Plating"
+          />
+        }
       </li>
   );
 }
@@ -25,7 +34,6 @@ export default function CogsList() {
 
   const gagsList = useSelector((state) => state.calculator.gag.gagsList);
   const isV2 = useSelector((state) => state.calculator.cog.isV2);
-  const dispatch = useDispatch();
 
   let gagObjs = gagsList.map((gag, i) => {
     return new Gag(gag.track, gag.level, gag.org);
@@ -38,7 +46,9 @@ export default function CogsList() {
 
   const maxSuccessfulCombo = [...combos].reverse().find(combo => combo.defeatsCog);
   const minDefeatedCog = maxSuccessfulCombo ? maxSuccessfulCombo.cog.level : false;
-  const minDefeatedCogOverkill = maxSuccessfulCombo && maxSuccessfulCombo.damage["Total"] - maxSuccessfulCombo.cog.hp;
+  const minDefeatedCogOverkill = maxSuccessfulCombo && (
+    maxSuccessfulCombo.damage["Total"] - (maxSuccessfulCombo.cog.hp * maxSuccessfulCombo.cog.lives)
+  );
 
   return (
     <div className={styles.cogsListContainer}>
@@ -50,11 +60,7 @@ export default function CogsList() {
       <div className={`cog-clip cog-clip--content ${styles.wrapper}`}>
         
         <div className={styles.headingsArea}>
-          <ToggleV2 
-            active={isV2}
-            clickHandler={() => dispatch(toggleV2())}
-            hasText={false}
-          />
+          <ToggleV2 />
           <hr className={styles.headingsAreaHr} />
           <h3 className={styles.defeatedIndicator}>
             {
@@ -82,12 +88,13 @@ export default function CogsList() {
               {
                 combos.map((combo, i) => {
                   return (
+                    combo.cog.livesRemaining>0 &&
                     <CogsListEntry 
                       key={i}
                       level={combo.cog.level}
-                      isV2={isV2}
+                      isV2={combo.cog.livesRemaining > 1}
                       baseHP={combo.cog.hp}
-                      remainingHP={Math.max(combo.cog.hp - combo.damage["Total"], 0)}
+                      remainingHP={combo.cog.hpRemaining}
                     />
                   );
                 })

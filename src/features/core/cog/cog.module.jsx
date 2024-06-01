@@ -9,18 +9,34 @@ export default class Cog {
    * @param {String} name The cog's name.
   */
   constructor(
-    level,
+    level=1,
     isV2=false,
     isLured=false,
+    isTrapped=false,
     suit=null,
     name=null
   ) {
     this.level = level;
     this.rank = null;
-    this.isV2 = isV2;
     this.tgtDef = this._getTargetDefense();
-    this.hp = this._calculateHP();
-    this.lured = isLured;
+
+    this.statusEffects = { 
+      trapped: isTrapped,
+      lured: isLured, 
+      // remoteControlledDamage,   // IGNORE - Remotes not relevant to Gag Combos Info
+      // remoteControlledHealing,  // IGNORE - Remotes not relevant to Gag Combos Info
+      // accuracyDown,             // IGNORE - Cog accuracy not relevant to Gag Combos Info
+      // accuracyUp,               // IGNORE - Toon accuracy not relevant to Cog module
+      reinforcedPlating: isV2, 
+      // defenseUp,                // TODO - varies based on field office tier
+    };
+
+    this.hp = this._calculateHP();              // readonly
+    this.hpRemaining = this._setRemainingHP();  // for combo simulation
+    
+    this.lives = this._setNumLives();           // readonly
+    this.livesRemaining = this._setNumLives();  // for combo simulation
+
     this.suit = suit ? suit : this._getRandomSuit();
     this.cog = name ? name : this._getRandomCog();
     this.image = this._getImageName();
@@ -62,6 +78,24 @@ export default class Cog {
       (this.level > 11) ? 14 : 0
     );
   }
+
+  _setRemainingHP() { return this.hp; }
+  _setNumLives()    { return this.statusEffects.reinforcedPlating ? 2 : 1; }
+  resetLivesAndHP() {
+    this.hpRemaining = this._setRemainingHP();
+    this.livesRemaining = this._setNumLives();
+  }
+
+  _removeLife() {
+    this.livesRemaining -= 1;
+    this.hpRemaining = this._setRemainingHP();
+  }
+
+  dealDamage(damage) {
+    this.hpRemaining -= damage;
+    if (this.hpRemaining <= 0) this._removeLife();
+  }
+  
 
   _getRandomSuit() {
     // level > 12 - FO cogs only

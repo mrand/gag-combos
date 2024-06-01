@@ -1,0 +1,38 @@
+.toggleStatusEffects {
+  display: grid;
+  gap: 0.25rem;
+  text-align: center;
+}
+
+.statusBtn {
+  background: #ffffff;
+  border: 0.25rem solid transparent;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 0.125rem 0.25rem var(--grey-500);
+  display: flex;
+  font-family: SpecialElite, cursive;
+  gap: 1ch;
+  outline: 0;
+  padding: 0.25rem;
+  place-items: center;
+  transform: scale(0.95);
+}
+.statusBtn[disabled] {
+  cursor: not-allowed;
+  filter: grayscale(1);
+  opacity: 0.5;
+}
+@media (hover: hover) {
+  .statusBtn { transition: 0.15s ease transform; }
+  .statusBtn:not([disabled]):hover { transform: scale(1); }
+}
+.statusBtnActive {
+  background: #ffffff;
+  border-color: var(--green-400);
+}
+
+.statusIndicator {
+  --_size: 3rem;
+  height: var(--_size);
+  width: var(--_size);
+}

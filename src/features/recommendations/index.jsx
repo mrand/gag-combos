@@ -1,5 +1,5 @@
 import recommendationsReducer, {
-  resetCog, setCog, toggleCogV2, toggleCogLured,
+  resetCog, setCog, toggleCogV2, toggleCogTrapped, toggleCogLured,
   resetCombos, setComboType, setComboSort, toggleGagTrack, toggleCombosExpanded,
   resetGagModal, setGagModal,
   resetToons, toggleToonActive, updateToonOrganic
@@ -12,13 +12,13 @@ import { FindCombo, RecommendCombos } from "./modules";
 import {
   RecommendationsDashboard,
   ToonsCard,
-  CogCard, ToggleLured,
+  CogCard, ToggleStatusEffects,
   CombosComponent, TitleContainer, CombosGrid, GagModal, ComboCell, ErrorCell, GagCell
 } from "./components";
 
 export { 
   recommendationsReducer,
-  resetCog, setCog, toggleCogV2, toggleCogLured,
+  resetCog, setCog, toggleCogV2, toggleCogTrapped, toggleCogLured,
   resetCombos, setComboType, setComboSort, toggleGagTrack, toggleCombosExpanded,
   resetGagModal, setGagModal,
   resetToons, toggleToonActive, updateToonOrganic,
@@ -26,6 +26,6 @@ export {
   FindCombo, RecommendCombos,
   RecommendationsDashboard,
   ToonsCard,
-  CogCard, ToggleLured,
+  CogCard, ToggleStatusEffects,
   CombosComponent, TitleContainer, CombosGrid, GagModal, ComboCell, ErrorCell, GagCell
 };

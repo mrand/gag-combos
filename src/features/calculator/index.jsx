@@ -5,7 +5,7 @@ import calculatorReducer, {
 import {
   CalculatorDashboard,
   GagsPicker, HoverBox, ToggleOrganic, GagButton, GagsList, DamageCount,
-  CogsList
+  CogsList, ToggleV2
 } from "./components";
 
 export { 
@@ -13,5 +13,5 @@ export {
   resetGags, addGag, deleteGag, setHoveredGag, toggleOrg, toggleV2,
   CalculatorDashboard,
   GagsPicker, HoverBox, ToggleOrganic, GagButton, GagsList, DamageCount,
-  CogsList
+  CogsList, ToggleV2
 };

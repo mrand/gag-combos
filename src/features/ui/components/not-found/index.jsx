@@ -13,7 +13,7 @@ function generateCogsList() {
 
   for (let i=0; i<3; i++) {
     level = Math.floor(Math.random() * 12) + 1;
-    cogsList.push(new Cog(level, false, false, primerCog.suit));
+    cogsList.push(new Cog(level, false, false, false, primerCog.suit));
   }
   
   return cogsList;
