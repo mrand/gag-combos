@@ -14,7 +14,8 @@
 }
 
 .updateWarningBannerMessage { max-width: none; }
-.highlightSuccess { background: var(--green-500); }
+.bannerLink { color: var(--yellow-500); }
+.bannerLink:hover { filter: brightness(0.75); }
 
 .updateWarningBannerButton {
   color: #ffffff !important;

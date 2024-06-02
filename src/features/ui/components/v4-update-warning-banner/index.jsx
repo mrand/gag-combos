@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./index.module.css";
 
 export default function V4UpdateWarningBanner() {
@@ -9,11 +10,11 @@ export default function V4UpdateWarningBanner() {
       <div className={styles.updateWarningBanner}>
         <div className={`wrapper ${styles.updateWarningBannerWrapper}`}>
           <p className={styles.updateWarningBannerMessage}>
-            Note: v4.0.0 Update in progress
-            ! <span className={styles.highlightSuccess}>Gag Damages</span>
-            <span> and </span>
-            <span className={styles.highlightSuccess}>v2.0 Cog Calculations</span> have been updated,
-            but Lure Accuracy in progress.
+            Note: v4.0.0 changes to Lure mechanics in progress!
+            Combo accuracy not aligned with current gameplay. <Link 
+              to="/changelog" 
+              className={styles.bannerLink}
+            >Read More</Link>
           </p>
           <button
             aria-label="Hide this Banner"
