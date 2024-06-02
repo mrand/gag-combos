@@ -20,17 +20,22 @@ export default function Changelog() {
                   <section>
                     <h3>&#9888; In-Progress</h3>
                     <h4>Under New Management Update</h4>
-                    <hr />
-                    <h5 style={{color: "var(--green-500)"}}>Calculator Page is Fully Updated</h5>
-                    <p style={{color: "var(--green-500)"}}>
-                      UI tweaks are planned for the calculator page,
-                      but since it currently only utilizes gag damage values and cog health values,
-                      it is in-line with the UNM update.
-                    </p>
-                    <h5>Recommendations Page is Partly Updated</h5>
                     <p>
+                      Rather than making one big update to Gag Combos Info for the v4.0.0 update,
+                      this update is being released in stages to provide the finished features ASAP.
+                      An overview of the current changes is as follows:
+                    </p>
+                    <h5 style={{color: "var(--green-500)"}}>Calculator Page is Updated</h5>
+                    <p style={{color: "var(--green-500)"}}>
+                      UI tweaks are still planned for the calculator page,
+                      but since gag damage values and v2.0 cog changes are complete,
+                      it is aligned with the UNM update.
+                    </p>
+                    <h5 style={{color: "var(--red-500)"}}>Recommendations Page is Partially Updated</h5>
+                    <p style={{color: "var(--red-500)"}}>
                       With Lure accuracy changes still in progress,
-                      the output of the recommendations page has correct damages but incorrect accuracies.
+                      the output of the recommendations page has correct damages but incorrect accuracies,
+                      and does not encompass all potentially useful combos now that multi-lure combos exist.
                     </p>
                     <hr />
                     <h5>Detailed Changes</h5>
@@ -61,19 +66,18 @@ export default function Changelog() {
                       <li>
                         <div className="content-container" style={{ gap:"0.5rem" }}>
                           <p>
-                            <b style={{color: "var(--red-500)"}}>&#9888; Lure Accuracy</b> has not yet been updated,
-                            so the recommendations page's accuracy values are not in-line with current gameplay.
+                            <b style={{color: "var(--red-500)"}}>&#9888; Lure Accuracy</b> has not yet been updated.
                           </p>
                           <ul>
                             <li>
-                              Under-the-hood calculations must first be updated with the new multi-lure mechanic.
+                              Under-the-hood calculations must first be updated with the new lure game mechanic.
                             </li>
                             <li>
-                              Gag Combos Info must rework the way it chooses combo tracks on the recommendations page,
+                              The way that combo tracks are chosen on the recommendations page must be reworked 
                               since multi-lure combos are now a viable option.
                             </li>
                             <li>
-                              It is also planned to add a "Trapped" status effect toggle (since this affects Lure accuracy).
+                              Adding a "Trapped" status effect toggle is planned (since this affects Lure accuracy).
                               This requires some extra UI magic so the specific trap gag that is placed can be accounted for
                               in order to have the correct damage calculations in the recommendations output.
                             </li>
@@ -82,7 +86,7 @@ export default function Changelog() {
                       </li>
                       <li>
                         <b style={{color: "var(--red-500)"}}>&#9888; UI Tweaks</b> surrounding these under-the-hood changes are at various stages of development.
-                        We plan to rework some components so that they better communicate the underlying game mechanics.
+                        Reworks are planned for some components so they better communicate the underlying game mechanics.
                       </li>
                     </ul>
                   </section>
