@@ -137,7 +137,7 @@ export default class Gag {
           this.track === "Sound"
         ) || (
           !("Trap" in counts) && 
-          cog.lured &&
+          cog.statusEffects.lured &&
           this.track === "Sound"
         )
       ) ||
@@ -152,7 +152,7 @@ export default class Gag {
         ) || (
           !("Trap" in counts) && 
           !("Sound" in counts) && 
-          cog.lured &&
+          cog.statusEffects.lured &&
           this.track === "Throw"
         )
       ) ||
@@ -169,7 +169,7 @@ export default class Gag {
           !("Trap" in counts) && 
           !("Sound" in counts) && 
           !("Throw" in counts) && 
-          cog.lured &&
+          cog.statusEffects.lured &&
           this.track === "Squirt"
         )
       )
@@ -231,7 +231,7 @@ export default class Gag {
         (this.track === "Sound") ||                                     // sound gags
         (this.level === 7 && ["Throw", "Squirt"].includes(this.track))  // level 7 throw/squirt gags
       ) && (
-        cog.lured ||      // cog is lured
+        cog.statusEffects.lured ||      // cog is lured
         "Lure" in counts  // combo includes lure (which we assume is successful)
       )
     ) {
