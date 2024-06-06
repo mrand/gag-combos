@@ -56,7 +56,10 @@ export default function Changelog() {
                             <li>
                               Since v2.0 cogs now attack if you only defeat their outer shell,
                               Gag Combos Info now checks if a combo defeats both their outer and inner shells
-                              when considering if a combo has defeated a v2.0 cog.
+                              when considering if a combo has defeated a v2.0 cog 
+                              (i.e. the outer shell has been defeated with different gag track(s) than the inner shell).
+                            </li>
+                            <li>
                               These new calculations still take into account the fact that carryover damage is not a game mechanic
                               (i.e. extra damage on the outer shell is negated rather than applied to the inner shell).
                             </li>
