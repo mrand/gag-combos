@@ -93,37 +93,42 @@ export default class Combo {
     // reset cog mutatables
     this.cog.resetLivesAndHP();
 
-     for (const [track, gags] of Object.entries(this.gagsByTrack)) {
+    // Calculate Damage Totals on a Track-by-Track Basis
+    for (const [track, gags] of Object.entries(this.gagsByTrack)) {
       
-      let currTrackDamage = 0;
+      // store current damage totals
+      let currBaseDamage = 0;
+      let currLuredDamage = 0;
+      let currComboDamage = 0;
+
+      // append to track damage totals for each gag of this track
       gags.forEach((gag) => {
-        gag.damage["Attack"] = gag.damage["Base"];
+        gag.damage["Attack"] = gag.damage["Base"];  // ignoring toon XP
         [
           gagDudMultiplier, gagLureMultiplier, gagComboMultiplier
         ] = gag.getDamageWithMultiplier(this.counts, this.cog.statusEffects.lured);
-        
-        const gagBaseDamage = gag.damage["Attack"] * gagDudMultiplier;
-        const gagLuredDamage = gag.damage["Attack"] * gagLureMultiplier;
-        const gagComboDamage = gag.damage["Attack"] * gagComboMultiplier;
-
-        this.damage["Base"] += gagBaseDamage;
-        this.damage["Lured Multiplier"] += gagLuredDamage;
-        this.damage["Combo Multiplier"] += gagComboDamage;
-
-        currTrackDamage += gagBaseDamage + Math.ceil(gagLuredDamage) + Math.ceil(gagComboDamage);
+        // update current damage totals
+        currBaseDamage += gag.damage["Attack"] * gagDudMultiplier;
+        currLuredDamage += gag.damage["Attack"] * gagLureMultiplier;
+        currComboDamage += gag.damage["Attack"] * gagComboMultiplier;
       });
+
+      // Get Current Track Damage
+      currLuredDamage = Math.ceil(currLuredDamage);
+      currComboDamage = Math.ceil(currComboDamage);
+      const currTrackDamage = currBaseDamage + currLuredDamage + currComboDamage;
 
       // Update Cog
       this.cog.dealDamage(currTrackDamage);
       if (this.cog.livesRemaining <= 0) this.defeatsCog = true;
 
-
-      // Check Total Damage
-      this.damage["Lured Multiplier"] = Math.ceil(this.damage["Lured Multiplier"]);
-      this.damage["Combo Multiplier"] = Math.ceil(this.damage["Combo Multiplier"]);
-      this.damage["Total"] = this.damage["Base"] + this.damage["Lured Multiplier"] + this.damage["Combo Multiplier"];
-
+      // Update Combo Damage
+      this.damage["Base"] += currBaseDamage;
+      this.damage["Lured Multiplier"] += currLuredDamage;
+      this.damage["Combo Multiplier"] += currComboDamage;
     }
+    // Check Total Combo Damage
+    this.damage["Total"] = this.damage["Base"] + this.damage["Lured Multiplier"] + this.damage["Combo Multiplier"];
   }
 
   tryCombo() {
