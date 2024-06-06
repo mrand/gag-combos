@@ -103,14 +103,14 @@ export default class Combo {
         ] = gag.getDamageWithMultiplier(this.counts, this.cog.statusEffects.lured);
         
         const gagBaseDamage = gag.damage["Attack"] * gagDudMultiplier;
-        const gagLuredDamage = Math.ceil(gag.damage["Attack"] * gagLureMultiplier);
-        const gagComboDamage = Math.ceil(gag.damage["Attack"] * gagComboMultiplier);
+        const gagLuredDamage = gag.damage["Attack"] * gagLureMultiplier;
+        const gagComboDamage = gag.damage["Attack"] * gagComboMultiplier;
 
         this.damage["Base"] += gagBaseDamage;
         this.damage["Lured Multiplier"] += gagLuredDamage;
         this.damage["Combo Multiplier"] += gagComboDamage;
 
-        currTrackDamage += gagBaseDamage + gagLuredDamage + gagComboDamage;
+        currTrackDamage += gagBaseDamage + Math.ceil(gagLuredDamage) + Math.ceil(gagComboDamage);
       });
 
       // Update Cog
